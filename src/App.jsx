@@ -1,7 +1,14 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // routes
-import { SharedHome, Home, Services, About } from "./routes";
+import {
+  SharedHome,
+  Home,
+  Services,
+  About,
+  NfcHomeSharedLayout,
+  NfcHome,
+} from "./routes";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +29,18 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/nfc",
+    element: <NfcHomeSharedLayout />,
+    children: [
+      {
+        index: true,
+        element: <NfcHome />,
+      },
+    ],
+  },
 ]);
+
 function App() {
   return <RouterProvider router={router} />;
 }
