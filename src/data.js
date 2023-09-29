@@ -180,11 +180,13 @@ const nfcCards = [
 // --steps
 const nfcSteps = [
   {
+    img: cardTapOnMobile,
     title: "Tap your card on a mobile phone",
     subtitle:
       "Make sure the user’s phone has the NFC feature turned on, otherwise the tap would go unnoticed.",
   },
   {
+    img: doneWaneProfileInMobile,
     title: "Your digital profile is shared",
     subtitle: "Enjoy the future of networking, with a single Tap!",
   },
@@ -199,12 +201,12 @@ const nfcAppStats = [
   },
   {
     title: "Positive Reviews",
-    num: 1000,
+    num: 700,
     icon: iconChatMessage,
   },
   {
     title: "Active Users",
-    num: 1000,
+    num: 950,
     icon: iconMaleUser,
   },
 ];

@@ -143,6 +143,10 @@ export default {
       borderRadius: {
         "f-8": "8px",
       },
+      backgroundImage: {
+        "team-image":
+          "linear-gradient(rgba(255, 30, 255, .3), rgba(30, 255, 255, .3)), url('./src/assets/team-building.png')",
+      },
     },
   },
   plugins: [],

@@ -42,13 +42,11 @@ const NfcMarketPlace = () => {
 
         {/* btns container */}
         <div className="t-flex t-justify-end t-gap-f-24 t-my-f-48">
-          <button className="t-text-f-md t-px-f-16 t-py-f-8 t-border-f-primary-30 t-border-2 t-text-f-primary-93 t-rounded-f-8 hover:t-bg-f-primary-20 hover:t-text-f-primary-98">
+          <button className="f-btn-md f-btn-primary-outline">
             Create Shop
           </button>
 
-          <button className="t-text-f-md t-px-f-16 t-py-f-8 t-bg-f-primary-30 t-text-f-primary-98 t-rounded-f-8 hover:t-bg-f-primary-20">
-            Go to Shop
-          </button>
+          <button className="f-btn-md f-btn-primary">Go to Shop</button>
         </div>
       </div>
     </section>
