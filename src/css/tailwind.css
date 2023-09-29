@@ -600,6 +600,14 @@ video {
   color: rgb(255 253 245 / var(--tw-text-opacity));
 }
 
+.t-order-1 {
+  order: 1;
+}
+
+.t-order-2 {
+  order: 2;
+}
+
 .t-my-f-48 {
   margin-top: 48px;
   margin-bottom: 48px;
@@ -739,6 +747,10 @@ video {
   justify-content: space-between;
 }
 
+.t-justify-stretch {
+  justify-content: stretch;
+}
+
 .t-gap-f-16 {
   gap: 16px;
 }
@@ -769,6 +781,10 @@ video {
 
 .t-gap-f-88 {
   gap: 88px;
+}
+
+.t-gap-f-80 {
+  gap: 80px;
 }
 
 .t-gap-x-f-24 {

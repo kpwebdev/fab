@@ -15,27 +15,24 @@ const NfcFeatures = () => {
           </p>
         </header>
         {/* features container */}
-        <div className="t-flex t-flex-col t-gap-f-88">
+        <div className="t-flex t-flex-col t-gap-f-80">
           {nfcFeatures.map(({ title, description, btn, animation }, idx) => (
-            <div key={idx}>
-              {/* feature 1 */}
+            <div className={`t-grid t-grid-cols-2`} key={idx}>
+              {/* text container */}
               <div
-                className={`t-flex t-gap-f-48 ${
-                  idx % 2 !== 0 ? " t-flex-row-reverse" : ""
+                className={`t-flex t-flex-col t-gap-f-24 t-items-start${
+                  idx % 2 !== 0 ? " t-order-2" : ""
                 }`}
               >
-                {/* text container */}
-                <div className="t-flex t-flex-col t-gap-f-24 t-items-start">
-                  <h3 className="t-text-f-2xl">{title}</h3>
-                  <p className="t-text-f-base">{description}</p>
-                  <button className="t-text-f-md t-px-f-16 t-py-f-8 t-bg-f-primary-30 t-text-f-primary-98 t-rounded-f-8 hover:t-bg-f-primary-20">
-                    {btn}
-                  </button>
-                </div>
-                {/* animation container */}
-                <div>
-                  <Lottie animationData={animation} />
-                </div>
+                <h3 className="t-text-f-2xl">{title}</h3>
+                <p className="t-text-f-base">{description}</p>
+                <button className="t-text-f-md t-px-f-16 t-py-f-8 t-bg-f-primary-30 t-text-f-primary-98 t-rounded-f-8 hover:t-bg-f-primary-20">
+                  {btn}
+                </button>
+              </div>
+              {/* animation container */}
+              <div className={`${idx % 2 !== 0 ? " t-order-1" : ""}`}>
+                <Lottie animationData={animation} />
               </div>
             </div>
           ))}
