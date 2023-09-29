@@ -1,9 +1,9 @@
 const NfcBringTeam = () => {
   return (
-    <section className="t-min-h-screen t-bg-team-image t-py-f-96">
+    <section className="t-min-h-screen t-bg-team-image t-py-f-96 t-text-f-primary-99">
       <div className="container">
-        <h2 className="t-text-f-3xl t-mb-f-8">
-          Bring your <span className="t-text-secondary-f-70">Team</span>
+        <h2 className="t-text-f-3xl t-mb-f-16">
+          Bring your <span className="t-text-f-secondary-70">Team</span>
         </h2>
         <p className="t-text-f-md">
           Who says work has to be solitary? Gather your team and unlock new

@@ -6,6 +6,9 @@ import NfcBringTeam from "../../components/nfc/nfcBringTeam.component";
 import NfcWorksSection from "../../components/nfc/nfcWorksSection.component";
 import NfcClients from "../../components/nfc/nfcClients.component";
 import NfcDownload from "../../components/nfc/nfcDownload.component";
+import NfcTestimonials from "../../components/nfc/nfcTestimonials.component";
+import FaqsSection from "../../components/nfc/faqs.componentSection";
+import NfcFooter from "../../components/nfc/nfcFooter.component";
 
 const NfcHome = () => {
   return (
@@ -18,6 +21,9 @@ const NfcHome = () => {
       <NfcWorksSection />
       <NfcClients />
       <NfcDownload />
+      <NfcTestimonials />
+      <FaqsSection />
+      <NfcFooter />
     </>
   );
 };

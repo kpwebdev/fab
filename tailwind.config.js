@@ -145,7 +145,7 @@ export default {
       },
       backgroundImage: {
         "team-image":
-          "linear-gradient(rgba(255, 30, 255, .3), rgba(30, 255, 255, .3)), url('./src/assets/team-building.png')",
+          "linear-gradient(rgba(6, 22, 45, .75), rgba(6, 22, 45, .75)), url('./src/assets/team-building.png')",
       },
     },
   },

@@ -20,6 +20,8 @@ import doneWaneProfileInMobile from "./assets/done-wane-profile-in-mobile.png";
 import iconAddMaleUserGroup from "./assets/icon-add-male-user-group.png";
 import iconMeetingRoom from "./assets/icon-meeting-room.png";
 import iconProfile from "./assets/icon-profile.png";
+import quote from "./assets/quote.svg";
+import profilePic from "./assets/user-review.png";
 
 import iconInstagram from "./assets/icon-instagram.svg";
 import iconLinkedin from "./assets/icon-linkedin.svg";
@@ -235,6 +237,37 @@ const nfcClients = [
   },
 ];
 
+// --reviews
+const nfcReviews = [
+  {
+    img: quote,
+    description:
+      "“Best quality NFC Cards! Really satisfied with the quality and price of the product! Will suggest my team mates to start using fabtap!”",
+    rating: 5,
+    author: "Emily Smith",
+    company: "Company name",
+    profilePic: profilePic,
+  },
+  {
+    img: quote,
+    description:
+      "“Best quality NFC Cards! Really satisfied with the quality and price of the product! Will suggest my team mates to start using fabtap!”",
+    rating: 5,
+    author: "Emily Smith",
+    company: "Company name",
+    profilePic: profilePic,
+  },
+  {
+    img: quote,
+    description:
+      "“Best quality NFC Cards! Really satisfied with the quality and price of the product! Will suggest my team mates to start using fabtap!”",
+    rating: 5,
+    author: "Emily Smith",
+    company: "Company name",
+    profilePic: profilePic,
+  },
+];
+
 // --frequently asked questions
 const nfcFaqs = [
   {
@@ -354,6 +387,7 @@ export {
   nfcSteps,
   nfcAppStats,
   nfcClients,
+  nfcReviews,
   nfcFaqs,
   nfcFooterPageLinks,
   nfcFooterCommunityLinks,
