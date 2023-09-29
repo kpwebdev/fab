@@ -608,6 +608,10 @@ video {
   order: 2;
 }
 
+.t-order-3 {
+  order: 3;
+}
+
 .t-my-f-48 {
   margin-top: 48px;
   margin-bottom: 48px;
