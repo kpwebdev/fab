@@ -7,7 +7,6 @@ const NfcHomeSharedLayout = () => {
   return (
     <div>
       <NfcNavbar />
-      <h2>NfcHomeSharedLayout</h2>
       <Outlet />
     </div>
   );

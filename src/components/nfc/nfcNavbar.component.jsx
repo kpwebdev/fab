@@ -12,7 +12,7 @@ const NfcNavbar = () => {
           <img
             src={fabLogo}
             alt="Fab Digital Marketing Logo"
-            className="t-w-[120px]"
+            className="t-w-f-120"
           />
         </Link>
         <button
@@ -35,16 +35,16 @@ const NfcNavbar = () => {
               </NavLink>
             ))}
             <NavLink
-              className="nav-link t-flex t-items-center t-gap-[4px] t-ms-auto"
+              className="nav-link t-flex t-items-center t-gap-f-4 t-ms-auto"
               to="/nfc/login"
             >
-              <ImUser className="t-w-[24px]" /> Login
+              <ImUser className="t-w-f-24" /> Login
             </NavLink>
             <NavLink
-              className="nav-link t-flex t-items-center t-gap-[4px]"
+              className="nav-link t-flex t-items-center t-gap-f-4"
               to="/nfc/cart"
             >
-              <BiSolidCart className="t-w-[24px]" /> Cart
+              <BiSolidCart className="t-w-f-24" /> Cart
             </NavLink>
           </div>
         </div>

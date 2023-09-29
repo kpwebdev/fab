@@ -17,6 +17,9 @@ import iconMaleUser from "./assets/icon-male-user.png";
 import iconChatMessage from "./assets/icon-chat-message.png";
 import cardTapOnMobile from "./assets/card-tap-on-mobile.png";
 import doneWaneProfileInMobile from "./assets/done-wane-profile-in-mobile.png";
+import iconAddMaleUserGroup from "./assets/icon-add-male-user-group.png";
+import iconMeetingRoom from "./assets/icon-meeting-room.png";
+import iconProfile from "./assets/icon-profile.png";
 
 import iconInstagram from "./assets/icon-instagram.svg";
 import iconLinkedin from "./assets/icon-linkedin.svg";
@@ -81,6 +84,25 @@ const nfcHomePageLinks = [
   {
     title: "Help",
     href: "/nfc/help",
+  },
+];
+
+// --orginization details
+const nfcOrganizationDetails = [
+  {
+    img: iconAddMaleUserGroup,
+    title: "Organisations",
+    num: "30,000+",
+  },
+  {
+    img: iconMeetingRoom,
+    title: "Connections made",
+    num: "3M+",
+  },
+  {
+    img: iconProfile,
+    title: "Profiles",
+    num: "100,000+",
   },
 ];
 
@@ -324,6 +346,7 @@ export {
   homeNavigationList,
   checkoutList,
   nfcHomePageLinks,
+  nfcOrganizationDetails,
   nfcFeatures,
   nfcCards,
   nfcSteps,
