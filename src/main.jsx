@@ -4,6 +4,7 @@ import App from "./App.jsx";
 
 // bootstrap - style
 import "./sass/bootstrap.scss";
+// import "./css/bootstrap.css";
 
 // tailwindcss - style
 import "./css/tailwind.css";

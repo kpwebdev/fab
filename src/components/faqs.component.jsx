@@ -4,7 +4,7 @@ const Faqs = () => {
   return (
     <div className="accordion accordion-flush" id="fabFaqs">
       {nfcFaqs.map(({ question, answer }, idx) => (
-        <div className="accordion-item">
+        <div className="accordion-item" key={idx}>
           <h2 className="accordion-header" id={`heading${idx}`}>
             <button
               className="accordion-button collapsed"

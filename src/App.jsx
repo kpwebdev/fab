@@ -8,6 +8,10 @@ import {
   About,
   NfcHomeSharedLayout,
   NfcHome,
+  AuthenticationSharedLayout,
+  Login,
+  SignUp,
+  NfcDashboardSharedLayout,
 } from "./routes";
 
 const router = createBrowserRouter([
@@ -38,6 +42,24 @@ const router = createBrowserRouter([
         element: <NfcHome />,
       },
     ],
+  },
+  {
+    path: "/nfc/authentication",
+    element: <AuthenticationSharedLayout />,
+    children: [
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "sign-up",
+        element: <SignUp />,
+      },
+    ],
+  },
+  {
+    path: "/nfc/dashboard",
+    element: <NfcDashboardSharedLayout />,
   },
 ]);
 
