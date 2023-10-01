@@ -22,6 +22,7 @@ import iconMeetingRoom from "./assets/icon-meeting-room.png";
 import iconProfile from "./assets/icon-profile.png";
 import quote from "./assets/quote.svg";
 import profilePic from "./assets/user-review.png";
+import bannerImage from "./assets/banner-image.png";
 
 import iconInstagram from "./assets/icon-instagram.svg";
 import iconLinkedin from "./assets/icon-linkedin.svg";
@@ -415,6 +416,68 @@ const offcanvasOptionsLinks = [
   { path: "/nfc/dashboard/logout", Icon: MdLogout, title: "Logout" },
 ];
 
+// --profile links
+const myProfileLinks = [
+  {
+    path: "/nfc/dashboard/my-profile/general",
+    title: "General",
+  },
+  {
+    path: "/nfc/dashboard/my-profile/organization",
+    title: "Organization",
+  },
+  {
+    path: "/nfc/dashboard/my-profile/progress",
+    title: "Progress",
+  },
+  {
+    path: "/nfc/dashboard/my-profile/my-fab",
+    title: "My Fab",
+  },
+];
+
+const userData = {
+  bannerImage: bannerImage,
+  profilePic: profilePic,
+  userName: "iamarora",
+  fullName: "Chetna Arora",
+  companyName: "Fab Digital Marketing Agency",
+  role: "Digital Marketing Strategist",
+  website: "fabtap.com",
+  contact: "6492746289",
+  socialMedia: [
+    {
+      title: "Instagram",
+      href: "#instagram",
+      icon: iconInstagram,
+    },
+    {
+      title: "LinkedIn",
+      href: "#linkedIn",
+      icon: iconLinkedin,
+    },
+    {
+      title: "Pinterest",
+      href: "#pinterest",
+      icon: iconPinterest,
+    },
+    {
+      title: "Tiktok",
+      href: "#tiktok",
+      icon: iconTiktok,
+    },
+    {
+      title: "YouTube",
+      href: "#youtube",
+      icon: iconYoutube,
+    },
+  ],
+  status: [
+    { title: "Total Taps", num: 2102 },
+    { title: "Total Contacts", num: 2000 },
+  ],
+};
+
 export {
   homeNavigationList,
   checkoutList,
@@ -432,4 +495,6 @@ export {
   nfcSocialMediaLinks,
   offcanvasPageLinks,
   offcanvasOptionsLinks,
+  myProfileLinks,
+  userData,
 };

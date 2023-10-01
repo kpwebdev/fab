@@ -77,19 +77,19 @@ const router = createBrowserRouter([
         element: <MyProfileSharedLayout />,
         children: [
           {
-            path: "",
+            path: "general",
             element: <General />,
           },
           {
-            path: "",
+            path: "organization",
             element: <Organization />,
           },
           {
-            path: "",
+            path: "progress",
             element: <Progress />,
           },
           {
-            path: "",
+            path: "my-fab",
             element: <MyFab />,
           },
         ],
