@@ -698,10 +698,6 @@ video {
   height: 96px;
 }
 
-.t-h-screen {
-  height: 100vh;
-}
-
 .t-h-full {
   height: 100%;
 }
@@ -787,6 +783,10 @@ video {
   gap: 24px;
 }
 
+.t-gap-f-32 {
+  gap: 32px;
+}
+
 .t-gap-f-4 {
   gap: 4px;
 }
@@ -809,10 +809,6 @@ video {
 
 .t-gap-f-80 {
   gap: 80px;
-}
-
-.t-gap-f-32 {
-  gap: 32px;
 }
 
 .t-gap-x-f-24 {

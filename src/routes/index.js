@@ -18,6 +18,12 @@ export { default as Organization } from "./my-profile/organization.route";
 export { default as Progress } from "./my-profile/progress.route";
 export { default as MyFab } from "./my-profile/myFab.route";
 // --contacts
+export { default as ContactsSharedLayout } from "./contacts/contacts.route";
 // --shop
+export { default as Shop } from "./shop/shop.route";
 // --orders
+export { default as OrdersSharedLayout } from "./orders/ordersSharedLayout.route";
+export { default as Self } from "./orders/self.route";
+export { default as Customer } from "./orders/customer.route";
 // --settings
+export { default as Settings } from "./settings/settings.route";

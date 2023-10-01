@@ -1,5 +1,17 @@
+import { Outlet } from "react-router-dom";
+
+// components
+import DashboardNavbar from "../../components/dashboard/dashboardNavbar.component";
+
 const NfcDashboardSharedLayout = () => {
-  return <div>NfcDashboardSharedLayout</div>;
+  return (
+    <section className="t-flex">
+      <DashboardNavbar />
+      <div className="t-p-f-24">
+        <Outlet />
+      </div>
+    </section>
+  );
 };
 
 export default NfcDashboardSharedLayout;

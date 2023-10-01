@@ -29,6 +29,15 @@ import iconPinterest from "./assets/icon-pinterest.svg";
 import iconTiktok from "./assets/icon-tiktok.svg";
 import iconYoutube from "./assets/icon-youtube.svg";
 
+// react icons
+import { CiUser } from "react-icons/ci";
+import { RiContactsBookLine } from "react-icons/ri";
+import { HiOutlineShoppingBag } from "react-icons/hi";
+import { BsClipboard } from "react-icons/bs";
+import { AiOutlineSetting, AiOutlineStar } from "react-icons/ai";
+import { BiHelpCircle } from "react-icons/bi";
+import { MdLogout } from "react-icons/md";
+
 // importing lotties
 import cardSlideAnimation from "./assets/lotties/card-slide-animation.json";
 import circleAnimation from "./assets/lotties/circle-animation.json";
@@ -377,6 +386,35 @@ const nfcSocialMediaLinks = [
   },
 ];
 
+// dashboard
+// --offcanvas page links
+const offcanvasPageLinks = [
+  { path: "/nfc/dashboard/my-profile", Icon: CiUser, title: "My Profile" },
+  {
+    path: "/nfc/dashboard/contacts",
+    Icon: RiContactsBookLine,
+    title: "Contacts",
+  },
+  { path: "/nfc/dashboard/shop", Icon: HiOutlineShoppingBag, title: "Shop" },
+  { path: "/nfc/dashboard/orders", Icon: BsClipboard, title: "Orders" },
+  {
+    path: "/nfc/dashboard/settings",
+    Icon: AiOutlineSetting,
+    title: "Settings",
+  },
+];
+
+// --offcanvas option links
+const offcanvasOptionsLinks = [
+  {
+    path: "/nfc/dashboard/upgrade-plan",
+    Icon: AiOutlineStar,
+    title: "Upgrade Plan",
+  },
+  { path: "/nfc/dashboard/help", Icon: BiHelpCircle, title: "help" },
+  { path: "/nfc/dashboard/logout", Icon: MdLogout, title: "Logout" },
+];
+
 export {
   homeNavigationList,
   checkoutList,
@@ -392,4 +430,6 @@ export {
   nfcFooterPageLinks,
   nfcFooterCommunityLinks,
   nfcSocialMediaLinks,
+  offcanvasPageLinks,
+  offcanvasOptionsLinks,
 };

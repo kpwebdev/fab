@@ -12,6 +12,17 @@ import {
   Login,
   SignUp,
   NfcDashboardSharedLayout,
+  MyProfileSharedLayout,
+  General,
+  Organization,
+  Progress,
+  MyFab,
+  ContactsSharedLayout,
+  Shop,
+  OrdersSharedLayout,
+  Self,
+  Customer,
+  Settings,
 } from "./routes";
 
 const router = createBrowserRouter([
@@ -60,6 +71,56 @@ const router = createBrowserRouter([
   {
     path: "/nfc/dashboard",
     element: <NfcDashboardSharedLayout />,
+    children: [
+      {
+        path: "my-profile",
+        element: <MyProfileSharedLayout />,
+        children: [
+          {
+            path: "",
+            element: <General />,
+          },
+          {
+            path: "",
+            element: <Organization />,
+          },
+          {
+            path: "",
+            element: <Progress />,
+          },
+          {
+            path: "",
+            element: <MyFab />,
+          },
+        ],
+      },
+      {
+        path: "contacts",
+        element: <ContactsSharedLayout />,
+      },
+      {
+        path: "shop",
+        element: <Shop />,
+      },
+      {
+        path: "orders",
+        element: <OrdersSharedLayout />,
+        children: [
+          {
+            index: true,
+            element: <Self />,
+          },
+          {
+            path: "customer",
+            element: <Self />,
+          },
+        ],
+      },
+      {
+        path: "settings",
+        element: <MyProfileSharedLayout />,
+      },
+    ],
   },
 ]);
 
