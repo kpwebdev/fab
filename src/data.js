@@ -476,7 +476,66 @@ const userData = {
     { title: "Total Taps", num: 2102 },
     { title: "Total Contacts", num: 2000 },
   ],
+  companyDetails: {
+    companyBanner: bannerImage,
+    companyLogo: fabLogo,
+    companyHeading: "Fab",
+    companySubheading: "Digital Agency",
+    companyName: "Fab Digital Agency",
+    jobRole: "Marketing Expert",
+    companySize: "Solo",
+  },
 };
+
+const jobRoles = [
+  {
+    value: "owner",
+    display: "Owner",
+  },
+  {
+    value: "designer",
+    display: "Designer",
+  },
+  {
+    value: "developer",
+    display: "Developer",
+  },
+  {
+    value: "marketer",
+    display: "Marketer",
+  },
+];
+
+const companySizes = [
+  {
+    value: "solo",
+    display: "Solo",
+  },
+  {
+    value: "less-than-5",
+    display: "Less Than 5",
+  },
+  {
+    value: "less-than-10",
+    display: "Less Than 10",
+  },
+  {
+    value: "less-than-50",
+    display: "Less Than 50",
+  },
+  {
+    value: "less-than-100",
+    display: "Less Than 100",
+  },
+  {
+    value: "less-than-500",
+    display: "Less Than 500",
+  },
+  {
+    value: "greater-than-500",
+    display: "Greater Than 500",
+  },
+];
 
 export {
   homeNavigationList,
@@ -497,4 +556,6 @@ export {
   offcanvasOptionsLinks,
   myProfileLinks,
   userData,
+  jobRoles,
+  companySizes,
 };
