@@ -5,7 +5,7 @@ import { offcanvasPageLinks, offcanvasOptionsLinks } from "../../data";
 const DashboardNavbar = () => {
   return (
     <div
-      className="offcanvas offcanvas-start show t-relative t-min-h-screen"
+      className="offcanvas offcanvas-start show t-relative t-min-h-screen t-w-1/3"
       data-bs-scroll="true"
       data-bs-backdrop="false"
       tabIndex="-1"

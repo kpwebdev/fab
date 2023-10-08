@@ -16,8 +16,13 @@ import {
   General,
   Organization,
   Progress,
-  MyFab,
+  MyFabSharedLayout,
+  MyFabCards,
+  MyFabProfiles,
   ContactsSharedLayout,
+  Contacts,
+  ContactAdd,
+  ContactEdit,
   Shop,
   OrdersSharedLayout,
   Self,
@@ -77,7 +82,7 @@ const router = createBrowserRouter([
         element: <MyProfileSharedLayout />,
         children: [
           {
-            path: "general",
+            index: true,
             element: <General />,
           },
           {
@@ -90,13 +95,37 @@ const router = createBrowserRouter([
           },
           {
             path: "my-fab",
-            element: <MyFab />,
+            element: <MyFabSharedLayout />,
+            children: [
+              {
+                index: true,
+                element: <MyFabCards />,
+              },
+              {
+                path: "profiles",
+                element: <MyFabProfiles />,
+              },
+            ],
           },
         ],
       },
       {
         path: "contacts",
         element: <ContactsSharedLayout />,
+        children: [
+          {
+            index: true,
+            element: <Contacts />,
+          },
+          {
+            path: "add",
+            element: <ContactAdd />,
+          },
+          {
+            path: "edit",
+            element: <ContactEdit />,
+          },
+        ],
       },
       {
         path: "shop",

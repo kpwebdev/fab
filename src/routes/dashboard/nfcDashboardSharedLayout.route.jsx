@@ -7,7 +7,7 @@ const NfcDashboardSharedLayout = () => {
   return (
     <section className="t-flex">
       <DashboardNavbar />
-      <div className="t-p-f-24 t-grow">
+      <div className="t-p-f-24 t-w-2/3">
         <Outlet />
       </div>
     </section>

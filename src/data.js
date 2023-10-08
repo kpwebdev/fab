@@ -23,12 +23,23 @@ import iconProfile from "./assets/icon-profile.png";
 import quote from "./assets/quote.svg";
 import profilePic from "./assets/user-review.png";
 import bannerImage from "./assets/banner-image.png";
+import favoritePackage from "./assets/favorite-package.png";
+import management from "./assets/management.png";
+import nfc from "./assets/nfc.png";
+import profiles from "./assets/profiles.png";
+import transaction from "./assets/transaction.png";
+import profileAdamSmithWithPhoneBackside from "./assets/profile-adam-smith-with-phone-backside.png";
+import profileEmilyGoldWithPhoneBackside from "./assets/profile-emily-gold-with-phone-backside.png";
+import profileLunaHarperWithPhoneBackside from "./assets/profile-luna-harper-with-phone-backside.png";
 
 import iconInstagram from "./assets/icon-instagram.svg";
 import iconLinkedin from "./assets/icon-linkedin.svg";
 import iconPinterest from "./assets/icon-pinterest.svg";
 import iconTiktok from "./assets/icon-tiktok.svg";
 import iconYoutube from "./assets/icon-youtube.svg";
+import cardsBlack from "./assets/cards-black.svg";
+import cardsBlue from "./assets/cards-blue.svg";
+import cardsWhite from "./assets/cards-white.svg";
 
 // react icons
 import { CiUser } from "react-icons/ci";
@@ -38,6 +49,8 @@ import { BsClipboard } from "react-icons/bs";
 import { AiOutlineSetting, AiOutlineStar } from "react-icons/ai";
 import { BiHelpCircle } from "react-icons/bi";
 import { MdLogout } from "react-icons/md";
+import { HiMiniArrowTrendingUp } from "react-icons/hi2";
+import { FaUserAlt } from "react-icons/fa";
 
 // importing lotties
 import cardSlideAnimation from "./assets/lotties/card-slide-animation.json";
@@ -419,7 +432,7 @@ const offcanvasOptionsLinks = [
 // --profile links
 const myProfileLinks = [
   {
-    path: "/nfc/dashboard/my-profile/general",
+    path: "/nfc/dashboard/my-profile",
     title: "General",
   },
   {
@@ -537,6 +550,211 @@ const companySizes = [
   },
 ];
 
+// --progress
+const progress = {
+  shopStatus: {
+    title: "Shop Status",
+    list: [
+      {
+        title: "Total Orders",
+        num: 90,
+        today: "+10 today",
+        TodayDirIcon: HiMiniArrowTrendingUp,
+        icon: favoritePackage,
+      },
+      {
+        title: "Profit Made",
+        num: "9.56k",
+        today: "+1k today",
+        TodayDirIcon: HiMiniArrowTrendingUp,
+        icon: transaction,
+      },
+    ],
+  },
+  fabTaps: {
+    title: "FabTaps",
+    list: [
+      {
+        title: "Total Taps",
+        num: 2102,
+        today: null,
+        TodayDirIcon: null,
+        icon: nfc,
+      },
+      {
+        title: "Total Contacts",
+        num: 2000,
+        today: null,
+        TodayDirIcon: null,
+        icon: profiles,
+      },
+    ],
+  },
+  myTeams: {
+    title: "My Teams",
+    list: [
+      {
+        title: "NFC Makers",
+        num: 15,
+        today: null,
+        TodayDirIcon: null,
+        icon: management,
+      },
+      {
+        title: "NFC Creator",
+        num: 19,
+        today: null,
+        TodayDirIcon: null,
+        icon: management,
+      },
+    ],
+  },
+  customCreatedNFCs: {
+    title: "Custom NFC created",
+    num: 10,
+    icon: HiOutlineShoppingBag,
+  },
+};
+
+// --cards
+const cardsList = [
+  {
+    creatorName: "Creator Name",
+    cardName: "Matte Black",
+    personalized: true,
+    digitalProfileStatus: "Pending",
+    cardImage: cardsBlack,
+  },
+  {
+    creatorName: "Creator Name",
+    cardName: "Dark Blue",
+    personalized: true,
+    digitalProfileStatus: "Added",
+    cardImage: cardsBlue,
+  },
+  {
+    creatorName: "Creator Name",
+    cardName: "Pure While",
+    personalized: true,
+    digitalProfileStatus: "Added",
+    cardImage: cardsWhite,
+  },
+];
+
+// --profiles
+const profilesList = [
+  {
+    creatorName: "Creator Name",
+    profileName: "Purple element Profile",
+    personalized: true,
+    profileImage: profileAdamSmithWithPhoneBackside,
+  },
+  {
+    creatorName: "Creator Name",
+    profileName: "Navy Blue Profile",
+    personalized: true,
+    profileImage: profileEmilyGoldWithPhoneBackside,
+  },
+  {
+    creatorName: "Creator Name",
+    profileName: "Dull Red Profile",
+    personalized: true,
+    profileImage: profileLunaHarperWithPhoneBackside,
+  },
+];
+
+// --contacts
+const contacts = [
+  {
+    favorite: false,
+    profilePic: "",
+    name: "John Store",
+    mobileNum: "+91 8549632175",
+    emailId: "sample@gmail.com",
+  },
+  {
+    favorite: false,
+    profilePic: "",
+    name: "Emily Smith",
+    mobileNum: "+91 8549632175",
+    emailId: "sample@gmail.com",
+  },
+  {
+    favorite: false,
+    profilePic: "",
+    name: "Jasmine Hart",
+    mobileNum: "+91 8549632175",
+    emailId: "sample@gmail.com",
+  },
+  {
+    favorite: false,
+    profilePic: "",
+    name: "Rose Goldy",
+    mobileNum: "+91 8549632175",
+    emailId: "sample@gmail.com",
+  },
+  {
+    favorite: false,
+    profilePic: "",
+    name: "Kevin White",
+    mobileNum: "+91 8549632175",
+    emailId: "sample@gmail.com",
+  },
+  {
+    favorite: false,
+    profilePic: "",
+    name: "Keshav G",
+    mobileNum: "+91 8549632175",
+    emailId: "sample@gmail.com",
+  },
+];
+
+// --shop
+const shopCollections = {
+  luxuryCollections: {
+    title: "Luxury Collections",
+    list: [
+      {
+        img: cardAestheticDarkGrey,
+        creator: "Creator Name",
+        cardName: "Matte black",
+        description: "Customise: card design & digital profile",
+        price: 849,
+      },
+      {
+        img: cardAestheticDarkGrey,
+        creator: "Creator Name",
+        cardName: "Aesthetic dark grey",
+        description: "Customise: card design & digital profile",
+        price: 849,
+      },
+      {
+        img: cardAestheticDarkGrey,
+        creator: "Creator Name",
+        cardName: "Aesthetic dull grey",
+        description: "Customise: card design & digital profile",
+        price: 849,
+      },
+    ],
+    href: "#luxuryCollections",
+  },
+  designedCollections: {
+    title: "Designed Collections",
+    list: [],
+    href: "#designedCollections",
+  },
+  gradientCollections: {
+    title: "Gradient Collections",
+    list: [],
+    href: "#gradientCollections",
+  },
+  limitedEdition: {
+    title: "Limited Edition",
+    list: [],
+    href: "limitedEdition#",
+  },
+};
+
 export {
   homeNavigationList,
   checkoutList,
@@ -558,4 +776,9 @@ export {
   userData,
   jobRoles,
   companySizes,
+  progress,
+  cardsList,
+  profilesList,
+  contacts,
+  shopCollections,
 };

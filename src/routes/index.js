@@ -16,9 +16,14 @@ export { default as MyProfileSharedLayout } from "./my-profile/myProfileSharedLa
 export { default as General } from "./my-profile/general.route";
 export { default as Organization } from "./my-profile/organization.route";
 export { default as Progress } from "./my-profile/progress.route";
-export { default as MyFab } from "./my-profile/myFab.route";
+export { default as MyFabSharedLayout } from "./my-profile/myFabSharedLayout.route";
+export { default as MyFabCards } from "./my-profile/myFabCards.route";
+export { default as MyFabProfiles } from "./my-profile/myFabProfiles.route.jsx";
 // --contacts
-export { default as ContactsSharedLayout } from "./contacts/contacts.route";
+export { default as ContactsSharedLayout } from "./contacts/contactSharedLayout.route";
+export { default as Contacts } from "./contacts/contacts.route";
+export { default as ContactAdd } from "./contacts/contactAdd.route";
+export { default as ContactEdit } from "./contacts/contactEdit.route";
 // --shop
 export { default as Shop } from "./shop/shop.route";
 // --orders
