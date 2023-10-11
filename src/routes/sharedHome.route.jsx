@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 
 // components
 // import Home from "./home.route";
-import NavigationHome from "../components/navigation/navigation-home.component";
+import NavigationHome from "../components/navigation/navigationHome.component";
 
 const SharedHome = () => {
   return (

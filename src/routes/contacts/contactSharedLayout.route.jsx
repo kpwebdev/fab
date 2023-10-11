@@ -21,9 +21,9 @@ const ContactSharedLayout = () => {
   return (
     <section>
       <header className="t-flex t-justify-between">
-        <h3 className="t-text-f-3xl">My Profile</h3>
+        <h3 className="t-text-f-3xl">Contacts</h3>
         <p>
-          Total Members: <span>2000</span>
+          Total Members: <span className="t-text-f-primary-40">2000</span>
         </p>
       </header>
 

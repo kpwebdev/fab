@@ -1,7 +1,7 @@
 import { checkoutList } from "../data";
 
 // components
-import CheckoutCard from "../components/checkout-card.component";
+import CheckoutCard from "../components/checkoutCard.component";
 const Home = () => {
   return (
     <section id="home" className="d-flex justify-content-between">

@@ -40,6 +40,21 @@ import iconYoutube from "./assets/icon-youtube.svg";
 import cardsBlack from "./assets/cards-black.svg";
 import cardsBlue from "./assets/cards-blue.svg";
 import cardsWhite from "./assets/cards-white.svg";
+import orderCardBlue from "./assets/order-card-blue.svg";
+import orderCardYellow from "./assets/order-card-yellow.svg";
+
+import luxuryCollectionAestheticDark from "./assets/luxury-collection-aesthetic-dark.png";
+import luxuryCollectionAestheticDull from "./assets/luxury-collection-aesthetic-dull.png";
+import luxuryCollectionBlack from "./assets/luxury-collection-black.png";
+import designedCollectionBlack from "./assets/designed-collection-black.svg";
+import designedCollectionBlue from "./assets/designed-collection-blue.svg";
+import designedCollectionWhite from "./assets/designed-collection-white.svg";
+import gradientCollectionDark from "./assets/gradient-collection-dark.png";
+import gradientCollectionFlorescent from "./assets/gradient-collection-florescent.png";
+import gradientCollectionPurple from "./assets/gradient-collection-purple.png";
+import limitedEditionBlue from "./assets/limited-edition-blue.png";
+import limitedEditionTripleBlue from "./assets/limited-edition-triple-blue.png";
+import limitedEditionVantablack from "./assets/limited-edition-vantablack.png";
 
 // react icons
 import { CiUser } from "react-icons/ci";
@@ -51,6 +66,13 @@ import { BiHelpCircle } from "react-icons/bi";
 import { MdLogout } from "react-icons/md";
 import { HiMiniArrowTrendingUp } from "react-icons/hi2";
 import { FaUserAlt } from "react-icons/fa";
+import { IoMdNotifications } from "react-icons/io";
+import { MdGTranslate } from "react-icons/md";
+import { GiHeartPlus } from "react-icons/gi";
+import { MdChangeCircle } from "react-icons/md";
+import { BsTrash3 } from "react-icons/bs";
+import { AiFillBug } from "react-icons/ai";
+import { MdFeedback } from "react-icons/md";
 
 // importing lotties
 import cardSlideAnimation from "./assets/lotties/card-slide-animation.json";
@@ -715,45 +737,258 @@ const shopCollections = {
     title: "Luxury Collections",
     list: [
       {
-        img: cardAestheticDarkGrey,
-        creator: "Creator Name",
-        cardName: "Matte black",
-        description: "Customise: card design & digital profile",
-        price: 849,
-      },
-      {
-        img: cardAestheticDarkGrey,
+        img: luxuryCollectionAestheticDark,
         creator: "Creator Name",
         cardName: "Aesthetic dark grey",
         description: "Customise: card design & digital profile",
         price: 849,
+        isBestSeller: true,
       },
       {
-        img: cardAestheticDarkGrey,
+        img: luxuryCollectionAestheticDull,
         creator: "Creator Name",
         cardName: "Aesthetic dull grey",
         description: "Customise: card design & digital profile",
         price: 849,
+        isBestSeller: false,
+      },
+      {
+        img: luxuryCollectionBlack,
+        creator: "Creator Name",
+        cardName: "Matte black",
+        description: "Customise: card design & digital profile",
+        price: 849,
+        isBestSeller: false,
       },
     ],
     href: "#luxuryCollections",
   },
   designedCollections: {
     title: "Designed Collections",
-    list: [],
+    list: [
+      {
+        img: designedCollectionBlack,
+        creator: "Creator Name",
+        cardName: "Matte black 2",
+        description: "Customise: card design & digital profile",
+        price: 849,
+        isBestSeller: false,
+      },
+      {
+        img: designedCollectionBlue,
+        creator: "Creator Name",
+        cardName: "Dark Blue",
+        description: "Customise: card design & digital profile",
+        price: 849,
+        isBestSeller: false,
+      },
+      {
+        img: designedCollectionWhite,
+        creator: "Creator Name",
+        cardName: "Pure White",
+        description: "Customise: card design & digital profile",
+        price: 849,
+        isBestSeller: false,
+      },
+    ],
     href: "#designedCollections",
   },
   gradientCollections: {
     title: "Gradient Collections",
-    list: [],
+    list: [
+      {
+        img: gradientCollectionDark,
+        creator: "Creator Name",
+        cardName: "Dark Gradient",
+        description: "Customise: card design & digital profile",
+        price: 849,
+        isBestSeller: false,
+      },
+      {
+        img: gradientCollectionFlorescent,
+        creator: "Creator Name",
+        cardName: "Florescent Gradient",
+        description: "Customise: card design & digital profile",
+        price: 849,
+        isBestSeller: false,
+      },
+      {
+        img: gradientCollectionPurple,
+        creator: "Creator Name",
+        cardName: "Purple - Yellow Gradient",
+        description: "Customise: card design & digital profile",
+        price: 849,
+        isBestSeller: false,
+      },
+    ],
     href: "#gradientCollections",
   },
   limitedEdition: {
     title: "Limited Edition",
-    list: [],
+    list: [
+      {
+        img: limitedEditionBlue,
+        creator: "Creator Name",
+        cardName: "Blue - Purple Gradient",
+        description: "Customise: card design & digital profile",
+        price: 849,
+        isBestSeller: false,
+      },
+      {
+        img: limitedEditionTripleBlue,
+        creator: "Creator Name",
+        cardName: "Triple blue Gradient",
+        description: "Customise: card design & digital profile",
+        price: 849,
+        isBestSeller: false,
+      },
+      {
+        img: limitedEditionVantablack,
+        creator: "Creator Name",
+        cardName: "Vantablack NFC",
+        description: "Customise: card design & digital profile",
+        price: 849,
+        isBestSeller: false,
+      },
+    ],
     href: "limitedEdition#",
   },
 };
+
+// --orders
+const orders = {
+  self: [
+    {
+      orderPlacedAt: new Date(2023, 7, 27),
+      totalPrice: 2000,
+      shipToAddress: "No. 7, sample address",
+      orderId: 366824369,
+      cards: [
+        {
+          cardImg: orderCardBlue,
+          creatorName: "Creator Name",
+          cardName: "Ocean Blue NFC",
+          isPersonalized: true,
+          qty: 1,
+        },
+      ],
+    },
+    {
+      orderPlacedAt: new Date(2023, 7, 27),
+      totalPrice: 2000,
+      shipToAddress: "No. 7, sample address",
+      orderId: 366824369,
+      cards: [
+        {
+          cardImg: orderCardYellow,
+          creatorName: "Creator Name",
+          cardName: "Sun Yellow NFC",
+          isPersonalized: true,
+          qty: 1,
+        },
+      ],
+    },
+  ],
+  customer: [
+    {
+      orderPlacedAt: new Date(2023, 7, 27),
+      totalPrice: 2000,
+      shipToAddress: "No. 7, sample address",
+      orderId: 366824369,
+      cards: [
+        {
+          cardImg: orderCardBlue,
+          creatorName: "Creator Name",
+          cardName: "Ocean Blue NFC",
+          isPersonalized: true,
+          qty: 1,
+        },
+      ],
+    },
+    {
+      orderPlacedAt: new Date(2023, 7, 27),
+      totalPrice: 2000,
+      shipToAddress: "No. 7, sample address",
+      orderId: 366824369,
+      cards: [
+        {
+          cardImg: orderCardYellow,
+          creatorName: "Creator Name",
+          cardName: "Sun Yellow NFC",
+          isPersonalized: true,
+          qty: 1,
+        },
+      ],
+    },
+  ],
+};
+
+// --settings
+const settings = [
+  {
+    title: "General",
+    list: [
+      {
+        Icon: IoMdNotifications,
+        settingName: "Notification",
+        isDangerous: false,
+        href: "/nfc/dashboard/settings/notification",
+      },
+      {
+        Icon: MdGTranslate,
+        settingName: "App Language",
+        isDangerous: false,
+        href: "/nfc/dashboard/settings/app-language",
+      },
+      {
+        Icon: GiHeartPlus,
+        settingName: "Help & Support",
+        isDangerous: false,
+        href: "/nfc/dashboard/settings/help-and-support",
+      },
+    ],
+  },
+  {
+    title: "Account",
+    list: [
+      {
+        Icon: MdChangeCircle,
+        settingName: "Change Account",
+        isDangerous: false,
+        href: "/nfc/authentication/switch-account",
+      },
+      {
+        Icon: BsTrash3,
+        settingName: "Delete Account",
+        isDangerous: true,
+        href: "/nfc/dashboard/settings/delete-account",
+      },
+      {
+        Icon: MdLogout,
+        settingName: "Logout",
+        isDangerous: true,
+        href: "/nfc/authentication/login",
+      },
+    ],
+  },
+  {
+    title: "Feedback",
+    list: [
+      {
+        Icon: MdFeedback,
+        settingName: "Send feedback",
+        isDangerous: false,
+        href: "/nfc/dashboard/settings/send-feedback",
+      },
+      {
+        Icon: AiFillBug,
+        settingName: "Report a Bug",
+        isDangerous: false,
+        href: "/nfc/dashboard/settings/report-bug",
+      },
+    ],
+  },
+];
 
 export {
   homeNavigationList,
@@ -781,4 +1016,6 @@ export {
   profilesList,
   contacts,
   shopCollections,
+  orders,
+  settings,
 };

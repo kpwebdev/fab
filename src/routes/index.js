@@ -1,4 +1,4 @@
-export { default as SharedHome } from "./shared-home.route";
+export { default as SharedHome } from "./sharedHome.route";
 export { default as Home } from "./home.route";
 export { default as Services } from "./services.route";
 export { default as About } from "./about.route";
@@ -32,3 +32,12 @@ export { default as Self } from "./orders/self.route";
 export { default as Customer } from "./orders/customer.route";
 // --settings
 export { default as Settings } from "./settings/settings.route";
+export { default as SettingList } from "./settings/settingList.route.jsx";
+export { default as AppLanguage } from "./settings/appLanguage.route.jsx";
+export { default as ChangeAccount } from "./settings/changeAccount.route.jsx";
+export { default as DeleteAccount } from "./settings/deleteAccount.route.jsx";
+export { default as HelpAndSupport } from "./settings/helpAndSupport.router.jsx";
+export { default as Logout } from "./settings/logout.route.jsx";
+export { default as Notification } from "./settings/notification.route.jsx";
+export { default as ReportBug } from "./settings/reportBug.route.jsx";
+export { default as SendFeedback } from "./settings/sendFeedback.route.jsx";

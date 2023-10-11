@@ -28,6 +28,15 @@ import {
   Self,
   Customer,
   Settings,
+  SettingList,
+  Notification,
+  AppLanguage,
+  HelpAndSupport,
+  ChangeAccount,
+  DeleteAccount,
+  Logout,
+  SendFeedback,
+  ReportBug,
 } from "./routes";
 
 const router = createBrowserRouter([
@@ -71,6 +80,7 @@ const router = createBrowserRouter([
         path: "sign-up",
         element: <SignUp />,
       },
+      { path: "switch-account", element: <ChangeAccount /> },
     ],
   },
   {
@@ -141,13 +151,23 @@ const router = createBrowserRouter([
           },
           {
             path: "customer",
-            element: <Self />,
+            element: <Customer />,
           },
         ],
       },
       {
         path: "settings",
-        element: <MyProfileSharedLayout />,
+        element: <Settings />,
+        children: [
+          { index: true, element: <SettingList /> },
+          { path: "notification", element: <Notification /> },
+          { path: "app-language", element: <AppLanguage /> },
+          { path: "help-and-support", element: <HelpAndSupport /> },
+          { path: "delete-account", element: <DeleteAccount /> },
+          { path: "logout", element: <Logout /> },
+          { path: "send-feedback", element: <SendFeedback /> },
+          { path: "report-bug", element: <ReportBug /> },
+        ],
       },
     ],
   },

@@ -24,4 +24,10 @@
   .f-btn-secondary-outline {
     @apply t-border-f-secondary-30 t-border-2 t-text-f-secondary-30 hover:t-bg-f-secondary-20 hover:t-text-f-secondary-98;
   }
+  .f-btn-danger {
+    @apply t-border-f-danger-30 t-border-2 t-bg-f-danger-30 t-text-f-danger-98 hover:t-bg-f-danger-20;
+  }
+  .f-btn-danger-outline {
+    @apply t-border-f-danger-30 t-border-2 t-text-f-danger-30 hover:t-bg-f-danger-20 hover:t-text-f-danger-98;
+  }
 }
