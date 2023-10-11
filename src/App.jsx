@@ -37,6 +37,12 @@ import {
   Logout,
   SendFeedback,
   ReportBug,
+  PhysicalCard,
+  CardTemplates,
+  CustomizeCard,
+  DigitalProfile,
+  ProfileTemplates,
+  CustomizeProfile,
 } from "./routes";
 
 const router = createBrowserRouter([
@@ -170,6 +176,18 @@ const router = createBrowserRouter([
         ],
       },
     ],
+  },
+  { path: "/nfc/creation/physical-card", element: <PhysicalCard /> },
+  { path: "/nfc/creation/physical-card/templates", element: <CardTemplates /> },
+  { path: "/nfc/creation/physical-card/customize", element: <CustomizeCard /> },
+  { path: "/nfc/creation/digital-profile", element: <DigitalProfile /> },
+  {
+    path: "/nfc/creation/digital-profile/template",
+    element: <ProfileTemplates />,
+  },
+  {
+    path: "/nfc/creation/digital-profile/customize",
+    element: <CustomizeProfile />,
   },
 ]);
 

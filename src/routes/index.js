@@ -41,3 +41,10 @@ export { default as Logout } from "./settings/logout.route.jsx";
 export { default as Notification } from "./settings/notification.route.jsx";
 export { default as ReportBug } from "./settings/reportBug.route.jsx";
 export { default as SendFeedback } from "./settings/sendFeedback.route.jsx";
+// --creation
+export { default as PhysicalCard } from "./creation/physicalCard.route.jsx";
+export { default as CardTemplates } from "./creation/cardTemplates.route.jsx";
+export { default as CustomizeCard } from "./creation/customizeCard.route.jsx";
+export { default as DigitalProfile } from "./creation/digitalProfile.route.jsx";
+export { default as ProfileTemplates } from "./creation/profileTemplates.route.jsx";
+export { default as CustomizeProfile } from "./creation/customizeProfile.route.jsx";

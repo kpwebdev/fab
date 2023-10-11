@@ -239,14 +239,20 @@ const General = () => {
           </div>
 
           {/* buttons container */}
-          <div className="t-flex t-flex-col t-gap-f-24 t-px-f-96">
-            <button className="f-btn-md f-btn-primary-outline">
+          <div className="t-flex t-flex-col t-gap-f-24 t-px-f-96 t-text-center">
+            <Link
+              className="f-btn-md f-btn-primary-outline"
+              to="/nfc/creation/digital-profile"
+            >
               Digital Profile
-            </button>
+            </Link>
 
-            <button className="f-btn-md f-btn-primary">
+            <Link
+              className="f-btn-md f-btn-primary"
+              to="/nfc/creation/physical-card"
+            >
               Create your own fabtap
-            </button>
+            </Link>
           </div>
         </div>
       </div>
