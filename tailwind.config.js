@@ -106,6 +106,7 @@ export default {
       },
       fontFamily: {
         sans: ["Poppins", "sans-serif"],
+        molle: ["Molle", "cursive"],
       },
       fontSize: {
         "f-xs": ["12px", "1.5em"],

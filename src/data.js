@@ -42,6 +42,12 @@ import cardsBlue from "./assets/cards-blue.svg";
 import cardsWhite from "./assets/cards-white.svg";
 import orderCardBlue from "./assets/order-card-blue.svg";
 import orderCardYellow from "./assets/order-card-yellow.svg";
+import cardBlackBack from "./assets/card-black-back.svg";
+import cardBlackFront from "./assets/card-black-front.svg";
+import cardBlueBack from "./assets/card-blue-back.svg";
+import cardBlueFront from "./assets/card-blue-front.svg";
+import cardWhiteBack from "./assets/card-white-back.svg";
+import cardWhiteFont from "./assets/card-white-font.svg";
 
 import luxuryCollectionAestheticDark from "./assets/luxury-collection-aesthetic-dark.png";
 import luxuryCollectionAestheticDull from "./assets/luxury-collection-aesthetic-dull.png";
@@ -990,6 +996,49 @@ const settings = [
   },
 ];
 
+// --tempaltes
+const templates = [
+  {
+    templateName: "Template 1",
+    list: [
+      {
+        cardImage: cardBlackBack,
+        alt: "back side of the black card",
+      },
+      {
+        cardImage: cardBlackFront,
+        alt: "front side of the black card",
+      },
+    ],
+  },
+  {
+    templateName: "Template 2",
+    list: [
+      {
+        cardImage: cardBlueBack,
+        alt: "back side of the blue card",
+      },
+      {
+        cardImage: cardBlueFront,
+        alt: "front side of the blue card",
+      },
+    ],
+  },
+  {
+    templateName: "Template 3",
+    list: [
+      {
+        cardImage: cardWhiteBack,
+        alt: "back side of the white card",
+      },
+      {
+        cardImage: cardWhiteFont,
+        alt: "font side of the white card",
+      },
+    ],
+  },
+];
+
 export {
   homeNavigationList,
   checkoutList,
@@ -1018,4 +1067,5 @@ export {
   shopCollections,
   orders,
   settings,
+  templates,
 };

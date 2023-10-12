@@ -40,6 +40,7 @@ import {
   PhysicalCard,
   CardTemplates,
   CustomizeCard,
+  CustomizeCardTemplate,
   DigitalProfile,
   ProfileTemplates,
   CustomizeProfile,
@@ -180,6 +181,10 @@ const router = createBrowserRouter([
   { path: "/nfc/creation/physical-card", element: <PhysicalCard /> },
   { path: "/nfc/creation/physical-card/templates", element: <CardTemplates /> },
   { path: "/nfc/creation/physical-card/customize", element: <CustomizeCard /> },
+  {
+    path: "/nfc/creation/physical-card/customize-template",
+    element: <CustomizeCardTemplate />,
+  },
   { path: "/nfc/creation/digital-profile", element: <DigitalProfile /> },
   {
     path: "/nfc/creation/digital-profile/template",

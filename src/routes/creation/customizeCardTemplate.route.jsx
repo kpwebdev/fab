@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
 import { BsArrowLeft } from "react-icons/bs";
+import { LuNfc } from "react-icons/lu";
 import { useEffect, useRef, useState } from "react";
+import QRCode from "react-qr-code";
 import CardCustomizationOptions from "../../components/creation/cardCustomizationOptions.component";
+import house from "../../assets/house.svg";
 
 const initialFrontFormInputs = {
-  bgColor: "#1A59B2",
+  bgColor: "#1E1E1E",
   bgOpacity: "100",
   bgImage: "",
-  textColor: "#ffffff",
+  textColor: "#D1AE7B",
   textOpacity: "100",
   fontSize: "20px",
   fontFamily: "Karantina",
@@ -15,16 +18,17 @@ const initialFrontFormInputs = {
   isBold: false,
   isItalic: false,
   isUnderline: false,
-  elementColor: "#224455",
+  elementColor: "#D1AE7B",
   elementOpacity: "100",
+  elementFinalColor: "#D1AE7B",
   logoImage: "",
 };
 
 const initialBackFormInputs = {
-  bgColor: "#FFC800",
+  bgColor: "#1E1E1E",
   bgOpacity: "100",
   bgImage: "",
-  textColor: "white",
+  textColor: "#D1AE7B",
   textOpacity: "100",
   fontSize: "20px",
   fontFamily: "Karantina",
@@ -32,20 +36,21 @@ const initialBackFormInputs = {
   isBold: false,
   isItalic: false,
   isUnderline: false,
-  elementColor: "",
+  elementColor: "#D1AE7B",
   elementOpacity: "100",
+  elementFinalColor: "#D1AE7B",
   logoImage: "",
 };
 
-const CustomizeCard = () => {
+const CustomizeCardTemplate = () => {
   const [isFront, setIsFront] = useState("true");
   const [googleFonts, setGoogleFonts] = useState([]);
   const frontBGRef = useRef();
   const frontTextRef = useRef();
-  const frontElementRef = useRef();
+  const frontElementRef = useRef(initialFrontFormInputs.elementColor);
   const backBGRef = useRef();
   const backTextRef = useRef();
-  const backElementRef = useRef();
+  const backElementRef = useRef(initialBackFormInputs.elementColor);
   const [frontFormInputs, setFrontFormInputs] = useState(
     initialFrontFormInputs
   );
@@ -103,23 +108,59 @@ const CustomizeCard = () => {
                 Preview
               </h5>
               {/* cards */}
-              <div className="t-grid t-grid-cols-2 t-gap-f-24">
+              <div className="t-grid t-grid-cols-1 t-gap-f-24">
                 {/* front */}
                 <div>
                   <h6 className="t-text-f-md t-mb-f-8">Front</h6>
+                  {/* card */}
                   <div
-                    className={`t-h-[400px] t-bg-f-primary-40 t-rounded-f-8`}
+                    className={`t-h-[300px] t-bg-f-[#1E1E1E] t-rounded-f-8 t-flex t-items-center t-justify-center`}
                     ref={frontBGRef}
-                  ></div>
+                  >
+                    {/* content */}
+                    <div className="t-flex t-items-center t-flex-col t-gap-f-8">
+                      <img
+                        src={house}
+                        alt="Logo"
+                        className="t-w-[150px] t-h-[150px] t-object-cover"
+                      />
+                      <span className="t-text-f-warning-70" ref={frontTextRef}>
+                        Grace Interiors
+                      </span>
+                    </div>
+                  </div>
                 </div>
 
                 {/* back */}
                 <div>
                   <h6 className="t-text-f-md t-mb-f-8">Back</h6>
+                  {/* card */}
                   <div
-                    className={`t-h-[400px] t-bg-f-secondary-50 t-rounded-f-8`}
+                    className={`t-h-[300px] t-bg-[#1E1E1E] t-rounded-f-8 t-p-f-24`}
                     ref={backBGRef}
-                  ></div>
+                  >
+                    {/* content */}
+                    <div className="t-flex t-flex-col t-justify-between t-h-full">
+                      <LuNfc
+                        className="t-text-f-l t-self-end"
+                        style={{ stroke: backFormInputs.elementFinalColor }}
+                      />
+                      <QRCode
+                        bgColor="transparent"
+                        fgColor={backFormInputs.elementFinalColor}
+                        value="https://www.linkedin.com/in/kp-web-dev/"
+                        size={150}
+                        level="H"
+                      />
+                      <div
+                        className="t-self-end t-text-[#D1AE7B]"
+                        ref={backTextRef}
+                      >
+                        <h6 className="t-text-f-md">Rose Goldy</h6>
+                        <p className="t-text-f-sm">Interior Designer</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -157,7 +198,8 @@ const CustomizeCard = () => {
             </div>
             {isFront ? (
               <CardCustomizationOptions
-                initialFormInputs={initialFrontFormInputs}
+                formInputs={frontFormInputs}
+                setFormInputs={setFrontFormInputs}
                 googleFonts={googleFonts}
                 bgRef={frontBGRef}
                 textRef={frontTextRef}
@@ -166,7 +208,8 @@ const CustomizeCard = () => {
               />
             ) : (
               <CardCustomizationOptions
-                initialFormInputs={initialBackFormInputs}
+                formInputs={backFormInputs}
+                setFormInputs={setBackFormInputs}
                 googleFonts={googleFonts}
                 bgRef={backBGRef}
                 textRef={backTextRef}
@@ -191,4 +234,4 @@ const CustomizeCard = () => {
   );
 };
 
-export default CustomizeCard;
+export default CustomizeCardTemplate;
