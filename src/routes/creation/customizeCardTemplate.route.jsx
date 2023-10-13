@@ -148,7 +148,7 @@ const CustomizeCardTemplate = () => {
                       <QRCode
                         bgColor="transparent"
                         fgColor={backFormInputs.elementFinalColor}
-                        value="https://www.linkedin.com/in/kp-web-dev/"
+                        value="https://google.com/search?q=kp web dev"
                         size={150}
                         level="H"
                       />

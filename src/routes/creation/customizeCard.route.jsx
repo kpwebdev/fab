@@ -24,7 +24,7 @@ const initialBackFormInputs = {
   bgColor: "#FFC800",
   bgOpacity: "100",
   bgImage: "",
-  textColor: "white",
+  textColor: "#ffffff",
   textOpacity: "100",
   fontSize: "20px",
   fontFamily: "Karantina",
@@ -32,7 +32,7 @@ const initialBackFormInputs = {
   isBold: false,
   isItalic: false,
   isUnderline: false,
-  elementColor: "",
+  elementColor: "#224455",
   elementOpacity: "100",
   logoImage: "",
 };
@@ -157,7 +157,8 @@ const CustomizeCard = () => {
             </div>
             {isFront ? (
               <CardCustomizationOptions
-                initialFormInputs={initialFrontFormInputs}
+                formInputs={frontFormInputs}
+                setFormInputs={setFrontFormInputs}
                 googleFonts={googleFonts}
                 bgRef={frontBGRef}
                 textRef={frontTextRef}
@@ -166,7 +167,8 @@ const CustomizeCard = () => {
               />
             ) : (
               <CardCustomizationOptions
-                initialFormInputs={initialBackFormInputs}
+                formInputs={backFormInputs}
+                setFormInputs={setBackFormInputs}
                 googleFonts={googleFonts}
                 bgRef={backBGRef}
                 textRef={backTextRef}

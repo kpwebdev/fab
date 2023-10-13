@@ -2,6 +2,9 @@ import { useRef, useState, useEffect } from "react";
 import Color from "color";
 import { HiOutlineUpload } from "react-icons/hi";
 
+// components
+import GoogleFonts from "../../components/googleFonts.component";
+
 const CardCustomizationOptions = ({
   formInputs,
   setFormInputs,
@@ -43,9 +46,11 @@ const CardCustomizationOptions = ({
 
   // effect to update text color of the card
   useEffect(() => {
-    textRef.current.style.color = Color(formInputs.textColor).alpha(
-      Number(formInputs.textOpacity) / 100
-    );
+    if (textRef.current) {
+      textRef.current.style.color = Color(formInputs.textColor).alpha(
+        Number(formInputs.textOpacity) / 100
+      );
+    }
   }, [formInputs.textColor, formInputs.textOpacity]);
 
   // effect to update element color of the card
@@ -156,11 +161,13 @@ const CardCustomizationOptions = ({
                 onChange={handleChange}
                 className="form-select"
               >
-                {googleFonts.map(({ family }) => (
+                <GoogleFonts googleFonts={googleFonts} />
+                {/* testing */}
+                {/* {googleFonts.map(({ family }) => (
                   <option value={family} key={family}>
                     {family}
                   </option>
-                ))}
+                ))} */}
               </select>
               <select
                 name="fontWeight"
