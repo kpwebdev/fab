@@ -105,6 +105,7 @@ const router = createBrowserRouter([
     path: "/nfc/dashboard",
     element: <NfcDashboardSharedLayout />,
     children: [
+      { index: true, element: <Navigate to="/nfc/dashboard/my-profile" /> },
       {
         path: "my-profile",
         element: <MyProfileSharedLayout />,

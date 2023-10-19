@@ -1,9 +1,19 @@
 import { Link } from "react-router-dom";
 
-const CheckoutCard = ({ href, img, title, subtitle, text }) => {
+const CheckoutCard = ({
+  href,
+  img,
+  title,
+  subtitle,
+  text,
+  subHeadingColor,
+}) => {
   return (
-    <Link href={href} className="text-black text-decoration-none d-block">
-      <article className="p-3 rounded-4 checkout-card">
+    <Link
+      to={href}
+      className="text-black text-decoration-none d-block checkout-card rounded-4"
+    >
+      <article className="t-p-f-16 t-flex t-flex-col justify-content-between t-min-h-full">
         {/* header */}
         <div className="mb-5 d-flex justify-content-between">
           <img src={img} alt={title} className="checkout-card-image" />
@@ -25,9 +35,14 @@ const CheckoutCard = ({ href, img, title, subtitle, text }) => {
 
         {/* body */}
         <div>
-          <h4>{title}</h4>
-          <h5>{subtitle}</h5>
-          <p>{text}</p>
+          <h4 className="t-text-f-l">{title}</h4>
+          <h5
+            className={`t-text-f-l t-font-bold ${subHeadingColor}`}
+            style={{ textShadow: "0px 2px 2px rgba(0,0,0, 0.25)" }}
+          >
+            {subtitle}
+          </h5>
+          {false && <p>{text}</p>}
         </div>
       </article>
     </Link>

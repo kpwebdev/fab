@@ -162,18 +162,20 @@ const homeNavigationList = [
 
 const checkoutList = [
   {
-    href: "/fab-digital-marketing",
+    href: "/fab-digital-agency",
     img: fabLogo,
     title: "Checkout our",
     subtitle: "Fab Digital Agency",
     text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat error, earum odit rerum adipisci.",
+    subHeadingColor: "t-text-f-primary-50",
   },
   {
-    href: "/nfc-cards",
+    href: "/nfc",
     img: wifi,
     title: "Checkout our",
     subtitle: "NFC Cards",
     text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat error, earum odit rerum adipisci.",
+    subHeadingColor: "t-text-f-secondary-50",
   },
 ];
 

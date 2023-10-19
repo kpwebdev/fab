@@ -8,17 +8,17 @@ const Home = () => {
       <div className="container">
         {/* header text */}
         <header className="text-center mb-5">
-          <h2 className="text-white">
+          <h2 className="text-white t-text-f-4xl t-mb-f-8">
             Your Success Story Begins with our Business{" "}
             <span className="text-success">Services</span>.
           </h2>
-          <h3 className="text-warning">
+          <h3 className="text-warning t-text-f-xl">
             An A to Z website to grow your brand, leave it in our hands.
           </h3>
         </header>
 
         {/* cards */}
-        <div className="d-flex gap-4 flex-wrap">
+        <div className="t-grid t-grid-cols-2 t-gap-f-24">
           {checkoutList.map((checkoutCardItem, idx) => (
             <CheckoutCard {...checkoutCardItem} key={idx} />
           ))}
