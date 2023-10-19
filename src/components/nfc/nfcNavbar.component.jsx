@@ -36,7 +36,7 @@ const NfcNavbar = () => {
             ))}
             <NavLink
               className="nav-link t-flex t-items-center t-gap-f-4 t-ms-auto"
-              to="/nfc/login"
+              to="/nfc/authentication/login"
             >
               <ImUser className="t-w-f-24" /> Login
             </NavLink>
