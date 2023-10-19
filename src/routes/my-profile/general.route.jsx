@@ -190,10 +190,10 @@ const General = () => {
               </label>
               <div className="col-sm-10 t-flex t-justify-start">
                 <ul className="t-flex t-gap-f-8 t-justify-start t-relative">
-                  {socialMedia.map(({ title, href, icon }, idx) => (
+                  {socialMedia.map(({ title, href, Icon }, idx) => (
                     <li key={idx}>
                       <Link target="_blank" to={href} title={title}>
-                        <img src={icon} alt={`${title} logo`} />
+                        <Icon />
                       </Link>
                     </li>
                   ))}

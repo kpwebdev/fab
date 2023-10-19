@@ -14,7 +14,7 @@ const MyFabCards = () => {
             cardName,
             personalized,
             digitalProfileStatus,
-            cardImage,
+            CardImage,
           },
           idx
         ) => (
@@ -22,7 +22,7 @@ const MyFabCards = () => {
             <article className="t-relative t-flex t-gap-f-16">
               {/* img container */}
               <div className="t-py-f-16 t-px-f-48 t-bg-f-gray-20 t-rounded-f-8">
-                <img src={cardImage} alt={`image of ${cardName}`} />
+                <CardImage />
               </div>
 
               {/* text container */}

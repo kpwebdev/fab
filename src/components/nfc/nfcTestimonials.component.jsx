@@ -11,18 +11,14 @@ const NfcTestimonials = () => {
         <div className="t-grid t-grid-cols-3 t-gap-f-24">
           {nfcReviews.map(
             (
-              { img, description, rating, author, company, profilePic },
+              { Icon, description, rating, author, company, profilePic },
               idx
             ) => (
               <article
                 key={idx}
                 className="t-flex t-flex-col t-gap-f-24 t-rounded-f-8 t-border-2 t-border-f-secondary-50 t-p-f-24 t-bg-f-secondary-98 t-shadow-lg t-shadow-f-secondary-95"
               >
-                <img
-                  src={img}
-                  alt="Quote icon"
-                  className="t-w-f-48 t-h-f-48 t-object-contain"
-                />
+                <Icon className="t-w-f-48 t-h-f-48" />
                 <p className="t-text-f-base">{description}</p>
                 <Stars num={rating} />
                 <div className="t-flex t-items-center t-gap-f-24">

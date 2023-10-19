@@ -47,13 +47,13 @@ const Customer = () => {
               <ul className="t-p-f-24">
                 {cards.map(
                   (
-                    { cardImg, creatorName, cardName, isPersonalized, qty },
+                    { CardImg, creatorName, cardName, isPersonalized, qty },
                     idx
                   ) => (
                     <li className="t-flex t-gap-f-48" key={idx}>
                       {/* image container */}
                       <div className="border-2 t-p-f-8 t-rounded-f-8">
-                        <img src={cardImg} alt={`image of ${cardName} card}`} />
+                        <CardImg />
                       </div>
 
                       {/* right container */}

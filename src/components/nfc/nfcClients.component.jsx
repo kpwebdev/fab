@@ -9,9 +9,9 @@ const NfcClients = () => {
         </h2>
         {/* clients container */}
         <div className="t-flex t-gap-f-56 t-items-center">
-          {nfcClients.map(({ title, img }, idx) => (
+          {nfcClients.map(({ title, Icon }, idx) => (
             <div key={idx}>
-              <img src={img} alt={title} />
+              <Icon />
             </div>
           ))}
         </div>

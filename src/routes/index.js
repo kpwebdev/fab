@@ -49,3 +49,11 @@ export { default as CustomizeCardTemplate } from "./creation/customizeCardTempla
 export { default as DigitalProfile } from "./creation/digitalProfile.route";
 export { default as ProfileTemplates } from "./creation/profileTemplates.route";
 export { default as CustomizeProfile } from "./creation/customizeProfile.route";
+// agency
+export { default as AgencySharedLayout } from "./agency/agencySharedLayout.route";
+export { default as AgencyHome } from "./agency/agencyHome.route";
+export { default as ServicesSharedLayout } from "./agency/servicesSharedLayout.route";
+export { default as ServicesIndex } from "./agency/servicesIndex.route";
+export { default as Service } from "./agency/service.route";
+export { default as PortfoliosSharedLayout } from "./agency/portfoliosSharedLayout.route";
+export { default as Portfolio } from "./agency/portfolio.route";

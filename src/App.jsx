@@ -1,4 +1,8 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
 
 // routes
 import {
@@ -44,6 +48,13 @@ import {
   DigitalProfile,
   ProfileTemplates,
   CustomizeProfile,
+  AgencySharedLayout,
+  AgencyHome,
+  ServicesSharedLayout,
+  Service,
+  PortfoliosSharedLayout,
+  Portfolio,
+  ServicesIndex,
 } from "./routes";
 
 const router = createBrowserRouter([
@@ -193,6 +204,37 @@ const router = createBrowserRouter([
   {
     path: "/nfc/creation/digital-profile/customize",
     element: <CustomizeProfile />,
+  },
+  {
+    path: "/fab-digital-agency",
+    element: <AgencySharedLayout />,
+    children: [
+      {
+        index: true,
+        element: <AgencyHome />,
+      },
+      {
+        path: "services",
+        element: <ServicesSharedLayout />,
+        children: [
+          { index: true, element: <ServicesIndex /> },
+          { path: ":id", element: <Service /> },
+        ],
+      },
+      {
+        path: "portfolios",
+        element: <PortfoliosSharedLayout />,
+        children: [
+          {
+            index: true,
+            element: (
+              <Navigate to="/fab-digital-agency/portfolios/social-media-marketing" />
+            ),
+          },
+          { path: ":id", element: <Portfolio /> },
+        ],
+      },
+    ],
   },
 ]);
 

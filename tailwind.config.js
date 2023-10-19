@@ -4,6 +4,9 @@ export default {
   prefix: "t-",
   theme: {
     extend: {
+      variants: {
+        textColor: ["responsive", "hover", "focus", "group-hover"],
+      },
       colors: {
         "f-success": {
           10: "#0F241A",

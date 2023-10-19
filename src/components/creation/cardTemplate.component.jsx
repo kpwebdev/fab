@@ -6,10 +6,10 @@ const CardTemplate = ({
   onChange,
 }) => {
   return (
-    <div className="t-border-2 t-p-f-16 t-rounded-f-8">
+    <label className="t-border-2 t-p-f-16 t-rounded-f-8" htmlFor={templateName}>
       {/* header container */}
       <div className="t-flex t-justify-between t-text-f-md t-mb-f-56">
-        <label htmlFor={templateName}>{templateName}</label>
+        <h5>{templateName}</h5>
         <input
           type="radio"
           name={name}
@@ -22,17 +22,14 @@ const CardTemplate = ({
       </div>
 
       {/* card container */}
-      <label
-        htmlFor={templateName}
-        className="t-flex t-flex-col t-gap-f-16 t-px-f-24"
-      >
-        {list.map(({ cardImage, alt }, idx) => (
+      <div className="t-flex t-flex-col t-gap-f-16 t-px-f-24">
+        {list.map(({ CardImage, alt }, idx) => (
           <div key={idx}>
-            <img src={cardImage} alt={alt} />
+            <CardImage />
           </div>
         ))}
-      </label>
-    </div>
+      </div>
+    </label>
   );
 };
 

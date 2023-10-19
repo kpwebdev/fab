@@ -1,11 +1,11 @@
-import starIcon from "../assets/star.svg";
+import StarIcon from "../assets/star.svg?react";
 import { useMemo } from "react";
 
 const Stars = ({ num }) => {
   const stars = useMemo(() => {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
-      stars.push(<img src={starIcon} title="star icon" key={i} />);
+      stars.push(<StarIcon key={i} />);
     }
     return stars;
   }, [num]);

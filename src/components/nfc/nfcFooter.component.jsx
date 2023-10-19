@@ -22,9 +22,9 @@ const NfcFooter = () => {
             </div>
             {/* social media links */}
             <div className="t-flex t-gap-f-8">
-              {nfcSocialMediaLinks.map(({ title, href, icon }, idx) => (
+              {nfcSocialMediaLinks.map(({ title, href, Icon }, idx) => (
                 <Link key={idx} to={href}>
-                  <img src={icon} alt={title} className="t-w-f-48" />
+                  <Icon className="t-w-f-48" />
                 </Link>
               ))}
             </div>
