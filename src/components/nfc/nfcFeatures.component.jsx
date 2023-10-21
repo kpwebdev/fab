@@ -26,7 +26,7 @@ const NfcFeatures = () => {
               >
                 <h3 className="t-text-f-2xl">{title}</h3>
                 <p className="t-text-f-base">{description}</p>
-                <button className="t-text-f-md t-px-f-16 t-py-f-8 t-bg-f-primary-30 t-text-f-primary-98 t-rounded-f-8 hover:t-bg-f-primary-20">
+                <button className="t-text-f-md t-px-f-16 t-py-f-8 t-inline-block t-bg-f-primary-30 t-text-f-primary-98 t-rounded-f-8 hover:t-bg-f-primary-20">
                   {btn}
                 </button>
               </div>

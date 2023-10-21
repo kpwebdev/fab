@@ -520,7 +520,7 @@ const offcanvasOptionsLinks = [
 // --profile links
 const myProfileLinks = [
   {
-    path: "/nfc/dashboard/my-profile",
+    path: "/nfc/dashboard/my-profile/general",
     title: "General",
   },
   {

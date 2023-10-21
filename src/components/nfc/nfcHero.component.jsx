@@ -30,12 +30,6 @@ const NfcHero = () => {
           data-bs-slide-to="1"
           aria-label="Slide 2"
         ></button>
-        <button
-          type="button"
-          data-bs-target="#nfcHeroCarousel"
-          data-bs-slide-to="2"
-          aria-label="Slide 3"
-        ></button>
       </div>
       <div className="carousel-inner">
         <div
@@ -53,10 +47,13 @@ const NfcHero = () => {
                 className="t-text-f-4xl t-mb-f-24"
                 style={{ textShadow: "0px 8px 8px rgba(0,0,0,.5)" }}
               >
-                TapThe future of Networking in a single{" "}
+                Tap The future of Networking in a single{" "}
                 <span className="t-text-f-secondary-50">Tap</span>
               </h2>
-              <Link className="f-btn-lg f-btn-primary" to="#get-started">
+              <Link
+                className="f-btn-lg f-btn-primary"
+                to="/nfc/creation/physical-card"
+              >
                 Get Started
               </Link>
             </div>
@@ -88,7 +85,10 @@ const NfcHero = () => {
                 Discover our variety of inbuilt templates to make your work{" "}
                 <span className="t-text-f-secondary-50">easier</span>
               </h2>
-              <Link className="f-btn-lg f-btn-primary" to="browse-templates">
+              <Link
+                className="f-btn-lg f-btn-primary"
+                to="/nfc/creation/physical-card/templates"
+              >
                 Browse Templates
               </Link>
             </div>

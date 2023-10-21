@@ -5,7 +5,7 @@ import { offcanvasPageLinks, offcanvasOptionsLinks } from "../../data";
 const DashboardNavbar = () => {
   return (
     <div
-      className="offcanvas offcanvas-start show t-relative t-min-h-screen t-w-1/3"
+      className="offcanvas offcanvas-start show t-h-screen t-w-1/3 t-sticky t-top-0"
       data-bs-scroll="true"
       data-bs-backdrop="false"
       tabIndex="-1"
@@ -22,10 +22,17 @@ const DashboardNavbar = () => {
       </header>
       <div className="offcanvas-body t-flex t-flex-col t-justify-between">
         {/* page links container */}
-        <ul className="t-flex t-flex-col t-gap-f-16">
+        <ul className="t-flex t-flex-col">
           {offcanvasPageLinks.map(({ path, Icon, title }, idx) => (
             <li key={idx}>
-              <NavLink to={path} className="t-flex t-gap-f-8 t-text-f-md">
+              <NavLink
+                to={path}
+                className={({ isActive }) =>
+                  isActive
+                    ? "t-flex t-gap-f-8 t-text-f-md t-px-f-8 t-rounded-f-8 t-py-f-16 t-text-f-primary-99 t-bg-f-primary-30"
+                    : "t-flex t-gap-f-8 t-text-f-md t-px-f-8 t-rounded-f-8 t-py-f-16 hover:t-bg-f-primary-90"
+                }
+              >
                 <Icon /> <span>{title}</span>
               </NavLink>
             </li>

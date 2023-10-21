@@ -20,13 +20,21 @@ const MyFabSharedLayout = () => {
         {/* right buttons */}
         <div className="t-flex t-items-center">
           <NavLink
-            className="f-btn-sm f-btn-primary t-rounded-r-none t-inline-block"
-            to="/nfc/dashboard/my-profile/my-fab/"
+            className={({ isActive }) =>
+              isActive
+                ? "f-btn-sm f-btn-primary t-rounded-r-none t-inline-block"
+                : "f-btn-sm f-btn-primary-outline t-rounded-r-none t-inline-block"
+            }
+            to="/nfc/dashboard/my-profile/my-fab/cards"
           >
             Cards
           </NavLink>
           <NavLink
-            className="f-btn-sm f-btn-primary-outline t-rounded-l-none t-inline-block"
+            className={({ isActive }) =>
+              isActive
+                ? "f-btn-sm f-btn-primary t-rounded-l-none t-inline-block"
+                : "f-btn-sm f-btn-primary-outline t-rounded-l-none t-inline-block"
+            }
             to="/nfc/dashboard/my-profile/my-fab/profiles"
           >
             Profiles

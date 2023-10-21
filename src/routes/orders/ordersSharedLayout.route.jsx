@@ -30,10 +30,28 @@ const OrdersSharedLayout = () => {
         {/* navigation links */}
         <ul className="t-flex t-gap-f-24 t-py-f-16">
           <li>
-            <NavLink to="/nfc/dashboard/orders">Self</NavLink>
+            <NavLink
+              to="/nfc/dashboard/orders/self"
+              className={({ isActive }) =>
+                isActive
+                  ? "t-border-b-2 t-border-f-primary-40 t-py-f-8"
+                  : "t-border-b-2 t-border-transparent t-py-f-8 hover:t-border-f-primary-70"
+              }
+            >
+              Self
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/nfc/dashboard/orders/customer">Customer</NavLink>
+            <NavLink
+              to="/nfc/dashboard/orders/customer"
+              className={({ isActive }) =>
+                isActive
+                  ? "t-border-b-2 t-border-f-primary-40 t-py-f-8"
+                  : "t-border-b-2 t-border-transparent t-py-f-8 hover:t-border-f-primary-70"
+              }
+            >
+              Customer
+            </NavLink>
           </li>
         </ul>
 

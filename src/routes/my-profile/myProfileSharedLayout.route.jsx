@@ -14,7 +14,16 @@ const MyProfileSharedLayout = () => {
       <ul className="t-flex t-gap-f-24 t-py-f-16">
         {myProfileLinks.map(({ path, title }, idx) => (
           <li key={idx}>
-            <NavLink to={path}>{title}</NavLink>
+            <NavLink
+              to={path}
+              className={({ isActive }) =>
+                isActive
+                  ? "t-border-b-2 t-border-f-primary-40 t-py-f-8"
+                  : "t-border-b-2 t-border-transparent t-py-f-8 hover:t-border-f-primary-70"
+              }
+            >
+              {title}
+            </NavLink>
           </li>
         ))}
       </ul>

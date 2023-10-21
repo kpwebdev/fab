@@ -105,13 +105,20 @@ const router = createBrowserRouter([
     path: "/nfc/dashboard",
     element: <NfcDashboardSharedLayout />,
     children: [
-      { index: true, element: <Navigate to="/nfc/dashboard/my-profile" /> },
+      {
+        index: true,
+        element: <Navigate replace to="/nfc/dashboard/my-profile" />,
+      },
       {
         path: "my-profile",
         element: <MyProfileSharedLayout />,
         children: [
           {
             index: true,
+            element: <Navigate to="general" />,
+          },
+          {
+            path: "general",
             element: <General />,
           },
           {
@@ -128,6 +135,10 @@ const router = createBrowserRouter([
             children: [
               {
                 index: true,
+                element: <Navigate to="cards" />,
+              },
+              {
+                path: "cards",
                 element: <MyFabCards />,
               },
               {
@@ -166,6 +177,10 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
+            element: <Navigate to="self" />,
+          },
+          {
+            path: "self",
             element: <Self />,
           },
           {

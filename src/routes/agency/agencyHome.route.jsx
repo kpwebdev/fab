@@ -14,8 +14,89 @@ import IconContentCreation from "../../assets/icon-content-creation.svg?react";
 import IconWebsiteDevelopment from "../../assets/icon-website-development.svg?react";
 import skillMaxDashboard from "../../assets/skillMax-dashboard.png";
 import fabTapDashboard from "../../assets/fabTap-dashboard.png";
+import { fabAgencyServices } from "../../data";
+import ChatbotSection from "../../components/chatbotSection.component";
 
 const AgencyHome = () => {
+  const steps = [
+    {
+      id: "0",
+      message: "Welcome to Fab Digital Marketing!",
+      trigger: "1",
+    },
+    {
+      id: "1",
+      message: "Please select an options",
+      trigger: "2",
+    },
+    {
+      id: "2",
+      options: [
+        { value: 1, label: "List of services", trigger: "3" },
+        { value: 2, label: "Customer care number", trigger: "4" },
+      ],
+    },
+    {
+      id: "3",
+      component: (
+        <ul className="t-flex t-flex-col t-gap-f-8">
+          {fabAgencyServices.map(({ id, title, pageHref }) => (
+            <li key={id}>
+              <Link to={pageHref} className="t-text-f-primary-40 t-underline">
+                {title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      ),
+      trigger: "5",
+    },
+    {
+      id: "4",
+      component: (
+        <Link
+          className="t-text-f-primary-40 t-underline"
+          to="tel:+918306823235"
+        >
+          +918306823235
+        </Link>
+      ),
+      trigger: "5",
+    },
+    {
+      id: "5",
+      options: [
+        { value: 3, label: "Close the chat", trigger: "6" },
+        { value: 4, label: "Repeat", trigger: "7" },
+      ],
+    },
+    {
+      id: "6",
+      message: () => {
+        setTimeout(() => setShowChat(false), 4000);
+        return "Closing in 4 sec.";
+      },
+      end: true,
+    },
+    {
+      id: "7",
+      message: "Ok",
+      trigger: "0",
+    },
+  ];
+
+  const theme = {
+    background: "#ed",
+    fontFamily: "Helvetica Neue",
+    headerBgColor: "#EF6C00",
+    headerFontColor: "#fff",
+    headerFontSize: "15px",
+    botBubbleColor: "#EF6C00",
+    botFontColor: "#fff",
+    userBubbleColor: "#fff",
+    userFontColor: "#4a4a4a",
+  };
+
   return (
     <div>
       {/* hero section starts */}
@@ -34,7 +115,12 @@ const AgencyHome = () => {
             </p>
             {/* buttons container */}
             <div className="t-flex t-gap-f-16">
-              <button className="f-btn-md f-btn-primary">Get Started</button>
+              <Link
+                className="f-btn-md f-btn-primary"
+                to="/fab-digital-agency/services"
+              >
+                Get Started
+              </Link>
               <button className="t-flex t-items-center t-gap-f-4 t-text-f-primary-40 t-text-f-md">
                 <div className="t-bg-f-primary-98 t-flex t-items-center t-justify-center t-pl-f-16 t-pr-[10px] t-py-[12px] t-rounded-full t-shadow-lg">
                   <BsFillPlayFill className="shadow-lg" />
@@ -70,23 +156,29 @@ const AgencyHome = () => {
 
             {/* cards container */}
             <div className="t-grid t-grid-cols-2 t-gap-f-24">
-              <div className="border t-shadow-md t-border-f-primary-60 t-bg-f-primary-98 t-text-f-l t-flex t-flex-col t-justify-between t-gap-f-16 t-p-f-16 t-rounded-f-8">
+              <Link
+                className="border t-shadow-md t-border-f-primary-60 t-bg-f-primary-98 t-text-f-l t-flex t-flex-col t-justify-between t-gap-f-16 t-p-f-16 t-rounded-f-8 hover:-t-translate-y-f-16 t-transition-all t-duration-300 hover:t-shadow-lg hover:t-bg-f-primary-98"
+                to="/fab-digital-agency/services"
+              >
                 <BiSolidHeartCircle className="t-text-green-500 t-self-end t-text-5xl" />
                 <h5>
                   <span className="t-text-green-500">Services </span>
                   we provide for you
                 </h5>
                 <BsArrowRight className="t-text-black t-self-end" />
-              </div>
+              </Link>
 
-              <div className="border t-shadow-md t-border-f-primary-60 t-bg-f-primary-98 t-text-f-l t-flex t-flex-col t-justify-between t-gap-f-16 t-p-f-16 t-rounded-f-8">
+              <Link
+                className="border t-shadow-md t-border-f-primary-60 t-bg-f-primary-98 t-text-f-l t-flex t-flex-col t-justify-between t-gap-f-16 t-p-f-16 t-rounded-f-8 hover:-t-translate-y-f-16 t-transition-all t-duration-300 hover:t-shadow-lg hover:t-bg-f-primary-98"
+                to="/nfc"
+              >
                 <LuNfc className="t-text-f-secondary-50 t-self-end t-text-4xl" />
                 <h5>
                   Checkout our{" "}
                   <span className="t-text-f-secondary-50">NFC Cards</span>.
                 </h5>
                 <BsArrowRight className="t-text-black t-self-end" />
-              </div>
+              </Link>
             </div>
           </div>
         </div>
@@ -130,31 +222,45 @@ const AgencyHome = () => {
                 We offer a wide range of digital marketing services tailored to
                 your brand's needs and goals.
               </p>
-              <button className="f-btn-md f-btn-primary">View all</button>
+              <Link
+                className="f-btn-md f-btn-primary"
+                to="/fab-digital-agency/services"
+              >
+                View all
+              </Link>
             </div>
 
             {/* cards container */}
             <div className="t-grid t-grid-rows-3 t-gap-f-24">
               {/* social media management card */}
-              <div className="t-flex align-items-center t-justify-between t-text-f-md t-bg-f-secondary-90 t-font-semibold t-p-f-16 t-gap-f-16 t-rounded-f-8">
+              <Link
+                className="t-flex align-items-center t-justify-between t-text-f-md t-bg-f-secondary-90 t-font-semibold t-p-f-16 t-gap-f-16 t-rounded-f-8 hover:t-bg-f-secondary-80"
+                to="/fab-digital-agency/services/social-media-marketing"
+              >
                 <IconSocialMediaManagement />
                 <span>Social Media Management</span>
                 <BsArrowRight className="t-text-f-l ms-auto" />
-              </div>
+              </Link>
 
               {/* content creation card */}
-              <div className="t-flex align-items-center t-justify-between t-text-f-md t-bg-green-100 t-font-semibold t-p-f-16 t-gap-f-16 t-rounded-f-8">
+              <Link
+                className="t-flex align-items-center t-justify-between t-text-f-md t-bg-green-100 t-font-semibold t-p-f-16 t-gap-f-16 t-rounded-f-8 hover:t-bg-green-200"
+                to="#content-creation"
+              >
                 <IconContentCreation />
-                <span>Social Media Management</span>
+                <span>Content Creation</span>
                 <BsArrowRight className="t-text-f-l ms-auto" />
-              </div>
+              </Link>
 
               {/* website development card */}
-              <div className="t-flex align-items-center t-justify-between t-text-f-md t-bg-f-primary-90 t-font-semibold t-p-f-16 t-gap-f-16 t-rounded-f-8">
+              <Link
+                className="t-flex align-items-center t-justify-between t-text-f-md t-bg-f-primary-90 t-font-semibold t-p-f-16 t-gap-f-16 t-rounded-f-8 hover:t-bg-f-primary-80"
+                to="/fab-digital-agency/services/websites"
+              >
                 <IconWebsiteDevelopment />
                 <span>Social Media Management</span>
                 <BsArrowRight className="t-text-f-l ms-auto" />
-              </div>
+              </Link>
             </div>
           </div>
         </div>
@@ -197,7 +303,12 @@ const AgencyHome = () => {
             </li>
           </ul>
 
-          <button className="f-btn-md f-btn-primary">View all</button>
+          <Link
+            className="f-btn-md f-btn-primary"
+            to="/fab-digital-agency/portfolios/websites"
+          >
+            View all
+          </Link>
         </div>
       </section>
       {/* best works ends */}
@@ -292,6 +403,10 @@ const AgencyHome = () => {
         </div>
       </section>
       {/* faq section ends */}
+
+      {/* chat with us starts */}
+      <ChatbotSection steps={steps} />
+      {/* chat with us ends */}
     </div>
   );
 };

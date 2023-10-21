@@ -9,8 +9,78 @@ import NfcDownload from "../../components/nfc/nfcDownload.component";
 import NfcTestimonials from "../../components/nfc/nfcTestimonials.component";
 import FaqsSection from "../../components/nfc/faqs.componentSection";
 import NfcFooter from "../../components/nfc/nfcFooter.component";
+import ChatbotSection from "../../components/chatbotSection.component";
+import { fabAgencyServices } from "../../data";
+import { Link } from "react-router-dom";
 
 const NfcHome = () => {
+  const steps = [
+    {
+      id: "0",
+      message: "Welcome to Fab Digital Marketing!",
+      trigger: "1",
+    },
+    {
+      id: "1",
+      message: "Please select an options",
+      trigger: "2",
+    },
+    {
+      id: "2",
+      options: [
+        { value: 1, label: "List of services", trigger: "3" },
+        { value: 2, label: "Customer care number", trigger: "4" },
+      ],
+    },
+    {
+      id: "3",
+      component: (
+        <ul className="t-flex t-flex-col t-gap-f-8">
+          {fabAgencyServices.map(({ id, title, pageHref }) => (
+            <li key={id}>
+              <Link to={pageHref} className="t-text-f-primary-40 t-underline">
+                {title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      ),
+      trigger: "5",
+    },
+    {
+      id: "4",
+      component: (
+        <Link
+          className="t-text-f-primary-40 t-underline"
+          to="tel:+918306823235"
+        >
+          +918306823235
+        </Link>
+      ),
+      trigger: "5",
+    },
+    {
+      id: "5",
+      options: [
+        { value: 3, label: "Close the chat", trigger: "6" },
+        { value: 4, label: "Repeat", trigger: "7" },
+      ],
+    },
+    {
+      id: "6",
+      message: () => {
+        setTimeout(() => setShowChat(false), 4000);
+        return "Closing in 4 sec.";
+      },
+      end: true,
+    },
+    {
+      id: "7",
+      message: "Ok",
+      trigger: "0",
+    },
+  ];
+
   return (
     <>
       <NfcHero />
@@ -24,6 +94,7 @@ const NfcHome = () => {
       <NfcTestimonials />
       <FaqsSection />
       <NfcFooter />
+      <ChatbotSection steps={steps} />
     </>
   );
 };
