@@ -1,15 +1,31 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { IoIosSearch } from "react-icons/io";
 import { useState } from "react";
+import { mkConfig, generateCsv, download } from "export-to-csv";
+import { contacts } from "../../data";
 
 const FormInitialValue = {
   search: "",
   sortBy: "",
 };
 
+const csvConfig = mkConfig({ useKeysAsHeaders: true });
+
+const contactsToDownload = contacts.map((contact, idx) => {
+  const { favorite, name, mobileNum, emailId } = contact;
+  return {
+    "sl. No.": idx,
+    Name: name,
+    "Mobile Number": mobileNum,
+    "Email ID": emailId,
+    favorite: favorite ? "yes" : "no",
+  };
+});
+
 const ContactSharedLayout = () => {
   const [formInput, setFormInput] = useState(FormInitialValue);
   const { search, sortBy } = formInput;
+  const csv = generateCsv(csvConfig)(contactsToDownload);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -31,8 +47,12 @@ const ContactSharedLayout = () => {
       <div className="t-flex t-justify-between t-my-f-24">
         <div className="t-flex t-gap-f-8">
           <NavLink className="f-btn-lg f-btn-primary">+Add new</NavLink>
-          <button className="f-btn-lg f-btn-primary-outline">
-            Export as...
+          <button
+            type="button"
+            className="f-btn-lg f-btn-primary-outline"
+            onClick={() => download(csvConfig)(csv)}
+          >
+            Export as CSV
           </button>
         </div>
 

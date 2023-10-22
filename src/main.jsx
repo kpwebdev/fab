@@ -12,6 +12,9 @@ import "./css/tailwind.css";
 // bootstrap - script
 import * as bootstrap from "bootstrap";
 
+// toastify stylesheet
+import "react-toastify/dist/ReactToastify.css";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <App />

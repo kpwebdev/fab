@@ -3,6 +3,9 @@ import {
   RouterProvider,
   Navigate,
 } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { ToastContainer, toast } from "react-toastify";
 
 // routes
 import {
@@ -56,6 +59,8 @@ import {
   Portfolio,
   ServicesIndex,
 } from "./routes";
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -255,7 +260,12 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+      <ToastContainer />
+    </QueryClientProvider>
+  );
 }
 
 export default App;

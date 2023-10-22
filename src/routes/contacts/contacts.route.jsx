@@ -1,9 +1,9 @@
-import { contacts } from "../../data";
 import { BiStar, BiSolidStar, BiPencil } from "react-icons/bi";
 import { FaUserAlt } from "react-icons/fa";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { contacts } from "../../data";
 
 const Contacts = () => {
   return (
@@ -53,12 +53,14 @@ const Contacts = () => {
                   <td>
                     <div className="t-flex t-gap-f-16">
                       <button type="button">
-                        <BiPencil className="t-text-green-500" />
+                        <BiPencil className="t-text-green-500 hover:t-text-green-300" />
                       </button>
-                      <button type="button" className="t-text-red-500">
+                      <button
+                        type="button"
+                        className="t-text-red-500 hover:t-text-red-300"
+                      >
                         <AiFillCloseCircle />
                       </button>
-                      <Input unique={`checkbox${idx}`} />
                     </div>
                   </td>
                 </tr>

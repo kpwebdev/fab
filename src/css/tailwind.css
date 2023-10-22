@@ -832,6 +832,10 @@ video {
           margin-inline-start: auto;
 }
 
+.t-mt-f-8 {
+  margin-top: 8px;
+}
+
 .t-mt-f-96 {
   margin-top: 96px;
 }
@@ -1022,6 +1026,10 @@ video {
   --tw-scale-x: 1.5;
   --tw-scale-y: 1.5;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.t-cursor-not-allowed {
+  cursor: not-allowed;
 }
 
 .t-cursor-pointer {
@@ -1336,6 +1344,16 @@ video {
   background-color: rgb(220 252 231 / var(--tw-bg-opacity));
 }
 
+.t-bg-red-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
+}
+
+.t-bg-red-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 202 202 / var(--tw-bg-opacity));
+}
+
 .t-bg-team-image {
   background-image: linear-gradient(rgba(6, 22, 45, .75), rgba(6, 22, 45, .75)), url('./src/assets/team-building.png');
 }
@@ -1385,6 +1403,11 @@ video {
 .t-px-f-16 {
   padding-left: 16px;
   padding-right: 16px;
+}
+
+.t-px-f-2 {
+  padding-left: 2px;
+  padding-right: 2px;
 }
 
 .t-px-f-24 {
@@ -1758,6 +1781,16 @@ video {
 
 .hover\:t-pl-f-48:hover {
   padding-left: 48px;
+}
+
+.hover\:t-text-red-300:hover {
+  --tw-text-opacity: 1;
+  color: rgb(252 165 165 / var(--tw-text-opacity));
+}
+
+.hover\:t-text-green-300:hover {
+  --tw-text-opacity: 1;
+  color: rgb(134 239 172 / var(--tw-text-opacity));
 }
 
 .hover\:t-no-underline:hover {

@@ -166,7 +166,8 @@ const checkoutList = [
     img: fabLogo,
     title: "Checkout our",
     subtitle: "Fab Digital Agency",
-    text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat error, earum odit rerum adipisci.",
+    text:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat error, earum odit rerum adipisci.",
     subHeadingColor: "t-text-f-primary-50",
   },
   {
@@ -174,7 +175,8 @@ const checkoutList = [
     img: wifi,
     title: "Checkout our",
     subtitle: "NFC Cards",
-    text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat error, earum odit rerum adipisci.",
+    text:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat error, earum odit rerum adipisci.",
     subHeadingColor: "t-text-f-secondary-50",
   },
 ];
@@ -585,6 +587,58 @@ const userData = {
     companyName: "Fab Digital Agency",
     jobRole: "Marketing Expert",
     companySize: "Solo",
+  },
+};
+
+// default userData
+const defaultUserData = {
+  bannerImage: bannerImage,
+  profilePic: profilePic,
+  userName: "",
+  fullName: "",
+  companyName: "",
+  role: "",
+  website: "",
+  contact: "",
+  socialMedia: [
+    {
+      title: "Instagram",
+      href: "https://www.instagram.com/",
+      Icon: IconInstagram,
+    },
+    {
+      title: "LinkedIn",
+      href: "https://www.linkedin.com/",
+      Icon: IconLinkedin,
+    },
+    {
+      title: "Pinterest",
+      href: "https://www.pinterest.com/",
+      Icon: IconPinterest,
+    },
+    {
+      title: "Tiktok",
+      href: "https://www.tiktok.com/",
+      Icon: IconTiktok,
+    },
+    {
+      title: "YouTube",
+      href: "https://www.youtube.com/",
+      Icon: IconYoutube,
+    },
+  ],
+  status: [
+    { title: "Total Taps", num: 0 },
+    { title: "Total Contacts", num: 0 },
+  ],
+  companyDetails: {
+    companyBanner: bannerImage,
+    companyLogo: fabLogo,
+    companyHeading: "",
+    companySubheading: "",
+    companyName: "",
+    jobRole: "",
+    companySize: "",
   },
 };
 
@@ -1596,4 +1650,5 @@ export {
   fabAgencyFooterCommunityLinks,
   fabAgencyFaqs,
   fabAgencyReviews,
+  defaultUserData,
 };

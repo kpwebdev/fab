@@ -2,6 +2,9 @@ import { BiSolidPencil } from "react-icons/bi";
 import { AiOutlineInfoCircle, AiFillPlusCircle } from "react-icons/ai";
 import { userData } from "../../data";
 import { Link } from "react-router-dom";
+import { addDocument } from "../../utils/firebase/firebase.util";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { toast } from "react-toastify";
 
 const General = () => {
   const {
@@ -16,6 +19,7 @@ const General = () => {
     socialMedia,
     status,
   } = userData;
+
   return (
     <div>
       {/* banner */}
@@ -235,7 +239,9 @@ const General = () => {
                 </div>
               ))}
             </div>
-            <button className="f-btn-md f-btn-secondary">View Progress</button>
+            <button type="button" className="f-btn-md f-btn-secondary">
+              View Progress
+            </button>
           </div>
 
           {/* buttons container */}
