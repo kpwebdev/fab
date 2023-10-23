@@ -2,10 +2,31 @@ import { BiStar, BiSolidStar, BiPencil } from "react-icons/bi";
 import { FaUserAlt } from "react-icons/fa";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import { contacts } from "../../data";
+import { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
+
+const filterFunc = (currentContacts, search, sortBy) => {
+  const filteredContacts = currentContacts.filter((contact) =>
+    contact.name.toLowerCase().includes(search.toLowerCase())
+  );
+  const sortedContacts = filteredContacts.sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
+
+  return sortedContacts;
+};
 
 const Contacts = () => {
+  const { formInput, contacts } = useOutletContext();
+  const { search, sortBy } = formInput;
+  const [filteredContacts, setFilteredContacts] = useState(
+    filterFunc(contacts, search)
+  );
+
+  useEffect(() => {
+    const newFilteredContacts = filterFunc(contacts, search);
+    setFilteredContacts(newFilteredContacts);
+  }, [search, sortBy]);
   return (
     <div className="t-rounded-f-8 t-shadow-xl t-p-f-16 t-border t-text-f-md">
       <form>
@@ -21,7 +42,7 @@ const Contacts = () => {
           </thead>
 
           <tbody>
-            {contacts.map(
+            {filteredContacts.map(
               ({ favorite, profilePic, name, mobileNum, emailId }, idx) => (
                 <tr key={idx}>
                   <td>

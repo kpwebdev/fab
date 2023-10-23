@@ -148,7 +148,7 @@ const Login = () => {
                 }`}
                 disabled={isPending || googleLoading}
               >
-                Login
+                {isPending ? "Logging in..." : "Login"}
               </button>
               {/* divider */}
               <div className="t-flex t-gap-f-24 t-items-center">
@@ -166,7 +166,7 @@ const Login = () => {
                 disabled={isPending || googleLoading}
                 onClick={googleSignInFunc}
               >
-                Login with Google
+                {googleLoading ? "Logging with google..." : "Login with Google"}
               </button>
             </div>
           </form>

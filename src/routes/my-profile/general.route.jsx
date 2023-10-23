@@ -10,8 +10,9 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import { getUser } from "../../utils/firebase/firebase.util";
 import { useState } from "react";
-import { userFormSchema } from "../../schema";
+import { userFormSchema, socialMediaSchema } from "../../schema";
 import { Formik, Form, Field } from "formik";
+import PhoneInput from "react-phone-input-2";
 
 const General = () => {
   const { bannerImage, profilePic } = userData;
@@ -29,7 +30,10 @@ const General = () => {
     error: userError,
   } = useMutation({
     mutationFn: updateUserDetails,
-    onSuccess: () => toast.success("Updated user data successfully."),
+    onSuccess: () => {
+      toast.success("Updated user data successfully.");
+      setIsEditing(false);
+    },
     onError: () => {
       toast.error(`User data not updated. error: ${error.message}`);
       console.log(userError);
@@ -108,7 +112,7 @@ const General = () => {
             validationSchema={userFormSchema}
             onSubmit={(values) => updateUser(values)}
           >
-            {({ errors, touched }) => {
+            {({ errors, touched, handleChange }) => {
               return (
                 <Form className="t-text-f-base">
                   {/* userName container */}
@@ -265,44 +269,20 @@ const General = () => {
                       Contact
                     </label>
                     <div className="col-sm-10">
-                      <div className="t-flex t-gap-f-16">
-                        <div className="input-group t-mb-f-16">
-                          <span className="input-group-text">+91</span>
-                          <Field
-                            type="text"
-                            className="form-control"
-                            name="contact"
-                            id="contact"
-                            readOnly={!isEditing}
-                            disabled={!isEditing}
-                          />
-                        </div>
-
-                        {/* addd button */}
-                        {/* <button className="t-text-f-xl t-text-f-primary-30">
-                      <AiFillPlusCircle />
-                    </button> */}
-                      </div>
-
-                      {/* isWhatsappNum */}
-                      {/* <div className="form-check t-flex t-gap-f-16 t-items-center">
-                    <Field
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="isWhatsappNum"
-                    />
-                    <label
-                      className="form-check-label t-text-f-base t-flex"
-                      htmlFor="isWhatsappNum"
-                    >
-                      Same as WhatsApp{" "}
-                      <button type="button">
-                        <AiOutlineInfoCircle />
-                      </button>
-                    </label>
-                  </div> */}
-                      <div className="t-mb-f-16"></div>
+                      <PhoneInput
+                        inputProps={{
+                          id: "contact",
+                          name: "contact",
+                          readOnly: !isEditing,
+                        }}
+                        disabled={!isEditing}
+                        inputClass="form-control"
+                        inputStyle={{ width: "100%" }}
+                        country={"in"}
+                        onChange={(value, country, e, formattedValue) =>
+                          handleChange(e)
+                        }
+                      />
                     </div>
                     {errors.contact && touched.contact && (
                       <p className="t-text-red-500 t-bg-red-200 t-py-f-8 t-text-f-xs">
@@ -325,16 +305,182 @@ const General = () => {
                           <li key={idx}>
                             <Link target="_blank" to={href} title={title}>
                               {/* <Icon /> */}
+                              {title}
                             </Link>
                           </li>
                         ))}
 
-                        <button
-                          type="button"
-                          className="t-underline t-absolute -t-top-f-8 -t-right-f-8 t-translate-x-full t-text-sm"
-                        >
-                          Edit
-                        </button>
+                        <div className="t-absolute -t-top-f-8 -t-right-f-8 t-translate-x-full">
+                          <div class="dropdown">
+                            <button
+                              class="t-underline t-text-sm"
+                              type="button"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                              data-bs-auto-close="false"
+                            >
+                              Edit
+                            </button>
+                            <div class="dropdown-menu t-min-w-[500px] t-p-f-8 t-shadow-md">
+                              <Formik
+                                initialValues={{
+                                  hasFacebook: false,
+                                  facebookHref: "",
+                                  hasInstagram: false,
+                                  instagramHref: "",
+                                  hasWhatsapp: false,
+                                  whatsappNum: "",
+                                  hasTwitter: false,
+                                  twitterHref: "",
+                                  hasLinkedIn: false,
+                                  linkedInHref: "",
+                                }}
+                                validationSchema={socialMediaSchema}
+                                onSubmit={(values) =>
+                                  console.log(
+                                    "form submitted successfully.",
+                                    values
+                                  )
+                                }
+                              >
+                                {({
+                                  touched,
+                                  errors,
+                                  handleChange,
+                                  values,
+                                }) => {
+                                  console.log("current values", values);
+                                  return (
+                                    <Form>
+                                      <div className="t-mb-f-16">
+                                        <div className="t-flex t-items-center t-gap-f-8">
+                                          <div className="form-check">
+                                            <label
+                                              htmlFor="hasFacebook"
+                                              className="form-check-label t-hidden t-mb-0"
+                                            >
+                                              Has facebook
+                                            </label>
+                                            <Field
+                                              type="checkbox"
+                                              id="hasFacebook"
+                                              name="hasFacebook"
+                                              className="form-check-input"
+                                            />
+                                          </div>
+                                          <div className="t-flex t-items-center t-gap-f-8">
+                                            <label
+                                              htmlFor="facebookHref"
+                                              className="form-label t-min-w-fit t-mb-0"
+                                            >
+                                              Facebook Url:
+                                            </label>
+                                            <Field
+                                              type="url"
+                                              id="facebookHref"
+                                              name="facebookHref"
+                                              className="form-control"
+                                            />
+                                          </div>
+                                        </div>
+                                        {errors.facebookHref &&
+                                          touched.facebookHref && (
+                                            <p className="t-text-red-500 t-text-f-sm t-mt-f-8">
+                                              {errors.facebookHref}
+                                            </p>
+                                          )}
+                                      </div>
+
+                                      <div className="t-mb-f-16">
+                                        <div className="t-flex t-items-center t-gap-f-8">
+                                          <div className="form-check">
+                                            <label
+                                              htmlFor="hasInstagram"
+                                              className="form-check-label t-hidden t-mb-0"
+                                            >
+                                              Has Instagram
+                                            </label>
+                                            <Field
+                                              type="checkbox"
+                                              id="hasInstagram"
+                                              name="hasInstagram"
+                                              className="form-check-input"
+                                            />
+                                          </div>
+                                          <div className="t-flex t-items-center t-gap-f-8">
+                                            <label
+                                              htmlFor="instagramHref"
+                                              className="form-label t-min-w-fit t-mb-0"
+                                            >
+                                              Instagram Url:
+                                            </label>
+                                            <Field
+                                              type="url"
+                                              id="instagramHref"
+                                              name="instagramHref"
+                                              className="form-control"
+                                            />
+                                          </div>
+                                        </div>
+                                        {errors.instagramHref &&
+                                          touched.instagramHref && (
+                                            <p className="t-text-red-500 t-text-f-sm t-mt-f-8">
+                                              {errors.instagramHref}
+                                            </p>
+                                          )}
+                                      </div>
+
+                                      <div className="t-mb-f-16">
+                                        <div className="t-flex t-items-center t-gap-f-8">
+                                          <div className="form-check">
+                                            <label
+                                              htmlFor="hasWhatsapp"
+                                              className="form-check-label t-hidden t-mb-0"
+                                            >
+                                              Has facebook
+                                            </label>
+                                            <Field
+                                              type="checkbox"
+                                              id="hasWhatsapp"
+                                              name="hasWhatsapp"
+                                              className="form-check-input"
+                                            />
+                                          </div>
+                                          <div className="t-flex t-items-center t-gap-f-8">
+                                            <label
+                                              htmlFor="whatsappNum"
+                                              className="form-label t-min-w-fit t-mb-0"
+                                            >
+                                              Whatsapp Number:
+                                            </label>
+                                            <PhoneInput
+                                              type="url"
+                                              id="whatsappNum"
+                                              name="whatsappNum"
+                                              onChange={(
+                                                value,
+                                                country,
+                                                e,
+                                                formattedValue
+                                              ) => handleChange(e)}
+                                              className="form-control"
+                                            />
+                                          </div>
+                                        </div>
+                                        {errors.whatsappNum &&
+                                          touched.whatsappNum && (
+                                            <p className="t-text-red-500 t-text-f-sm t-mt-f-8">
+                                              {errors.whatsappNum}
+                                            </p>
+                                          )}
+                                      </div>
+                                    </Form>
+                                  );
+                                }}
+                              </Formik>
+                            </div>
+                          </div>
+                        </div>
                       </ul>
                     </div>
                   </div>
@@ -358,7 +504,10 @@ const General = () => {
                       <button
                         type="button"
                         className="f-btn-md f-btn-primary-outline t-px-f-56"
-                        onClick={() => setIsEditing(true)}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setIsEditing(true);
+                        }}
                       >
                         Edit
                       </button>

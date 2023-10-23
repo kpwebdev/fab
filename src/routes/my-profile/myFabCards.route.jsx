@@ -6,7 +6,6 @@ const MyFabCards = () => {
   return (
     // cards container
     <div className="t-flex t-flex-col t-gap-f-24 t-my-f-48">
-      <h1>Profiles</h1>
       {cardsList.map(
         (
           {

@@ -10,6 +10,7 @@ import {
   where,
   deleteDoc,
   setDoc,
+  updateDoc,
 } from "firebase/firestore";
 import {
   getAuth,
@@ -17,6 +18,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
+  signOut,
 } from "firebase/auth";
 
 // configuration
@@ -53,6 +55,11 @@ const googleProvider = new GoogleAuthProvider();
 const signInWithGoogle = async () => {
   const response = await signInWithPopup(auth, googleProvider);
   return response;
+};
+
+const logout = async () => {
+  const response = await signOut(auth);
+  console.log("response - logout", response);
 };
 
 const getAllDocs = async (collectionName, _q) => {
@@ -124,6 +131,19 @@ const updateUserDetails = async (dataToUpdate) => {
   console.log("response from - updateUserDetails", response);
 };
 
+const updateContacts = async (contacts) => {
+  console.log("running - updateContacts");
+  try {
+    const currentUserData = await getUser();
+    const { id } = currentUserData;
+    const docRef = doc(db, "users", id);
+    const response = await updateDoc(docRef, { contacts });
+    console.log("response - updateContacts", response);
+  } catch (error) {
+    console.log("something is not right", error);
+  }
+};
+
 export {
   signUp,
   signInWithEmail,
@@ -135,4 +155,6 @@ export {
   addUser,
   getUser,
   updateUserDetails,
+  logout,
+  updateContacts,
 };

@@ -861,6 +861,10 @@ video {
   margin-top: 96px;
 }
 
+.t-mb-0 {
+  margin-bottom: 0px;
+}
+
 .t-block {
   display: block;
 }
@@ -1003,6 +1007,15 @@ video {
 
 .t-w-full {
   width: 100%;
+}
+
+.t-min-w-\[500px\] {
+  min-width: 500px;
+}
+
+.t-min-w-fit {
+  min-width: -moz-fit-content;
+  min-width: fit-content;
 }
 
 .t-flex-grow {

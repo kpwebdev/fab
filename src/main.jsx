@@ -15,6 +15,9 @@ import * as bootstrap from "bootstrap";
 // toastify stylesheet
 import "react-toastify/dist/ReactToastify.css";
 
+// styling for phone number input
+import "react-phone-input-2/lib/style.css";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <App />
