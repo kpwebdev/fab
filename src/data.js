@@ -641,6 +641,208 @@ const defaultUserData = {
     companySize: "",
   },
 };
+// default userData test
+const defaultUserTestData = {
+  bannerImage: "",
+  profilePic: "",
+  userName: "iamarora",
+  fullName: "Chetna Arora",
+  companyName: "Fab Digital Marketing Agency",
+  role: "Digital Marketing Strategist",
+  website: "fabtap.com",
+  contact: "6492746289",
+  socialMedia: [
+    {
+      title: "Instagram",
+      href: "#instagram",
+      Icon: "",
+    },
+    {
+      title: "LinkedIn",
+      href: "#linkedIn",
+      Icon: "",
+    },
+    {
+      title: "Pinterest",
+      href: "#pinterest",
+      Icon: "",
+    },
+    {
+      title: "Tiktok",
+      href: "#tiktok",
+      Icon: "",
+    },
+    {
+      title: "YouTube",
+      href: "#youtube",
+      Icon: "",
+    },
+  ],
+  status: [
+    { title: "Total Taps", num: 2102 },
+    { title: "Total Contacts", num: 2000 },
+  ],
+  companyDetails: {
+    companyBanner: "",
+    companyLogo: "",
+    companyHeading: "Fab",
+    companySubheading: "Digital Agency",
+    companyName: "Fab Digital Agency",
+    jobRole: "Marketing Expert",
+    companySize: "Solo",
+  },
+  contacts: [
+    {
+      favorite: false,
+      profilePic: "",
+      name: "John Store",
+      mobileNum: "+91 8549632175",
+      emailId: "sample@gmail.com",
+    },
+    {
+      favorite: false,
+      profilePic: "",
+      name: "Emily Smith",
+      mobileNum: "+91 8549632175",
+      emailId: "sample@gmail.com",
+    },
+    {
+      favorite: false,
+      profilePic: "",
+      name: "Jasmine Hart",
+      mobileNum: "+91 8549632175",
+      emailId: "sample@gmail.com",
+    },
+    {
+      favorite: false,
+      profilePic: "",
+      name: "Rose Goldy",
+      mobileNum: "+91 8549632175",
+      emailId: "sample@gmail.com",
+    },
+    {
+      favorite: false,
+      profilePic: "",
+      name: "Kevin White",
+      mobileNum: "+91 8549632175",
+      emailId: "sample@gmail.com",
+    },
+    {
+      favorite: false,
+      profilePic: "",
+      name: "Keshav G",
+      mobileNum: "+91 8549632175",
+      emailId: "sample@gmail.com",
+    },
+  ],
+  progress: {
+    shopStatus: {
+      title: "Shop Status",
+      list: [
+        {
+          title: "Total Orders",
+          num: 90,
+          today: "+10 today",
+          TodayDirIcon: "",
+          icon: "",
+        },
+        {
+          title: "Profit Made",
+          num: "9.56k",
+          today: "+1k today",
+          TodayDirIcon: "",
+          icon: "",
+        },
+      ],
+    },
+    fabTaps: {
+      title: "FabTaps",
+      list: [
+        {
+          title: "Total Taps",
+          num: 2102,
+          today: null,
+          TodayDirIcon: null,
+          icon: "",
+        },
+        {
+          title: "Total Contacts",
+          num: 2000,
+          today: null,
+          TodayDirIcon: null,
+          icon: "",
+        },
+      ],
+    },
+    myTeams: {
+      title: "My Teams",
+      list: [
+        {
+          title: "NFC Makers",
+          num: 15,
+          today: null,
+          TodayDirIcon: null,
+          icon: "",
+        },
+        {
+          title: "NFC Creator",
+          num: 19,
+          today: null,
+          TodayDirIcon: null,
+          icon: "",
+        },
+      ],
+    },
+    customCreatedNFCs: {
+      title: "Custom NFC created",
+      num: 10,
+      icon: "",
+    },
+  },
+  cardsList: [
+    {
+      creatorName: "Creator Name",
+      cardName: "Matte Black",
+      personalized: true,
+      digitalProfileStatus: "Pending",
+      CardImage: "",
+    },
+    {
+      creatorName: "Creator Name",
+      cardName: "Dark Blue",
+      personalized: true,
+      digitalProfileStatus: "Added",
+      CardImage: "",
+    },
+    {
+      creatorName: "Creator Name",
+      cardName: "Pure While",
+      personalized: true,
+      digitalProfileStatus: "Added",
+      CardImage: "",
+    },
+  ],
+  profilesList: [
+    {
+      creatorName: "Creator Name",
+      profileName: "Purple element Profile",
+      personalized: true,
+      profileImage: "",
+    },
+    {
+      creatorName: "Creator Name",
+      profileName: "Navy Blue Profile",
+      personalized: true,
+      profileImage: "",
+    },
+    {
+      creatorName: "Creator Name",
+      profileName: "Dull Red Profile",
+      personalized: true,
+      profileImage: "",
+    },
+  ],
+};
 
 const jobRoles = [
   {
@@ -1651,4 +1853,5 @@ export {
   fabAgencyFaqs,
   fabAgencyReviews,
   defaultUserData,
+  defaultUserTestData,
 };

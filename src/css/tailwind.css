@@ -663,6 +663,27 @@ video {
   transition: all 0.3s 0.05s;
 }
 
+.custom-loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid;
+  border-color: #206fdf transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .t-fixed {
   position: fixed;
 }
@@ -1783,14 +1804,14 @@ video {
   padding-left: 48px;
 }
 
-.hover\:t-text-red-300:hover {
-  --tw-text-opacity: 1;
-  color: rgb(252 165 165 / var(--tw-text-opacity));
-}
-
 .hover\:t-text-green-300:hover {
   --tw-text-opacity: 1;
   color: rgb(134 239 172 / var(--tw-text-opacity));
+}
+
+.hover\:t-text-red-300:hover {
+  --tw-text-opacity: 1;
+  color: rgb(252 165 165 / var(--tw-text-opacity));
 }
 
 .hover\:t-no-underline:hover {

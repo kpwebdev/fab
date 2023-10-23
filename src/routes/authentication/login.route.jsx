@@ -4,6 +4,13 @@ import { Formik, Field } from "formik";
 import { logInSchema } from "../../schema";
 import { useSignIn } from "../../hooks/useSignIn.hook";
 import { useGoogleSignIn } from "../../hooks/useGoogleSignIn.hook";
+import { useMutation } from "@tanstack/react-query";
+import {
+  signInWithEmail,
+  signInWithGoogle,
+} from "../../utils/firebase/firebase.util";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const FORM_INITIAL_VALUE = {
   email: "",
@@ -11,13 +18,41 @@ const FORM_INITIAL_VALUE = {
 };
 
 const Login = () => {
-  const { isLoading, error, data, signInFunc } = useSignIn();
+  const navigate = useNavigate();
+  const { mutate: signInFunc, isPending, error, data } = useMutation({
+    mutationFn: signInWithEmail,
+    onSuccess: () => {
+      toast.success("Successfully loggedIn.");
+      navigate("/nfc/dashboard");
+    },
+    onError: () => {
+      toast.error("Something went wrong. Please contact admin for support.");
+    },
+  });
+
   const {
-    isLoading: googleLoading,
+    isPending: googleLoading,
     error: googleError,
     data: googleData,
-    googleSignInFunc,
-  } = useGoogleSignIn();
+    mutate: googleSignInFunc,
+  } = useMutation({
+    mutationFn: signInWithGoogle,
+    onSuccess: () => {
+      toast.success("Successfully logged in with google.");
+      navigate("/nfc/dashboard");
+    },
+    onError: () => {
+      toast.error("Something went wrong. Please contact admin for support.");
+    },
+  });
+
+  // const { isLoading, error, data, signInFunc } = useSignIn();
+  // const {
+  //   isLoading: googleLoading,
+  //   error: googleError,
+  //   data: googleData,
+  //   googleSignInFunc,
+  // } = useGoogleSignIn();
 
   return (
     <div className="t-flex t-flex-col t-gap-f-32 t-text-f-md">
@@ -30,7 +65,7 @@ const Login = () => {
         validationSchema={logInSchema}
         onSubmit={(values) => {
           const { email, password } = values;
-          signInFunc(email, password);
+          signInFunc({ email, password });
         }}
       >
         {(formik) => (
@@ -109,8 +144,9 @@ const Login = () => {
               <button
                 type="submit"
                 className={`f-btn-lg f-btn-primary t-text-center${
-                  isLoading || googleLoading ? " t-cursor-not-allowed" : ""
+                  isPending || googleLoading ? " t-cursor-not-allowed" : ""
                 }`}
+                disabled={isPending || googleLoading}
               >
                 Login
               </button>
@@ -125,9 +161,9 @@ const Login = () => {
               <button
                 type="button"
                 className={`f-btn-lg f-btn-primary-outline${
-                  isLoading || googleLoading ? " t-cursor-not-allowed" : ""
+                  isPending || googleLoading ? " t-cursor-not-allowed" : ""
                 }`}
-                disabled={isLoading}
+                disabled={isPending || googleLoading}
                 onClick={googleSignInFunc}
               >
                 Login with Google

@@ -1,7 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Formik, Field } from "formik";
 import { signUpSchema } from "../../schema";
 import { useSignUp } from "../../hooks/useSignUp.hook";
+import { useMutation } from "@tanstack/react-query";
+import {
+  addDocument,
+  signInWithGoogle,
+  signUp,
+  addUser,
+} from "../../utils/firebase/firebase.util";
+import { toast } from "react-toastify";
+import { defaultUserTestData } from "../../data";
 
 const FORM_INITIAL_VALUE = {
   email: "",
@@ -10,11 +19,50 @@ const FORM_INITIAL_VALUE = {
 };
 
 const SignUp = () => {
-  const { signUpFunc, isLoading, data, error } = useSignUp();
-  console.log("signUpFunc-signUp", signUpFunc);
-  console.log("isLoading-signUp", isLoading);
-  console.log("data-signUp", data);
-  console.log("error-signUp", error);
+  const navigate = useNavigate();
+  const {
+    mutate: initiateUser,
+    isError: isErrorInitiatingUser,
+    error: errorInitiatingUser,
+    isPending: isInitiatingUser,
+  } = useMutation({
+    mutationFn: addUser,
+    onError: () => {
+      toast.error(`Something went wrong: ${errorInitiatingUser.message}`);
+      console.log(errorInitiatingUser);
+    },
+    onSuccess: () => {
+      navigate("/nfc/dashboard");
+      toast.success("User initiated successfully!");
+    },
+  });
+  const { isPending, error, isError, mutate: signUpFunc, data } = useMutation({
+    mutationFn: signUp,
+    onSuccess: () => {
+      initiateUser(defaultUserTestData);
+      toast.success("Successfully registered");
+    },
+    onError: () =>
+      toast.error("Something went wrong. Please contact web admin."),
+  });
+
+  const {
+    isPending: googleLoading,
+    error: googleError,
+    data: googleData,
+    mutate: googleSignInFunc,
+  } = useMutation({
+    mutationFn: signInWithGoogle,
+    onSuccess: () => {
+      initiateUser(defaultUserTestData);
+      toast.success("Successfully logged in with google.");
+    },
+    onError: () => {
+      toast.error("Something went wrong. Please contact admin for support.");
+    },
+  });
+
+  // const { signUpFunc, isPending, data, error, } = useSignUp();
 
   return (
     <div className="t-flex t-flex-col t-gap-f-32 t-text-f-md">
@@ -28,7 +76,7 @@ const SignUp = () => {
         validationSchema={signUpSchema}
         onSubmit={(values) => {
           const { email, password } = values;
-          signUpFunc(email, password);
+          signUpFunc({ email, password });
         }}
       >
         {(formik) => {
@@ -145,11 +193,13 @@ const SignUp = () => {
                 <button
                   type="submit"
                   className={`f-btn-lg f-btn-primary t-text-center${
-                    isLoading ? " t-cursor-not-allowed t-bg-f-primary-20" : ""
+                    isPending || googleLoading || isInitiatingUser
+                      ? " t-cursor-not-allowed t-bg-f-primary-20"
+                      : ""
                   }`}
-                  disabled={isLoading}
+                  disabled={isPending || googleLoading || isInitiatingUser}
                 >
-                  {isLoading ? "Creating an account..." : "Create Account"}
+                  {isPending ? "Creating an account..." : "Create Account"}
                 </button>
                 {/* divider */}
                 <div className="t-flex t-gap-f-24 t-items-center">
@@ -162,11 +212,14 @@ const SignUp = () => {
                 <button
                   type="button"
                   className={`f-btn-lg f-btn-primary-outline${
-                    isLoading ? " t-cursor-not-allowed" : ""
+                    isPending || googleLoading || isInitiatingUser
+                      ? " t-cursor-not-allowed t-bg-f-primary-20"
+                      : ""
                   }`}
-                  disabled={isLoading}
+                  disabled={isPending || googleLoading || isInitiatingUser}
+                  onClick={googleSignInFunc}
                 >
-                  Login with Google
+                  {googleLoading ? "Logging with Google" : "Login with Google"}
                 </button>
               </div>
             </form>

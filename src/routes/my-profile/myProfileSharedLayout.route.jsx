@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import { myProfileLinks } from "../../data";
 
@@ -7,7 +7,9 @@ const MyProfileSharedLayout = () => {
     <section>
       <header className="t-flex t-justify-between">
         <h3 className="t-text-f-3xl">My Profile</h3>
-        <button className="f-btn-lg f-btn-primary">Change account</button>
+        <Link className="f-btn-lg f-btn-primary" to="/nfc/authentication/login">
+          Change account
+        </Link>
       </header>
 
       {/* Profile links */}
