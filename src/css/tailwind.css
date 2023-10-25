@@ -716,6 +716,10 @@ video {
   bottom: 16px;
 }
 
+.t-left-0 {
+  left: 0px;
+}
+
 .t-left-1\/2 {
   left: 50%;
 }
@@ -796,6 +800,10 @@ video {
   margin-top: -48px;
 }
 
+.t-mb-0 {
+  margin-bottom: 0px;
+}
+
 .t-mb-6 {
   margin-bottom: 1.5rem;
 }
@@ -859,10 +867,6 @@ video {
 
 .t-mt-f-96 {
   margin-top: 96px;
-}
-
-.t-mb-0 {
-  margin-bottom: 0px;
 }
 
 .t-block {
@@ -1388,6 +1392,10 @@ video {
   background-color: rgb(254 202 202 / var(--tw-bg-opacity));
 }
 
+.t-bg-opacity-50 {
+  --tw-bg-opacity: 0.5;
+}
+
 .t-bg-team-image {
   background-image: linear-gradient(rgba(6, 22, 45, .75), rgba(6, 22, 45, .75)), url('./src/assets/team-building.png');
 }
@@ -1815,6 +1823,11 @@ video {
 
 .hover\:t-pl-f-48:hover {
   padding-left: 48px;
+}
+
+.hover\:t-text-f-primary-70:hover {
+  --tw-text-opacity: 1;
+  color: rgb(121 169 236 / var(--tw-text-opacity));
 }
 
 .hover\:t-text-green-300:hover {

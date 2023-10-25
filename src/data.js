@@ -494,11 +494,11 @@ const nfcSocialMediaLinks = [
 // --offcanvas page links
 const offcanvasPageLinks = [
   { path: "/nfc/dashboard/my-profile", Icon: CiUser, title: "My Profile" },
-  {
-    path: "/nfc/dashboard/contacts",
-    Icon: RiContactsBookLine,
-    title: "Contacts",
-  },
+  // {
+  //   path: "/nfc/dashboard/contacts",
+  //   Icon: RiContactsBookLine,
+  //   title: "Contacts",
+  // },
   { path: "/nfc/dashboard/shop", Icon: HiOutlineShoppingBag, title: "Shop" },
   { path: "/nfc/dashboard/orders", Icon: BsClipboard, title: "Orders" },
   {
@@ -510,12 +510,12 @@ const offcanvasPageLinks = [
 
 // --offcanvas option links
 const offcanvasOptionsLinks = [
-  {
-    path: "/nfc/dashboard/upgrade-plan",
-    Icon: AiOutlineStar,
-    title: "Upgrade Plan",
-  },
-  { path: "/nfc/dashboard/help", Icon: BiHelpCircle, title: "help" },
+  // {
+  //   path: "/nfc/dashboard/upgrade-plan",
+  //   Icon: AiOutlineStar,
+  //   title: "Upgrade Plan",
+  // },
+  // { path: "/nfc/dashboard/help", Icon: BiHelpCircle, title: "help" },
   { path: "/nfc/dashboard/logout", Icon: MdLogout, title: "Logout" },
 ];
 
@@ -525,14 +525,14 @@ const myProfileLinks = [
     path: "/nfc/dashboard/my-profile/general",
     title: "General",
   },
-  {
-    path: "/nfc/dashboard/my-profile/organization",
-    title: "Organization",
-  },
-  {
-    path: "/nfc/dashboard/my-profile/progress",
-    title: "Progress",
-  },
+  // {
+  //   path: "/nfc/dashboard/my-profile/organization",
+  //   title: "Organization",
+  // },
+  // {
+  //   path: "/nfc/dashboard/my-profile/progress",
+  //   title: "Progress",
+  // },
   {
     path: "/nfc/dashboard/my-profile/my-fab",
     title: "My Fab",
@@ -1247,29 +1247,29 @@ const orders = {
 
 // --settings
 const settings = [
-  {
-    title: "General",
-    list: [
-      {
-        Icon: IoMdNotifications,
-        settingName: "Notification",
-        isDangerous: false,
-        href: "/nfc/dashboard/settings/notification",
-      },
-      {
-        Icon: MdGTranslate,
-        settingName: "App Language",
-        isDangerous: false,
-        href: "/nfc/dashboard/settings/app-language",
-      },
-      {
-        Icon: GiHeartPlus,
-        settingName: "Help & Support",
-        isDangerous: false,
-        href: "/nfc/dashboard/settings/help-and-support",
-      },
-    ],
-  },
+  // {
+  //   title: "General",
+  //   list: [
+  //     {
+  //       Icon: IoMdNotifications,
+  //       settingName: "Notification",
+  //       isDangerous: false,
+  //       href: "/nfc/dashboard/settings/notification",
+  //     },
+  //     {
+  //       Icon: MdGTranslate,
+  //       settingName: "App Language",
+  //       isDangerous: false,
+  //       href: "/nfc/dashboard/settings/app-language",
+  //     },
+  //     {
+  //       Icon: GiHeartPlus,
+  //       settingName: "Help & Support",
+  //       isDangerous: false,
+  //       href: "/nfc/dashboard/settings/help-and-support",
+  //     },
+  //   ],
+  // },
   {
     title: "Account",
     list: [
@@ -1293,23 +1293,23 @@ const settings = [
       },
     ],
   },
-  {
-    title: "Feedback",
-    list: [
-      {
-        Icon: MdFeedback,
-        settingName: "Send feedback",
-        isDangerous: false,
-        href: "/nfc/dashboard/settings/send-feedback",
-      },
-      {
-        Icon: AiFillBug,
-        settingName: "Report a Bug",
-        isDangerous: false,
-        href: "/nfc/dashboard/settings/report-bug",
-      },
-    ],
-  },
+  // {
+  //   title: "Feedback",
+  //   list: [
+  //     {
+  //       Icon: MdFeedback,
+  //       settingName: "Send feedback",
+  //       isDangerous: false,
+  //       href: "/nfc/dashboard/settings/send-feedback",
+  //     },
+  //     {
+  //       Icon: AiFillBug,
+  //       settingName: "Report a Bug",
+  //       isDangerous: false,
+  //       href: "/nfc/dashboard/settings/report-bug",
+  //     },
+  //   ],
+  // },
 ];
 
 // --tempaltes

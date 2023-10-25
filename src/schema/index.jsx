@@ -16,7 +16,11 @@ export const signUpSchema = Yup.object({
     .required("Please enter an email"),
   password: Yup.string()
     .min(8)
-    .required("Please enter a password"),
+    .required("Please enter a password")
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).*$/,
+      "Must contain at least one lowercase letter, one uppercase letter, one special character and one numeric character"
+    ),
   confirmPassword: Yup.string()
     .required("Please confirm the password")
     .oneOf([Yup.ref("password"), null], "Password is not matching"),
@@ -31,6 +35,11 @@ export const userFormSchema = Yup.object({
   contact: Yup.string()
     .min(10, "KP wants it at leat 10 digits.")
     .required("Please enter a contact number."),
+  bannerImage: Yup.mixed().test(
+    "fileSize",
+    "Please upload a smaller file",
+    (value, testContext) => value
+  ),
 });
 
 export const contactFormSchema = Yup.object({
@@ -62,10 +71,7 @@ export const socialMediaSchema = Yup.object({
   hasWhatsapp: Yup.boolean(),
   whatsappNum: Yup.string().when("hasWhatsapp", {
     is: true,
-    then: () =>
-      Yup.string()
-        .required("Please enter a whatsapp number.")
-        .url("Please enter a valid url"),
+    then: () => Yup.string().required("Please enter a whatsapp number."),
   }),
   hasTwitter: Yup.boolean(),
   twitterHref: Yup.string().when("hasTwitter", {

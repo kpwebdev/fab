@@ -123,6 +123,7 @@ const getUser = async () => {
 };
 
 const updateUserDetails = async (dataToUpdate) => {
+  console.log("running the update user........");
   const currentUserData = await getUser();
   const { id } = currentUserData;
   const newUserData = { ...currentUserData, ...dataToUpdate };
@@ -144,6 +145,14 @@ const updateContacts = async (contacts) => {
   }
 };
 
+const updateSocialMedia = async (socialMedia) => {
+  const currentUserData = await getUser();
+  const { id } = currentUserData;
+  const docRef = doc(db, "users", id);
+  const response = await updateDoc(docRef, { socialMedia });
+  console.log("response - updateSocialMedia", response);
+};
+
 export {
   signUp,
   signInWithEmail,
@@ -157,4 +166,5 @@ export {
   updateUserDetails,
   logout,
   updateContacts,
+  updateSocialMedia,
 };
