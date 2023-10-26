@@ -3,7 +3,7 @@ import Color from "color";
 import { HiOutlineUpload } from "react-icons/hi";
 
 // components
-import GoogleFonts from "../../components/googleFonts.component";
+// import GoogleFonts from "../../components/googleFonts.component";
 
 const CardCustomizationOptions = ({
   formInputs,
@@ -27,15 +27,15 @@ const CardCustomizationOptions = ({
   };
 
   // effect to load font-weight upon selecting a font-family
-  useEffect(() => {
-    if (googleFonts.length > 0) {
-      const newFontweights = googleFonts.find(
-        ({ family }) => family === formInputs.fontFamily
-      )?.variants;
+  // useEffect(() => {
+  //   if (googleFonts.length > 0) {
+  //     const newFontweights = googleFonts.find(
+  //       ({ family }) => family === formInputs.fontFamily
+  //     )?.variants;
 
-      setGoogleFontWeights(newFontweights);
-    }
-  }, [formInputs.fontFamily, googleFonts]);
+  //     setGoogleFontWeights(newFontweights);
+  //   }
+  // }, [formInputs.fontFamily, googleFonts]);
 
   // effect to update background color of the card
   useEffect(() => {
@@ -161,7 +161,7 @@ const CardCustomizationOptions = ({
                 onChange={handleChange}
                 className="form-select"
               >
-                <GoogleFonts googleFonts={googleFonts} />
+                {/* <GoogleFonts googleFonts={googleFonts} /> */}
                 {/* testing */}
                 {/* {googleFonts.map(({ family }) => (
                   <option value={family} key={family}>

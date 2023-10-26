@@ -9,7 +9,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ToastContainer, toast } from "react-toastify";
 // context
 import AuthContextProvider from "./contexts/AuthProvider.context.jsx";
-import { AuthContext } from "./contexts/AuthProvider.context.jsx";
+import CardProvider from "./contexts/CardProvider.context.jsx";
 // routes
 import {
   SharedHome,
@@ -265,11 +265,13 @@ const router = createBrowserRouter([
 function App() {
   return (
     <AuthContextProvider>
-      <QueryClientProvider client={queryClient}>
-        <ReactQueryDevtools />
-        <RouterProvider router={router} />
-        <ToastContainer />
-      </QueryClientProvider>
+      <CardProvider>
+        <QueryClientProvider client={queryClient}>
+          <ReactQueryDevtools />
+          <RouterProvider router={router} />
+          <ToastContainer />
+        </QueryClientProvider>
+      </CardProvider>
     </AuthContextProvider>
   );
 }

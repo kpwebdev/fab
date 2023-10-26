@@ -7,6 +7,7 @@ import {
   addDocument,
   updateSocialMedia,
   updateUserDetails,
+  uploadFile,
 } from "../../utils/firebase/firebase.util";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
@@ -118,7 +119,15 @@ const General = () => {
         validationSchema={userFormSchema}
         onSubmit={(values) => console.log("Done updating the user details.")}
       >
-        {({ errors, touched, handleChange, values, setFieldValue }) => {
+        {({
+          errors,
+          touched,
+          handleChange,
+          values,
+          setFieldValue,
+          setSubmitting,
+          isSubmitting,
+        }) => {
           console.log("userData", values);
           return (
             <>
@@ -482,9 +491,9 @@ const General = () => {
                                     )}
 
                                   <div className="t-absolute -t-top-f-8 -t-right-f-8 t-translate-x-full">
-                                    <div class="dropdown">
+                                    <div className="dropdown">
                                       <button
-                                        class="t-underline t-text-sm"
+                                        className="t-underline t-text-sm"
                                         type="button"
                                         data-bs-toggle="dropdown"
                                         aria-expanded="false"
@@ -492,7 +501,7 @@ const General = () => {
                                       >
                                         Edit
                                       </button>
-                                      <div class="dropdown-menu t-min-w-[500px] t-p-f-8 t-shadow-md">
+                                      <div className="dropdown-menu t-min-w-[500px] t-p-f-8 t-shadow-md">
                                         <Form>
                                           <div className="t-mb-f-16">
                                             <div className="t-flex t-items-center t-gap-f-8">
@@ -789,22 +798,41 @@ const General = () => {
                       {isEditing ? (
                         <button
                           type="submit"
-                          className={`f-btn-md f-btn-primary t-px-f-56`}
+                          disabled={isUserUpdating || isSubmitting}
+                          className={`f-btn-md f-btn-primary t-px-f-56${
+                            isUserUpdating || isSubmitting
+                              ? " t-cursor-not-allowed"
+                              : ""
+                          }`}
                           onClick={async (e) => {
                             e.preventDefault();
-                            console.log("clicked the button");
+                            setSubmitting(true);
                             const {
                               fileBannerImage,
                               fileProfilePic,
                               ...newValues
                             } = values;
-
-                            console.log("before update");
-                            await updateUser(newValues);
-                            console.log("after update");
+                            const bannerImage = await uploadFile(
+                              "users",
+                              fileBannerImage,
+                              "banner-image"
+                            );
+                            const profilePic = await uploadFile(
+                              "users",
+                              fileProfilePic,
+                              "profile-pic"
+                            );
+                            setSubmitting(false);
+                            updateUser({
+                              ...newValues,
+                              bannerImage,
+                              profilePic,
+                            });
                           }}
                         >
-                          {isUserUpdating ? "Updating..." : "Save"}
+                          {isUserUpdating || isSubmitting
+                            ? "Updating..."
+                            : "Save"}
                         </button>
                       ) : (
                         <button

@@ -20,6 +20,7 @@ import {
   GoogleAuthProvider,
   signOut,
 } from "firebase/auth";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
 // configuration
 const firebaseConfig = {
@@ -36,6 +37,9 @@ const app = initializeApp(firebaseConfig);
 
 // initialize database
 const db = getFirestore(app);
+
+// initialize storage
+const storage = getStorage(app);
 
 // initialize authentication
 export const auth = getAuth(app);
@@ -153,6 +157,18 @@ const updateSocialMedia = async (socialMedia) => {
   console.log("response - updateSocialMedia", response);
 };
 
+const uploadFile = async (path, file, fileNameWithoutExtension) => {
+  const actualFileName = file.name;
+  const actualFileNameFragments = actualFileName.split(".");
+  const fileName =
+    fileNameWithoutExtension + "." + actualFileNameFragments.at(-1);
+  const fileRef = ref(storage, `${path}/${fileName}`);
+  const response = await uploadBytes(fileRef, file);
+  const downloadLink = await getDownloadURL(response.ref);
+  console.log("response - uploadFile", response);
+  return downloadLink;
+};
+
 export {
   signUp,
   signInWithEmail,
@@ -167,4 +183,5 @@ export {
   logout,
   updateContacts,
   updateSocialMedia,
+  uploadFile,
 };

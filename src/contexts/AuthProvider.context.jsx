@@ -5,6 +5,7 @@ export const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
   const [isAuthReady, setIsAuthReady] = useState(false);
+  console.log("auth -- from Context", auth);
 
   useEffect(() => {
     setIsAuthReady(true);

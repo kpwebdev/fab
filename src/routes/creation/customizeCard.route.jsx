@@ -5,6 +5,8 @@ import CardCustomizationOptions from "../../components/creation/cardCustomizatio
 
 const initialFrontFormInputs = {
   bgColor: "#1A59B2",
+  bgGradient: "",
+  bgGradientDirection: "",
   bgOpacity: "100",
   bgImage: "",
   textColor: "#ffffff",
@@ -12,16 +14,19 @@ const initialFrontFormInputs = {
   fontSize: "20px",
   fontFamily: "Karantina",
   fontWeight: "Bold",
-  isBold: false,
   isItalic: false,
   isUnderline: false,
+  hasElementQrcode: false,
+  hasElementNFC: false,
   elementColor: "#224455",
   elementOpacity: "100",
   logoImage: "",
 };
 
 const initialBackFormInputs = {
-  bgColor: "#FFC800",
+  bgColor: "#1A59B2",
+  bgGradient: "",
+  bgGradientDirection: "",
   bgOpacity: "100",
   bgImage: "",
   textColor: "#ffffff",
@@ -29,9 +34,10 @@ const initialBackFormInputs = {
   fontSize: "20px",
   fontFamily: "Karantina",
   fontWeight: "Bold",
-  isBold: false,
   isItalic: false,
   isUnderline: false,
+  hasElementQrcode: false,
+  hasElementNFC: false,
   elementColor: "#224455",
   elementOpacity: "100",
   logoImage: "",
@@ -78,7 +84,7 @@ const CustomizeCard = () => {
       </Link>
 
       <div className="container t-flex t-flex-col t-gap-f-48">
-        <header className="">
+        <header>
           {/* actions */}
           <div className="t-flex t-items-center t-justify-between">
             <h2 className="t-text-f-2xl">Choose Your Style</h2>
