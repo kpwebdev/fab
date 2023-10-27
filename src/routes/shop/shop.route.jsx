@@ -14,11 +14,47 @@ const Shop = () => {
   const [formInput, setFormInput] = useState(FormInitialValue);
   const { search, sortBy } = formInput;
   const {
-    luxuryCollections,
-    designedCollections,
-    gradientCollections,
-    limitedEdition,
+    luxuryCollections: luxuryCollectionsRaw,
+    designedCollections: designedCollectionsRaw,
+    gradientCollections: gradientCollectionsRaw,
+    limitedEdition: limitedEditionRaw,
   } = shopCollections;
+  const luxuryCollections = {
+    ...luxuryCollectionsRaw,
+    list: luxuryCollectionsRaw.list.filter(({ cardName, description }) =>
+      [cardName, description]
+        .join()
+        .toLowerCase()
+        .includes(search.toLowerCase())
+    ),
+  };
+  const designedCollections = {
+    ...designedCollectionsRaw,
+    list: designedCollectionsRaw.list.filter(({ cardName, description }) =>
+      [cardName, description]
+        .join()
+        .toLowerCase()
+        .includes(search.toLowerCase())
+    ),
+  };
+  const gradientCollections = {
+    ...gradientCollectionsRaw,
+    list: gradientCollectionsRaw.list.filter(({ cardName, description }) =>
+      [cardName, description]
+        .join()
+        .toLowerCase()
+        .includes(search.toLowerCase())
+    ),
+  };
+  const limitedEdition = {
+    ...limitedEditionRaw,
+    list: limitedEditionRaw.list.filter(({ cardName, description }) =>
+      [cardName, description]
+        .join()
+        .toLowerCase()
+        .includes(search.toLowerCase())
+    ),
+  };
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -65,7 +101,7 @@ const Shop = () => {
 
         <div className="t-flex t-gap-f-8">
           <NavLink className="f-btn-lg f-btn-primary">
-            Create your own shop
+            Create your own card
           </NavLink>
         </div>
       </div>
@@ -74,162 +110,198 @@ const Shop = () => {
       <div className="t-my-f-48">
         <h5 className="t-text-f-l">{luxuryCollections.title}</h5>
         {/* cards container */}
-        <div className="t-grid t-grid-cols-3 t-gap-x-f-24 t-gap-y-f-48 t-my-f-24">
-          {luxuryCollections.list.map(
-            ({ img, creator, cardName, description, price }, idx) => (
-              <article className="t-flex t-flex-col t-gap-f-24" key={idx}>
-                {/* img container */}
-                <div className="t-overflow-hidden">
-                  <img
-                    src={img}
-                    alt={`Picture of ${cardName}`}
-                    className="t-rounded-f-8"
-                  />
-                </div>
-                {/* text container */}
-                <div className="t-flex t-flex-col t-gap-f-8">
-                  <h6 className="t-text-f-sm t-font-light">{creator}</h6>
-                  <h4 className="t-flex t-justify-between t-text-f-l">
-                    {cardName} <BsArrowRight />
-                  </h4>
-                  <p className="t-text-f-base">{description}</p>
-                  <span className="t-flex t-items-center t-font-bold t-text-f-md">
-                    <PiCurrencyInrLight /> {`${price}/-`}
-                  </span>
-                </div>
-              </article>
-            )
-          )}
-        </div>
+        {luxuryCollections.list.length > 0 ? (
+          <div className="t-grid t-grid-cols-3 t-gap-x-f-24 t-gap-y-f-48 t-my-f-24">
+            {luxuryCollections.list.map(
+              ({ img, creator, cardName, description, price }, idx) => (
+                <Link
+                  key={idx}
+                  className="hover:t-bg-f-primary-90 t-p-f-8 t-rounded-f-8 hover:t-shadow-md hover:t-scale-[1.01] t-transition-all t-duration-300 fab-image-card-link"
+                >
+                  <article className="t-flex t-flex-col t-gap-f-24">
+                    {/* img container */}
+                    <div className="t-overflow-hidden t-rounded-f-8">
+                      <img
+                        src={img}
+                        alt={`Picture of ${cardName}`}
+                        className="t-rounded-f-8 t-w-full"
+                      />
+                    </div>
+                    {/* text container */}
+                    <div className="t-flex t-flex-col t-gap-f-8">
+                      <h6 className="t-text-f-sm t-font-light">{creator}</h6>
+                      <h4 className="t-flex t-justify-between t-text-f-l">
+                        {cardName} <BsArrowRight />
+                      </h4>
+                      <p className="t-text-f-base">{description}</p>
+                      <span className="t-flex t-items-center t-font-bold t-text-f-md">
+                        <PiCurrencyInrLight /> {`${price}/-`}
+                      </span>
+                    </div>
+                  </article>
+                </Link>
+              )
+            )}
+          </div>
+        ) : (
+          <p className="t-my-4 t-text-f-base t-text-red-500">Not Found</p>
+        )}
         {/* button container */}
-        <div className="t-text-center">
+        {/* <div className="t-text-center">
           <Link className="f-btn-lg f-btn-primary" to={luxuryCollections.href}>
             View All
           </Link>
-        </div>
+        </div> */}
       </div>
 
       {/* designed collections section */}
       <div className="t-my-f-48">
         <h5 className="t-text-f-l">{designedCollections.title}</h5>
         {/* cards container */}
-        <div className="t-grid t-grid-cols-3 t-gap-x-f-24 t-gap-y-f-48 t-my-f-24">
-          {designedCollections.list.map(
-            ({ img, creator, cardName, description, price }, idx) => (
-              <article className="t-flex t-flex-col t-gap-f-24" key={idx}>
-                {/* img container */}
-                <div className="t-overflow-hidden">
-                  <img
-                    src={img}
-                    alt={`Picture of ${cardName}`}
-                    className="t-rounded-f-8"
-                  />
-                </div>
-                {/* text container */}
-                <div className="t-flex t-flex-col t-gap-f-8">
-                  <h6 className="t-text-f-sm t-font-light">{creator}</h6>
-                  <h4 className="t-flex t-justify-between t-text-f-l">
-                    {cardName} <BsArrowRight />
-                  </h4>
-                  <p className="t-text-f-base">{description}</p>
-                  <span className="t-flex t-items-center t-font-bold t-text-f-md">
-                    <PiCurrencyInrLight /> {`${price}/-`}
-                  </span>
-                </div>
-              </article>
-            )
-          )}
-        </div>
+        {designedCollections.list.length > 0 ? (
+          <div className="t-grid t-grid-cols-3 t-gap-x-f-24 t-gap-y-f-48 t-my-f-24">
+            {designedCollections.list.map(
+              ({ img, creator, cardName, description, price }, idx) => (
+                <Link
+                  key={idx}
+                  className="hover:t-bg-f-primary-90 t-p-f-8 t-rounded-f-8 hover:t-shadow-md hover:t-scale-[1.01] t-transition-all t-duration-300 fab-image-card-link"
+                >
+                  <article className="t-flex t-flex-col t-gap-f-24">
+                    {/* img container */}
+                    <div className="t-overflow-hidden t-rounded-f-8">
+                      <img
+                        src={img}
+                        alt={`Picture of ${cardName}`}
+                        className="t-rounded-f-8 t-w-full"
+                      />
+                    </div>
+                    {/* text container */}
+                    <div className="t-flex t-flex-col t-gap-f-8">
+                      <h6 className="t-text-f-sm t-font-light">{creator}</h6>
+                      <h4 className="t-flex t-justify-between t-text-f-l">
+                        {cardName} <BsArrowRight />
+                      </h4>
+                      <p className="t-text-f-base">{description}</p>
+                      <span className="t-flex t-items-center t-font-bold t-text-f-md">
+                        <PiCurrencyInrLight /> {`${price}/-`}
+                      </span>
+                    </div>
+                  </article>
+                </Link>
+              )
+            )}
+          </div>
+        ) : (
+          <p className="t-my-4 t-text-f-base t-text-red-500">Not Found</p>
+        )}
         {/* button container */}
-        <div className="t-text-center">
+        {/* <div className="t-text-center">
           <Link
             className="f-btn-lg f-btn-primary"
             to={designedCollections.href}
           >
             View All
           </Link>
-        </div>
+        </div> */}
       </div>
 
       {/* gradient collections section */}
       <div className="t-my-f-48">
         <h5 className="t-text-f-l">{gradientCollections.title}</h5>
         {/* cards container */}
-        <div className="t-grid t-grid-cols-3 t-gap-x-f-24 t-gap-y-f-48 t-my-f-24">
-          {gradientCollections.list.map(
-            ({ img, creator, cardName, description, price }, idx) => (
-              <article className="t-flex t-flex-col t-gap-f-24" key={idx}>
-                {/* img container */}
-                <div className="t-overflow-hidden">
-                  <img
-                    src={img}
-                    alt={`Picture of ${cardName}`}
-                    className="t-rounded-f-8"
-                  />
-                </div>
-                {/* text container */}
-                <div className="t-flex t-flex-col t-gap-f-8">
-                  <h6 className="t-text-f-sm t-font-light">{creator}</h6>
-                  <h4 className="t-flex t-justify-between t-text-f-l">
-                    {cardName} <BsArrowRight />
-                  </h4>
-                  <p className="t-text-f-base">{description}</p>
-                  <span className="t-flex t-items-center t-font-bold t-text-f-md">
-                    <PiCurrencyInrLight /> {`${price}/-`}
-                  </span>
-                </div>
-              </article>
-            )
-          )}
-        </div>
+        {gradientCollections.list.length > 0 ? (
+          <div className="t-grid t-grid-cols-3 t-gap-x-f-24 t-gap-y-f-48 t-my-f-24">
+            {gradientCollections.list.map(
+              ({ img, creator, cardName, description, price }, idx) => (
+                <Link
+                  key={idx}
+                  className="hover:t-bg-f-primary-90 t-p-f-8 t-rounded-f-8 hover:t-shadow-md hover:t-scale-[1.01] t-transition-all t-duration-300 fab-image-card-link"
+                >
+                  <article className="t-flex t-flex-col t-gap-f-24">
+                    {/* img container */}
+                    <div className="t-overflow-hidden t-rounded-f-8">
+                      <img
+                        src={img}
+                        alt={`Picture of ${cardName}`}
+                        className="t-rounded-f-8 t-w-full"
+                      />
+                    </div>
+                    {/* text container */}
+                    <div className="t-flex t-flex-col t-gap-f-8">
+                      <h6 className="t-text-f-sm t-font-light">{creator}</h6>
+                      <h4 className="t-flex t-justify-between t-text-f-l">
+                        {cardName} <BsArrowRight />
+                      </h4>
+                      <p className="t-text-f-base">{description}</p>
+                      <span className="t-flex t-items-center t-font-bold t-text-f-md">
+                        <PiCurrencyInrLight /> {`${price}/-`}
+                      </span>
+                    </div>
+                  </article>
+                </Link>
+              )
+            )}
+          </div>
+        ) : (
+          <p className="t-my-4 t-text-f-base t-text-red-500">Not Found</p>
+        )}
         {/* button container */}
-        <div className="t-text-center">
+        {/* <div className="t-text-center">
           <Link
             className="f-btn-lg f-btn-primary"
             to={gradientCollections.href}
           >
             View All
           </Link>
-        </div>
+        </div> */}
       </div>
 
       {/* limited edition section */}
       <div className="t-my-f-48">
         <h5 className="t-text-f-l">{limitedEdition.title}</h5>
         {/* cards container */}
-        <div className="t-grid t-grid-cols-3 t-gap-x-f-24 t-gap-y-f-48 t-my-f-24">
-          {limitedEdition.list.map(
-            ({ img, creator, cardName, description, price }, idx) => (
-              <article className="t-flex t-flex-col t-gap-f-24" key={idx}>
-                {/* img container */}
-                <div className="t-overflow-hidden">
-                  <img
-                    src={img}
-                    alt={`Picture of ${cardName}`}
-                    className="t-rounded-f-8"
-                  />
-                </div>
-                {/* text container */}
-                <div className="t-flex t-flex-col t-gap-f-8">
-                  <h6 className="t-text-f-sm t-font-light">{creator}</h6>
-                  <h4 className="t-flex t-justify-between t-text-f-l">
-                    {cardName} <BsArrowRight />
-                  </h4>
-                  <p className="t-text-f-base">{description}</p>
-                  <span className="t-flex t-items-center t-font-bold t-text-f-md">
-                    <PiCurrencyInrLight /> {`${price}/-`}
-                  </span>
-                </div>
-              </article>
-            )
-          )}
-        </div>
+        {limitedEdition.list.length > 0 ? (
+          <div className="t-grid t-grid-cols-3 t-gap-x-f-24 t-gap-y-f-48 t-my-f-24">
+            {limitedEdition.list.map(
+              ({ img, creator, cardName, description, price }, idx) => (
+                <Link
+                  key={idx}
+                  className="hover:t-bg-f-primary-90 t-p-f-8 t-rounded-f-8 hover:t-shadow-md hover:t-scale-[1.01] t-transition-all t-duration-300 fab-image-card-link"
+                >
+                  <article className="t-flex t-flex-col t-gap-f-24">
+                    {/* img container */}
+                    <div className="t-overflow-hidden t-rounded-f-8">
+                      <img
+                        src={img}
+                        alt={`Picture of ${cardName}`}
+                        className="t-rounded-f-8 t-w-full"
+                      />
+                    </div>
+                    {/* text container */}
+                    <div className="t-flex t-flex-col t-gap-f-8">
+                      <h6 className="t-text-f-sm t-font-light">{creator}</h6>
+                      <h4 className="t-flex t-justify-between t-text-f-l">
+                        {cardName} <BsArrowRight />
+                      </h4>
+                      <p className="t-text-f-base">{description}</p>
+                      <span className="t-flex t-items-center t-font-bold t-text-f-md">
+                        <PiCurrencyInrLight /> {`${price}/-`}
+                      </span>
+                    </div>
+                  </article>
+                </Link>
+              )
+            )}
+          </div>
+        ) : (
+          <p className="t-my-4 t-text-f-base t-text-red-500">Not Found</p>
+        )}
         {/* button container */}
-        <div className="t-text-center">
+        {/* <div className="t-text-center">
           <Link className="f-btn-lg f-btn-primary" to={limitedEdition.href}>
             View All
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -33,7 +33,7 @@ const firebaseConfig = {
 };
 
 // initialize the app
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 
 // initialize database
 const db = getFirestore(app);
@@ -88,7 +88,6 @@ const getDocument = async (collectionName, id) => {
 };
 
 const addDocument = async (collectionName, data) => {
-  console.log("running addDocument");
   console.log("collectionName", collectionName);
   console.log("data", data);
   const ref = collection(db, collectionName);
@@ -113,21 +112,22 @@ const addUser = async (data) => {
 };
 
 const getUser = async () => {
-  try {
-    const dataArr = await getAllDocs("users", [
-      "uid",
-      "==",
-      auth.currentUser.uid,
-    ]);
-    const data = dataArr[0];
-    return data;
-  } catch (error) {
-    console.log("here is the error", error);
+  if (auth.currentUser.uid) {
+    try {
+      const dataArr = await getAllDocs("users", [
+        "uid",
+        "==",
+        auth.currentUser.uid,
+      ]);
+      const data = dataArr[0];
+      return data;
+    } catch (error) {
+      console.log("here is the error", error);
+    }
   }
 };
 
 const updateUserDetails = async (dataToUpdate) => {
-  console.log("running the update user........");
   const currentUserData = await getUser();
   const { id } = currentUserData;
   const newUserData = { ...currentUserData, ...dataToUpdate };
@@ -137,7 +137,6 @@ const updateUserDetails = async (dataToUpdate) => {
 };
 
 const updateContacts = async (contacts) => {
-  console.log("running - updateContacts");
   try {
     const currentUserData = await getUser();
     const { id } = currentUserData;
@@ -158,6 +157,7 @@ const updateSocialMedia = async (socialMedia) => {
 };
 
 const uploadFile = async (path, file, fileNameWithoutExtension) => {
+  if (!file) return;
   const actualFileName = file.name;
   const actualFileNameFragments = actualFileName.split(".");
   const fileName =

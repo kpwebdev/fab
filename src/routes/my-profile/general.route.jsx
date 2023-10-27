@@ -25,7 +25,6 @@ import { AiOutlineTwitter } from "react-icons/ai";
 import { AiFillLinkedin } from "react-icons/ai";
 
 const General = () => {
-  console.log("rendering ----");
   const queryClient = useQueryClient();
   // const { profilePic } = userData;
   const [isEditing, setIsEditing] = useState(false);
@@ -128,7 +127,6 @@ const General = () => {
           setSubmitting,
           isSubmitting,
         }) => {
-          console.log("userData", values);
           return (
             <>
               {/* banner */}
@@ -152,7 +150,6 @@ const General = () => {
                       name="fileBannerImage"
                       id="fileBannerImage"
                       onChange={(e) => {
-                        console.log("banner image Blog is ready");
                         const file = e.target.files[0];
                         const reader = new FileReader();
                         reader.readAsDataURL(file);
@@ -194,11 +191,9 @@ const General = () => {
                             className="t-hidden"
                             onChange={(e) => {
                               const file = e.target.files[0];
-                              console.log("profile picture - file", file);
                               const reader = new FileReader();
                               reader.readAsDataURL(file);
                               reader.onload = () => {
-                                console.log("profile Pic Blog is ready");
                                 setFieldValue(
                                   "fileProfilePic",
                                   e.target.files[0]
@@ -425,11 +420,10 @@ const General = () => {
                           }}
                           validationSchema={socialMediaSchema}
                           onSubmit={(values) =>
-                            console.log("form submitted successfully.", values)
+                            console.log("form submitted successfully.")
                           }
                         >
                           {({ touched, errors, handleChange, values }) => {
-                            console.log("current values", values);
                             return (
                               <>
                                 <ul className="t-flex t-gap-f-8 t-items-center t-justify-start t-relative">
@@ -812,12 +806,12 @@ const General = () => {
                               fileProfilePic,
                               ...newValues
                             } = values;
-                            const bannerImage = await uploadFile(
+                            const newBannerImage = await uploadFile(
                               "users",
                               fileBannerImage,
                               "banner-image"
                             );
-                            const profilePic = await uploadFile(
+                            const newProfilePic = await uploadFile(
                               "users",
                               fileProfilePic,
                               "profile-pic"
@@ -825,8 +819,8 @@ const General = () => {
                             setSubmitting(false);
                             updateUser({
                               ...newValues,
-                              bannerImage,
-                              profilePic,
+                              bannerImage: newBannerImage || profilePic,
+                              profilePic: newProfilePic || profilePic,
                             });
                           }}
                         >

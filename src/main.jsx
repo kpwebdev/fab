@@ -18,8 +18,16 @@ import "react-toastify/dist/ReactToastify.css";
 // styling for phone number input
 import "react-phone-input-2/lib/style.css";
 
+// context providers
+import AuthContextProvider from "./contexts/AuthProvider.context.jsx";
+import CardProvider from "./contexts/CardProvider.context.jsx";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <AuthContextProvider>
+      <CardProvider>
+        <App />
+      </CardProvider>
+    </AuthContextProvider>
   </React.StrictMode>
 );

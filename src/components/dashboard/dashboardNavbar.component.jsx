@@ -3,6 +3,7 @@ import FabLogo from "../../assets/fab-log-blue-trasparent.png";
 import { logout } from "../../utils/firebase/firebase.util";
 import { useMutation } from "@tanstack/react-query";
 import { useQueryClient } from "@tanstack/react-query";
+import { MdLogout } from "react-icons/md";
 
 import { offcanvasPageLinks, offcanvasOptionsLinks } from "../../data";
 import { toast } from "react-toastify";
@@ -65,7 +66,7 @@ const DashboardNavbar = () => {
         </ul>
 
         {/* relative links container */}
-        <ul className="t-flex t-flex-col t-gap-f-16">
+        {/* <ul className="t-flex t-flex-col t-gap-f-16">
           {offcanvasOptionsLinks.map(({ path, Icon, title }, idx) => (
             <li key={idx}>
               <NavLink
@@ -82,7 +83,10 @@ const DashboardNavbar = () => {
               </NavLink>
             </li>
           ))}
-        </ul>
+        </ul> */}
+        <button className="t-flex t-gap-f-8 t-text-f-md" onClick={mutate}>
+          <MdLogout /> <span>Logout</span>
+        </button>
       </div>
     </div>
   );

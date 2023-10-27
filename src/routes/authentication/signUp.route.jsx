@@ -89,7 +89,6 @@ const SignUp = () => {
           } = formik;
           const { email, password, confirmPassword, rememberMe } = values;
 
-          console.log("formik", formik);
           return (
             <form
               onSubmit={handleSubmit}

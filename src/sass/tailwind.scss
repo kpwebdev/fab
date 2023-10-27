@@ -45,6 +45,12 @@
     transform: translateX(-30%);
     transition: all 0.3s 0.05s;
   }
+  .fab-image-card-link img {
+    @apply t-transition-all t-duration-300;
+  }
+  .fab-image-card-link:hover img {
+    transform: scale(1.25);
+  }
 
   .custom-loader {
     width: 48px;
