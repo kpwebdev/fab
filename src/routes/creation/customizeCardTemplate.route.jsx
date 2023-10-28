@@ -1,60 +1,81 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { BsArrowLeft } from "react-icons/bs";
 import { LuNfc } from "react-icons/lu";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useContext } from "react";
 import QRCode from "react-qr-code";
 import CardCustomizationOptions from "../../components/creation/cardCustomizationOptions.component";
 import house from "../../assets/house.svg";
+import {
+  CARD_ACTION_TYPES,
+  CardContext,
+} from "../../contexts/CardProvider.context";
+import { createAction } from "../../contexts/helper-functions";
 
-const initialFrontFormInputs = {
-  bgColor: "#1E1E1E",
-  bgOpacity: "100",
-  bgImage: "",
-  textColor: "#D1AE7B",
-  textOpacity: "100",
-  fontSize: "20px",
-  fontFamily: "Karantina",
-  fontWeight: "Bold",
-  isBold: false,
-  isItalic: false,
-  isUnderline: false,
-  elementColor: "#D1AE7B",
-  elementOpacity: "100",
-  elementFinalColor: "#D1AE7B",
-  logoImage: "",
-};
+// const initialFrontFormInputs = {
+//   bgColor: "#1E1E1E",
+//   bgOpacity: "100",
+//   bgImage: "",
+//   textColor: "#D1AE7B",
+//   textOpacity: "100",
+//   fontSize: "20px",
+//   fontFamily: "Karantina",
+//   fontWeight: "Bold",
+//   isBold: false,
+//   isItalic: false,
+//   isUnderline: false,
+//   elementColor: "#D1AE7B",
+//   elementOpacity: "100",
+//   elementFinalColor: "#D1AE7B",
+//   logoImage: "",
+// };
 
-const initialBackFormInputs = {
-  bgColor: "#1E1E1E",
-  bgOpacity: "100",
-  bgImage: "",
-  textColor: "#D1AE7B",
-  textOpacity: "100",
-  fontSize: "20px",
-  fontFamily: "Karantina",
-  fontWeight: "Bold",
-  isBold: false,
-  isItalic: false,
-  isUnderline: false,
-  elementColor: "#D1AE7B",
-  elementOpacity: "100",
-  elementFinalColor: "#D1AE7B",
-  logoImage: "",
-};
+// const initialBackFormInputs = {
+//   bgColor: "#1E1E1E",
+//   bgOpacity: "100",
+//   bgImage: "",
+//   textColor: "#D1AE7B",
+//   textOpacity: "100",
+//   fontSize: "20px",
+//   fontFamily: "Karantina",
+//   fontWeight: "Bold",
+//   isBold: false,
+//   isItalic: false,
+//   isUnderline: false,
+//   elementColor: "#D1AE7B",
+//   elementOpacity: "100",
+//   elementFinalColor: "#D1AE7B",
+//   logoImage: "",
+// };
 
 const CustomizeCardTemplate = () => {
+  const { cardName } = useParams();
+  const {
+    frontSettings: frontFormInputs,
+    backSettings: backFormInputs,
+    dispatch,
+    ...userCarrdDetails
+  } = useContext(CardContext);
+
+  useEffect(() => {
+    const action = createAction(
+      CARD_ACTION_TYPES.UPDATE_CARD_TEMPLATE,
+      cardName
+    );
+    dispatch(action);
+  }, [cardName]);
+
   const [isFront, setIsFront] = useState("true");
   const [googleFonts, setGoogleFonts] = useState([]);
   const frontBGRef = useRef();
   const frontTextRef = useRef();
-  const frontElementRef = useRef(initialFrontFormInputs.elementColor);
+  const frontElementRef = useRef(frontFormInputs.elementColor);
   const backBGRef = useRef();
   const backTextRef = useRef();
-  const backElementRef = useRef(initialBackFormInputs.elementColor);
-  const [frontFormInputs, setFrontFormInputs] = useState(
-    initialFrontFormInputs
-  );
-  const [backFormInputs, setBackFormInputs] = useState(initialBackFormInputs);
+  const backElementRef = useRef(backFormInputs.elementColor);
+  // const [frontFormInputs, setFrontFormInputs] = useState(
+  //   initialFrontFormInputs
+  // );
+  // const [backFormInputs, setBackFormInputs] = useState(initialBackFormInputs);
 
   // effect to load all the google fonts
   useEffect(() => {
@@ -89,10 +110,7 @@ const CustomizeCardTemplate = () => {
             <h2 className="t-text-f-2xl">Choose Your Style</h2>
             {/* buttons container */}
             <div className="t-flex t-gap-f-16">
-              <Link
-                to="/nfc/creation/physical-card/templates"
-                className="f-btn-lg f-btn-primary"
-              >
+              <Link to="/nfc/dashboard/shop" className="f-btn-lg f-btn-primary">
                 Browse Templates
               </Link>
             </div>
@@ -199,7 +217,9 @@ const CustomizeCardTemplate = () => {
             {isFront ? (
               <CardCustomizationOptions
                 formInputs={frontFormInputs}
-                setFormInputs={setFrontFormInputs}
+                setFormInputs={() =>
+                  console.log("something changed in the front")
+                }
                 googleFonts={googleFonts}
                 bgRef={frontBGRef}
                 textRef={frontTextRef}
@@ -209,7 +229,9 @@ const CustomizeCardTemplate = () => {
             ) : (
               <CardCustomizationOptions
                 formInputs={backFormInputs}
-                setFormInputs={setBackFormInputs}
+                setFormInputs={() =>
+                  console.log("something changed in the back")
+                }
                 googleFonts={googleFonts}
                 bgRef={backBGRef}
                 textRef={backTextRef}

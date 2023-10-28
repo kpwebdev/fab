@@ -2,6 +2,8 @@ import { BiSolidPencil } from "react-icons/bi";
 import { AiFillCamera } from "react-icons/ai";
 import { AiOutlineInfoCircle, AiFillPlusCircle } from "react-icons/ai";
 import { userData } from "../../data";
+import defaultProfilePic from "../../assets/user-review.png";
+import defaultBannerImage from "../../assets/banner-image.png";
 import { Link } from "react-router-dom";
 import {
   addDocument,
@@ -132,7 +134,7 @@ const General = () => {
               {/* banner */}
               <div className="t-h-f-144 t-bg-f-primary-30 t-relative t-rounded-f-8 t-overflow-hidden">
                 <img
-                  src={values.bannerImage}
+                  src={values.bannerImage || defaultBannerImage}
                   alt="Banner Image"
                   className="t-w-full t-h-full t-object-cover"
                 />
@@ -172,7 +174,7 @@ const General = () => {
                   <div className="t-flex t-items-end t-gap-f-8 t-ml-f-24 -t-mt-f-48 t-mb-f-24 t-z-10 t-relative">
                     <div className="overflow-hidden t-relative t-rounded-f-8">
                       <img
-                        src={values.profilePic}
+                        src={values.profilePic || defaultProfilePic}
                         alt="Profile Picture"
                         className="t-w-f-144 t-h-f-144 t-object-cover t-border-2 t-border-f-primary-70"
                       />
@@ -226,7 +228,7 @@ const General = () => {
                         <div className="col-sm-10">
                           <div className="input-group">
                             <span className="input-group-text">
-                              fabtab.com/
+                              fabtab.com/profiles/
                             </span>
                             <Field
                               type="text"
@@ -424,6 +426,10 @@ const General = () => {
                           }
                         >
                           {({ touched, errors, handleChange, values }) => {
+                            console.log(
+                              "current values in social media account",
+                              values
+                            );
                             return (
                               <>
                                 <ul className="t-flex t-gap-f-8 t-items-center t-justify-start t-relative">

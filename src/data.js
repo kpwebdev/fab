@@ -184,22 +184,22 @@ const checkoutList = [
 // data for NFC home page
 // -- links
 const nfcHomePageLinks = [
-  {
-    title: "Products",
-    href: "/nfc/products",
-  },
+  // {
+  //   title: "Products",
+  //   href: "/nfc/products",
+  // },
   {
     title: "Dashboard",
     href: "/nfc/dashboard",
   },
-  {
-    title: "Contact",
-    href: "/nfc/contact",
-  },
-  {
-    title: "Help",
-    href: "/nfc/help",
-  },
+  // {
+  //   title: "Contact",
+  //   href: "/nfc/contact",
+  // },
+  // {
+  //   title: "Help",
+  //   href: "/nfc/help",
+  // },
 ];
 
 // --orginization details
@@ -602,29 +602,29 @@ const defaultUserData = {
   contact: "",
   socialMedia: [
     {
+      title: "Facebook",
+      href: "https://www.facebook.com/",
+      Icon: "",
+    },
+    {
       title: "Instagram",
-      href: "https://www.instagram.com/",
-      Icon: IconInstagram,
+      href: "https://www.linkedin.com/",
+      Icon: "",
+    },
+    {
+      title: "WhatsApp",
+      href: "https://www.facebook.com/",
+      Icon: "",
+    },
+    {
+      title: "Twitter",
+      href: "https://www.twitter.com/",
+      Icon: "",
     },
     {
       title: "LinkedIn",
       href: "https://www.linkedin.com/",
-      Icon: IconLinkedin,
-    },
-    {
-      title: "Pinterest",
-      href: "https://www.pinterest.com/",
-      Icon: IconPinterest,
-    },
-    {
-      title: "Tiktok",
-      href: "https://www.tiktok.com/",
-      Icon: IconTiktok,
-    },
-    {
-      title: "YouTube",
-      href: "https://www.youtube.com/",
-      Icon: IconYoutube,
+      Icon: "",
     },
   ],
   status: [
@@ -645,203 +645,210 @@ const defaultUserData = {
 const defaultUserTestData = {
   bannerImage: "",
   profilePic: "",
-  userName: "iamarora",
-  fullName: "Chetna Arora",
-  companyName: "Fab Digital Marketing Agency",
-  role: "Digital Marketing Strategist",
-  website: "fabtap.com",
-  contact: "6492746289",
+  userName: "",
+  fullName: "",
+  companyName: "",
+  role: "",
+  website: "",
+  contact: "",
   socialMedia: [
     {
       title: "Instagram",
       href: "#instagram",
       Icon: "",
+      has: false,
     },
     {
       title: "LinkedIn",
       href: "#linkedIn",
       Icon: "",
+      has: false,
     },
     {
       title: "Pinterest",
       href: "#pinterest",
       Icon: "",
+      has: false,
     },
     {
       title: "Tiktok",
       href: "#tiktok",
       Icon: "",
+      has: false,
     },
     {
       title: "YouTube",
       href: "#youtube",
       Icon: "",
+      has: false,
     },
   ],
   status: [
-    { title: "Total Taps", num: 2102 },
-    { title: "Total Contacts", num: 2000 },
+    { title: "Total Taps", num: 0 },
+    { title: "Total Contacts", num: 0 },
   ],
   companyDetails: {
     companyBanner: "",
     companyLogo: "",
-    companyHeading: "Fab",
-    companySubheading: "Digital Agency",
-    companyName: "Fab Digital Agency",
-    jobRole: "Marketing Expert",
-    companySize: "Solo",
+    companyHeading: "",
+    companySubheading: "",
+    companyName: "",
+    jobRole: "",
+    companySize: "",
   },
-  contacts: [
-    {
-      favorite: false,
-      profilePic: "",
-      name: "John Store",
-      mobileNum: "+91 8549632175",
-      emailId: "sample@gmail.com",
-    },
-    {
-      favorite: false,
-      profilePic: "",
-      name: "Emily Smith",
-      mobileNum: "+91 8549632175",
-      emailId: "sample@gmail.com",
-    },
-    {
-      favorite: false,
-      profilePic: "",
-      name: "Jasmine Hart",
-      mobileNum: "+91 8549632175",
-      emailId: "sample@gmail.com",
-    },
-    {
-      favorite: false,
-      profilePic: "",
-      name: "Rose Goldy",
-      mobileNum: "+91 8549632175",
-      emailId: "sample@gmail.com",
-    },
-    {
-      favorite: false,
-      profilePic: "",
-      name: "Kevin White",
-      mobileNum: "+91 8549632175",
-      emailId: "sample@gmail.com",
-    },
-    {
-      favorite: false,
-      profilePic: "",
-      name: "Keshav G",
-      mobileNum: "+91 8549632175",
-      emailId: "sample@gmail.com",
-    },
-  ],
-  progress: {
-    shopStatus: {
-      title: "Shop Status",
-      list: [
-        {
-          title: "Total Orders",
-          num: 90,
-          today: "+10 today",
-          TodayDirIcon: "",
-          icon: "",
-        },
-        {
-          title: "Profit Made",
-          num: "9.56k",
-          today: "+1k today",
-          TodayDirIcon: "",
-          icon: "",
-        },
-      ],
-    },
-    fabTaps: {
-      title: "FabTaps",
-      list: [
-        {
-          title: "Total Taps",
-          num: 2102,
-          today: null,
-          TodayDirIcon: null,
-          icon: "",
-        },
-        {
-          title: "Total Contacts",
-          num: 2000,
-          today: null,
-          TodayDirIcon: null,
-          icon: "",
-        },
-      ],
-    },
-    myTeams: {
-      title: "My Teams",
-      list: [
-        {
-          title: "NFC Makers",
-          num: 15,
-          today: null,
-          TodayDirIcon: null,
-          icon: "",
-        },
-        {
-          title: "NFC Creator",
-          num: 19,
-          today: null,
-          TodayDirIcon: null,
-          icon: "",
-        },
-      ],
-    },
-    customCreatedNFCs: {
-      title: "Custom NFC created",
-      num: 10,
-      icon: "",
-    },
-  },
-  cardsList: [
-    {
-      creatorName: "Creator Name",
-      cardName: "Matte Black",
-      personalized: true,
-      digitalProfileStatus: "Pending",
-      CardImage: "",
-    },
-    {
-      creatorName: "Creator Name",
-      cardName: "Dark Blue",
-      personalized: true,
-      digitalProfileStatus: "Added",
-      CardImage: "",
-    },
-    {
-      creatorName: "Creator Name",
-      cardName: "Pure While",
-      personalized: true,
-      digitalProfileStatus: "Added",
-      CardImage: "",
-    },
-  ],
-  profilesList: [
-    {
-      creatorName: "Creator Name",
-      profileName: "Purple element Profile",
-      personalized: true,
-      profileImage: "",
-    },
-    {
-      creatorName: "Creator Name",
-      profileName: "Navy Blue Profile",
-      personalized: true,
-      profileImage: "",
-    },
-    {
-      creatorName: "Creator Name",
-      profileName: "Dull Red Profile",
-      personalized: true,
-      profileImage: "",
-    },
-  ],
+  // contacts: [
+  //   {
+  //     favorite: false,
+  //     profilePic: "",
+  //     name: "John Store",
+  //     mobileNum: "+91 8549632175",
+  //     emailId: "sample@gmail.com",
+  //   },
+  //   {
+  //     favorite: false,
+  //     profilePic: "",
+  //     name: "Emily Smith",
+  //     mobileNum: "+91 8549632175",
+  //     emailId: "sample@gmail.com",
+  //   },
+  //   {
+  //     favorite: false,
+  //     profilePic: "",
+  //     name: "Jasmine Hart",
+  //     mobileNum: "+91 8549632175",
+  //     emailId: "sample@gmail.com",
+  //   },
+  //   {
+  //     favorite: false,
+  //     profilePic: "",
+  //     name: "Rose Goldy",
+  //     mobileNum: "+91 8549632175",
+  //     emailId: "sample@gmail.com",
+  //   },
+  //   {
+  //     favorite: false,
+  //     profilePic: "",
+  //     name: "Kevin White",
+  //     mobileNum: "+91 8549632175",
+  //     emailId: "sample@gmail.com",
+  //   },
+  //   {
+  //     favorite: false,
+  //     profilePic: "",
+  //     name: "Keshav G",
+  //     mobileNum: "+91 8549632175",
+  //     emailId: "sample@gmail.com",
+  //   },
+  // ],
+  // progress: {
+  //   shopStatus: {
+  //     title: "Shop Status",
+  //     list: [
+  //       {
+  //         title: "Total Orders",
+  //         num: 90,
+  //         today: "+10 today",
+  //         TodayDirIcon: "",
+  //         icon: "",
+  //       },
+  //       {
+  //         title: "Profit Made",
+  //         num: "9.56k",
+  //         today: "+1k today",
+  //         TodayDirIcon: "",
+  //         icon: "",
+  //       },
+  //     ],
+  //   },
+  //   fabTaps: {
+  //     title: "FabTaps",
+  //     list: [
+  //       {
+  //         title: "Total Taps",
+  //         num: 2102,
+  //         today: null,
+  //         TodayDirIcon: null,
+  //         icon: "",
+  //       },
+  //       {
+  //         title: "Total Contacts",
+  //         num: 2000,
+  //         today: null,
+  //         TodayDirIcon: null,
+  //         icon: "",
+  //       },
+  //     ],
+  //   },
+  //   myTeams: {
+  //     title: "My Teams",
+  //     list: [
+  //       {
+  //         title: "NFC Makers",
+  //         num: 15,
+  //         today: null,
+  //         TodayDirIcon: null,
+  //         icon: "",
+  //       },
+  //       {
+  //         title: "NFC Creator",
+  //         num: 19,
+  //         today: null,
+  //         TodayDirIcon: null,
+  //         icon: "",
+  //       },
+  //     ],
+  //   },
+  //   customCreatedNFCs: {
+  //     title: "Custom NFC created",
+  //     num: 10,
+  //     icon: "",
+  //   },
+  // },
+  // cardsList: [
+  //   {
+  //     creatorName: "Creator Name",
+  //     cardName: "Matte Black",
+  //     personalized: true,
+  //     digitalProfileStatus: "Pending",
+  //     CardImage: "",
+  //   },
+  //   {
+  //     creatorName: "Creator Name",
+  //     cardName: "Dark Blue",
+  //     personalized: true,
+  //     digitalProfileStatus: "Added",
+  //     CardImage: "",
+  //   },
+  //   {
+  //     creatorName: "Creator Name",
+  //     cardName: "Pure While",
+  //     personalized: true,
+  //     digitalProfileStatus: "Added",
+  //     CardImage: "",
+  //   },
+  // ],
+  // profilesList: [
+  //   {
+  //     creatorName: "Creator Name",
+  //     profileName: "Purple element Profile",
+  //     personalized: true,
+  //     profileImage: "",
+  //   },
+  //   {
+  //     creatorName: "Creator Name",
+  //     profileName: "Navy Blue Profile",
+  //     personalized: true,
+  //     profileImage: "",
+  //   },
+  //   {
+  //     creatorName: "Creator Name",
+  //     profileName: "Dull Red Profile",
+  //     personalized: true,
+  //     profileImage: "",
+  //   },
+  // ],
+  card: null,
+  profile: null,
 };
 
 const jobRoles = [
@@ -1059,17 +1066,17 @@ const shopCollections = {
     title: "Luxury Collections",
     list: [
       {
-        img: luxuryCollectionAestheticDark,
+        img: luxuryCollectionAestheticDull,
         creator: "Creator Name",
-        cardName: "Aesthetic dark grey",
+        cardName: "Matte black",
         description: "Customise: card design & digital profile",
         price: 849,
         isBestSeller: true,
       },
       {
-        img: luxuryCollectionAestheticDull,
+        img: luxuryCollectionAestheticDark,
         creator: "Creator Name",
-        cardName: "Aesthetic dull grey",
+        cardName: "Aesthetic dark grey",
         description: "Customise: card design & digital profile",
         price: 849,
         isBestSeller: false,
@@ -1077,7 +1084,7 @@ const shopCollections = {
       {
         img: luxuryCollectionBlack,
         creator: "Creator Name",
-        cardName: "Matte black",
+        cardName: "Aesthetic dull grey",
         description: "Customise: card design & digital profile",
         price: 849,
         isBestSeller: false,
@@ -1119,9 +1126,9 @@ const shopCollections = {
     title: "Gradient Collections",
     list: [
       {
-        img: gradientCollectionDark,
+        img: gradientCollectionPurple,
         creator: "Creator Name",
-        cardName: "Dark Gradient",
+        cardName: "Purple - Yellow Gradient",
         description: "Customise: card design & digital profile",
         price: 849,
         isBestSeller: false,
@@ -1135,9 +1142,9 @@ const shopCollections = {
         isBestSeller: false,
       },
       {
-        img: gradientCollectionPurple,
+        img: gradientCollectionDark,
         creator: "Creator Name",
-        cardName: "Purple - Yellow Gradient",
+        cardName: "Dark Gradient",
         description: "Customise: card design & digital profile",
         price: 849,
         isBestSeller: false,
@@ -1149,9 +1156,9 @@ const shopCollections = {
     title: "Limited Edition",
     list: [
       {
-        img: limitedEditionBlue,
+        img: limitedEditionVantablack,
         creator: "Creator Name",
-        cardName: "Blue - Purple Gradient",
+        cardName: "Vantablack NFC",
         description: "Customise: card design & digital profile",
         price: 849,
         isBestSeller: false,
@@ -1165,9 +1172,9 @@ const shopCollections = {
         isBestSeller: false,
       },
       {
-        img: limitedEditionVantablack,
+        img: limitedEditionBlue,
         creator: "Creator Name",
-        cardName: "Vantablack NFC",
+        cardName: "Blue - Purple Gradient",
         description: "Customise: card design & digital profile",
         price: 849,
         isBestSeller: false,

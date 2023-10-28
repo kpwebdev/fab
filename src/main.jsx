@@ -21,13 +21,16 @@ import "react-phone-input-2/lib/style.css";
 // context providers
 import AuthContextProvider from "./contexts/AuthProvider.context.jsx";
 import CardProvider from "./contexts/CardProvider.context.jsx";
+import GoogleFontsProvider from "./contexts/GoogleFontsProvider.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthContextProvider>
-      <CardProvider>
-        <App />
-      </CardProvider>
+      <GoogleFontsProvider>
+        <CardProvider>
+          <App />
+        </CardProvider>
+      </GoogleFontsProvider>
     </AuthContextProvider>
   </React.StrictMode>
 );

@@ -100,7 +100,10 @@ const Shop = () => {
         </form>
 
         <div className="t-flex t-gap-f-8">
-          <NavLink className="f-btn-lg f-btn-primary">
+          <NavLink
+            className="f-btn-lg f-btn-primary"
+            to="/nfc/creation/physical-card"
+          >
             Create your own card
           </NavLink>
         </div>
@@ -117,6 +120,7 @@ const Shop = () => {
                 <Link
                   key={idx}
                   className="hover:t-bg-f-primary-90 t-p-f-8 t-rounded-f-8 hover:t-shadow-md hover:t-scale-[1.01] t-transition-all t-duration-300 fab-image-card-link"
+                  to={`/nfc/creation/physical-card/customize-template/${cardName}`}
                 >
                   <article className="t-flex t-flex-col t-gap-f-24">
                     {/* img container */}
@@ -129,7 +133,7 @@ const Shop = () => {
                     </div>
                     {/* text container */}
                     <div className="t-flex t-flex-col t-gap-f-8">
-                      <h6 className="t-text-f-sm t-font-light">{creator}</h6>
+                      {/* <h6 className="t-text-f-sm t-font-light">{creator}</h6> */}
                       <h4 className="t-flex t-justify-between t-text-f-l">
                         {cardName} <BsArrowRight />
                       </h4>
@@ -165,6 +169,7 @@ const Shop = () => {
                 <Link
                   key={idx}
                   className="hover:t-bg-f-primary-90 t-p-f-8 t-rounded-f-8 hover:t-shadow-md hover:t-scale-[1.01] t-transition-all t-duration-300 fab-image-card-link"
+                  to={`/nfc/creation/physical-card/customize-template/${cardName}`}
                 >
                   <article className="t-flex t-flex-col t-gap-f-24">
                     {/* img container */}
@@ -177,7 +182,7 @@ const Shop = () => {
                     </div>
                     {/* text container */}
                     <div className="t-flex t-flex-col t-gap-f-8">
-                      <h6 className="t-text-f-sm t-font-light">{creator}</h6>
+                      {/* <h6 className="t-text-f-sm t-font-light">{creator}</h6> */}
                       <h4 className="t-flex t-justify-between t-text-f-l">
                         {cardName} <BsArrowRight />
                       </h4>
@@ -216,6 +221,7 @@ const Shop = () => {
                 <Link
                   key={idx}
                   className="hover:t-bg-f-primary-90 t-p-f-8 t-rounded-f-8 hover:t-shadow-md hover:t-scale-[1.01] t-transition-all t-duration-300 fab-image-card-link"
+                  to={`/nfc/creation/physical-card/customize-template/${cardName}`}
                 >
                   <article className="t-flex t-flex-col t-gap-f-24">
                     {/* img container */}
@@ -228,7 +234,7 @@ const Shop = () => {
                     </div>
                     {/* text container */}
                     <div className="t-flex t-flex-col t-gap-f-8">
-                      <h6 className="t-text-f-sm t-font-light">{creator}</h6>
+                      {/* <h6 className="t-text-f-sm t-font-light">{creator}</h6> */}
                       <h4 className="t-flex t-justify-between t-text-f-l">
                         {cardName} <BsArrowRight />
                       </h4>
@@ -267,6 +273,7 @@ const Shop = () => {
                 <Link
                   key={idx}
                   className="hover:t-bg-f-primary-90 t-p-f-8 t-rounded-f-8 hover:t-shadow-md hover:t-scale-[1.01] t-transition-all t-duration-300 fab-image-card-link"
+                  to={`/nfc/creation/physical-card/customize-template/${cardName}`}
                 >
                   <article className="t-flex t-flex-col t-gap-f-24">
                     {/* img container */}
@@ -279,7 +286,7 @@ const Shop = () => {
                     </div>
                     {/* text container */}
                     <div className="t-flex t-flex-col t-gap-f-8">
-                      <h6 className="t-text-f-sm t-font-light">{creator}</h6>
+                      {/* <h6 className="t-text-f-sm t-font-light">{creator}</h6> */}
                       <h4 className="t-flex t-justify-between t-text-f-l">
                         {cardName} <BsArrowRight />
                       </h4>

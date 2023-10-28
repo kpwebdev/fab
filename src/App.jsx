@@ -351,7 +351,7 @@ function App() {
             </Route>
           </Route>
           <Route
-            path="/nfc/creation/physical-card"
+            path="/nfc/creation/physical-card/"
             element={<PhysicalCard />}
           />
           <Route
@@ -361,9 +361,11 @@ function App() {
           <Route
             path="/nfc/creation/physical-card/customize"
             element={<CustomizeCard />}
-          />
+          >
+            <Route path=":name" element={<CustomizeCard />} />
+          </Route>
           <Route
-            path="/nfc/creation/physical-card/customize-template"
+            path="/nfc/creation/physical-card/customize-template/:cardName"
             element={<CustomizeCardTemplate />}
           />
           <Route
