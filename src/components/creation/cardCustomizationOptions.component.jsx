@@ -3,6 +3,7 @@ import Color from "color";
 import { HiOutlineUpload } from "react-icons/hi";
 import { GoogleFontsContext } from "../../contexts/GoogleFontsProvider";
 import { Form, Field } from "formik";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
 const CardCustomizationOptions = ({ side, values, setFieldValue }) => {
   const {
@@ -62,7 +63,6 @@ const CardCustomizationOptions = ({ side, values, setFieldValue }) => {
   const { googleFonts, getFontWeights, loadGoogleFonts } = useContext(
     GoogleFontsContext
   );
-  console.log("current values", values);
 
   if (side === "front") {
     return (
@@ -168,7 +168,7 @@ const CardCustomizationOptions = ({ side, values, setFieldValue }) => {
                 reader.readAsDataURL(file);
                 reader.onload = () => {
                   setFieldValue("frontBgImage", reader.result);
-                  setFieldValue("frontLogoImageFile", file);
+                  setFieldValue("frontBgImageFile", file);
                 };
               }}
             />
@@ -504,7 +504,7 @@ const CardCustomizationOptions = ({ side, values, setFieldValue }) => {
               reader.readAsDataURL(file);
               reader.onload = () => {
                 setFieldValue("backBgImage", reader.result);
-                setFieldValue("backLogoImageFile", file);
+                setFieldValue("backBgImageFile", file);
               };
             }}
           />

@@ -17,7 +17,6 @@ import { getUser } from "../../utils/firebase/firebase.util";
 import { useState } from "react";
 import { userFormSchema, socialMediaSchema } from "../../schema";
 import { Formik, Form, Field } from "formik";
-+6;
 import PhoneInput from "react-phone-input-2";
 // icons
 import { BsFacebook } from "react-icons/bs";
@@ -91,7 +90,11 @@ const General = () => {
     socialMedia,
     bannerImage,
     profilePic,
+    companyVision,
+    companyAddress,
+    profile,
     status,
+    card,
   } = data;
 
   const [
@@ -114,11 +117,12 @@ const General = () => {
           contact,
           bannerImage,
           profilePic,
+          companyVision,
+          companyAddress,
           fileBannerImage: "",
           fileProfilePic: "",
         }}
         validationSchema={userFormSchema}
-        onSubmit={(values) => console.log("Done updating the user details.")}
       >
         {({
           errors,
@@ -228,7 +232,10 @@ const General = () => {
                         <div className="col-sm-10">
                           <div className="input-group">
                             <span className="input-group-text">
-                              fabtab.com/profiles/
+                              {`${window.location.origin.replace(
+                                /https?:\/\//,
+                                ""
+                              )}/profiles/`}
                             </span>
                             <Field
                               type="text"
@@ -298,6 +305,60 @@ const General = () => {
                       {errors.companyName && touched.companyName && (
                         <p className="t-text-red-500 t-bg-red-200 t-py-f-8 t-text-f-xs">
                           {errors.companyName}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* companyVision container */}
+                    <div className="t-mb-f-16">
+                      <div className="row">
+                        <label
+                          htmlFor="companyVision"
+                          className="col-sm-2 col-form-label"
+                        >
+                          Company Vision
+                        </label>
+                        <div className="col-sm-10">
+                          <Field
+                            type="text"
+                            className="form-control"
+                            name="companyVision"
+                            id="companyVision"
+                            readOnly={!isEditing}
+                            disabled={!isEditing}
+                          />
+                        </div>
+                      </div>
+                      {errors.companyVision && touched.companyVision && (
+                        <p className="t-text-red-500 t-bg-red-200 t-py-f-8 t-text-f-xs">
+                          {errors.companyVision}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* companyAddress container */}
+                    <div className="t-mb-f-16">
+                      <div className="row">
+                        <label
+                          htmlFor="companyAddress"
+                          className="col-sm-2 col-form-label"
+                        >
+                          Company Address
+                        </label>
+                        <div className="col-sm-10">
+                          <Field
+                            type="text"
+                            className="form-control"
+                            name="companyAddress"
+                            id="companyAddress"
+                            readOnly={!isEditing}
+                            disabled={!isEditing}
+                          />
+                        </div>
+                      </div>
+                      {errors.companyAddress && touched.companyAddress && (
+                        <p className="t-text-red-500 t-bg-red-200 t-py-f-8 t-text-f-xs">
+                          {errors.companyAddress}
                         </p>
                       )}
                     </div>
@@ -421,15 +482,8 @@ const General = () => {
                             linkedInHref: linkedInHref,
                           }}
                           validationSchema={socialMediaSchema}
-                          onSubmit={(values) =>
-                            console.log("form submitted successfully.")
-                          }
                         >
                           {({ touched, errors, handleChange, values }) => {
-                            console.log(
-                              "current values in social media account",
-                              values
-                            );
                             return (
                               <>
                                 <ul className="t-flex t-gap-f-8 t-items-center t-justify-start t-relative">
@@ -874,19 +928,35 @@ const General = () => {
 
                   {/* buttons container */}
                   <div className="t-flex t-flex-col t-gap-f-24 t-px-f-96 t-text-center">
-                    <Link
-                      className="f-btn-md f-btn-primary-outline"
-                      to="/nfc/creation/digital-profile"
-                    >
-                      Digital Profile
-                    </Link>
+                    <div className="t-flex t-flex-col t-gap-f-4">
+                      <Link
+                        className={`f-btn-md f-btn-primary-outline ${
+                          !card
+                            ? "t-cursor-not-allowed t-pointer-events-none"
+                            : ""
+                        }`}
+                        to="/nfc/creation/digital-profile/template"
+                      >
+                        {profile
+                          ? "Customize Digital Profile"
+                          : "Create Digital Profile"}
+                      </Link>
+                      {!card && (
+                        <small className="t-block t-text-start">
+                          You can create digital profile only after creating a
+                          card.
+                        </small>
+                      )}
+                    </div>
 
-                    <Link
-                      className="f-btn-md f-btn-primary"
-                      to="/nfc/creation/physical-card"
-                    >
-                      Create your own fabtap
-                    </Link>
+                    {!card && (
+                      <Link
+                        className="f-btn-md f-btn-primary"
+                        to="/nfc/creation/physical-card"
+                      >
+                        Create your own fabtap
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>

@@ -1,22 +1,104 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { BsArrowLeft } from "react-icons/bs";
 import { LuNfc } from "react-icons/lu";
 import { useEffect, useRef, useState, useContext } from "react";
+import { createPortal } from "react-dom";
 import CardCustomizationOptions from "../../components/creation/cardCustomizationOptions.component";
-import { CardContext } from "../../contexts/CardProvider.context";
+import {
+  CardContext,
+  CARD_ACTION_TYPES,
+} from "../../contexts/CardProvider.context";
 import QRCode from "react-qr-code";
 import house from "../../assets/house.svg";
 import { Formik } from "formik";
 import Color from "color";
+import { useQuery, useMutation } from "@tanstack/react-query";
+import {
+  getUser,
+  updateCardDetails,
+  uploadDataUrlImage,
+  uploadFile,
+} from "../../utils/firebase/firebase.util";
+import { toast } from "react-toastify";
+import html2canvas from "html2canvas";
+import { getStripe } from "../../utils/stripe/stripe.util";
+import { AuthContext } from "../../contexts/AuthProvider.context";
+import { createAction } from "../../contexts/helper-functions";
+import { APIContext } from "../../contexts/APIProvider.context";
 
 const CustomizeCard = () => {
+  const [isStripeLoading, setIsTripeLoading] = useState(false);
+  const { name } = useParams();
+  const cardContextResponse = useContext(CardContext);
+  const { stripePriceId, stripePublishableKey } = useContext(APIContext);
+  const { cardTemplate, dispatch } = cardContextResponse;
+  useEffect(() => {
+    if (name) {
+      const action = createAction(CARD_ACTION_TYPES.UPDATE_CARD_TEMPLATE, name);
+      dispatch(action);
+    }
+  }, [name]);
+
   const {
     frontSettings: frontFormInputs,
     backSettings: backFormInputs,
     orientation,
     ...userCardDetails
-  } = useContext(CardContext);
+  } = cardTemplate;
+
   const [isFront, setIsFront] = useState("true");
+  const {
+    currentUser: { email },
+  } = useContext(AuthContext);
+
+  const { data, isError, isPending } = useQuery({
+    queryKey: ["user"],
+    queryFn: getUser,
+  });
+
+  const cardFrontRef = useRef();
+  const cardBackRef = useRef();
+
+  const {
+    mutate,
+    isError: isErrorUpdatingCardDetails,
+    isPending: isPendingUpdatingCardDetails,
+    error: errorUpdatingCardDetails,
+  } = useMutation({
+    mutationFn: updateCardDetails,
+    onSuccess: async () => {
+      toast.success("Saved the card details.");
+      setIsTripeLoading(true);
+      const stripe = await getStripe(stripePublishableKey);
+      setIsTripeLoading(false);
+      const { error } = await stripe.redirectToCheckout({
+        lineItems: [
+          {
+            price: stripePriceId,
+            quantity: 1,
+          },
+        ],
+        mode: "payment",
+        successUrl: `${window.location.origin}/nfc/payment/success`,
+        cancelUrl: `${window.location.origin}/nfc/payment/cancel`,
+        billingAddressCollection: "required",
+        shippingAddressCollection: { allowedCountries: ["US", "CA", "IN"] },
+        customerEmail: email,
+      });
+      console.log("error in strip redirect", error.message);
+    },
+    onError: () => {
+      toast.error(
+        `Something went wrong. Please contact the web admin. error: ${errorUpdatingCardDetails.message}`
+      );
+      console.log("error updating card details", errorUpdatingCardDetails);
+    },
+  });
+
+  let userName;
+  if (data) {
+    userName = data.userName;
+  }
 
   return (
     <section>
@@ -100,7 +182,7 @@ const CustomizeCard = () => {
                   {/* buttons container */}
                   <div className="t-flex t-gap-f-16">
                     <Link
-                      to="/nfc/creation/physical-card/templates"
+                      to="/nfc/dashboard/shop"
                       className="f-btn-lg f-btn-primary"
                     >
                       Browse Templates
@@ -131,6 +213,7 @@ const CustomizeCard = () => {
                           <h6 className="t-text-f-md t-mb-f-8">Front</h6>
                           {/* card */}
                           <div
+                            ref={cardFrontRef}
                             className={`${
                               orientation === "landscape"
                                 ? "t-h-[204px] t-w-[325px]"
@@ -185,6 +268,7 @@ const CustomizeCard = () => {
                           <h6 className="t-text-f-md t-mb-f-8">Back</h6>
                           {/* card */}
                           <div
+                            ref={cardBackRef}
                             className={`${
                               orientation === "landscape"
                                 ? "t-h-[204px] t-w-[325px]"
@@ -226,7 +310,7 @@ const CustomizeCard = () => {
                                   fgColor={Color(backElementColor).alpha(
                                     Number(backElementOpacity) / 100
                                   )}
-                                  value="https://www.linkedin.com/in/kp-web-dev/"
+                                  value={`${window.location.origin}/profiles/${userName}`}
                                   level="H"
                                   className={`${
                                     orientation !== "landscape"
@@ -316,6 +400,7 @@ const CustomizeCard = () => {
                     </button>
                   </div>
                   <CardCustomizationOptions
+                    key={name}
                     values={values}
                     side={isFront ? "front" : "back"}
                     setFieldValue={setFieldValue}
@@ -325,12 +410,145 @@ const CustomizeCard = () => {
 
               {/* next step */}
               <div className="t-text-end">
-                <Link
+                <button
+                  type="button"
                   className="f-btn-lg f-btn-primary"
-                  to="/nfc/creation/physical-card/customize"
+                  onClick={async () => {
+                    const cardFrontCanvas = await html2canvas(
+                      cardFrontRef.current,
+                      { backgroundColor: "transparent" }
+                    );
+                    const cardBackCanvas = await html2canvas(
+                      cardBackRef.current,
+                      { backgroundColor: "transparent" }
+                    );
+                    const cardFrontImage = cardFrontCanvas.toDataURL(
+                      "image/png"
+                    );
+                    const cardBackImage = cardBackCanvas.toDataURL("image/png");
+                    const cardFrontImageUrl = await uploadDataUrlImage(
+                      "cardImages",
+                      cardFrontImage,
+                      "frontCardImage"
+                    );
+                    const cardBackImageUrl = await uploadDataUrlImage(
+                      "cardImages",
+                      cardBackImage,
+                      "backCardImage"
+                    );
+                    const frontBgImageFileUrl = await uploadFile(
+                      "background",
+                      frontBgImageFile,
+                      "frontBgImage"
+                    );
+                    const frontLogoImageUrl = await uploadFile(
+                      "background",
+                      frontLogoImageFile,
+                      "frontBgImage"
+                    );
+                    const backBgImageFileUrl = await uploadFile(
+                      "background",
+                      backBgImageFile,
+                      "backBgImage"
+                    );
+                    // cardFrontRef cardBackRef
+                    const frontSettings = {
+                      frontBgColor,
+                      frontHasBgGradient,
+                      frontBgGradientStart,
+                      frontBgGradientCenter,
+                      frontBgGradientEnd,
+                      frontBgGradientDirection,
+                      frontBgOpacity,
+                      frontBgImageFile: "",
+                      frontBgImage: frontBgImageFileUrl,
+                      frontText,
+                      frontTextColor,
+                      frontTextOpacity,
+                      frontFontSize,
+                      frontFontFamily,
+                      frontFontWeight,
+                      frontIsItalic,
+                      frontIsUnderline,
+                      frontHasElementQrcode,
+                      frontHasElementNFC,
+                      frontElementColor,
+                      frontElementOpacity,
+                      frontLogoImageFile: "",
+                      frontLogoImage: frontLogoImageUrl,
+                    };
+                    const backSettings = {
+                      backBgColor,
+                      backHasBgGradient,
+                      backBgGradientStart,
+                      backBgGradientCenter,
+                      backBgGradientEnd,
+                      backBgGradientDirection,
+                      backBgOpacity,
+                      backBgImageFile: "",
+                      backBgImage: backBgImageFileUrl,
+                      backPersonText,
+                      backPersonTextColor,
+                      backPersonTextOpacity,
+                      backPersonFontSize,
+                      backPersonFontFamily,
+                      backPersonFontWeight,
+                      backIsPersonItalic,
+                      backIsPersonUnderline,
+                      backRoleText,
+                      backRoleTextColor,
+                      backRoleTextOpacity,
+                      backRoleFontSize,
+                      backRoleFontFamily,
+                      backRoleFontWeight,
+                      backIsRoleItalic,
+                      backIsRoleUnderline,
+                      backHasElementQrcode,
+                      backHasElementNFC,
+                      backElementColor,
+                      backElementOpacity,
+                    };
+                    const status = "payment-pending";
+                    const cardImageFront = cardFrontImageUrl;
+                    const cardImageBack = cardBackImageUrl;
+                    const {
+                      id,
+                      name,
+                      category,
+                      description,
+                      price,
+                      thumbnail,
+                      hasPaid,
+                      isBestSeller,
+                    } = values;
+                    mutate({
+                      id,
+                      orientation,
+                      name,
+                      category,
+                      description,
+                      price,
+                      thumbnail,
+                      hasPaid,
+                      isBestSeller,
+                      status,
+                      cardImageFront,
+                      cardImageBack,
+                      frontSettings,
+                      backSettings,
+                    });
+                  }}
                 >
-                  Continue
-                </Link>
+                  Checkout
+                </button>
+                {isPendingUpdatingCardDetails &&
+                  isStripeLoading &&
+                  createPortal(
+                    <div className="t-min-h-screen t-flex t-justify-center t-items-center t-border-f-primary-10/50">
+                      <span className="custom-loader"></span>
+                    </div>,
+                    document.body
+                  )}
               </div>
             </div>
           );

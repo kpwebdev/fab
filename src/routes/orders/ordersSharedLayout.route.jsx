@@ -1,34 +1,51 @@
+import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { NavLink, Link, Outlet } from "react-router-dom";
+import { getUser } from "../../utils/firebase/firebase.util";
 
 const FormInitialValue = {
   sortBy: "",
 };
 
 const OrdersSharedLayout = () => {
-  const [formInput, setFormInput] = useState(FormInitialValue);
-  const { sortBy } = formInput;
+  // const [formInput, setFormInput] = useState(FormInitialValue);
+  // const { sortBy } = formInput;
 
-  const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
+  // const handleChange = (e) => {
+  //   const name = e.target.name;
+  //   const value = e.target.value;
 
-    setFormInput({ ...formInput, [name]: value });
-  };
+  //   setFormInput({ ...formInput, [name]: value });
+  // };
+
+  const { data, isPending, isError, error } = useQuery({
+    queryKey: ["user"],
+    queryFn: getUser,
+  });
+
+  if (isPending) {
+    return (
+      <div className="t-my-f-24 t-flex t-justify-center t-items-center">
+        <span className="custom-loader"></span>
+      </div>
+    );
+  }
+
+  const { card, profile } = data;
 
   return (
     <section>
       <header className="t-flex t-justify-between">
         <h3 className="t-text-f-3xl">Orders</h3>
-        <p>
+        {/* <p>
           Total Members: <span className="t-text-f-primary-40">90</span>
-        </p>
+        </p> */}
       </header>
 
       {/* actions container */}
       <div className="t-flex t-justify-between t-my-f-24">
         {/* navigation links */}
-        <ul className="t-flex t-gap-f-24 t-py-f-16">
+        {/* <ul className="t-flex t-gap-f-24 t-py-f-16">
           <li>
             <NavLink
               to="/nfc/dashboard/orders/self"
@@ -53,9 +70,9 @@ const OrdersSharedLayout = () => {
               Customer
             </NavLink>
           </li>
-        </ul>
+        </ul> */}
 
-        <form className="t-text-f-md t-flex t-gap-f-8">
+        {/* <form className="t-text-f-md t-flex t-gap-f-8">
           <select
             name="sortBy"
             id="sortBy"
@@ -66,11 +83,12 @@ const OrdersSharedLayout = () => {
             <option value="">Sort By</option>
             <option value="name">Name</option>
           </select>
-        </form>
+        </form> */}
       </div>
 
       {/* children rendering region */}
       <Outlet />
+      <div></div>
     </section>
   );
 };

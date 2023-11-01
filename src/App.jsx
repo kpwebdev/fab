@@ -65,6 +65,10 @@ import {
   PortfoliosSharedLayout,
   Portfolio,
   ServicesIndex,
+  Success,
+  Cancel,
+  Profile,
+  NotFound,
 } from "./routes";
 
 const queryClient = new QueryClient();
@@ -364,10 +368,10 @@ function App() {
           >
             <Route path=":name" element={<CustomizeCard />} />
           </Route>
-          <Route
-            path="/nfc/creation/physical-card/customize-template/:cardName"
+          {/* <Route
+            path="/nfc/creation/physical-card/customize/:cardName"
             element={<CustomizeCardTemplate />}
-          />
+          /> */}
           <Route
             path="/nfc/creation/digital-profile"
             element={<DigitalProfile />}
@@ -397,6 +401,11 @@ function App() {
               <Route path=":id" element={<Portfolio />} />
             </Route>
           </Route>
+          {/* payment related routes */}
+          <Route path="/nfc/payment/success" element={<Success />} />
+          <Route path="/nfc/payment/cancel" element={<Cancel />} />
+          <Route path="/profiles/:userName" element={<Profile />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer />

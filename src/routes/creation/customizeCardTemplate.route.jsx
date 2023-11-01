@@ -53,7 +53,7 @@ const CustomizeCardTemplate = () => {
     frontSettings: frontFormInputs,
     backSettings: backFormInputs,
     dispatch,
-    ...userCarrdDetails
+    ...userCardDetails
   } = useContext(CardContext);
 
   useEffect(() => {
@@ -217,9 +217,6 @@ const CustomizeCardTemplate = () => {
             {isFront ? (
               <CardCustomizationOptions
                 formInputs={frontFormInputs}
-                setFormInputs={() =>
-                  console.log("something changed in the front")
-                }
                 googleFonts={googleFonts}
                 bgRef={frontBGRef}
                 textRef={frontTextRef}
@@ -229,9 +226,6 @@ const CustomizeCardTemplate = () => {
             ) : (
               <CardCustomizationOptions
                 formInputs={backFormInputs}
-                setFormInputs={() =>
-                  console.log("something changed in the back")
-                }
                 googleFonts={googleFonts}
                 bgRef={backBGRef}
                 textRef={backTextRef}

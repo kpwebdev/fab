@@ -946,27 +946,31 @@ const cardReducer = (state, action) => {
 
   switch (type) {
     case CARD_ACTION_TYPES.UPDATE_ORIENTATION:
-      return { ...state, orientation: payload };
+      return {
+        ...state,
+        cardTemplate: { ...state.cardTemplate, orientation: payload },
+      };
     case CARD_ACTION_TYPES.UPDATE_CARD_TEMPLATE:
-      console.log("cardName in cardReducer", payload);
       const foundTemplate = cardTemplates.find((card) => card.name === payload);
-      console.log("found template", foundTemplate);
       if (foundTemplate) {
-        return { ...state, ...foundTemplate };
+        return { ...state, cardTemplate: foundTemplate };
       } else {
         throw new Error(`Couldn't find the template: ${payload}`);
       }
       break;
     case CARD_ACTION_TYPES.UPDATE_CARD:
-      return { ...state, ...payload };
+      return { ...state, cardTemplate: payload };
     default:
       throw new Error(`${type} is not a valid action in cardReducer`);
   }
 };
 
+const INITIAL_CARD_VALUE = {
+  cardTemplate: cardTemplates[0],
+};
+
 const CardProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(cardReducer, cardTemplates[0]);
-  console.log("current status of card state", state);
+  const [state, dispatch] = useReducer(cardReducer, INITIAL_CARD_VALUE);
   const value = { ...state, dispatch };
   return <CardContext.Provider value={value}>{children}</CardContext.Provider>;
 };

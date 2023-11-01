@@ -1,10 +1,13 @@
-import { useEffect, useState, createContext, useReducer } from "react";
+import {
+  useEffect,
+  useState,
+  createContext,
+  useReducer,
+  useContext,
+} from "react";
 import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
 import { createAction } from "./helper-functions";
-const url = `https://www.googleapis.com/webfonts/v1/webfonts?key=${
-  import.meta.env.VITE_GOOGLE_FONTS_API
-}`;
+import { APIContext } from "./APIProvider.context";
 
 export const GoogleFontsContext = createContext();
 
@@ -80,13 +83,13 @@ const googleFontsReducer = (state, action) => {
 };
 
 const GoogleFontsProvider = ({ children }) => {
+  const { googleFontsAPI } = useContext(APIContext);
   const [state, dispatch] = useReducer(
     googleFontsReducer,
     INITIAL_VALUE_GOOGLE_FONTS
   );
 
   const loadGoogleFonts = (fontFamilyArr) => {
-    console.log("running loadGoogleFonts");
     // fontFamilyArr.forEach((fontFamily) => {
     //   const googleFontUrl = `https://fonts.googleapis.com/css2?family=${fontFamily}&display=swap`;
     //   const currentlyAvailableLinkTag = document.querySelector(
@@ -117,10 +120,7 @@ const GoogleFontsProvider = ({ children }) => {
         apiUrl.push("&subset=");
         apiUrl.push("greek");
       }
-      console.log("apiUrl", apiUrl);
       const url = apiUrl.join("");
-      console.log("url", url);
-      console.log("font", font);
       const linkId = fontFamilyName.toLowerCase().replace(/ /g, "-");
       const currentlyAvailableLinkTag = document.querySelector(
         `#google-font-${linkId}`
@@ -154,8 +154,8 @@ const GoogleFontsProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    console.log("useEffect from GoogleFontsProvider");
     const fetchGoogleFonts = async () => {
+      const url = `https://www.googleapis.com/webfonts/v1/webfonts?key=${googleFontsAPI}`;
       const {
         data: { items },
       } = await axios(url);

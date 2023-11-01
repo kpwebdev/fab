@@ -57,3 +57,10 @@ export { default as ServicesIndex } from "./agency/servicesIndex.route";
 export { default as Service } from "./agency/service.route";
 export { default as PortfoliosSharedLayout } from "./agency/portfoliosSharedLayout.route";
 export { default as Portfolio } from "./agency/portfolio.route";
+// payment related pages
+export { default as Success } from "./payments/success.route";
+export { default as Cancel } from "./payments/cancel.route";
+// profile page
+export { default as Profile } from "./profile.route";
+// error pages
+export { default as NotFound } from "./notFound.route";

@@ -120,7 +120,7 @@ const Shop = () => {
                 <Link
                   key={idx}
                   className="hover:t-bg-f-primary-90 t-p-f-8 t-rounded-f-8 hover:t-shadow-md hover:t-scale-[1.01] t-transition-all t-duration-300 fab-image-card-link"
-                  to={`/nfc/creation/physical-card/customize-template/${cardName}`}
+                  to={`/nfc/creation/physical-card/customize/${cardName}`}
                 >
                   <article className="t-flex t-flex-col t-gap-f-24">
                     {/* img container */}
@@ -169,7 +169,7 @@ const Shop = () => {
                 <Link
                   key={idx}
                   className="hover:t-bg-f-primary-90 t-p-f-8 t-rounded-f-8 hover:t-shadow-md hover:t-scale-[1.01] t-transition-all t-duration-300 fab-image-card-link"
-                  to={`/nfc/creation/physical-card/customize-template/${cardName}`}
+                  to={`/nfc/creation/physical-card/customize/${cardName}`}
                 >
                   <article className="t-flex t-flex-col t-gap-f-24">
                     {/* img container */}
@@ -221,7 +221,7 @@ const Shop = () => {
                 <Link
                   key={idx}
                   className="hover:t-bg-f-primary-90 t-p-f-8 t-rounded-f-8 hover:t-shadow-md hover:t-scale-[1.01] t-transition-all t-duration-300 fab-image-card-link"
-                  to={`/nfc/creation/physical-card/customize-template/${cardName}`}
+                  to={`/nfc/creation/physical-card/customize/${cardName}`}
                 >
                   <article className="t-flex t-flex-col t-gap-f-24">
                     {/* img container */}
@@ -273,7 +273,7 @@ const Shop = () => {
                 <Link
                   key={idx}
                   className="hover:t-bg-f-primary-90 t-p-f-8 t-rounded-f-8 hover:t-shadow-md hover:t-scale-[1.01] t-transition-all t-duration-300 fab-image-card-link"
-                  to={`/nfc/creation/physical-card/customize-template/${cardName}`}
+                  to={`/nfc/creation/physical-card/customize/${cardName}`}
                 >
                   <article className="t-flex t-flex-col t-gap-f-24">
                     {/* img container */}

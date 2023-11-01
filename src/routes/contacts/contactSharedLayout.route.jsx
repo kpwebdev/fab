@@ -173,7 +173,6 @@ const ContactSharedLayout = () => {
                 }}
               >
                 {({ errors, touched, values, handleChange }) => {
-                  console.log("current values", values);
                   return (
                     <Form>
                       <div className="form-check t-mb-f-16">

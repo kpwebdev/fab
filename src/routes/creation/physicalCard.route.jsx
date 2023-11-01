@@ -18,7 +18,6 @@ const PhysicalCard = () => {
       CARD_ACTION_TYPES.UPDATE_ORIENTATION,
       e.target.value
     );
-    console.log("action being dispatched from handlOnChange", action);
     dispatch(action);
   };
   return (
@@ -39,12 +38,6 @@ const PhysicalCard = () => {
             <h2 className="t-text-f-2xl">Choose Your Style</h2>
             {/* buttons container */}
             <div className="t-flex t-gap-f-16">
-              <Link
-                to="/nfc/creation/digital-profile"
-                className="f-btn-lg f-btn-primary-outline"
-              >
-                Create Digitally
-              </Link>
               <Link to="/nfc/dashboard/shop" className="f-btn-lg f-btn-primary">
                 Browse Templates
               </Link>

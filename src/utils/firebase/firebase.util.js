@@ -11,6 +11,7 @@ import {
   deleteDoc,
   setDoc,
   updateDoc,
+  Timestamp,
 } from "firebase/firestore";
 import {
   getAuth,
@@ -20,7 +21,13 @@ import {
   GoogleAuthProvider,
   signOut,
 } from "firebase/auth";
-import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import {
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadBytes,
+  uploadString,
+} from "firebase/storage";
 
 // configuration
 const firebaseConfig = {
@@ -46,12 +53,10 @@ export const auth = getAuth(app);
 
 const signUp = async ({ email, password }) => {
   const response = await createUserWithEmailAndPassword(auth, email, password);
-  console.log("created a user", response);
 };
 
 const signInWithEmail = async ({ email, password }) => {
   const response = await signInWithEmailAndPassword(auth, email, password);
-  console.log("Successfully loggedIn", response);
 };
 
 const googleProvider = new GoogleAuthProvider();
@@ -63,7 +68,6 @@ const signInWithGoogle = async () => {
 
 const logout = async () => {
   const response = await signOut(auth);
-  console.log("response - logout", response);
 };
 
 const getAllDocs = async (collectionName, _q) => {
@@ -82,17 +86,16 @@ const getAllDocs = async (collectionName, _q) => {
 const getDocument = async (collectionName, id) => {
   const ref = collection(db, collectionName);
   const docRef = doc(ref, id);
-
-  const response = await getDoc(docRef);
-  console.log("response", response);
+  const docSnap = await getDoc(docRef);
+  return docSnap.data();
 };
 
 const addDocument = async (collectionName, data) => {
-  console.log("collectionName", collectionName);
-  console.log("data", data);
   const ref = collection(db, collectionName);
-  const response = await addDoc(ref, data);
-  console.log("response", response);
+  const response = await addDoc(ref, {
+    ...data,
+    modifiedAt: Timestamp.fromDate(new Date()),
+  });
 
   return response;
 };
@@ -100,15 +103,16 @@ const addDocument = async (collectionName, data) => {
 const deleteDocument = async (collectionName, id) => {
   const ref = doc(db, collectionName, id);
   const response = await deleteDoc(ref);
-  console.log("response", response);
 };
 
 const addUser = async (data) => {
   const response = await addDocument("users", {
     ...data,
     uid: auth.currentUser.uid,
+    createdAt: Timestamp.fromDate(new Date()),
+    modifiedAt: Timestamp.fromDate(new Date()),
+    email: auth.currentUser.email,
   });
-  console.log("response - created user", response);
 };
 
 const getUser = async () => {
@@ -122,18 +126,46 @@ const getUser = async () => {
       const data = dataArr[0];
       return data;
     } catch (error) {
-      console.log("here is the error", error);
+      console.log("something went wrong", error);
     }
   }
 };
 
+const getProfileUser = async (userName) => {
+  let users;
+  try {
+    users = await getAllDocs("users", ["userName", "==", userName]);
+  } catch (error) {
+    console.log("something went wrong in getProfileUser > getAllDocs", error);
+  }
+  const user = users[0];
+  return user;
+};
+
+const getAllUsers = async () => {
+  const users = await getAllDocs("users");
+  return users;
+};
+
 const updateUserDetails = async (dataToUpdate) => {
+  const { userName } = dataToUpdate;
+  const users = await getAllUsers();
+  const foundUser = users.find((user) => user.userName === userName);
+  if (foundUser && foundUser.email !== auth.currentUser.email) {
+    throw new Error(
+      "The user name is already taken. Please choose something else"
+    );
+  }
+  // if (userNames.includes(userName) && auth.currentUser.) {
+  //   throw new Error(
+  //     "The user name is already taken. Please choose something else"
+  //   );
+  // }
   const currentUserData = await getUser();
   const { id } = currentUserData;
   const newUserData = { ...currentUserData, ...dataToUpdate };
   const docRef = doc(db, "users", id);
   const response = await setDoc(docRef, newUserData);
-  console.log("response from - updateUserDetails", response);
 };
 
 const updateContacts = async (contacts) => {
@@ -142,7 +174,6 @@ const updateContacts = async (contacts) => {
     const { id } = currentUserData;
     const docRef = doc(db, "users", id);
     const response = await updateDoc(docRef, { contacts });
-    console.log("response - updateContacts", response);
   } catch (error) {
     console.log("something is not right", error);
   }
@@ -153,7 +184,6 @@ const updateSocialMedia = async (socialMedia) => {
   const { id } = currentUserData;
   const docRef = doc(db, "users", id);
   const response = await updateDoc(docRef, { socialMedia });
-  console.log("response - updateSocialMedia", response);
 };
 
 const uploadFile = async (path, file, fileNameWithoutExtension) => {
@@ -165,8 +195,38 @@ const uploadFile = async (path, file, fileNameWithoutExtension) => {
   const fileRef = ref(storage, `${path}/${fileName}`);
   const response = await uploadBytes(fileRef, file);
   const downloadLink = await getDownloadURL(response.ref);
-  console.log("response - uploadFile", response);
   return downloadLink;
+};
+
+const uploadDataUrlImage = async (path, file, fileNameWithoutExtension) => {
+  if (!file) return;
+  const fileName = fileNameWithoutExtension + ".png";
+  const fileRef = ref(storage, `${path}/${fileName}`);
+  const response = await uploadString(fileRef, file, "data_url");
+  const downloadLink = await getDownloadURL(response.ref);
+  return downloadLink;
+};
+
+const updateCardDetails = async (card) => {
+  const currentUserData = await getUser();
+  const { id } = currentUserData;
+  const docRef = doc(db, "users", id);
+  try {
+    const response = await updateDoc(docRef, { card });
+  } catch (error) {
+    console.log("error from updateCardDetails", error);
+  }
+};
+
+const updateProfileDetails = async (profile) => {
+  const currentUserData = await getUser();
+  const { id } = currentUserData;
+  const docRef = doc(db, "users", id);
+  try {
+    const response = await updateDoc(docRef, { profile });
+  } catch (error) {
+    console.log("error from updateProfileDetails", error);
+  }
 };
 
 export {
@@ -184,4 +244,8 @@ export {
   updateContacts,
   updateSocialMedia,
   uploadFile,
+  updateCardDetails,
+  uploadDataUrlImage,
+  updateProfileDetails,
+  getProfileUser,
 };

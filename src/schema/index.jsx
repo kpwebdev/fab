@@ -30,6 +30,8 @@ export const userFormSchema = Yup.object({
   userName: Yup.string().required("Please enter an username."),
   fullName: Yup.string().required("Please enter a full name."),
   companyName: Yup.string().required("Please enter a company name."),
+  companyVision: Yup.string(),
+  companyAddress: Yup.string().required("Please enter a company address"),
   role: Yup.string().required("Please enter your role."),
   website: Yup.string(),
   contact: Yup.string()

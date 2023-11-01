@@ -7,8 +7,6 @@ export const AuthContext = createContext();
 const AuthContextProvider = ({ children }) => {
   const [isAuthReady, setIsAuthReady] = useState(false);
   const [currentUser, setCurrentUser] = useState(auth.currentUser);
-  console.log("currentUser from useState", currentUser);
-  console.log("currentUser from auth", auth.currentUser);
 
   useEffect(() => {
     auth._initializationPromise.then(() => {
