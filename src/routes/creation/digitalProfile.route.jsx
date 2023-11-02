@@ -1,4 +1,4 @@
-import { useContext, useState, useRef } from "react";
+import { useContext, useState } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import {
   getUser,
@@ -20,7 +20,6 @@ const DigitalProfile = () => {
   const { profileTemplate } = useContext(ProfileContext);
   const navigate = useNavigate();
   const { name, colors } = profileTemplate;
-  const profileTemplateRef = useRef();
 
   const { data, isError, error, isPending } = useQuery({
     queryKey: ["user"],
@@ -34,9 +33,9 @@ const DigitalProfile = () => {
     isPending: isUpdatingProfile,
   } = useMutation({
     mutationFn: updateProfileDetails,
-    onSuccess: () => () => {
+    onSuccess: () => {
       toast.success("Saved Profile details successfully");
-      navigate(`${window.location.origin}/profiles/${data.userName}`);
+      navigate(`/profiles/${data.userName}`);
     },
     onError: () =>
       toast.error("Something went wrong. Please contact web admin"),
@@ -84,7 +83,6 @@ const DigitalProfile = () => {
                   metaFullNameColor,
                   grayTextColor,
                 }}
-                myRef={profileTemplateRef}
               />
               <Form className="t-max-w-[450px] t-mx-auto t-flex t-items-center t-justify-between t-gap-f-8 t-mb-f-16 t-p-f-8 t-rounded-f-8 t-shadow-lg">
                 <div className="t-flex t-gap-f-8 t-flex-wrap">
@@ -176,7 +174,6 @@ const DigitalProfile = () => {
                   metaFullNameColor,
                   grayTextColor,
                 }}
-                ref={profileTemplateRef}
               />
               <Form className="t-max-w-[450px] t-mx-auto t-flex t-items-center t-justify-between t-gap-f-8 t-mb-f-16 t-p-f-8 t-rounded-f-8 t-shadow-lg">
                 <div className="t-flex t-gap-f-8 t-flex-wrap">
@@ -262,7 +259,6 @@ const DigitalProfile = () => {
                   metaFullNameColor,
                   grayTextColor,
                 }}
-                ref={profileTemplateRef}
               />
               <Form className="t-max-w-[450px] t-mx-auto t-flex t-items-center t-justify-between t-gap-f-8 t-mb-f-16 t-p-f-8 t-rounded-f-8 t-shadow-lg">
                 <div className="t-flex t-gap-f-8 t-flex-wrap">

@@ -1465,10 +1465,6 @@ video {
   border-style: dashed;
 }
 
-.t-border-f-primary-10\/50 {
-  border-color: rgb(6 22 45 / 0.5);
-}
-
 .t-border-f-primary-40 {
   --tw-border-opacity: 1;
   border-color: rgb(26 89 178 / var(--tw-border-opacity));
@@ -1526,6 +1522,10 @@ video {
 .t-bg-f-primary-20 {
   --tw-bg-opacity: 1;
   background-color: rgb(13 45 89 / var(--tw-bg-opacity));
+}
+
+.t-bg-f-primary-20\/90 {
+  background-color: rgb(13 45 89 / 0.9);
 }
 
 .t-bg-f-primary-30 {
@@ -1611,6 +1611,11 @@ video {
 .t-bg-slate-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+}
+
+.t-bg-green-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(187 247 208 / var(--tw-bg-opacity));
 }
 
 .t-bg-opacity-50 {

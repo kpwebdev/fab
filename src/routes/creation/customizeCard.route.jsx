@@ -9,7 +9,6 @@ import {
   CARD_ACTION_TYPES,
 } from "../../contexts/CardProvider.context";
 import QRCode from "react-qr-code";
-import house from "../../assets/house.svg";
 import { Formik } from "formik";
 import Color from "color";
 import { useQuery, useMutation } from "@tanstack/react-query";
@@ -25,6 +24,7 @@ import { getStripe } from "../../utils/stripe/stripe.util";
 import { AuthContext } from "../../contexts/AuthProvider.context";
 import { createAction } from "../../contexts/helper-functions";
 import { APIContext } from "../../contexts/APIProvider.context";
+import { Timestamp } from "firebase/firestore";
 
 const CustomizeCard = () => {
   const [isStripeLoading, setIsTripeLoading] = useState(false);
@@ -45,6 +45,9 @@ const CustomizeCard = () => {
     orientation,
     ...userCardDetails
   } = cardTemplate;
+  console.log("current card template", cardTemplate);
+  console.log("current card details - frontFormInputs", frontFormInputs);
+  console.log("current card details - backFormInputs", backFormInputs);
 
   const [isFront, setIsFront] = useState("true");
   const {
@@ -117,8 +120,10 @@ const CustomizeCard = () => {
           ...backFormInputs,
           ...userCardDetails,
         }}
+        key={cardTemplate.name}
       >
         {({ values, setFieldValue }) => {
+          console.log("current formik values", values);
           const {
             frontBgColor,
             frontHasBgGradient,
@@ -412,8 +417,14 @@ const CustomizeCard = () => {
               <div className="t-text-end">
                 <button
                   type="button"
-                  className="f-btn-lg f-btn-primary"
+                  className={`f-btn-lg f-btn-primary${
+                    isPendingUpdatingCardDetails || isStripeLoading
+                      ? " t-cursor-not-allowed"
+                      : ""
+                  }`}
+                  disabled={isPendingUpdatingCardDetails || isStripeLoading}
                   onClick={async () => {
+                    setIsTripeLoading(() => true);
                     const cardFrontCanvas = await html2canvas(
                       cardFrontRef.current,
                       { backgroundColor: "transparent" }
@@ -461,7 +472,7 @@ const CustomizeCard = () => {
                       frontBgGradientDirection,
                       frontBgOpacity,
                       frontBgImageFile: "",
-                      frontBgImage: frontBgImageFileUrl,
+                      frontBgImage: frontBgImageFileUrl || "",
                       frontText,
                       frontTextColor,
                       frontTextOpacity,
@@ -475,7 +486,7 @@ const CustomizeCard = () => {
                       frontElementColor,
                       frontElementOpacity,
                       frontLogoImageFile: "",
-                      frontLogoImage: frontLogoImageUrl,
+                      frontLogoImage: frontLogoImageUrl || "",
                     };
                     const backSettings = {
                       backBgColor,
@@ -486,7 +497,7 @@ const CustomizeCard = () => {
                       backBgGradientDirection,
                       backBgOpacity,
                       backBgImageFile: "",
-                      backBgImage: backBgImageFileUrl,
+                      backBgImage: backBgImageFileUrl || "",
                       backPersonText,
                       backPersonTextColor,
                       backPersonTextOpacity,
@@ -508,7 +519,7 @@ const CustomizeCard = () => {
                       backElementColor,
                       backElementOpacity,
                     };
-                    const status = "payment-pending";
+                    const status = "created";
                     const cardImageFront = cardFrontImageUrl;
                     const cardImageBack = cardBackImageUrl;
                     const {
@@ -536,15 +547,18 @@ const CustomizeCard = () => {
                       cardImageBack,
                       frontSettings,
                       backSettings,
+                      createdAt: Timestamp.fromDate(new Date()),
+                      modifiedAt: Timestamp.fromDate(new Date()),
                     });
                   }}
                 >
-                  Checkout
+                  {isPendingUpdatingCardDetails || isStripeLoading
+                    ? "Checking out..."
+                    : "Checkout"}
                 </button>
-                {isPendingUpdatingCardDetails &&
-                  isStripeLoading &&
+                {(isPendingUpdatingCardDetails || isStripeLoading) &&
                   createPortal(
-                    <div className="t-min-h-screen t-flex t-justify-center t-items-center t-border-f-primary-10/50">
+                    <div className="t-min-h-screen t-flex t-justify-center t-items-center t-bg-f-primary-20/90 t-fixed t-top-0 t-left-0 t-min-w-full t-z-50">
                       <span className="custom-loader"></span>
                     </div>,
                     document.body

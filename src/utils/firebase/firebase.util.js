@@ -20,6 +20,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   signOut,
+  deleteUser,
 } from "firebase/auth";
 import {
   getDownloadURL,
@@ -115,6 +116,11 @@ const addUser = async (data) => {
   });
 };
 
+const deleteUserAccount = async () => {
+  const response = await deleteUser(auth.currentUser);
+  console.log("response from deleteUserAccount", response);
+};
+
 const getUser = async () => {
   if (auth.currentUser.uid) {
     try {
@@ -192,7 +198,7 @@ const uploadFile = async (path, file, fileNameWithoutExtension) => {
   const actualFileNameFragments = actualFileName.split(".");
   const fileName =
     fileNameWithoutExtension + "." + actualFileNameFragments.at(-1);
-  const fileRef = ref(storage, `${path}/${fileName}`);
+  const fileRef = ref(storage, `${auth.currentUser.uid}/${path}/${fileName}`);
   const response = await uploadBytes(fileRef, file);
   const downloadLink = await getDownloadURL(response.ref);
   return downloadLink;
@@ -201,7 +207,7 @@ const uploadFile = async (path, file, fileNameWithoutExtension) => {
 const uploadDataUrlImage = async (path, file, fileNameWithoutExtension) => {
   if (!file) return;
   const fileName = fileNameWithoutExtension + ".png";
-  const fileRef = ref(storage, `${path}/${fileName}`);
+  const fileRef = ref(storage, `${auth.currentUser.uid}/${path}/${fileName}`);
   const response = await uploadString(fileRef, file, "data_url");
   const downloadLink = await getDownloadURL(response.ref);
   return downloadLink;
@@ -224,6 +230,7 @@ const updateProfileDetails = async (profile) => {
   const docRef = doc(db, "users", id);
   try {
     const response = await updateDoc(docRef, { profile });
+    return response;
   } catch (error) {
     console.log("error from updateProfileDetails", error);
   }
@@ -248,4 +255,5 @@ export {
   uploadDataUrlImage,
   updateProfileDetails,
   getProfileUser,
+  deleteUserAccount,
 };

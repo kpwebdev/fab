@@ -521,10 +521,10 @@ const offcanvasOptionsLinks = [
 
 // --profile links
 const myProfileLinks = [
-  {
-    path: "/nfc/dashboard/my-profile/general",
-    title: "General",
-  },
+  // {
+  //   path: "/nfc/dashboard/my-profile/general",
+  //   title: "General",
+  // },
   // {
   //   path: "/nfc/dashboard/my-profile/organization",
   //   title: "Organization",
@@ -533,10 +533,10 @@ const myProfileLinks = [
   //   path: "/nfc/dashboard/my-profile/progress",
   //   title: "Progress",
   // },
-  {
-    path: "/nfc/dashboard/my-profile/my-fab",
-    title: "My Fab",
-  },
+  // {
+  //   path: "/nfc/dashboard/my-profile/my-fab",
+  //   title: "My Fab",
+  // },
 ];
 
 const userData = {
@@ -643,6 +643,7 @@ const defaultUserData = {
 };
 // default userData test
 const defaultUserTestData = {
+  webRole: "user",
   bannerImage: "",
   profilePic: "",
   userName: "",
@@ -1100,7 +1101,7 @@ const shopCollections = {
       {
         img: designedCollectionBlack,
         creator: "Creator Name",
-        cardName: "Matte black 2",
+        cardName: "Matte Black 2",
         description: "Customise: card design & digital profile",
         price: 849,
         isBestSeller: false,

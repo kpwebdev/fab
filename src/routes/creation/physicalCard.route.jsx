@@ -9,8 +9,8 @@ import { createAction } from "../../contexts/helper-functions";
 
 const PhysicalCard = () => {
   // const [orientation, setOrientation] = useState("landscape");
-  const { dispatch, ...userCardDetails } = useContext(CardContext);
-  const { orientation } = userCardDetails;
+  const { dispatch, cardTemplate } = useContext(CardContext);
+  const { orientation } = cardTemplate;
 
   const handleOnChange = (e) => {
     // setOrientation(e.target.value);

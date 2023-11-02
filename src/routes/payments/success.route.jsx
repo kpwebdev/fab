@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import Confetti from "react-confetti";
-import { useQuery } from "@tanstack/react-query";
-import { getUser } from "../../utils/firebase/firebase.util";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { getUser, updateCardDetails } from "../../utils/firebase/firebase.util";
 import { Link } from "react-router-dom";
 
 const Success = () => {
+  const queryClient = useQueryClient();
   const [windowDimensions, setWindowDimensions] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -16,7 +17,23 @@ const Success = () => {
     queryFn: getUser,
   });
 
+  const {
+    mutate: updateCard,
+    isUpdatingCard,
+    isErrorUpdating,
+    errorUpdatingCard,
+  } = useMutation({
+    mutationFn: updateCardDetails,
+    onSuccess: () =>
+      queryClient.invalidateQueries({
+        queryKey: ["user"],
+      }),
+  });
+
   useEffect(() => {
+    if (data) {
+      updateCard({ ...data.card, status: "pending", hasPaid: true });
+    }
     const updateWindowDimensions = () => {
       setWindowDimensions({
         width: window.innerWidth,
@@ -27,9 +44,9 @@ const Success = () => {
 
       return window.removeEventListener("resize", updateWindowDimensions);
     };
-  }, []);
+  }, [data]);
 
-  if (isPending)
+  if (isPending || isUpdatingCard)
     return (
       <div className="t-flex t-justify-center t-my-f-24">
         <span className="custom-loader"></span>
