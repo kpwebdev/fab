@@ -69,6 +69,11 @@ import {
   Cancel,
   Profile,
   NotFound,
+  AdminDashboard,
+  WebAdminOrdersSharedLayout,
+  AllOrders,
+  PendingOrders,
+  CompletedOrders,
 } from "./routes";
 
 const queryClient = new QueryClient();
@@ -405,6 +410,13 @@ function App() {
           <Route path="/nfc/payment/success" element={<Success />} />
           <Route path="/nfc/payment/cancel" element={<Cancel />} />
           <Route path="/profiles/:userName" element={<Profile />} />
+          <Route path="web-admin" element={<AdminDashboard />}>
+            <Route path="orders" element={<WebAdminOrdersSharedLayout />}>
+              <Route index element={<AllOrders />} />
+              <Route path="pending" element={<PendingOrders />} />
+              <Route path="completed" element={<CompletedOrders />} />
+            </Route>
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

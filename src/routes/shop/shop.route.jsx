@@ -67,9 +67,9 @@ const Shop = () => {
     <section>
       <header className="t-flex t-justify-between">
         <h3 className="t-text-f-3xl">Shop</h3>
-        <p>
+        {/* <p>
           Total Members: <span className="t-text-f-primary-40">359</span>
-        </p>
+        </p> */}
       </header>
 
       {/* actions container */}

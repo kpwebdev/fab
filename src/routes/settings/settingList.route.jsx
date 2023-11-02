@@ -4,9 +4,11 @@ import { BsChevronRight, BsTrash3 } from "react-icons/bs";
 import { MdChangeCircle, MdLogout } from "react-icons/md";
 import { deleteUserAccount } from "../../utils/firebase/firebase.util";
 import { logout } from "../../utils/firebase/firebase.util";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { toast } from "react-toastify";
 
 const SettingList = () => {
+  const queryClient = useQueryClient();
   const {
     mutate: deleteUser,
     isPending: isDeletingUserAccount,
@@ -14,6 +16,15 @@ const SettingList = () => {
     error: errorDeletingUserAccount,
   } = useMutation({
     mutationFn: deleteUserAccount,
+    onSuccess: () => {
+      toast.success("Successfully deleted the user account.");
+      queryClient.invalidateQueries({ queryKey: ["user"] });
+    },
+    onError: () =>
+      toast.error(
+        "Couldn't delete the user account",
+        errorDeletingUserAccount.message
+      ),
   });
   const {
     mutate: logoutUser,
@@ -22,6 +33,12 @@ const SettingList = () => {
     error: errorLoggingOut,
   } = useMutation({
     mutationFn: logout,
+    onSuccess: () => {
+      toast.success("Successfully logged out.");
+      queryClient.invalidateQueries({ queryKey: ["user"] });
+    },
+    onError: () =>
+      toast.error("Couldn't logout the user.", errorLoggingOut.message),
   });
 
   if (isDeletingUserAccount) {
@@ -52,7 +69,7 @@ const SettingList = () => {
           <ul className="t-flex t-flex-col t-gap-f-16 t-text-f-md">
             <li>
               <Link
-                to="/nfc/authentication/switch-account"
+                to="/nfc/authentication/login"
                 className="t-flex t-justify-between t-border-b-2 t-py-f-8"
               >
                 <div className="t-flex t-items-center t-gap-f-8">

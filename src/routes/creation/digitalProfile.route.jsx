@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   getUser,
   updateProfileDetails,
@@ -17,6 +17,7 @@ import html2canvas from "html2canvas";
 import { useNavigate } from "react-router-dom";
 
 const DigitalProfile = () => {
+  const queryClient = useQueryClient();
   const { profileTemplate } = useContext(ProfileContext);
   const navigate = useNavigate();
   const { name, colors } = profileTemplate;
@@ -35,6 +36,9 @@ const DigitalProfile = () => {
     mutationFn: updateProfileDetails,
     onSuccess: () => {
       toast.success("Saved Profile details successfully");
+      queryClient.invalidateQueries({
+        queryKey: ["users"],
+      });
       navigate(`/profiles/${data.userName}`);
     },
     onError: () =>

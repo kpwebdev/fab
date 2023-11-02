@@ -1603,6 +1603,11 @@ video {
   background-color: rgb(187 247 208 / var(--tw-bg-opacity));
 }
 
+.t-bg-orange-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 215 170 / var(--tw-bg-opacity));
+}
+
 .t-bg-red-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(254 226 226 / var(--tw-bg-opacity));
@@ -1963,6 +1968,11 @@ video {
 .t-text-green-500 {
   --tw-text-opacity: 1;
   color: rgb(34 197 94 / var(--tw-text-opacity));
+}
+
+.t-text-orange-500 {
+  --tw-text-opacity: 1;
+  color: rgb(249 115 22 / var(--tw-text-opacity));
 }
 
 .t-text-purple-800 {

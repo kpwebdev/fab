@@ -117,8 +117,11 @@ const addUser = async (data) => {
 };
 
 const deleteUserAccount = async () => {
-  const response = await deleteUser(auth.currentUser);
-  console.log("response from deleteUserAccount", response);
+  try {
+    const response = await deleteUser(auth.currentUser);
+  } catch (error) {
+    console.log("Something went wrong in deleteUserAccount", error.message);
+  }
 };
 
 const getUser = async () => {

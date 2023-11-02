@@ -12,8 +12,25 @@ const Profile = () => {
     queryFn: () => getProfileUser(userName),
   });
 
-  if (isPending) return <div>Loading...</div>;
+  if (isPending) {
+    return (
+      <div className="t-flex t-justify-center t-my-f-24">
+        <span className="custom-loader"></span>
+      </div>
+    );
+  }
+
   const { profile } = data;
+  if (!profile) {
+    return (
+      <div className="t-flex t-justify-center t-my-f-24">
+        <span className="custom-loader"></span>
+      </div>
+    );
+  }
+
+  console.log("profile data", profile);
+  console.log("data", data);
   const { name, colors, id } = profile;
 
   if (name === "template-1") {

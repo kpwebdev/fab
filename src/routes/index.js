@@ -64,3 +64,9 @@ export { default as Cancel } from "./payments/cancel.route";
 export { default as Profile } from "./profile.route";
 // error pages
 export { default as NotFound } from "./notFound.route";
+// admin dashboard related routes
+export { default as AdminDashboard } from "./adminDashboard/adminDashboard.route";
+export { default as WebAdminOrdersSharedLayout } from "./adminDashboard/webAdminOrdersSharedLayout.route";
+export { default as AllOrders } from "./adminDashboard/allOrders.route";
+export { default as PendingOrders } from "./adminDashboard/pendingOrders.route";
+export { default as CompletedOrders } from "./adminDashboard/completedOrders.route";
