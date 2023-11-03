@@ -68,7 +68,11 @@ const Self = () => {
           <div className="border-2 t-p-f-8 t-rounded-f-8">
             {/* <CardImg /> */}
             {showCardFrontSide ? (
-              <img src={cardImageFront} alt="front side image of the card" />
+              <img
+                src={cardImageFront}
+                alt="front side image of the card"
+                className="t-object-contain"
+              />
             ) : (
               <img src={cardImageBack} alt="back side image of the card" />
             )}
@@ -98,7 +102,13 @@ const Self = () => {
               {/* right - buttons container */}
               <div className="t-flex t-flex-col t-gap-f-8">
                 {showStatus ? (
-                  <span className="t-text-green-500 t-bg-green-200 t-p-f-8 t-text-f-md t-rounded-f-8">
+                  <span
+                    className={`${
+                      status === "received"
+                        ? "t-text-green-500 t-bg-green-200"
+                        : "t-text-orange-500 t-bg-orange-200"
+                    } t-p-f-8 t-text-f-md t-rounded-f-8`}
+                  >
                     {status}
                   </span>
                 ) : (

@@ -96,16 +96,18 @@ const DashboardNavbar = () => {
             </li>
           )}
           <li>
-            <NavLink
-              to="/nfc/dashboard/orders"
-              className={({ isActive }) =>
-                isActive
-                  ? "t-flex t-gap-f-8 t-text-f-md t-px-f-8 t-rounded-f-8 t-py-f-16 t-text-f-primary-99 t-bg-f-primary-30"
-                  : "t-flex t-gap-f-8 t-text-f-md t-px-f-8 t-rounded-f-8 t-py-f-16 hover:t-bg-f-primary-90"
-              }
-            >
-              <BsClipboard /> <span>Orders</span>
-            </NavLink>
+            {card && (
+              <NavLink
+                to="/nfc/dashboard/orders"
+                className={({ isActive }) =>
+                  isActive
+                    ? "t-flex t-gap-f-8 t-text-f-md t-px-f-8 t-rounded-f-8 t-py-f-16 t-text-f-primary-99 t-bg-f-primary-30"
+                    : "t-flex t-gap-f-8 t-text-f-md t-px-f-8 t-rounded-f-8 t-py-f-16 hover:t-bg-f-primary-90"
+                }
+              >
+                <BsClipboard /> <span>Orders</span>
+              </NavLink>
+            )}
           </li>
           <li>
             <NavLink

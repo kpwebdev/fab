@@ -68,7 +68,7 @@ const NfcHero = () => {
           </div>
         </div>
         <div
-          className="carousel-item active"
+          className="carousel-item"
           style={{
             background: `linear-gradient(rgba(0,0,0,.60), rgba(0,0,0,.60)), url(${carouselImg3})`,
             backgroundSize: "cover",
