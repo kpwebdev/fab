@@ -239,6 +239,11 @@ const updateProfileDetails = async (profile) => {
   }
 };
 
+const getAllOrders = async () => {
+  const data = await getAllDocs("users");
+  return data;
+};
+
 export {
   signUp,
   signInWithEmail,
@@ -259,4 +264,6 @@ export {
   updateProfileDetails,
   getProfileUser,
   deleteUserAccount,
+  getAllOrders,
+  getAllUsers,
 };

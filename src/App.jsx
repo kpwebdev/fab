@@ -411,8 +411,10 @@ function App() {
           <Route path="/nfc/payment/cancel" element={<Cancel />} />
           <Route path="/profiles/:userName" element={<Profile />} />
           <Route path="web-admin" element={<AdminDashboard />}>
+            <Route index element={<Navigate to="/web-admin/orders" />} />
             <Route path="orders" element={<WebAdminOrdersSharedLayout />}>
-              <Route index element={<AllOrders />} />
+              <Route index element={<Navigate to="/web-admin/orders/all" />} />
+              <Route path="all" element={<AllOrders />} />
               <Route path="pending" element={<PendingOrders />} />
               <Route path="completed" element={<CompletedOrders />} />
             </Route>

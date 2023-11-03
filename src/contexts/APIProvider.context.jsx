@@ -8,6 +8,7 @@ const INITIAL_API_VALUE = {
   googleFontsAPI: "",
   stripePriceId: "",
   stripePublishableKey: "",
+  webAdminEmail: "",
 };
 
 export const API_ACTION_TYPES = {
@@ -42,7 +43,8 @@ const APIProvider = ({ children }) => {
   if (
     !state.googleFontsAPI &&
     !state.stripePriceId &&
-    !state.stripePublishableKey
+    !state.stripePublishableKey &&
+    !state.webAdminEmail
   ) {
     return (
       <div className="t-min-h-screen t-flex t-justify-center t-my-f-24">

@@ -1,16 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Formik, Field } from "formik";
 import { logInSchema } from "../../schema";
 import { useSignIn } from "../../hooks/useSignIn.hook";
 import { useGoogleSignIn } from "../../hooks/useGoogleSignIn.hook";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import {
   signInWithEmail,
   signInWithGoogle,
 } from "../../utils/firebase/firebase.util";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { AuthContext } from "../../contexts/AuthProvider.context";
+import { APIContext } from "../../contexts/APIProvider.context";
+import { auth } from "../../utils/firebase/firebase.util";
 
 const FORM_INITIAL_VALUE = {
   email: "",
@@ -18,12 +21,24 @@ const FORM_INITIAL_VALUE = {
 };
 
 const Login = () => {
+  const queryClient = useQueryClient();
+  const { currentUser } = useContext(AuthContext);
+  const { webAdminEmail } = useContext(APIContext);
   const navigate = useNavigate();
   const { mutate: signInFunc, isPending, error, data } = useMutation({
     mutationFn: signInWithEmail,
     onSuccess: () => {
       toast.success("Successfully loggedIn.");
-      navigate("/nfc/dashboard");
+      queryClient.invalidateQueries({
+        queryKey: ["user"],
+      });
+      console.log("current user", currentUser);
+      console.log("web admin email", webAdminEmail);
+      if (auth.currentUser.email === webAdminEmail) {
+        navigate("/web-admin");
+      } else {
+        navigate("/nfc/dashboard");
+      }
     },
     onError: () => {
       toast.error("Something went wrong. Please contact admin for support.");
@@ -39,6 +54,9 @@ const Login = () => {
     mutationFn: signInWithGoogle,
     onSuccess: () => {
       toast.success("Successfully logged in with google.");
+      queryClient.invalidateQueries({
+        queryKey: ["user"],
+      });
       navigate("/nfc/dashboard");
     },
     onError: () => {

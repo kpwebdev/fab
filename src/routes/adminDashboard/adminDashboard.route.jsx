@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import FabLogo from "../../assets/fab-log-blue-trasparent.png";
 import { CiUser } from "react-icons/ci";
 import { BsClipboard } from "react-icons/bs";
@@ -24,7 +24,7 @@ const AdminDashboard = () => {
     },
   });
   return (
-    <>
+    <div className="t-flex">
       {/* navigation left side panel starts */}
       <div
         className="offcanvas offcanvas-start show t-h-screen t-w-1/3 t-sticky t-top-0"
@@ -77,7 +77,10 @@ const AdminDashboard = () => {
       </div>
       {/* navigation left side panel ends */}
       {/* content */}
-    </>
+      <div className="t-p-f-24 t-w-2/3">
+        <Outlet />
+      </div>
+    </div>
   );
 };
 
