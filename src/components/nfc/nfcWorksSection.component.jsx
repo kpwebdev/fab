@@ -6,16 +6,16 @@ const NfcWorksSection = () => {
       <div className="container">
         <h2 className="t-text-f-3xl">How it works?</h2>
         {/* steps container */}
-        <div className="t-flex t-flex-col t-my-f-48 t-gap-f-48">
+        <div className="t-flex t-flex-col t-my-f-48 t-gap-f-144">
           {nfcSteps.map(({ img, title, subtitle }, idx) => (
-            <div key={idx} className="t-grid t-grid-cols-3">
+            <div key={idx} className="t-grid t-grid-cols-3 t-items-center">
               <img
                 src={img}
                 alt={`image for ${title}`}
-                className={`${idx % 2 !== 0 ? " t-order-3" : ""}`}
+                className={`t-h-[500px] ${idx % 2 !== 0 ? " t-order-3" : ""}`}
               />
               <div
-                className={`t-flex t-flex-col t-items-center${
+                className={`t-flex t-flex-col t-self-stretch t-items-center${
                   idx % 2 !== 0 ? " t-order-2" : ""
                 }`}
               >

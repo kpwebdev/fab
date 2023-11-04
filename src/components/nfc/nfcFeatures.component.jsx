@@ -17,7 +17,7 @@ const NfcFeatures = () => {
         {/* features container */}
         <div className="t-flex t-flex-col t-gap-f-80">
           {nfcFeatures.map(({ title, description, btn, animation }, idx) => (
-            <div className={`t-grid t-grid-cols-2`} key={idx}>
+            <div className={`t-grid t-grid-cols-2 t-items-center`} key={idx}>
               {/* text container */}
               <div
                 className={`t-flex t-flex-col t-gap-f-24 t-items-start${
@@ -32,7 +32,12 @@ const NfcFeatures = () => {
               </div>
               {/* animation container */}
               <div className={`${idx % 2 !== 0 ? " t-order-1" : ""}`}>
-                <Lottie animationData={animation} />
+                <Lottie
+                  animationData={animation}
+                  className={`t-h-[600px] ${
+                    title === "Our Templates" ? "t-scale-150" : ""
+                  }`}
+                />
               </div>
             </div>
           ))}
