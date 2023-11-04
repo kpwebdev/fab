@@ -29,6 +29,7 @@ const General = () => {
   const queryClient = useQueryClient();
   // const { profilePic } = userData;
   const [isEditing, setIsEditing] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const { data, error, isError, isPending } = useQuery({
     queryKey: ["user"],
@@ -64,6 +65,7 @@ const General = () => {
     mutationFn: updateSocialMedia,
     onSuccess: () => {
       toast.success("Updated the social medias successfully.");
+      setShowDropdown(false);
       queryClient.invalidateQueries();
     },
     onError: () =>
@@ -547,290 +549,310 @@ const General = () => {
                                   <div className="t-absolute -t-top-f-8 -t-right-f-8 t-translate-x-full">
                                     <div className="dropdown">
                                       <button
-                                        className="t-underline t-text-sm"
                                         type="button"
-                                        data-bs-toggle="dropdown"
+                                        className="t-underline t-text-sm"
+                                        // data-bs-toggle="dropdown"
                                         aria-expanded="false"
-                                        data-bs-auto-close="false"
+                                        // data-bs-auto-close="false"
+                                        onClick={() =>
+                                          setShowDropdown(() => !showDropdown)
+                                        }
                                       >
                                         Edit
                                       </button>
-                                      <div className="dropdown-menu t-min-w-[500px] t-p-f-8 t-shadow-md">
-                                        <Form>
-                                          <div className="t-mb-f-16">
-                                            <div className="t-flex t-items-center t-gap-f-8">
-                                              <div className="form-check">
-                                                <label
-                                                  htmlFor="hasFacebook"
-                                                  className="form-check-label t-hidden t-mb-0"
-                                                >
-                                                  Has facebook
-                                                </label>
-                                                <Field
-                                                  type="checkbox"
-                                                  id="hasFacebook"
-                                                  name="hasFacebook"
-                                                  className="form-check-input"
-                                                />
-                                              </div>
+                                      {showDropdown && (
+                                        <div
+                                          className="dropdown-menu show t-min-w-[500px] t-p-f-8 t-shadow-md"
+                                          style={{
+                                            transform: "translateY(-100%)",
+                                          }}
+                                        >
+                                          <Form>
+                                            <div className="t-mb-f-16">
                                               <div className="t-flex t-items-center t-gap-f-8">
-                                                <label
-                                                  htmlFor="facebookHref"
-                                                  className="form-label t-min-w-fit t-mb-0"
-                                                >
-                                                  Facebook Url:
-                                                </label>
-                                                <Field
-                                                  type="url"
-                                                  id="facebookHref"
-                                                  name="facebookHref"
-                                                  className="form-control"
-                                                  disabled={!values.hasFacebook}
-                                                />
+                                                <div className="form-check">
+                                                  <label
+                                                    htmlFor="hasFacebook"
+                                                    className="form-check-label t-hidden t-mb-0"
+                                                  >
+                                                    Has facebook
+                                                  </label>
+                                                  <Field
+                                                    type="checkbox"
+                                                    id="hasFacebook"
+                                                    name="hasFacebook"
+                                                    className="form-check-input"
+                                                  />
+                                                </div>
+                                                <div className="t-flex t-items-center t-gap-f-8">
+                                                  <label
+                                                    htmlFor="facebookHref"
+                                                    className="form-label t-min-w-fit t-mb-0"
+                                                  >
+                                                    Facebook Url:
+                                                  </label>
+                                                  <Field
+                                                    type="url"
+                                                    id="facebookHref"
+                                                    name="facebookHref"
+                                                    className="form-control"
+                                                    disabled={
+                                                      !values.hasFacebook
+                                                    }
+                                                  />
+                                                </div>
                                               </div>
+                                              {errors.facebookHref &&
+                                                touched.facebookHref && (
+                                                  <p className="t-text-red-500 t-text-f-sm t-mt-f-8">
+                                                    {errors.facebookHref}
+                                                  </p>
+                                                )}
                                             </div>
-                                            {errors.facebookHref &&
-                                              touched.facebookHref && (
-                                                <p className="t-text-red-500 t-text-f-sm t-mt-f-8">
-                                                  {errors.facebookHref}
-                                                </p>
-                                              )}
-                                          </div>
 
-                                          <div className="t-mb-f-16">
-                                            <div className="t-flex t-items-center t-gap-f-8">
-                                              <div className="form-check">
-                                                <label
-                                                  htmlFor="hasInstagram"
-                                                  className="form-check-label t-hidden t-mb-0"
-                                                >
-                                                  Has Instagram
-                                                </label>
-                                                <Field
-                                                  type="checkbox"
-                                                  id="hasInstagram"
-                                                  name="hasInstagram"
-                                                  className="form-check-input"
-                                                />
-                                              </div>
+                                            <div className="t-mb-f-16">
                                               <div className="t-flex t-items-center t-gap-f-8">
-                                                <label
-                                                  htmlFor="instagramHref"
-                                                  className="form-label t-min-w-fit t-mb-0"
-                                                >
-                                                  Instagram Url:
-                                                </label>
-                                                <Field
-                                                  type="url"
-                                                  id="instagramHref"
-                                                  name="instagramHref"
-                                                  className="form-control"
-                                                  disabled={
-                                                    !values.hasInstagram
-                                                  }
-                                                />
+                                                <div className="form-check">
+                                                  <label
+                                                    htmlFor="hasInstagram"
+                                                    className="form-check-label t-hidden t-mb-0"
+                                                  >
+                                                    Has Instagram
+                                                  </label>
+                                                  <Field
+                                                    type="checkbox"
+                                                    id="hasInstagram"
+                                                    name="hasInstagram"
+                                                    className="form-check-input"
+                                                  />
+                                                </div>
+                                                <div className="t-flex t-items-center t-gap-f-8">
+                                                  <label
+                                                    htmlFor="instagramHref"
+                                                    className="form-label t-min-w-fit t-mb-0"
+                                                  >
+                                                    Instagram Url:
+                                                  </label>
+                                                  <Field
+                                                    type="url"
+                                                    id="instagramHref"
+                                                    name="instagramHref"
+                                                    className="form-control"
+                                                    disabled={
+                                                      !values.hasInstagram
+                                                    }
+                                                  />
+                                                </div>
                                               </div>
+                                              {errors.instagramHref &&
+                                                touched.instagramHref && (
+                                                  <p className="t-text-red-500 t-text-f-sm t-mt-f-8">
+                                                    {errors.instagramHref}
+                                                  </p>
+                                                )}
                                             </div>
-                                            {errors.instagramHref &&
-                                              touched.instagramHref && (
-                                                <p className="t-text-red-500 t-text-f-sm t-mt-f-8">
-                                                  {errors.instagramHref}
-                                                </p>
-                                              )}
-                                          </div>
 
-                                          <div className="t-mb-f-16">
-                                            <div className="t-flex t-items-center t-gap-f-8">
-                                              <div className="form-check">
-                                                <label
-                                                  htmlFor="hasWhatsapp"
-                                                  className="form-check-label t-hidden t-mb-0"
-                                                >
-                                                  Has Whatsapp
-                                                </label>
-                                                <Field
-                                                  type="checkbox"
-                                                  id="hasWhatsapp"
-                                                  name="hasWhatsapp"
-                                                  className="form-check-input"
-                                                />
-                                              </div>
+                                            <div className="t-mb-f-16">
                                               <div className="t-flex t-items-center t-gap-f-8">
-                                                <label
-                                                  htmlFor="whatsappNum"
-                                                  className="form-label t-min-w-fit t-mb-0"
-                                                >
-                                                  Whatsapp Number:
-                                                </label>
-                                                <PhoneInput
-                                                  type="url"
-                                                  inputProps={{
-                                                    id: "whatsappNum",
-                                                    name: "whatsappNum",
-                                                  }}
-                                                  inputStyle={{
-                                                    width: "100%",
-                                                  }}
-                                                  inputClass="form-control"
-                                                  country={"in"}
-                                                  value={values.whatsappNum}
-                                                  onChange={(
-                                                    value,
-                                                    country,
-                                                    e,
-                                                    formattedValue
-                                                  ) => handleChange(e)}
-                                                  disabled={!values.hasWhatsapp}
-                                                />
+                                                <div className="form-check">
+                                                  <label
+                                                    htmlFor="hasWhatsapp"
+                                                    className="form-check-label t-hidden t-mb-0"
+                                                  >
+                                                    Has Whatsapp
+                                                  </label>
+                                                  <Field
+                                                    type="checkbox"
+                                                    id="hasWhatsapp"
+                                                    name="hasWhatsapp"
+                                                    className="form-check-input"
+                                                  />
+                                                </div>
+                                                <div className="t-flex t-items-center t-gap-f-8">
+                                                  <label
+                                                    htmlFor="whatsappNum"
+                                                    className="form-label t-min-w-fit t-mb-0"
+                                                  >
+                                                    Whatsapp Number:
+                                                  </label>
+                                                  <PhoneInput
+                                                    type="url"
+                                                    inputProps={{
+                                                      id: "whatsappNum",
+                                                      name: "whatsappNum",
+                                                    }}
+                                                    inputStyle={{
+                                                      width: "100%",
+                                                    }}
+                                                    inputClass="form-control"
+                                                    country={"in"}
+                                                    value={values.whatsappNum}
+                                                    onChange={(
+                                                      value,
+                                                      country,
+                                                      e,
+                                                      formattedValue
+                                                    ) => handleChange(e)}
+                                                    disabled={
+                                                      !values.hasWhatsapp
+                                                    }
+                                                  />
+                                                </div>
                                               </div>
+                                              {errors.whatsappNum &&
+                                                touched.whatsappNum && (
+                                                  <p className="t-text-red-500 t-text-f-sm t-mt-f-8">
+                                                    {errors.whatsappNum}
+                                                  </p>
+                                                )}
                                             </div>
-                                            {errors.whatsappNum &&
-                                              touched.whatsappNum && (
-                                                <p className="t-text-red-500 t-text-f-sm t-mt-f-8">
-                                                  {errors.whatsappNum}
-                                                </p>
-                                              )}
-                                          </div>
 
-                                          <div className="t-mb-f-16">
-                                            <div className="t-flex t-items-center t-gap-f-8">
-                                              <div className="form-check">
-                                                <label
-                                                  htmlFor="hasTwitter"
-                                                  className="form-check-label t-hidden t-mb-0"
-                                                >
-                                                  Has Twitter
-                                                </label>
-                                                <Field
-                                                  type="checkbox"
-                                                  id="hasTwitter"
-                                                  name="hasTwitter"
-                                                  className="form-check-input"
-                                                />
-                                              </div>
+                                            <div className="t-mb-f-16">
                                               <div className="t-flex t-items-center t-gap-f-8">
-                                                <label
-                                                  htmlFor="twitterHref"
-                                                  className="form-label t-min-w-fit t-mb-0"
-                                                >
-                                                  Twitter Url:
-                                                </label>
-                                                <Field
-                                                  type="url"
-                                                  id="twitterHref"
-                                                  name="twitterHref"
-                                                  className="form-control"
-                                                  disabled={!values.hasTwitter}
-                                                />
+                                                <div className="form-check">
+                                                  <label
+                                                    htmlFor="hasTwitter"
+                                                    className="form-check-label t-hidden t-mb-0"
+                                                  >
+                                                    Has Twitter
+                                                  </label>
+                                                  <Field
+                                                    type="checkbox"
+                                                    id="hasTwitter"
+                                                    name="hasTwitter"
+                                                    className="form-check-input"
+                                                  />
+                                                </div>
+                                                <div className="t-flex t-items-center t-gap-f-8">
+                                                  <label
+                                                    htmlFor="twitterHref"
+                                                    className="form-label t-min-w-fit t-mb-0"
+                                                  >
+                                                    Twitter Url:
+                                                  </label>
+                                                  <Field
+                                                    type="url"
+                                                    id="twitterHref"
+                                                    name="twitterHref"
+                                                    className="form-control"
+                                                    disabled={
+                                                      !values.hasTwitter
+                                                    }
+                                                  />
+                                                </div>
                                               </div>
+                                              {errors.twitterHref &&
+                                                touched.twitterHref && (
+                                                  <p className="t-text-red-500 t-text-f-sm t-mt-f-8">
+                                                    {errors.twitterHref}
+                                                  </p>
+                                                )}
                                             </div>
-                                            {errors.twitterHref &&
-                                              touched.twitterHref && (
-                                                <p className="t-text-red-500 t-text-f-sm t-mt-f-8">
-                                                  {errors.twitterHref}
-                                                </p>
-                                              )}
-                                          </div>
 
-                                          <div className="t-mb-f-16">
-                                            <div className="t-flex t-items-center t-gap-f-8">
-                                              <div className="form-check">
-                                                <label
-                                                  htmlFor="hasLinkedIn"
-                                                  className="form-check-label t-hidden t-mb-0"
-                                                >
-                                                  Has LinkedIn
-                                                </label>
-                                                <Field
-                                                  type="checkbox"
-                                                  id="hasLinkedIn"
-                                                  name="hasLinkedIn"
-                                                  className="form-check-input"
-                                                />
-                                              </div>
+                                            <div className="t-mb-f-16">
                                               <div className="t-flex t-items-center t-gap-f-8">
-                                                <label
-                                                  htmlFor="linkedInHref"
-                                                  className="form-label t-min-w-fit t-mb-0"
-                                                >
-                                                  LinkedIn Url:
-                                                </label>
-                                                <Field
-                                                  type="url"
-                                                  id="linkedInHref"
-                                                  name="linkedInHref"
-                                                  className="form-control"
-                                                  disabled={!values.hasLinkedIn}
-                                                />
+                                                <div className="form-check">
+                                                  <label
+                                                    htmlFor="hasLinkedIn"
+                                                    className="form-check-label t-hidden t-mb-0"
+                                                  >
+                                                    Has LinkedIn
+                                                  </label>
+                                                  <Field
+                                                    type="checkbox"
+                                                    id="hasLinkedIn"
+                                                    name="hasLinkedIn"
+                                                    className="form-check-input"
+                                                  />
+                                                </div>
+                                                <div className="t-flex t-items-center t-gap-f-8">
+                                                  <label
+                                                    htmlFor="linkedInHref"
+                                                    className="form-label t-min-w-fit t-mb-0"
+                                                  >
+                                                    LinkedIn Url:
+                                                  </label>
+                                                  <Field
+                                                    type="url"
+                                                    id="linkedInHref"
+                                                    name="linkedInHref"
+                                                    className="form-control"
+                                                    disabled={
+                                                      !values.hasLinkedIn
+                                                    }
+                                                  />
+                                                </div>
                                               </div>
+                                              {errors.linkedInHref &&
+                                                touched.linkedInHref && (
+                                                  <p className="t-text-red-500 t-text-f-sm t-mt-f-8">
+                                                    {errors.linkedInHref}
+                                                  </p>
+                                                )}
                                             </div>
-                                            {errors.linkedInHref &&
-                                              touched.linkedInHref && (
-                                                <p className="t-text-red-500 t-text-f-sm t-mt-f-8">
-                                                  {errors.linkedInHref}
-                                                </p>
-                                              )}
-                                          </div>
 
-                                          {isErrorUpdatingSocialMedia && (
-                                            <p className="t-text-f-sm t-text-red-500 t-bg-red-200 t-py-f-8">
-                                              {errorUpdatingSocialMedia.message}
-                                            </p>
-                                          )}
+                                            {isErrorUpdatingSocialMedia && (
+                                              <p className="t-text-f-sm t-text-red-500 t-bg-red-200 t-py-f-8">
+                                                {
+                                                  errorUpdatingSocialMedia.message
+                                                }
+                                              </p>
+                                            )}
 
-                                          <button
-                                            type="button"
-                                            className="f-btn-sm f-btn-primary"
-                                            onClick={(e) => {
-                                              e.preventDefault();
-                                              const {
-                                                facebookHref,
-                                                instagramHref,
-                                                whatsappNum,
-                                                twitterHref,
-                                                linkedInHref,
-                                                hasFacebook,
-                                                hasInstagram,
-                                                hasWhatsapp,
-                                                hasTwitter,
-                                                hasLinkedIn,
-                                              } = values;
-                                              const socialMedia = [
-                                                {
-                                                  title: "Facebook",
-                                                  has: hasFacebook,
-                                                  href: facebookHref,
-                                                },
-                                                {
-                                                  title: "Instagram",
-                                                  has: hasInstagram,
-                                                  href: instagramHref,
-                                                },
-                                                {
-                                                  title: "Whatsapp",
-                                                  has: hasWhatsapp,
-                                                  href: whatsappNum,
-                                                },
-                                                {
-                                                  title: "Twitter",
-                                                  has: hasTwitter,
-                                                  href: twitterHref,
-                                                },
-                                                {
-                                                  title: "LinkedIn",
-                                                  has: hasLinkedIn,
-                                                  href: linkedInHref,
-                                                },
-                                              ];
-                                              updateSocialMedias(socialMedia);
-                                            }}
-                                          >
-                                            {isUpdatingSocialMedias
-                                              ? "Saving..."
-                                              : "Save"}
-                                          </button>
-                                        </Form>
-                                      </div>
+                                            <button
+                                              type="button"
+                                              className="f-btn-sm f-btn-primary"
+                                              onClick={(e) => {
+                                                e.preventDefault();
+                                                const {
+                                                  facebookHref,
+                                                  instagramHref,
+                                                  whatsappNum,
+                                                  twitterHref,
+                                                  linkedInHref,
+                                                  hasFacebook,
+                                                  hasInstagram,
+                                                  hasWhatsapp,
+                                                  hasTwitter,
+                                                  hasLinkedIn,
+                                                } = values;
+                                                const socialMedia = [
+                                                  {
+                                                    title: "Facebook",
+                                                    has: hasFacebook,
+                                                    href: facebookHref,
+                                                  },
+                                                  {
+                                                    title: "Instagram",
+                                                    has: hasInstagram,
+                                                    href: instagramHref,
+                                                  },
+                                                  {
+                                                    title: "Whatsapp",
+                                                    has: hasWhatsapp,
+                                                    href: whatsappNum,
+                                                  },
+                                                  {
+                                                    title: "Twitter",
+                                                    has: hasTwitter,
+                                                    href: twitterHref,
+                                                  },
+                                                  {
+                                                    title: "LinkedIn",
+                                                    has: hasLinkedIn,
+                                                    href: linkedInHref,
+                                                  },
+                                                ];
+                                                updateSocialMedias(socialMedia);
+                                              }}
+                                            >
+                                              {isUpdatingSocialMedias
+                                                ? "Saving..."
+                                                : "Save"}
+                                            </button>
+                                          </Form>
+                                        </div>
+                                      )}
                                     </div>
                                   </div>
                                 </ul>

@@ -90,7 +90,8 @@ const NfcHome = () => {
       <NfcBringTeam />
       <NfcWorksSection />
       <NfcClients />
-      <NfcDownload />
+      {/* will be added once an app is developed */}
+      {/* <NfcDownload /> */}
       <NfcTestimonials />
       <FaqsSection />
       <NfcFooter />
