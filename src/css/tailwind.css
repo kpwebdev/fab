@@ -983,8 +983,16 @@ video {
   height: 400px;
 }
 
+.t-h-\[500px\] {
+  height: 500px;
+}
+
 .t-h-\[50px\] {
   height: 50px;
+}
+
+.t-h-\[600px\] {
+  height: 600px;
 }
 
 .t-h-\[75px\] {
@@ -1331,6 +1339,10 @@ video {
   gap: 2rem;
 }
 
+.t-gap-f-144 {
+  gap: 144px;
+}
+
 .t-gap-f-16 {
   gap: 16px;
 }
@@ -1386,6 +1398,10 @@ video {
 
 .t-self-center {
   align-self: center;
+}
+
+.t-self-stretch {
+  align-self: stretch;
 }
 
 .t-justify-self-start {
