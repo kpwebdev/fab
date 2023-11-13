@@ -31,11 +31,11 @@ const NfcHero = () => {
           aria-label="Slide 2"
         ></button>
       </div>
-      <div className="carousel-inner">
+      <div className="carousel-inner t-isolate">
         <div
-          className="carousel-item active"
+          className="carousel-item active t-relative"
           style={{
-            background: `linear-gradient(rgba(0,0,0,.60), rgba(0,0,0,.60)), url(${carouselImg2})`,
+            // background: `linear-gradient(rgba(0,0,0,.60), rgba(0,0,0,.60)), url(${carouselImg2})`,
             backgroundSize: "cover",
           }}
         >
@@ -66,13 +66,20 @@ const NfcHero = () => {
               />
             </div>
           </div>
+          <div className="t-absolute t-top-0 t-left-0 t-w-full t-h-full t-bg-f-primary-10 -t-z-10 t-opacity-60"></div>
+          <img
+            src={carouselImg2}
+            alt="carousel 2 image"
+            loading="lazy"
+            className="t-absolute t-top-0 t-left-0 t-w-full t-h-full t-object-cover -t-z-20"
+          />
         </div>
         <div
-          className="carousel-item"
-          style={{
-            background: `linear-gradient(rgba(0,0,0,.60), rgba(0,0,0,.60)), url(${carouselImg3})`,
-            backgroundSize: "cover",
-          }}
+          className="carousel-item t-relative"
+          // style={{
+          //   background: `linear-gradient(rgba(0,0,0,.60), rgba(0,0,0,.60)), url(${carouselImg3})`,
+          //   backgroundSize: "cover",
+          // }}
         >
           {/* container */}
           <div className="container t-grid t-items-center t-grid-cols-2 t-min-h-screen">
@@ -101,6 +108,13 @@ const NfcHero = () => {
               />
             </div>
           </div>
+          <div className="t-absolute t-top-0 t-left-0 t-w-full t-h-full t-bg-f-primary-10 -t-z-10 t-opacity-60"></div>
+          <img
+            src={carouselImg3}
+            alt="carousel 2 image"
+            loading="lazy"
+            className="t-absolute t-top-0 t-left-0 t-w-full t-h-full t-object-cover -t-z-20"
+          />
         </div>
       </div>
       <button

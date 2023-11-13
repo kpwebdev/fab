@@ -37,6 +37,7 @@ import IconLinkedin from "./assets/icon-linkedin.svg?react";
 import IconPinterest from "./assets/icon-pinterest.svg?react";
 import IconTiktok from "./assets/icon-tiktok.svg?react";
 import IconYoutube from "./assets/icon-youtube.svg?react";
+import IconFacebook from "./assets/icon-facebook.svg?react";
 import CardsBlack from "./assets/cards-black.svg?react";
 import CardsBlue from "./assets/cards-blue.svg?react";
 import CardsWhite from "./assets/cards-white.svg?react";
@@ -253,42 +254,42 @@ const nfcCards = [
     creator: "Creator Name",
     cardName: "Matte black",
     description: "Customise: card design & digital profile",
-    price: 2000,
+    price: 15,
   },
   {
     img: cardAestheticDullGrey,
     creator: "Creator Name",
     cardName: "Aesthetic dark grey",
     description: "Customise: card design & digital profile",
-    price: 2000,
+    price: 15,
   },
   {
     img: cardDarkGradient,
     creator: "Creator Name",
     cardName: "Aesthetic dull grey",
     description: "Customise: card design & digital profile",
-    price: 2000,
+    price: 15,
   },
   {
     img: cardFlorescentGradient,
     creator: "Creator Name",
     cardName: "Purple - Yellow Gradient",
     description: "Customise: card design & digital profile",
-    price: 2000,
+    price: 15,
   },
   {
     img: cardMatteBlack,
     creator: "Creator Name",
     cardName: "Florescent Gradient",
     description: "Customise: card design & digital profile",
-    price: 2000,
+    price: 15,
   },
   {
     img: cardPurpleYellowGradient,
     creator: "Creator Name",
     cardName: "Dark Gradient",
     description: "Customise: card design & digital profile",
-    price: 2000,
+    price: 15,
   },
 ];
 
@@ -464,6 +465,11 @@ const nfcFooterCommunityLinks = [
 // --footer social media links
 const nfcSocialMediaLinks = [
   {
+    title: "Facebook",
+    href: "#facebook",
+    Icon: IconFacebook,
+  },
+  {
     title: "Instagram",
     href: "#instagram",
     Icon: IconInstagram,
@@ -473,16 +479,16 @@ const nfcSocialMediaLinks = [
     href: "#linkedIn",
     Icon: IconLinkedin,
   },
-  {
-    title: "Pinterest",
-    href: "#pinterest",
-    Icon: IconPinterest,
-  },
-  {
-    title: "Tiktok",
-    href: "#tiktok",
-    Icon: IconTiktok,
-  },
+  // {
+  //   title: "Pinterest",
+  //   href: "#pinterest",
+  //   Icon: IconPinterest,
+  // },
+  // {
+  //   title: "Tiktok",
+  //   href: "#tiktok",
+  //   Icon: IconTiktok,
+  // },
   {
     title: "YouTube",
     href: "#youtube",
@@ -1073,7 +1079,7 @@ const shopCollections = {
         creator: "Creator Name",
         cardName: "Matte black",
         description: "Customise: card design & digital profile",
-        price: 2000,
+        price: 15,
         isBestSeller: true,
       },
       {
@@ -1081,7 +1087,7 @@ const shopCollections = {
         creator: "Creator Name",
         cardName: "Aesthetic dark grey",
         description: "Customise: card design & digital profile",
-        price: 2000,
+        price: 15,
         isBestSeller: false,
       },
       {
@@ -1089,7 +1095,7 @@ const shopCollections = {
         creator: "Creator Name",
         cardName: "Aesthetic dull grey",
         description: "Customise: card design & digital profile",
-        price: 2000,
+        price: 15,
         isBestSeller: false,
       },
     ],
@@ -1103,7 +1109,7 @@ const shopCollections = {
         creator: "Creator Name",
         cardName: "Matte Black 2",
         description: "Customise: card design & digital profile",
-        price: 2000,
+        price: 15,
         isBestSeller: false,
       },
       {
@@ -1111,7 +1117,7 @@ const shopCollections = {
         creator: "Creator Name",
         cardName: "Dark Blue",
         description: "Customise: card design & digital profile",
-        price: 2000,
+        price: 15,
         isBestSeller: false,
       },
       {
@@ -1119,7 +1125,7 @@ const shopCollections = {
         creator: "Creator Name",
         cardName: "Pure White",
         description: "Customise: card design & digital profile",
-        price: 2000,
+        price: 15,
         isBestSeller: false,
       },
     ],
@@ -1133,7 +1139,7 @@ const shopCollections = {
         creator: "Creator Name",
         cardName: "Purple - Yellow Gradient",
         description: "Customise: card design & digital profile",
-        price: 2000,
+        price: 15,
         isBestSeller: false,
       },
       {
@@ -1141,7 +1147,7 @@ const shopCollections = {
         creator: "Creator Name",
         cardName: "Florescent Gradient",
         description: "Customise: card design & digital profile",
-        price: 2000,
+        price: 15,
         isBestSeller: false,
       },
       {
@@ -1149,7 +1155,7 @@ const shopCollections = {
         creator: "Creator Name",
         cardName: "Dark Gradient",
         description: "Customise: card design & digital profile",
-        price: 2000,
+        price: 15,
         isBestSeller: false,
       },
     ],
@@ -1163,7 +1169,7 @@ const shopCollections = {
         creator: "Creator Name",
         cardName: "Vantablack NFC",
         description: "Customise: card design & digital profile",
-        price: 2000,
+        price: 15,
         isBestSeller: false,
       },
       {
@@ -1171,7 +1177,7 @@ const shopCollections = {
         creator: "Creator Name",
         cardName: "Triple blue Gradient",
         description: "Customise: card design & digital profile",
-        price: 2000,
+        price: 15,
         isBestSeller: false,
       },
       {
@@ -1179,7 +1185,7 @@ const shopCollections = {
         creator: "Creator Name",
         cardName: "Blue - Purple Gradient",
         description: "Customise: card design & digital profile",
-        price: 2000,
+        price: 15,
         isBestSeller: false,
       },
     ],
@@ -1192,7 +1198,7 @@ const orders = {
   self: [
     {
       orderPlacedAt: new Date(2023, 7, 27),
-      totalPrice: 2000,
+      totalPrice: 15,
       shipToAddress: "No. 7, sample address",
       orderId: 366824369,
       cards: [
@@ -1207,7 +1213,7 @@ const orders = {
     },
     {
       orderPlacedAt: new Date(2023, 7, 27),
-      totalPrice: 2000,
+      totalPrice: 15,
       shipToAddress: "No. 7, sample address",
       orderId: 366824369,
       cards: [
@@ -1224,7 +1230,7 @@ const orders = {
   customer: [
     {
       orderPlacedAt: new Date(2023, 7, 27),
-      totalPrice: 2000,
+      totalPrice: 15,
       shipToAddress: "No. 7, sample address",
       orderId: 366824369,
       cards: [
@@ -1239,7 +1245,7 @@ const orders = {
     },
     {
       orderPlacedAt: new Date(2023, 7, 27),
-      totalPrice: 2000,
+      totalPrice: 15,
       shipToAddress: "No. 7, sample address",
       orderId: 366824369,
       cards: [

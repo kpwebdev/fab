@@ -6,6 +6,7 @@ import {
   uploadDataUrlImage,
   uploadFile,
 } from "../../utils/firebase/firebase.util";
+import { HiOutlineUpload } from "react-icons/hi";
 
 import DigitalProfileTemplate1 from "../../components/creation/digitalProfileTemplate1.component";
 import DigitalProfileTemplate2 from "../../components/creation/digitalProfileTemplate2.component";
@@ -53,18 +54,170 @@ const DigitalProfile = () => {
     );
   }
 
+  // if (name === "template-1") {
+  //   return (
+  //     <Formik
+  //       initialValues={{
+  //         ...colors,
+  //         profileLogo: "",
+  //         profileImage: "",
+  //         profileLogoFile: null,
+  //         profileImageFile: null,
+  //       }}
+  //       onSubmit={async (values) => {
+  //         updateProfile({
+  //           ...profileTemplate,
+  //           colors: values,
+  //         });
+  //       }}
+  //     >
+  //       {({ values }) => {
+  //         const {
+  //           bodyTextColor,
+  //           themeColor,
+  //           metaBandBgColor,
+  //           metaRoleTextColor,
+  //           metaUserNameColor,
+  //           metaFullNameColor,
+  //           grayTextColor,
+  //           profileLogo,
+  //           profileImage,
+  //         } = values;
+  //         return (
+  //           <>
+  //             <DigitalProfileTemplate1
+  //               data={data}
+  //               colors={{
+  //                 bodyTextColor,
+  //                 themeColor,
+  //                 metaBandBgColor,
+  //                 metaRoleTextColor,
+  //                 metaUserNameColor,
+  //                 metaFullNameColor,
+  //                 grayTextColor,
+  //               }}
+  //               images={{ profileLogo, profileImage }}
+  //             />
+  //             <Form className="t-max-w-[450px] t-mx-auto t-flex t-items-center t-justify-between t-gap-f-8 t-mb-f-16 t-p-f-8 t-rounded-f-8 t-shadow-lg">
+  //               <div className="t-flex t-gap-f-8 t-flex-wrap">
+  //                 <Field
+  //                   type="color"
+  //                   className="form-control form-control-color"
+  //                   id="bodyTextColor"
+  //                   name="bodyTextColor"
+  //                 />
+  //                 <Field
+  //                   type="color"
+  //                   className="form-control form-control-color"
+  //                   id="themeColor"
+  //                   name="themeColor"
+  //                 />
+  //                 <Field
+  //                   type="color"
+  //                   className="form-control form-control-color"
+  //                   id="metaBandBgColor"
+  //                   name="metaBandBgColor"
+  //                 />
+  //                 <Field
+  //                   type="color"
+  //                   className="form-control form-control-color"
+  //                   id="metaRoleTextColor"
+  //                   name="metaRoleTextColor"
+  //                 />
+  //                 <Field
+  //                   type="color"
+  //                   className="form-control form-control-color"
+  //                   id="metaUserNameColor"
+  //                   name="metaUserNameColor"
+  //                 />
+  //                 <Field
+  //                   type="color"
+  //                   className="form-control form-control-color"
+  //                   id="grayTextColor"
+  //                   name="grayTextColor"
+  //                 />
+  //               </div>
+  //               <button
+  //                 type="submit"
+  //                 className={`f-btn-sm f-btn-primary${
+  //                   isUpdatingProfile ? " t-cursor-not-allowed" : ""
+  //                 }`}
+  //                 disabled={isUpdatingProfile}
+  //               >
+  //                 {isUpdatingProfile ? "Saving..." : "Save"}
+  //               </button>
+  //             </Form>
+  //           </>
+  //         );
+  //       }}
+  //     </Formik>
+  //   );
+  // }
+
   if (name === "template-1") {
     return (
       <Formik
-        initialValues={{ ...colors }}
-        onSubmit={async (values) => {
+        initialValues={{
+          ...colors,
+          profileLogo: "",
+          profileImage: "",
+          profileLogoFile: null,
+          profileImageFile: null,
+        }}
+        onSubmit={async (values, actions) => {
+          actions.setSubmitting(true);
+          const {
+            profileLogoFile,
+            profileImageFile,
+            profileLogo,
+            profileImage,
+            bodyTextColor,
+            themeColor,
+            metaBandBgColor,
+            metaRoleTextColor,
+            metaUserNameColor,
+            metaFullNameColor,
+            grayTextColor,
+          } = values;
+          const profileLogoURL = await uploadDataUrlImage(
+            "profile",
+            profileLogo,
+            "profile-logo"
+          );
+          const profileImageURL = await uploadDataUrlImage(
+            "profile",
+            profileImage,
+            "profile-image"
+          );
+          actions.setSubmitting(false);
+          console.log("profileTemplate details", profileTemplate);
           updateProfile({
             ...profileTemplate,
-            colors: values,
+            colors: {
+              bodyTextColor,
+              themeColor,
+              metaBandBgColor,
+              metaRoleTextColor,
+              metaUserNameColor,
+              metaFullNameColor,
+              grayTextColor,
+            },
+            images: {
+              profileLogo:
+                (profileLogoURL ||
+                  data?.card?.frontSettings?.frontLogoImage?.logo ||
+                  data?.profile?.images?.profileLogo) ??
+                "",
+              profileImage:
+                (profileImageURL ||
+                  data?.profilePic ||
+                  data?.profile?.images?.profileImage) ??
+                "",
+            },
           });
         }}
       >
-        {({ values }) => {
+        {({ values, setFieldValue, isSubmitting, setSubmitting }) => {
           const {
             bodyTextColor,
             themeColor,
@@ -73,6 +226,8 @@ const DigitalProfile = () => {
             metaUserNameColor,
             metaFullNameColor,
             grayTextColor,
+            profileLogo,
+            profileImage,
           } = values;
           return (
             <>
@@ -87,54 +242,100 @@ const DigitalProfile = () => {
                   metaFullNameColor,
                   grayTextColor,
                 }}
+                images={{ profileLogo, profileImage }}
+                isEditing={true}
               />
               <Form className="t-max-w-[450px] t-mx-auto t-flex t-items-center t-justify-between t-gap-f-8 t-mb-f-16 t-p-f-8 t-rounded-f-8 t-shadow-lg">
-                <div className="t-flex t-gap-f-8 t-flex-wrap">
-                  <Field
-                    type="color"
-                    className="form-control form-control-color"
-                    id="bodyTextColor"
-                    name="bodyTextColor"
-                  />
-                  <Field
-                    type="color"
-                    className="form-control form-control-color"
-                    id="themeColor"
-                    name="themeColor"
-                  />
-                  <Field
-                    type="color"
-                    className="form-control form-control-color"
-                    id="metaBandBgColor"
-                    name="metaBandBgColor"
-                  />
-                  <Field
-                    type="color"
-                    className="form-control form-control-color"
-                    id="metaRoleTextColor"
-                    name="metaRoleTextColor"
-                  />
-                  <Field
-                    type="color"
-                    className="form-control form-control-color"
-                    id="metaUserNameColor"
-                    name="metaUserNameColor"
-                  />
-                  <Field
-                    type="color"
-                    className="form-control form-control-color"
-                    id="grayTextColor"
-                    name="grayTextColor"
-                  />
+                <div className="t-flex t-flex-col t-gap-f-16">
+                  {/* color control */}
+                  <div className="t-flex t-gap-f-8 t-flex-wrap">
+                    <Field
+                      type="color"
+                      className="form-control form-control-color"
+                      id="bodyTextColor"
+                      name="bodyTextColor"
+                    />
+                    <Field
+                      type="color"
+                      className="form-control form-control-color"
+                      id="themeColor"
+                      name="themeColor"
+                    />
+                    <Field
+                      type="color"
+                      className="form-control form-control-color"
+                      id="metaBandBgColor"
+                      name="metaBandBgColor"
+                    />
+                    <Field
+                      type="color"
+                      className="form-control form-control-color"
+                      id="grayTextColor"
+                      name="grayTextColor"
+                    />
+                  </div>
+                  {/* image uploads */}
+                  <div className="t-flex t-gap-f-8 t-items-center">
+                    {/* container for logo image upload */}
+                    <div>
+                      <label
+                        htmlFor="profileLogoFile"
+                        className="f-btn-sm f-btn-primary t-flex t-gap-f-8 t-items-center t-cursor-pointer"
+                      >
+                        <HiOutlineUpload /> <span>Logo</span>
+                      </label>
+                      <input
+                        type="file"
+                        id="profileLogoFile"
+                        name="profileLogoFile"
+                        className="t-hidden"
+                        onChange={(e) => {
+                          const file = e.target.files[0];
+                          const reader = new FileReader();
+                          reader.readAsDataURL(file);
+                          reader.onload = () => {
+                            setFieldValue("profileLogo", reader.result);
+                            setFieldValue("profileLogoFile", file);
+                          };
+                        }}
+                      />
+                    </div>
+                    {/* container for profile image upload */}
+                    <div>
+                      <label
+                        htmlFor="profileImageFile"
+                        className="f-btn-sm f-btn-primary t-flex t-gap-f-8 t-items-center t-cursor-pointer"
+                      >
+                        <HiOutlineUpload /> <span>Profile</span>
+                      </label>
+                      <input
+                        type="file"
+                        id="profileImageFile"
+                        name="profileImageFile"
+                        className="t-hidden"
+                        onChange={(e) => {
+                          const file = e.target.files[0];
+                          const reader = new FileReader();
+                          reader.readAsDataURL(file);
+                          reader.onload = () => {
+                            setFieldValue("profileImage", reader.result);
+                            setFieldValue("profileImageFile", file);
+                          };
+                        }}
+                      />
+                    </div>
+                  </div>
                 </div>
                 <button
                   type="submit"
                   className={`f-btn-sm f-btn-primary${
-                    isUpdatingProfile ? " t-cursor-not-allowed" : ""
+                    isSubmitting || isUpdatingProfile
+                      ? " t-cursor-not-allowed"
+                      : ""
                   }`}
-                  disabled={isUpdatingProfile}
+                  disabled={isSubmitting || isUpdatingProfile}
                 >
-                  {isUpdatingProfile ? "Saving..." : "Save"}
+                  {isSubmitting || isUpdatingProfile ? "Saving..." : "Save"}
                 </button>
               </Form>
             </>
@@ -144,18 +345,156 @@ const DigitalProfile = () => {
     );
   }
 
+  // if (name === "template-2") {
+  //   return (
+  //     <Formik
+  //       initialValues={{
+  //         ...colors,
+  //         profileLogo: "",
+  //         profileImage: "",
+  //         profileLogoFile: null,
+  //         profileImageFile: null,
+  //       }}
+  //       onSubmit={async (values) => {
+  //         updateProfile({
+  //           ...profileTemplate,
+  //           colors: values,
+  //         });
+  //       }}
+  //     >
+  //       {({ values }) => {
+  //         const {
+  //           bodyTextColor,
+  //           themeColor,
+  //           metaBandBgColor,
+  //           metaRoleTextColor,
+  //           metaUserNameColor,
+  //           metaFullNameColor,
+  //           grayTextColor,
+  //           profileLogo,
+  //           profileImage,
+  //         } = values;
+  //         return (
+  //           <>
+  //             <DigitalProfileTemplate2
+  //               data={data}
+  //               colors={{
+  //                 bodyTextColor,
+  //                 themeColor,
+  //                 metaBandBgColor,
+  //                 metaRoleTextColor,
+  //                 metaUserNameColor,
+  //                 metaFullNameColor,
+  //                 grayTextColor,
+  //               }}
+  //               images={{ profileLogo, profileImage }}
+  //             />
+  //             <Form className="t-max-w-[450px] t-mx-auto t-flex t-items-center t-justify-between t-gap-f-8 t-mb-f-16 t-p-f-8 t-rounded-f-8 t-shadow-lg">
+  //               <div className="t-flex t-gap-f-8 t-flex-wrap">
+  //                 <Field
+  //                   type="color"
+  //                   className="form-control form-control-color"
+  //                   id="bodyTextColor"
+  //                   name="bodyTextColor"
+  //                 />
+  //                 <Field
+  //                   type="color"
+  //                   className="form-control form-control-color"
+  //                   id="themeColor"
+  //                   name="themeColor"
+  //                 />
+  //                 <Field
+  //                   type="color"
+  //                   className="form-control form-control-color"
+  //                   id="metaBandBgColor"
+  //                   name="metaBandBgColor"
+  //                 />
+  //                 <Field
+  //                   type="color"
+  //                   className="form-control form-control-color"
+  //                   id="metaFullNameColor"
+  //                   name="metaFullNameColor"
+  //                 />
+  //                 <Field
+  //                   type="color"
+  //                   className="form-control form-control-color"
+  //                   id="grayTextColor"
+  //                   name="grayTextColor"
+  //                 />
+  //               </div>
+  //               <button
+  //                 type="submit"
+  //                 className={`f-btn-sm f-btn-primary${
+  //                   isUpdatingProfile ? " t-cursor-not-allowed" : ""
+  //                 }`}
+  //                 disabled={isUpdatingProfile}
+  //               >
+  //                 {isUpdatingProfile ? "Saving..." : "Save"}
+  //               </button>
+  //             </Form>
+  //           </>
+  //         );
+  //       }}
+  //     </Formik>
+  //   );
+  // }
+
   if (name === "template-2") {
     return (
       <Formik
-        initialValues={{ ...colors }}
-        onSubmit={async (values) => {
+        initialValues={{
+          ...colors,
+          profileLogo: "",
+          profileImage: "",
+          profileLogoFile: null,
+          profileImageFile: null,
+        }}
+        onSubmit={async (values, actions) => {
+          actions.setSubmitting(true);
+          const {
+            profileLogoFile,
+            profileImageFile,
+            profileLogo,
+            profileImage,
+            bodyTextColor,
+            themeColor,
+            metaBandBgColor,
+            metaRoleTextColor,
+            metaUserNameColor,
+            metaFullNameColor,
+            grayTextColor,
+          } = values;
+          const profileLogoURL = await uploadDataUrlImage(
+            "profile",
+            profileLogo,
+            "profile-logo"
+          );
+          const profileImageURL = await uploadDataUrlImage(
+            "profile",
+            profileImage,
+            "profile-image"
+          );
+          actions.setSubmitting(false);
+          console.log("profileTemplate details", profileTemplate);
           updateProfile({
             ...profileTemplate,
-            colors: values,
+            colors: {
+              bodyTextColor,
+              themeColor,
+              metaBandBgColor,
+              metaRoleTextColor,
+              metaUserNameColor,
+              metaFullNameColor,
+              grayTextColor,
+            },
+            images: {
+              profileLogo: profileLogoURL ?? "",
+              profileImage: profileImageURL ?? "",
+            },
           });
         }}
       >
-        {({ values }) => {
+        {({ values, setFieldValue, isSubmitting, setSubmitting }) => {
           const {
             bodyTextColor,
             themeColor,
@@ -164,6 +503,8 @@ const DigitalProfile = () => {
             metaUserNameColor,
             metaFullNameColor,
             grayTextColor,
+            profileLogo,
+            profileImage,
           } = values;
           return (
             <>
@@ -178,48 +519,100 @@ const DigitalProfile = () => {
                   metaFullNameColor,
                   grayTextColor,
                 }}
+                images={{ profileLogo, profileImage }}
+                isEditing={true}
               />
               <Form className="t-max-w-[450px] t-mx-auto t-flex t-items-center t-justify-between t-gap-f-8 t-mb-f-16 t-p-f-8 t-rounded-f-8 t-shadow-lg">
-                <div className="t-flex t-gap-f-8 t-flex-wrap">
-                  <Field
-                    type="color"
-                    className="form-control form-control-color"
-                    id="bodyTextColor"
-                    name="bodyTextColor"
-                  />
-                  <Field
-                    type="color"
-                    className="form-control form-control-color"
-                    id="themeColor"
-                    name="themeColor"
-                  />
-                  <Field
-                    type="color"
-                    className="form-control form-control-color"
-                    id="metaBandBgColor"
-                    name="metaBandBgColor"
-                  />
-                  <Field
-                    type="color"
-                    className="form-control form-control-color"
-                    id="metaFullNameColor"
-                    name="metaFullNameColor"
-                  />
-                  <Field
-                    type="color"
-                    className="form-control form-control-color"
-                    id="grayTextColor"
-                    name="grayTextColor"
-                  />
+                <div className="t-flex t-flex-col t-gap-f-16">
+                  {/* color control */}
+                  <div className="t-flex t-gap-f-8 t-flex-wrap">
+                    <Field
+                      type="color"
+                      className="form-control form-control-color"
+                      id="bodyTextColor"
+                      name="bodyTextColor"
+                    />
+                    <Field
+                      type="color"
+                      className="form-control form-control-color"
+                      id="themeColor"
+                      name="themeColor"
+                    />
+                    <Field
+                      type="color"
+                      className="form-control form-control-color"
+                      id="metaBandBgColor"
+                      name="metaBandBgColor"
+                    />
+                    <Field
+                      type="color"
+                      className="form-control form-control-color"
+                      id="grayTextColor"
+                      name="grayTextColor"
+                    />
+                  </div>
+                  {/* image uploads */}
+                  <div className="t-flex t-gap-f-8 t-items-center">
+                    {/* container for logo image upload */}
+                    <div>
+                      <label
+                        htmlFor="profileLogoFile"
+                        className="f-btn-sm f-btn-primary t-flex t-gap-f-8 t-items-center t-cursor-pointer"
+                      >
+                        <HiOutlineUpload /> <span>Logo</span>
+                      </label>
+                      <input
+                        type="file"
+                        id="profileLogoFile"
+                        name="profileLogoFile"
+                        className="t-hidden"
+                        onChange={(e) => {
+                          const file = e.target.files[0];
+                          const reader = new FileReader();
+                          reader.readAsDataURL(file);
+                          reader.onload = () => {
+                            setFieldValue("profileLogo", reader.result);
+                            setFieldValue("profileLogoFile", file);
+                          };
+                        }}
+                      />
+                    </div>
+                    {/* container for profile image upload */}
+                    <div>
+                      <label
+                        htmlFor="profileImageFile"
+                        className="f-btn-sm f-btn-primary t-flex t-gap-f-8 t-items-center t-cursor-pointer"
+                      >
+                        <HiOutlineUpload /> <span>Profile</span>
+                      </label>
+                      <input
+                        type="file"
+                        id="profileImageFile"
+                        name="profileImageFile"
+                        className="t-hidden"
+                        onChange={(e) => {
+                          const file = e.target.files[0];
+                          const reader = new FileReader();
+                          reader.readAsDataURL(file);
+                          reader.onload = () => {
+                            setFieldValue("profileImage", reader.result);
+                            setFieldValue("profileImageFile", file);
+                          };
+                        }}
+                      />
+                    </div>
+                  </div>
                 </div>
                 <button
                   type="submit"
                   className={`f-btn-sm f-btn-primary${
-                    isUpdatingProfile ? " t-cursor-not-allowed" : ""
+                    isSubmitting || isUpdatingProfile
+                      ? " t-cursor-not-allowed"
+                      : ""
                   }`}
-                  disabled={isUpdatingProfile}
+                  disabled={isSubmitting || isUpdatingProfile}
                 >
-                  {isUpdatingProfile ? "Saving..." : "Save"}
+                  {isSubmitting || isUpdatingProfile ? "Saving..." : "Save"}
                 </button>
               </Form>
             </>
@@ -232,16 +625,20 @@ const DigitalProfile = () => {
   if (name === "template-3") {
     return (
       <Formik
-        initialValues={{ ...colors }}
-        onSubmit={async (values) => {
-          updateProfile({
-            ...profileTemplate,
-            colors: values,
-          });
+        initialValues={{
+          ...colors,
+          profileLogo: "",
+          profileImage: "",
+          profileLogoFile: null,
+          profileImageFile: null,
         }}
-      >
-        {({ values }) => {
+        onSubmit={async (values, actions) => {
+          actions.setSubmitting(true);
           const {
+            profileLogoFile,
+            profileImageFile,
+            profileLogo,
+            profileImage,
             bodyTextColor,
             themeColor,
             metaBandBgColor,
@@ -250,6 +647,51 @@ const DigitalProfile = () => {
             metaFullNameColor,
             grayTextColor,
           } = values;
+          const profileLogoURL = await uploadDataUrlImage(
+            "profile",
+            profileLogo,
+            "profile-logo"
+          );
+          const profileImageURL = await uploadDataUrlImage(
+            "profile",
+            profileImage,
+            "profile-image"
+          );
+          console.log("profileLogoURL", profileLogoURL);
+          console.log("profileImageURL", profileImageURL);
+          actions.setSubmitting(false);
+          console.log("profileTemplate details", profileTemplate);
+          updateProfile({
+            ...profileTemplate,
+            colors: {
+              bodyTextColor,
+              themeColor,
+              metaBandBgColor,
+              metaRoleTextColor,
+              metaUserNameColor,
+              metaFullNameColor,
+              grayTextColor,
+            },
+            images: {
+              profileLogo: profileLogoURL ?? "",
+              profileImage: profileImageURL ?? "",
+            },
+          });
+        }}
+      >
+        {({ values, setFieldValue, isSubmitting, setSubmitting }) => {
+          const {
+            bodyTextColor,
+            themeColor,
+            metaBandBgColor,
+            metaRoleTextColor,
+            metaUserNameColor,
+            metaFullNameColor,
+            grayTextColor,
+            profileLogo,
+            profileImage,
+          } = values;
+
           return (
             <>
               <DigitalProfileTemplate3
@@ -263,42 +705,100 @@ const DigitalProfile = () => {
                   metaFullNameColor,
                   grayTextColor,
                 }}
+                images={{ profileLogo, profileImage }}
+                isEditing={true}
               />
               <Form className="t-max-w-[450px] t-mx-auto t-flex t-items-center t-justify-between t-gap-f-8 t-mb-f-16 t-p-f-8 t-rounded-f-8 t-shadow-lg">
-                <div className="t-flex t-gap-f-8 t-flex-wrap">
-                  <Field
-                    type="color"
-                    className="form-control form-control-color"
-                    id="bodyTextColor"
-                    name="bodyTextColor"
-                  />
-                  <Field
-                    type="color"
-                    className="form-control form-control-color"
-                    id="themeColor"
-                    name="themeColor"
-                  />
-                  <Field
-                    type="color"
-                    className="form-control form-control-color"
-                    id="metaBandBgColor"
-                    name="metaBandBgColor"
-                  />
-                  <Field
-                    type="color"
-                    className="form-control form-control-color"
-                    id="grayTextColor"
-                    name="grayTextColor"
-                  />
+                <div className="t-flex t-flex-col t-gap-f-16">
+                  {/* color control */}
+                  <div className="t-flex t-gap-f-8 t-flex-wrap">
+                    <Field
+                      type="color"
+                      className="form-control form-control-color"
+                      id="bodyTextColor"
+                      name="bodyTextColor"
+                    />
+                    <Field
+                      type="color"
+                      className="form-control form-control-color"
+                      id="themeColor"
+                      name="themeColor"
+                    />
+                    <Field
+                      type="color"
+                      className="form-control form-control-color"
+                      id="metaBandBgColor"
+                      name="metaBandBgColor"
+                    />
+                    <Field
+                      type="color"
+                      className="form-control form-control-color"
+                      id="grayTextColor"
+                      name="grayTextColor"
+                    />
+                  </div>
+                  {/* image uploads */}
+                  <div className="t-flex t-gap-f-8 t-items-center">
+                    {/* container for logo image upload */}
+                    <div>
+                      <label
+                        htmlFor="profileLogoFile"
+                        className="f-btn-sm f-btn-primary t-flex t-gap-f-8 t-items-center t-cursor-pointer"
+                      >
+                        <HiOutlineUpload /> <span>Logo</span>
+                      </label>
+                      <input
+                        type="file"
+                        id="profileLogoFile"
+                        name="profileLogoFile"
+                        className="t-hidden"
+                        onChange={(e) => {
+                          const file = e.target.files[0];
+                          const reader = new FileReader();
+                          reader.readAsDataURL(file);
+                          reader.onload = () => {
+                            setFieldValue("profileLogo", reader.result);
+                            setFieldValue("profileLogoFile", file);
+                          };
+                        }}
+                      />
+                    </div>
+                    {/* container for profile image upload */}
+                    <div>
+                      <label
+                        htmlFor="profileImageFile"
+                        className="f-btn-sm f-btn-primary t-flex t-gap-f-8 t-items-center t-cursor-pointer"
+                      >
+                        <HiOutlineUpload /> <span>Profile</span>
+                      </label>
+                      <input
+                        type="file"
+                        id="profileImageFile"
+                        name="profileImageFile"
+                        className="t-hidden"
+                        onChange={(e) => {
+                          const file = e.target.files[0];
+                          const reader = new FileReader();
+                          reader.readAsDataURL(file);
+                          reader.onload = () => {
+                            setFieldValue("profileImage", reader.result);
+                            setFieldValue("profileImageFile", file);
+                          };
+                        }}
+                      />
+                    </div>
+                  </div>
                 </div>
                 <button
                   type="submit"
                   className={`f-btn-sm f-btn-primary${
-                    isUpdatingProfile ? " t-cursor-not-allowed" : ""
+                    isSubmitting || isUpdatingProfile
+                      ? " t-cursor-not-allowed"
+                      : ""
                   }`}
-                  disabled={isUpdatingProfile}
+                  disabled={isSubmitting || isUpdatingProfile}
                 >
-                  {isUpdatingProfile ? "Saving..." : "Save"}
+                  {isSubmitting || isUpdatingProfile ? "Saving..." : "Save"}
                 </button>
               </Form>
             </>

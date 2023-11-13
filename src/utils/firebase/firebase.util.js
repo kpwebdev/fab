@@ -228,6 +228,7 @@ const updateCardDetails = async (card) => {
 };
 
 const updateProfileDetails = async (profile) => {
+  console.log("Profile details being updated: ", profile);
   const currentUserData = await getUser();
   const { id } = currentUserData;
   const docRef = doc(db, "users", id);

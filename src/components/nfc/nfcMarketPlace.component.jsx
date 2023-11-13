@@ -32,7 +32,7 @@ const NfcMarketPlace = () => {
                   </h4>
                   <p className="t-text-f-base">{description}</p>
                   <span className="t-flex t-items-center t-font-bold t-text-f-md">
-                    <PiCurrencyInrLight /> {`${price}/-`}
+                    {`${price} KD`}
                   </span>
                 </div>
               </article>
@@ -41,13 +41,13 @@ const NfcMarketPlace = () => {
         </div>
 
         {/* btns container */}
-        <div className="t-flex t-justify-end t-gap-f-24 t-my-f-48">
+        {/* <div className="t-flex t-justify-end t-gap-f-24 t-my-f-48">
           <button className="f-btn-md f-btn-primary-outline">
             Create Shop
           </button>
 
           <button className="f-btn-md f-btn-primary">Go to Shop</button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -12,6 +12,8 @@ import NfcFooter from "../../components/nfc/nfcFooter.component";
 import ChatbotSection from "../../components/chatbotSection.component";
 import { fabAgencyServices } from "../../data";
 import { Link } from "react-router-dom";
+import { FloatingWhatsApp } from "react-floating-whatsapp";
+import fabLogo from "../../assets/fab-log-blue-with-bg.png";
 
 const NfcHome = () => {
   const steps = [
@@ -89,13 +91,23 @@ const NfcHome = () => {
       <NfcMarketPlace />
       <NfcBringTeam />
       <NfcWorksSection />
-      <NfcClients />
+      {/* <NfcClients /> */}
       {/* will be added once an app is developed */}
       {/* <NfcDownload /> */}
       <NfcTestimonials />
       <FaqsSection />
       <NfcFooter />
-      <ChatbotSection steps={steps} />
+      {/* <ChatbotSection steps={steps} /> */}
+      <FloatingWhatsApp
+        phoneNumber="96569918650"
+        accountName="Fab Digital"
+        avatar={fabLogo}
+        chatMessage="How can we be a help to you?"
+        allowEsc
+        allowClickAway
+        className="fixed bottom-0 right-0"
+        statusMessage="Responds within 15 mins"
+      />
     </>
   );
 };

@@ -7,7 +7,7 @@ const Home = () => {
     <section id="home" className="d-flex justify-content-between">
       <div className="container">
         {/* header text */}
-        <header className="text-center mb-5">
+        <header className="mb-5 text-center">
           <h2 className="text-white t-text-f-4xl t-mb-f-8">
             Your Success Story Begins with our Business{" "}
             <span className="text-success">Services</span>.

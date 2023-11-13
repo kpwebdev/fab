@@ -108,8 +108,10 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["Poppins", "sans-serif"],
-        molle: ["Molle", "cursive"],
+        body: ["Nunito Sans", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
+        // sans: ["Poppins", "sans-serif"],
+        // molle: ["Molle", "cursive"],
       },
       fontSize: {
         "f-xs": ["12px", "1.5em"],

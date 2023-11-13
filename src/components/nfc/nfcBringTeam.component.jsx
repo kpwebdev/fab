@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const NfcBringTeam = () => {
   return (
     <section className="t-bg-team-image t-py-f-96 t-text-f-primary-99">
@@ -13,10 +15,16 @@ const NfcBringTeam = () => {
         </p>
         {/* buttons container */}
         <div className="t-flex t-justify-end t-gap-f-24 t-my-f-48">
-          <button className="f-btn-md f-btn-secondary-outline">
+          {/* <button className="f-btn-md f-btn-secondary-outline">
             Add Company
-          </button>
-          <button className="f-btn-md f-btn-primary">Invite Team</button>
+          </button> */}
+          <Link
+            to="https://wa.me/96569918650"
+            className="f-btn-md f-btn-primary"
+            target="_blank"
+          >
+            Let's Connect
+          </Link>
         </div>
       </div>
     </section>

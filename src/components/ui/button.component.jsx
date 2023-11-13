@@ -7,6 +7,7 @@ const Button = ({
   hoverStyle,
   href,
   children,
+  handleClick,
   ...otherPropers
 }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -30,6 +31,7 @@ const Button = ({
     <button
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
       style={isHovered ? hoverStyle : normalStyle}
       {...otherPropers}
     >

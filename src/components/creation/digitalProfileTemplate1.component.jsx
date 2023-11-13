@@ -13,9 +13,14 @@ import Color from "color";
 import { useState } from "react";
 import Button from "../ui/button.component";
 
-const DigitalProfileTemplate1 = ({ data, colors, children }) => {
+const DigitalProfileTemplate1 = ({
+  data,
+  colors,
+  images,
+  isEditing,
+  children,
+}) => {
   const {
-    profilePic,
     fullName,
     role,
     socialMedia,
@@ -26,10 +31,16 @@ const DigitalProfileTemplate1 = ({ data, colors, children }) => {
     companyVision,
     companyAddress,
     email,
-    card: {
-      frontSettings: { frontLogoImage: logo },
-    },
   } = data;
+
+  const logo =
+    images?.profileLogo ||
+    data?.profile?.images?.profileLogo ||
+    data?.card?.frontSettings?.frontLogoImage?.logo;
+  const profilePic =
+    images?.profileImage ||
+    data?.profile?.images?.profileImage ||
+    data?.profilePic;
 
   const {
     bodyTextColor,
@@ -95,17 +106,34 @@ const DigitalProfileTemplate1 = ({ data, colors, children }) => {
         </div>
 
         {/* logo */}
-        <div className="t-absolute t-top-f-16 t-left-f-16 t-w-[30%] t-aspect-square">
-          <img src={logo} alt="logo" />
+        <div className="t-absolute t-top-f-16 t-left-f-16 t-w-[30%] t-aspect-square t-overflow-hidden">
+          <img
+            src={logo}
+            alt="logo"
+            className="t-w-full t-h-full t-object-cover"
+          />
+          {isEditing && (
+            <div className="t-absolute t-top-0 t-left-0 t-w-full t-h-full t-bg-f-primary-30 t-text-f-primary-99 t-flex t-items-center t-justify-center t-opacity-75">
+              Logo
+            </div>
+          )}
         </div>
 
         {/* profile pic */}
-        <img
-          src={profilePic}
-          alt="profile picture"
-          className="t-aspect-square t-rounded-full t-border-8 t-translate-y-[20%] -t-translate-x-[5%] t-w-1/2 t-object-cover"
-          style={{ borderColor: themeColor }}
-        />
+        <div className="t-aspect-square t-rounded-full t-border-8 t-translate-y-[20%] -t-translate-x-[5%] t-w-1/2 t-object-cover t-overflow-hidden">
+          <img
+            src={profilePic}
+            alt="profile picture"
+            className="t-w-full t-h-full t-object-cover"
+            // className="t-aspect-square t-rounded-full t-border-8 t-translate-y-[20%] -t-translate-x-[5%] t-w-1/2 t-object-cover"
+            style={{ borderColor: themeColor }}
+          />
+          {isEditing && (
+            <div className="t-absolute t-top-0 t-left-0 t-w-full t-h-full t-bg-f-primary-30 t-text-f-primary-99 t-flex t-items-center t-justify-center t-opacity-75">
+              Profile Image
+            </div>
+          )}
+        </div>
       </section>
 
       {/* header section */}
@@ -233,9 +261,31 @@ const DigitalProfileTemplate1 = ({ data, colors, children }) => {
         <Button
           normalStyle={primaryBtn.normalState}
           hoverStyle={primaryBtn.hoverState}
-          isLink={true}
+          isLink={false}
           href={`tel:${contact.replace(/[ +()-]/g, "")}`}
           className="f-btn-sm f-btn-primary t-flex t-items-center justify-content-center t-text-f-base"
+          handleClick={() => {
+            const vcfFileContent = `BEGIN:VCARD
+VERSION:3.0
+FN:${fullName}
+ORG:${companyName}
+ADR;TYPE=WORK:${companyAddress}
+TITLE:${role}
+URL:https://${website}
+TEL;TYPE=CELL:${contact}
+END:VCARD`;
+            const vcfFile = new Blob([vcfFileContent], {
+              type: "text/plain;charset=utf-8",
+            });
+            const downloadVFCLink = document.createElement("a");
+            const objectURL = URL.createObjectURL(vcfFile);
+            downloadVFCLink.href = objectURL;
+            downloadVFCLink.download =
+              `${fullName.toLowerCase().replace(/ /g, "-")}` +
+              "contact-details.vcf";
+            downloadVFCLink.click();
+            URL.revokeObjectURL(downloadVFCLink.href);
+          }}
         >
           +Add Contact
         </Button>
