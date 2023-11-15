@@ -275,7 +275,7 @@ URL:https://${website}
 TEL;TYPE=CELL:${contact}
 END:VCARD`;
             const vcfFile = new Blob([vcfFileContent], {
-              type: "text/plain;charset=utf-8",
+              type: "text/vcard;charset=utf-8",
             });
             const downloadVFCLink = document.createElement("a");
             const objectURL = URL.createObjectURL(vcfFile);
