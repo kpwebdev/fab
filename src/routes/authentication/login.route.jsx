@@ -32,8 +32,6 @@ const Login = () => {
       queryClient.invalidateQueries({
         queryKey: ["user"],
       });
-      console.log("current user", currentUser);
-      console.log("web admin email", webAdminEmail);
       if (auth.currentUser.email === webAdminEmail) {
         navigate("/web-admin");
       } else {

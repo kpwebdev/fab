@@ -16,7 +16,6 @@ const WebAdminOrdersSharedLayout = () => {
     );
   }
 
-  console.log("data", data);
   return (
     <div>
       <header>

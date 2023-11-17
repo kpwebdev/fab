@@ -190,7 +190,6 @@ const DigitalProfile = () => {
             "profile-image"
           );
           actions.setSubmitting(false);
-          console.log("profileTemplate details", profileTemplate);
           updateProfile({
             ...profileTemplate,
             colors: {
@@ -475,7 +474,6 @@ const DigitalProfile = () => {
             "profile-image"
           );
           actions.setSubmitting(false);
-          console.log("profileTemplate details", profileTemplate);
           updateProfile({
             ...profileTemplate,
             colors: {
@@ -657,10 +655,7 @@ const DigitalProfile = () => {
             profileImage,
             "profile-image"
           );
-          console.log("profileLogoURL", profileLogoURL);
-          console.log("profileImageURL", profileImageURL);
           actions.setSubmitting(false);
-          console.log("profileTemplate details", profileTemplate);
           updateProfile({
             ...profileTemplate,
             colors: {

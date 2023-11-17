@@ -77,7 +77,6 @@ const FaqsSection = () => {
                       }}
                     >
                       {({ values, handleChange }) => {
-                        console.log("values", values);
                         return (
                           <Form>
                             <div className="t-mb-f-16">

@@ -28,9 +28,6 @@ const Profile = () => {
       </div>
     );
   }
-
-  console.log("profile data", profile);
-  console.log("data", data);
   const { name, colors, id } = profile;
 
   if (name === "template-1") {

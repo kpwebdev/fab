@@ -45,9 +45,6 @@ const CustomizeCard = () => {
     orientation,
     ...userCardDetails
   } = cardTemplate;
-  console.log("current card template", cardTemplate);
-  console.log("current card details - frontFormInputs", frontFormInputs);
-  console.log("current card details - backFormInputs", backFormInputs);
 
   const [isFront, setIsFront] = useState("true");
   const {
@@ -123,7 +120,6 @@ const CustomizeCard = () => {
         key={cardTemplate.name}
       >
         {({ values, setFieldValue }) => {
-          console.log("current formik values", values);
           const {
             frontBgColor,
             frontHasBgGradient,
