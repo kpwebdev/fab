@@ -1,0 +1,1 @@
+import{j as t,O as e}from"./index-78c3eb9e.js";const n=()=>t.jsxs("section",{children:[t.jsx("header",{className:"t-flex t-justify-between",children:t.jsx("h3",{className:"t-text-f-3xl",children:"Settings"})}),t.jsx(e,{})]});export{n as default};
