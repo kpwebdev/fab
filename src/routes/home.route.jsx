@@ -5,7 +5,7 @@ import CheckoutCard from "../components/checkoutCard.component";
 const Home = () => {
   return (
     <section id="home" className="d-flex justify-content-between">
-      <div className="container">
+      <div className="container t-min-h-screen t-flex t-flex-col t-justify-evenly t-py-f-24">
         {/* header text */}
         <header className="mb-5 text-center">
           <h2 className="text-white t-text-f-4xl t-mb-f-8">

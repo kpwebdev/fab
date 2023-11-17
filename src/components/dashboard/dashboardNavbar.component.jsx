@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import FabLogo from "../../assets/fab-log-blue-trasparent.png";
 import { getUser, logout } from "../../utils/firebase/firebase.util";
 import { useMutation, useQuery } from "@tanstack/react-query";
@@ -59,11 +59,13 @@ const DashboardNavbar = () => {
       aria-labelledby="offcanvasScrollingLabel"
     >
       <header className="offcanvas-header t-flex t-items-start t-flex-col t-gap-f-16">
-        <img
-          src={FabLogo}
-          alt="Fab Digital Marketing Logo"
-          className="t-w-f-120"
-        />
+        <Link to="/nfc">
+          <img
+            src={FabLogo}
+            alt="Fab Digital Marketing Logo"
+            className="t-w-f-120"
+          />
+        </Link>
         <h5 className="t-text-f-l">Dashboard</h5>
       </header>
       <div className="offcanvas-body t-flex t-flex-col t-justify-between">

@@ -3,7 +3,7 @@ import Stars from "../stars.component";
 
 const NfcTestimonials = () => {
   return (
-    <section className="t-min-h-screen t-py-f-96">
+    <section className="t-py-f-96">
       <div className="container">
         <h3 className="t-text-f-md">Testimonial</h3>
         <h2 className="t-text-f-3xl t-mb-f-48">Feedback from Customers.</h2>

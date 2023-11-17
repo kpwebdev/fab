@@ -902,10 +902,6 @@ video {
   margin-bottom: 8px;
 }
 
-.t-mb-f-80 {
-  margin-bottom: 80px;
-}
-
 .t-mb-f-96 {
   margin-bottom: 96px;
 }
@@ -921,6 +917,10 @@ video {
 .t-ms-auto {
   -webkit-margin-start: auto;
           margin-inline-start: auto;
+}
+
+.t-mt-f-16 {
+  margin-top: 16px;
 }
 
 .t-mt-f-8 {
@@ -1225,6 +1225,11 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.t-translate-x-1\/2 {
+  --tw-translate-x: 50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .t-translate-x-\[30\%\] {
   --tw-translate-x: 30%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1335,6 +1340,10 @@ video {
   justify-content: space-between;
 }
 
+.t-justify-evenly {
+  justify-content: space-evenly;
+}
+
 .t-gap-2 {
   gap: 0.5rem;
 }
@@ -1381,10 +1390,6 @@ video {
 
 .t-gap-f-8 {
   gap: 8px;
-}
-
-.t-gap-f-80 {
-  gap: 80px;
 }
 
 .t-gap-f-96 {
@@ -1483,6 +1488,10 @@ video {
 
 .t-border-l-4 {
   border-left-width: 4px;
+}
+
+.t-border-r {
+  border-right-width: 1px;
 }
 
 .t-border-dashed {
@@ -1785,6 +1794,10 @@ video {
   padding-bottom: 16px;
 }
 
+.t-pb-f-96 {
+  padding-bottom: 96px;
+}
+
 .t-pl-f-16 {
   padding-left: 16px;
 }
@@ -1944,6 +1957,11 @@ video {
   color: rgb(6 22 45 / var(--tw-text-opacity));
 }
 
+.t-text-f-primary-20 {
+  --tw-text-opacity: 1;
+  color: rgb(13 45 89 / var(--tw-text-opacity));
+}
+
 .t-text-f-primary-30 {
   --tw-text-opacity: 1;
   color: rgb(19 67 134 / var(--tw-text-opacity));
@@ -1994,6 +2012,11 @@ video {
   color: rgb(34 197 94 / var(--tw-text-opacity));
 }
 
+.t-text-green-600 {
+  --tw-text-opacity: 1;
+  color: rgb(22 163 74 / var(--tw-text-opacity));
+}
+
 .t-text-orange-500 {
   --tw-text-opacity: 1;
   color: rgb(249 115 22 / var(--tw-text-opacity));
@@ -2040,6 +2063,10 @@ video {
 .t-placeholder-f-primary-40::placeholder {
   --tw-placeholder-opacity: 1;
   color: rgb(26 89 178 / var(--tw-placeholder-opacity));
+}
+
+.t-opacity-30 {
+  opacity: 0.3;
 }
 
 .t-opacity-60 {
@@ -2176,6 +2203,10 @@ video {
 
 .hover\:t-no-underline:hover {
   text-decoration-line: none;
+}
+
+.hover\:t-opacity-100:hover {
+  opacity: 1;
 }
 
 .hover\:t-shadow-lg:hover {

@@ -13,7 +13,7 @@ const CheckoutCard = ({
       to={href}
       className="text-black text-decoration-none d-block checkout-card rounded-4"
     >
-      <article className="t-p-f-16 t-flex t-flex-col justify-content-between t-min-h-full">
+      <article className="t-p-f-16 t-py-f-48 t-flex t-flex-col justify-content-between t-min-h-full">
         {/* header */}
         <div className="mb-5 d-flex justify-content-between">
           <img src={img} alt={title} className="checkout-card-image" />

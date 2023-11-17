@@ -86,7 +86,7 @@ const NfcHome = () => {
   return (
     <>
       <NfcHero />
-      <NfcCompanyDetails />
+      {/* <NfcCompanyDetails /> */}
       <NfcFeatures />
       <NfcMarketPlace />
       <NfcBringTeam />

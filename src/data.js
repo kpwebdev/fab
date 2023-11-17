@@ -175,7 +175,7 @@ const checkoutList = [
     href: "/nfc",
     img: wifi,
     title: "Checkout our",
-    subtitle: "NFC Cards",
+    subtitle: "Fabtap Cards",
     text:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat error, earum odit rerum adipisci.",
     subHeadingColor: "t-text-f-secondary-50",
@@ -228,21 +228,21 @@ const nfcFeatures = [
     title: "Customized Cards",
     description:
       "Embrace your creativity and design personalized NFC cards that reflect your style. Our user-friendly platform makes it easy to bring your ideas to life, letting you customize every detail. From colors to features, the possibilities are endless. Create your own unique NFC cards and open the door to a world of customized connectivity.",
-    btn: "Customise Now",
+    text: "Customise Now",
     animation: cursorAnimation,
   },
   {
     title: "Digital Profile",
     description:
       "Design your own attractive digital profile, setting the stage for people to reach out after a tap. With easy customization, you can add your photo, bio, and more. Let your NFC card become a gateway for connections and opportunities.",
-    btn: "Customise Now",
+    text: "Customise Now",
     animation: tapAnimation,
   },
   {
     title: "Our Templates",
     description:
       "Don't have the time to create a profile from scratch? Explore our ready-made templates for an easier solution. Choose from a variety of styles to quickly set up your digital profile on your NFC card, saving you time while ensuring a professional look that suits you.",
-    btn: "Customise Now",
+    text: "Customise Now",
     animation: cardSlideAnimation,
   },
 ];

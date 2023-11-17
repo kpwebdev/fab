@@ -1,11 +1,16 @@
 import { nfcFeatures } from "../../data";
 import Lottie from "lottie-react";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider.context";
 
 const NfcFeatures = () => {
+  const { currentUser } = useContext(AuthContext);
+
   return (
-    <section className="t-bg-f-primary-95 t-py-f-96">
+    <section className="t-bg-f-primary-95 t-py-f-48">
       <div className="container">
-        <header className="t-mb-f-80 t-text-center">
+        <header className="t-text-center">
           <h2 className="t-text-f-3xl t-mb-f-40">What we provide?</h2>
           <p>
             Your affordable source for NFC cards. Personalize your own card to
@@ -15,8 +20,8 @@ const NfcFeatures = () => {
           </p>
         </header>
         {/* features container */}
-        <div className="t-flex t-flex-col t-gap-f-80">
-          {nfcFeatures.map(({ title, description, btn, animation }, idx) => (
+        <div className="t-flex t-flex-col t-gap-f-8">
+          {nfcFeatures.map(({ title, description, text, animation }, idx) => (
             <div className={`t-grid t-grid-cols-2 t-items-center`} key={idx}>
               {/* text container */}
               <div
@@ -26,9 +31,14 @@ const NfcFeatures = () => {
               >
                 <h3 className="t-text-f-2xl">{title}</h3>
                 <p className="t-text-f-base">{description}</p>
-                <button className="t-text-f-md t-px-f-16 t-py-f-8 t-inline-block t-bg-f-primary-30 t-text-f-primary-98 t-rounded-f-8 hover:t-bg-f-primary-20">
-                  {btn}
-                </button>
+                <Link
+                  to={
+                    currentUser ? "/nfc/dashboard" : "/nfc/authentication/login"
+                  }
+                  className="t-text-f-md t-px-f-16 t-py-f-8 t-inline-block t-bg-f-primary-30 t-text-f-primary-98 t-rounded-f-8 hover:t-bg-f-primary-20"
+                >
+                  {text}
+                </Link>
               </div>
               {/* animation container */}
               <div className={`${idx % 2 !== 0 ? " t-order-1" : ""}`}>
