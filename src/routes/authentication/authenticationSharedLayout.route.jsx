@@ -1,7 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
 import Lottie from "lottie-react";
 import fabLogo from "../../assets/fab-log-blue-trasparent.png";
-import circleAnimation from "../../assets/lotties/circle-animation2.json";
+import circleAnimation from "../../assets/lotties/circle-animation.json";
 
 const AuthenticationSharedLayout = () => {
   return (
