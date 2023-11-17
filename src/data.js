@@ -163,7 +163,8 @@ const homeNavigationList = [
 
 const checkoutList = [
   {
-    href: "/fab-digital-agency",
+    // href: "/fab-digital-agency",
+    href: "#fab-digital-agency",
     img: fabLogo,
     title: "Checkout our",
     subtitle: "Fab Digital Agency",
