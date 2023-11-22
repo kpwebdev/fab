@@ -345,7 +345,7 @@ const queryClient = new QueryClient();
 //     element: <CustomizeProfile />,
 //   },
 //   {
-//     path: "/fab-digital-agency",
+//     path: "/marketing",
 //     element: <AgencySharedLayout />,
 //     children: [
 //       {
@@ -367,7 +367,7 @@ const queryClient = new QueryClient();
 //           {
 //             index: true,
 //             element: (
-//               <Navigate to="/fab-digital-agency/portfolios/social-media-marketing" />
+//               <Navigate to="/marketing/portfolios/social-media-marketing" />
 //             ),
 //           },
 //           { path: ":id", element: <Portfolio /> },
@@ -499,7 +499,7 @@ function App() {
               element={<CustomizeProfile />}
             />
             {/* routes for fab digital agency page and sub-pages */}
-            <Route path="/fab-digital-agency" element={<AgencySharedLayout />}>
+            <Route path="/marketing" element={<AgencySharedLayout />}>
               <Route index element={<AgencyHome />} />
               <Route path="services" element={<ServicesSharedLayout />}>
                 <Route index element={<ServicesIndex />} />
@@ -509,7 +509,7 @@ function App() {
                 <Route
                   index
                   element={
-                    <Navigate to="/fab-digital-agency/portfolios/social-media-marketing" />
+                    <Navigate to="/marketing/portfolios/social-media-marketing" />
                   }
                 />
                 <Route path=":id" element={<Portfolio />} />

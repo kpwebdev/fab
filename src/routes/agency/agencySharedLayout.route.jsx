@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { NavLink, Link } from "react-router-dom";
-import fabLogo from "../../assets/fab-log-blue-trasparent.png";
+import fabLogo from "../../assets/fab-agency-logo-blue.png";
 import {
   fabAgencyNavLinks,
   nfcSocialMediaLinks,
@@ -9,6 +9,8 @@ import {
   fabAgencyFooterCommunityLinks,
 } from "../../data";
 import { FaPaperPlane } from "react-icons/fa";
+import { AiFillInstagram } from "react-icons/ai";
+import { FaLinkedin } from "react-icons/fa";
 
 const AgencySharedLayout = () => {
   const [email, setEmail] = useState("");
@@ -17,7 +19,7 @@ const AgencySharedLayout = () => {
       {/* navigation starts */}
       <nav className="navbar navbar-expand-lg bg-body-tertiary t-h-[12vh]">
         <div className="container">
-          <Link className="navbar-brand" to="/fab-digital-agency">
+          <Link className="navbar-brand" to="/marketing">
             <img
               src={fabLogo}
               alt="Fab Digital Marketing Logo"
@@ -43,6 +45,35 @@ const AgencySharedLayout = () => {
                   {title}
                 </NavLink>
               ))}
+              <div className="t-ms-auto t-flex t-gap-f-8">
+                <Link
+                  className="f-btn-md f-btn-secondary"
+                  to="/marketing/services"
+                >
+                  Get In Touch
+                </Link>
+                {/* divider */}
+                <div className="t-w-f-2 t-bg-f-secondary-40"></div>
+                {/* social media links */}
+                <ul className="t-flex t-items-center t-gap-f-8 t-text-f-l t-text-f-secondary-30">
+                  <li>
+                    <Link
+                      to="https://www.instagram.com/fabdigitalagency/"
+                      target="_blank"
+                    >
+                      <AiFillInstagram />
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="https://www.linkedin.com/company/fab-digital-agency/"
+                      target="_blank"
+                    >
+                      <FaLinkedin />
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

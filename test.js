@@ -80,7 +80,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
     element={<CustomizeProfile />}
   />
   {/* routes for fab digital agency page and sub-pages */}
-  <Route path="/fab-digital-agency" element={<AgencySharedLayout />}>
+  <Route path="/marketing" element={<AgencySharedLayout />}>
     <Route index element={<AgencyHome />} />
     <Route path="services" element={<ServicesSharedLayout />}>
       <Route index element={<ServicesIndex />} />
@@ -89,9 +89,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
     <Route path="portfolios" element={<PortfoliosSharedLayout />}>
       <Route
         index
-        element={
-          <Navigate to="/fab-digital-agency/portfolios/social-media-marketing" />
-        }
+        element={<Navigate to="/marketing/portfolios/social-media-marketing" />}
       />
       <Route path=":id" element={<Portfolio />} />
     </Route>
@@ -263,7 +261,7 @@ const router = createBrowserRouter([
     element: <CustomizeProfile />,
   },
   {
-    path: "/fab-digital-agency",
+    path: "/marketing",
     element: <AgencySharedLayout />,
     children: [
       {
@@ -285,7 +283,7 @@ const router = createBrowserRouter([
           {
             index: true,
             element: (
-              <Navigate to="/fab-digital-agency/portfolios/social-media-marketing" />
+              <Navigate to="/marketing/portfolios/social-media-marketing" />
             ),
           },
           { path: ":id", element: <Portfolio /> },

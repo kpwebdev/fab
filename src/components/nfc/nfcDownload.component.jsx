@@ -1,4 +1,4 @@
-import fabLogo from "../../assets/fab-log-blue-trasparent.png";
+import fabLogo from "../../assets/fab-agency-logo-blue.png";
 import playstoreScreenshot from "../../assets/playstore-screenshot.png";
 import { nfcAppStats } from "../../data";
 

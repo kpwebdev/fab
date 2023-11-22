@@ -1601,6 +1601,11 @@ video {
   background-color: rgb(251 252 254 / var(--tw-bg-opacity));
 }
 
+.t-bg-f-secondary-40 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(204 160 0 / var(--tw-bg-opacity));
+}
+
 .t-bg-f-secondary-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(255 200 0 / var(--tw-bg-opacity));
@@ -1990,6 +1995,11 @@ video {
 .t-text-f-primary-99 {
   --tw-text-opacity: 1;
   color: rgb(251 252 254 / var(--tw-text-opacity));
+}
+
+.t-text-f-secondary-30 {
+  --tw-text-opacity: 1;
+  color: rgb(153 120 0 / var(--tw-text-opacity));
 }
 
 .t-text-f-secondary-50 {

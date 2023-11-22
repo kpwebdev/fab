@@ -16,6 +16,20 @@ import skillMaxDashboard from "../../assets/skillMax-dashboard.png";
 import fabTapDashboard from "../../assets/fabTap-dashboard.png";
 import { fabAgencyServices } from "../../data";
 import ChatbotSection from "../../components/chatbotSection.component";
+import client1441Fitness from "../../assets/client-1441-fitness.png";
+import clientAlefiyaFitness from "../../assets/client-alefiya-fitness.png";
+import clientJumbo from "../../assets/client-jumbo.png";
+import clientKomfortPlanetSystem from "../../assets/client-komfort-planet-system.png";
+import clientMountain from "../../assets/client-mountain.png";
+import clientOcrFitnessTheGrindYouVsYou from "../../assets/client-ocr-fitness-the-grind-you-vs-you.png";
+import clientProSports from "../../assets/client-pro-sports.png";
+import clientProSportsCricket from "../../assets/client-pro-sports-cricket.png";
+import clientRazain from "../../assets/client-razain.png";
+import clientSaraOman from "../../assets/client-sara-oman.png";
+import clientSaraUae from "../../assets/client-sara-uae.png";
+import { IoShareSocial, IoMagnetSharp } from "react-icons/io5";
+import { FaFilterCircleDollar } from "react-icons/fa6";
+import { CgWebsite } from "react-icons/cg";
 
 const AgencyHome = () => {
   const steps = [
@@ -106,27 +120,26 @@ const AgencyHome = () => {
           <div>
             <h2 className="t-text-f-3xl t-mb-f-32">
               Don't Settle for Ordinary – Let Your{" "}
-              <span className="t-text-f-primary-50">Brand</span> Shine with Our
-              Digital <span className="t-text-f-secondary-50">Magic!</span>
+              <span className="t-text-f-primary-50">Brand Grow</span> With Our{" "}
+              <span className="t-text-f-secondary-50">
+                Personalized Marketing Strategies
+              </span>
             </h2>
             <p className="t-text-f-base t-mb-f-24">
               We're Here to Craft, Execute, and Amplify Your Marketing
-              Strategies, Ensuring Your Brand's Resounding Success.
+              Strategies, Ensuring your business exponential growth
             </p>
             {/* buttons container */}
             <div className="t-flex t-gap-f-16">
-              <Link
-                className="f-btn-md f-btn-primary"
-                to="/fab-digital-agency/services"
-              >
-                Get Started
-              </Link>
-              <button className="t-flex t-items-center t-gap-f-4 t-text-f-primary-40 t-text-f-md">
+              <a className="f-btn-md f-btn-primary" href="#works-section">
+                Show Me How
+              </a>
+              {/* <button className="t-flex t-items-center t-gap-f-4 t-text-f-primary-40 t-text-f-md">
                 <div className="t-bg-f-primary-98 t-flex t-items-center t-justify-center t-pl-f-16 t-pr-[10px] t-py-[12px] t-rounded-full t-shadow-lg">
                   <BsFillPlayFill className="shadow-lg" />
                 </div>
                 <span>Play Video</span>
-              </button>
+              </button> */}
             </div>
           </div>
           {/* image container */}
@@ -137,6 +150,76 @@ const AgencyHome = () => {
       </section>
       {/* hero section ends */}
 
+      {/* client section starts */}
+      <section className="t-py-f-96">
+        <div className="container">
+          <h2 className="t-text-f-3xl t-mb-f-48">
+            Brands that <span className="t-text-f-primary-30">Trust Us</span>
+          </h2>
+          {/* clients container */}
+          <div
+            id="carouselExampleInterval"
+            className="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div className="carousel-inner">
+              <div className="carousel-item active" data-bs-interval="3000">
+                <div className="t-flex t-items-center t-justify-between">
+                  <img
+                    className="t-w-[150px] t-h-[150px]"
+                    src={client1441Fitness}
+                  />
+                  <img
+                    className="t-w-[150px] t-h-[150px]"
+                    src={clientAlefiyaFitness}
+                  />
+                  <img className="t-w-[150px] t-h-[150px]" src={clientJumbo} />
+                  <img
+                    className="t-w-[150px] t-h-[150px]"
+                    src={clientKomfortPlanetSystem}
+                  />
+                </div>
+              </div>
+              <div className="carousel-item" data-bs-interval="3000">
+                <div className="t-flex t-items-center t-justify-between">
+                  <img
+                    className="t-w-[150px] t-h-[150px]"
+                    src={clientMountain}
+                  />
+                  <img
+                    className="t-w-[150px] t-h-[150px]"
+                    src={clientOcrFitnessTheGrindYouVsYou}
+                  />
+                  <img
+                    className="t-w-[150px] t-h-[150px]"
+                    src={clientProSports}
+                  />
+                  <img
+                    className="t-w-[150px] t-h-[150px]"
+                    src={clientProSportsCricket}
+                  />
+                </div>
+              </div>
+              <div className="carousel-item" data-bs-interval="3000">
+                <div className="t-flex t-items-center t-justify-between">
+                  <img className="t-w-[150px] t-h-[150px]" src={clientRazain} />
+                  <img
+                    className="t-w-[150px] t-h-[150px]"
+                    src={clientSaraOman}
+                  />
+                  <img
+                    className="t-w-[150px] t-h-[150px]"
+                    src={clientSaraUae}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* <div className="t-flex t-gap-f-56 t-items-center"></div> */}
+        </div>
+      </section>
+      {/* client section ends */}
+
       {/* intro section starts */}
       <section className="t-min-h-screen t-py-f-96">
         {/* what we provide starts */}
@@ -145,12 +228,15 @@ const AgencyHome = () => {
             {/* text container */}
             <div>
               <h3 className="t-text-f-2xl t-mb-f-24">
-                What we <span className="t-text-f-secondary-50">provide?</span>
+                Your{" "}
+                <span className="t-text-f-secondary-50">
+                  All-Inclusive Marketing
+                </span>{" "}
+                Solution
               </h3>
               <p className="t-text-f-base">
-                We provide you with the right strategies, guidance, and
-                resources to boost and position your brand successfully in
-                today's competitive market.
+                We provide personalized strategies, Done-for-you Services & fast
+                track your brand's growth in today's competitive market
               </p>
             </div>
 
@@ -158,7 +244,7 @@ const AgencyHome = () => {
             <div className="t-grid t-grid-cols-2 t-gap-f-24">
               <Link
                 className="border t-shadow-md t-border-f-primary-60 t-bg-f-primary-98 t-text-f-l t-flex t-flex-col t-justify-between t-gap-f-16 t-p-f-16 t-rounded-f-8 hover:-t-translate-y-f-16 t-transition-all t-duration-300 hover:t-shadow-lg hover:t-bg-f-primary-98"
-                to="/fab-digital-agency/services"
+                to="/marketing/services"
               >
                 <BiSolidHeartCircle className="t-text-green-500 t-self-end t-text-5xl" />
                 <h5>
@@ -198,12 +284,23 @@ const AgencyHome = () => {
             {/* text container */}
             <div>
               <h3 className="t-text-f-2xl t-mb-f-24">
-                About Our <span className="t-text-f-primary-50">Team</span>
+                We are Your{" "}
+                <span className="t-text-f-primary-50">
+                  Marketing Power House
+                </span>
               </h3>
               <p className="t-text-f-base t-mb-f-16">
-                We provide you with the right strategies, guidance, and
-                resources to boost and position your brand successfully in
-                today's competitive market.
+                Let's face it- marketing is not a one person job. That's where
+                we come in- Your Marketing Power house. We are not your average
+                team -we are a team of creative minds and marketing experts.
+              </p>
+              <p className="t-text-f-base t-mb-f-16">
+                We formulates result- oriented strategies for you to give your
+                brand the engagement it needs, the sales it wants and the
+                customer loyalty it deserves . With sight set on "amplifying
+                your business growth" we make your business stand out in the
+                crowd, using our well crafted strategies , streamlined systems
+                and powerful tools.
               </p>
             </div>
           </div>
@@ -219,46 +316,57 @@ const AgencyHome = () => {
                 Our <span className="t-text-green-500">Services</span>
               </h3>
               <p className="t-text-f-base t-mb-f-16">
-                We offer a wide range of digital marketing services tailored to
-                your brand's needs and goals.
+                We specialize in making your brand take the lead in the highly
+                competitive online market.
               </p>
-              <Link
-                className="f-btn-md f-btn-primary"
-                to="/fab-digital-agency/services"
-              >
-                View all
-              </Link>
+              <p className="t-text-f-base t-mb-f-16">
+                From captivating social media management, designed to increase
+                engagement and build trust among your customers, to performance
+                marketing strategies for generating sales, and crafting
+                customer-friendly websites – we're here for you as your
+                marketing power house.
+              </p>
             </div>
 
             {/* cards container */}
             <div className="t-grid t-grid-rows-3 t-gap-f-24">
-              {/* social media management card */}
+              {/* social media marketing card */}
               <Link
                 className="t-flex align-items-center t-justify-between t-text-f-md t-bg-f-secondary-90 t-font-semibold t-p-f-16 t-gap-f-16 t-rounded-f-8 hover:t-bg-f-secondary-80"
-                to="/fab-digital-agency/services/social-media-marketing"
+                to="/marketing/services/social-media-marketing"
               >
-                <IconSocialMediaManagement />
-                <span>Social Media Management</span>
+                <IoShareSocial />
+                <span>Social Media Marketing</span>
                 <BsArrowRight className="t-text-f-l ms-auto" />
               </Link>
 
-              {/* content creation card */}
+              {/* result driven ads campaigns card */}
               <Link
                 className="t-flex align-items-center t-justify-between t-text-f-md t-bg-green-100 t-font-semibold t-p-f-16 t-gap-f-16 t-rounded-f-8 hover:t-bg-green-200"
                 to="#content-creation"
               >
-                <IconContentCreation />
-                <span>Content Creation</span>
+                <FaFilterCircleDollar />
+                <span>Result-Driven Ads Campaigns</span>
                 <BsArrowRight className="t-text-f-l ms-auto" />
               </Link>
 
-              {/* website development card */}
+              {/* attract clients on automation card */}
               <Link
                 className="t-flex align-items-center t-justify-between t-text-f-md t-bg-f-primary-90 t-font-semibold t-p-f-16 t-gap-f-16 t-rounded-f-8 hover:t-bg-f-primary-80"
-                to="/fab-digital-agency/services/websites"
+                to="/marketing/services/websites"
               >
-                <IconWebsiteDevelopment />
-                <span>Social Media Management</span>
+                <IoMagnetSharp />
+                <span>Attract Clients on Automation</span>
+                <BsArrowRight className="t-text-f-l ms-auto" />
+              </Link>
+
+              {/* widen your reach with website & google ads card */}
+              <Link
+                className="t-flex align-items-center t-justify-between t-text-f-md t-bg-f-secondary-90 t-font-semibold t-p-f-16 t-gap-f-16 t-rounded-f-8 hover:t-bg-f-secondary-80"
+                to="/marketing/services/websites"
+              >
+                <CgWebsite />
+                <span>Widen your reach with Website & Google Ads</span>
                 <BsArrowRight className="t-text-f-l ms-auto" />
               </Link>
             </div>
@@ -269,10 +377,13 @@ const AgencyHome = () => {
       {/* intro section ends */}
 
       {/* best works starts */}
-      <section className="t-min-h-screen t-py-f-96">
+      <section className="t-min-h-screen t-py-f-96" id="works-section">
         <div className="container t-text-center">
           <h2 className="t-text-f-3xl t-mb-f-48">
-            Some of our <span className="t-text-f-primary-50">best works</span>
+            Results for our Clients{" "}
+            <span className="t-text-f-primary-50">
+              Upto 10 x ROAS Revenue Generated
+            </span>
           </h2>
 
           {/* list of websites */}
@@ -305,7 +416,7 @@ const AgencyHome = () => {
 
           <Link
             className="f-btn-md f-btn-primary"
-            to="/fab-digital-agency/portfolios/websites"
+            to="/marketing/portfolios/websites"
           >
             View all
           </Link>
@@ -317,8 +428,8 @@ const AgencyHome = () => {
       <section className="t-min-h-screen t-py-f-96">
         <div className="container">
           <h2 className="t-text-f-3xl t-mb-f-48 t-text-center">
-            Feedback from{" "}
-            <span className="t-text-f-secondary-50">Customers</span>
+            What Our <span className="t-text-f-secondary-50">Client</span> Says{" "}
+            <span className="t-text-f-secondary-50">About Us</span>
           </h2>
           {/* cards container */}
           <div className="t-grid t-grid-cols-3 t-gap-f-24">
@@ -357,9 +468,9 @@ const AgencyHome = () => {
       <section className="t-min-h-screen t-py-f-96">
         <div className="container t-grid t-grid-cols-2 t-gap-f-24">
           <header className="t-flex t-flex-col t-gap-f-24 t-items-start">
-            <h2 className="t-text-f-3xl">Frequently Asked Questions</h2>
-            <h3 className="t-text-f-base">Still have some unsolved queries?</h3>
-            <button className="f-btn-md f-btn-primary">Contact Us</button>
+            <h2 className="t-text-f-3xl">Still have more questions in mind?</h2>
+            <h3 className="t-text-f-base">Ask Away.</h3>
+            <button className="f-btn-md f-btn-primary">Get in Touch</button>
           </header>
 
           {/* faqs container */}
@@ -385,7 +496,11 @@ const AgencyHome = () => {
                     aria-labelledby={`heading${idx}`}
                     data-bs-parent="#fabFaqs"
                   >
-                    <div className="accordion-body">{answer}</div>
+                    <div className="accordion-body">
+                      {answer.split("\n").map((para) => (
+                        <p className="t-mb-f-8">{para}</p>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ))}

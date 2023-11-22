@@ -1,5 +1,5 @@
 // importing images
-import fabLogo from "./assets/fab-log-blue-trasparent.png";
+import fabLogo from "./assets/fab-agency-logo-blue.png";
 import wifi from "./assets/wifi.png";
 import cardAestheticDarkGrey from "./assets/card-aesthetic-dark-grey.png";
 import cardAestheticDullGrey from "./assets/card-aesthetic-dull-grey.png";
@@ -163,8 +163,8 @@ const homeNavigationList = [
 
 const checkoutList = [
   {
-    // href: "/fab-digital-agency",
-    href: "#fab-digital-agency",
+    // href: "/marketing",
+    href: "#marketing",
     img: fabLogo,
     title: "Checkout our",
     subtitle: "Fab Digital Agency",
@@ -1376,23 +1376,27 @@ const templates = [
 const fabAgencyNavLinks = [
   {
     title: "Services",
-    href: "/fab-digital-agency/services",
+    href: "/marketing/services",
   },
   {
-    title: "Portfolios",
-    href: "/fab-digital-agency/portfolios",
+    title: "Our work",
+    href: "/marketing/portfolios",
+  },
+  {
+    title: "About us",
+    href: "/marketing/about-us",
   },
   // temp hidden
   // {
   //   title: "Blog",
-  //   href: "/fab-digital-agency/blog",
+  //   href: "/marketing/blog",
   // },
 ];
 const fabAgencyServices = [
   {
     id: "social-media-marketing",
     title: "Social Media Marketing",
-    pageHref: "/fab-digital-agency/services/social-media-marketing",
+    pageHref: "/marketing/services/social-media-marketing",
     overLay: "linear-gradient(red, red)",
     bgImage: fabAgencyServicesSocialMediaMarketing,
     pageImage: fabAgencyServicesSocialMediaMarketingPage,
@@ -1415,7 +1419,7 @@ const fabAgencyServices = [
   {
     id: "meta-ads",
     title: "Meta Ads",
-    pageHref: "/fab-digital-agency/services/meta-ads",
+    pageHref: "/marketing/services/meta-ads",
     overLay: "linear-gradient(blue, blue)",
     bgImage: fabAgencyServicesMetaAds,
     pageImage: fabAgencyServicesMetaAdsPage,
@@ -1434,7 +1438,7 @@ const fabAgencyServices = [
   {
     id: "performance-marketing",
     title: "Performance Marketing",
-    pageHref: "/fab-digital-agency/services/performance-marketing",
+    pageHref: "/marketing/services/performance-marketing",
     overLay: "linear-gradient(green, green)",
     bgImage: fabAgencyServicesPerformanceMarketing,
     pageImage: fabAgencyServicesPerformanceMarketingPage,
@@ -1457,7 +1461,7 @@ const fabAgencyServices = [
   {
     id: "websites",
     title: "Websites",
-    pageHref: "/fab-digital-agency/services/websites",
+    pageHref: "/marketing/services/websites",
     overLay: "linear-gradient(orange, orange)",
     bgImage: fabAgencyServicesWebsites,
     pageImage: fabAgencyServicesWebsitesPage,
@@ -1482,7 +1486,7 @@ const fabAgencyPortfolios = [
   {
     id: "social-media-marketing",
     title: "Social Media Marketing",
-    pageHref: "/fab-digital-agency/portfolios/social-media-marketing",
+    pageHref: "/marketing/portfolios/social-media-marketing",
     portfolioList: [
       {
         heading: "Fashion",
@@ -1564,7 +1568,7 @@ const fabAgencyPortfolios = [
   {
     id: "meta-ads",
     title: "Meta Ads",
-    pageHref: "/fab-digital-agency/portfolios/meta-ads",
+    pageHref: "/marketing/portfolios/meta-ads",
     portfolioList: [
       {
         heading: "Fashion",
@@ -1671,7 +1675,7 @@ const fabAgencyPortfolios = [
   {
     id: "performance-marketing",
     title: "Performance Marketing",
-    pageHref: "/fab-digital-agency/portfolios/performance-marketing",
+    pageHref: "/marketing/portfolios/performance-marketing",
     portfolioList: [
       {
         heading: "Enhancement",
@@ -1712,7 +1716,7 @@ const fabAgencyPortfolios = [
   {
     id: "websites",
     title: "Websites",
-    pageHref: "/fab-digital-agency/portfolios/websites",
+    pageHref: "/marketing/portfolios/websites",
     portfolioList: [
       {
         heading: "Fashion",
@@ -1750,11 +1754,11 @@ const fabAgencyPortfolios = [
 const fabAgencyFooterPageLinks = [
   {
     title: "Services",
-    href: "/fab-digital-agency/services",
+    href: "/marketing/services",
   },
   {
     title: "Portfolios",
-    href: "/fab-digital-agency/portfolios",
+    href: "/marketing/portfolios",
   },
   {
     title: "About Us",
@@ -1783,24 +1787,24 @@ const fabAgencyFaqs = [
   {
     question: "What types of digital marketing services do you offer?",
     answer:
-      "Going digital with your business card offers numerous advantages. Firstly, it's environmentally friendly, reducing the need for paper and supporting sustainability. Secondly, NFC business cards by Fab Digital Solution provide an innovative and modern way for professionals to exchange contact information effortlessly. With just a tap of a smartphone, potential clients and partners can instantly access your contact details, portfolio, or website. It's a cutting-edge approach that enhances your professional image and facilitates seamless networking.",
+      "Our fab digital agency helps your business in every way.\nFrom social media management to increase your engagement online and to promote your business to Result driven ad campaigns and attract clients on automation for increased revenue for your business. We will develop customer friendly websites and use SEO to rank them on Google.",
   },
   {
     question: "How can digital marketing benefit my business or brand?",
     answer:
-      "Fab Digital Solution utilizes Near Field Communication (NFC) technology for its business cards. NFC is a short-range wireless communication technology that enables quick and secure data exchange between an NFC-enabled device, like a smartphone, and the NFC chip embedded in the business card. Our cards are equipped with high-quality NFC chips that ensure reliable and swift information transfer, making the exchange of contact details more convenient than ever.",
+      "Digital marketing is the need for every business in today's networking world. Our marketing services will benefit your business by widening your business reach through social media, our user friendly websites and seo will boost your business and make your website rank on Google and our sales funnel and Ads campaign will increase your business revenue.",
   },
   {
     question:
       "Do you provide custom-tailored digital marketing strategies for different industries?",
     answer:
-      "The turnaround time for Fab Digital Solution's NFC business cards is typically [mention the standard turnaround time, e.g., 5-7 business days] from the date of order confirmation. This includes the design, production, and programming of the NFC chips. However, specific turnaround times may vary based on the order quantity, customization requirements, and other factors. We strive to deliver our high-quality, fully functional NFC business cards to our clients within the shortest possible time frame.",
+      "In Fab digital, we clearly understand how different every business is, how different your business needs, its story, its visi on is,and that's why we provide personalized digital marketing strategies for your business to increase your engagement, to raise your sales and get you the customer loyalty you deserve.",
   },
   {
     question:
       "What is digital marketing, and why is it important for businesses today?",
     answer:
-      "Fab Digital Solution's NFC business cards operate through Near Field Communication (NFC) technology. Each business card contains a small NFC chip embedded within it. When an NFC-enabled smartphone is brought close to the card (typically within a few centimeters), the NFC chip and the smartphone establish a communication link. The smartphone then reads the data stored on the chip, which usually includes your contact information, social media links, portfolio, or any other details you choose to share. This seamless and contactless process simplifies networking, allowing individuals to quickly access and store your information, enhancing business connections and interactions.",
+      "Digital marketing means utilizing creative and result-oriented strategies to promote products or services on social media, search engines, email, and websites.\nIt's important for businesses due to its targeted reach, ability to track and analyze campaign performance, and enabling more efficient marketing efforts and better understanding of customer behavior in the digital landscape.",
   },
 ];
 const fabAgencyReviews = [

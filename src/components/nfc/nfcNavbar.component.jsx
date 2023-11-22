@@ -1,12 +1,12 @@
 import { NavLink, Link } from "react-router-dom";
-import fabLogo from "../../assets/fab-log-blue-trasparent.png";
+import fabLogo from "../../assets/fab-agency-logo-blue.png";
 import { ImUser } from "react-icons/im";
 import { BiSolidCart } from "react-icons/bi";
 import { nfcHomePageLinks } from "../../data";
 
 const NfcNavbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary t-sticky top-0 t-z-50">
+    <nav className="top-0 navbar navbar-expand-lg bg-body-tertiary t-sticky t-z-50">
       <div className="container">
         <Link className="navbar-brand" to="/nfc">
           <img

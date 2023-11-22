@@ -1,5 +1,5 @@
 import { useState } from "react";
-import fabLogo from "../../assets/fab-log-blue-trasparent.png";
+import fabLogo from "../../assets/fab-agency-logo-blue.png";
 import {
   nfcSocialMediaLinks,
   nfcFooterPageLinks,
@@ -71,7 +71,7 @@ const NfcFooter = () => {
               <h5 className="t-mb-f-40 t-text-f-sm">Subscribe for free. </h5>
               {/* email form */}
               <form>
-                <div className="input-group mb-3">
+                <div className="mb-3 input-group">
                   <input
                     type="email"
                     className="form-control t-bg-f-primary-20 t-placeholder-f-primary-40"

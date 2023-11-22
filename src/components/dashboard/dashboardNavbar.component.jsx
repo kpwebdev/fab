@@ -1,5 +1,5 @@
 import { NavLink, Link, useNavigate } from "react-router-dom";
-import FabLogo from "../../assets/fab-log-blue-trasparent.png";
+import FabLogo from "../../assets/fab-agency-logo-blue.png";
 import { getUser, logout } from "../../utils/firebase/firebase.util";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useQueryClient } from "@tanstack/react-query";

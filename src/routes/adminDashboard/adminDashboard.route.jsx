@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import FabLogo from "../../assets/fab-log-blue-trasparent.png";
+import FabLogo from "../../assets/fab-agency-logo-blue.png";
 import { CiUser } from "react-icons/ci";
 import { BsClipboard } from "react-icons/bs";
 import { MdLogout } from "react-icons/md";
