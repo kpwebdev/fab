@@ -30,6 +30,8 @@ import clientSaraUae from "../../assets/client-sara-uae.png";
 import { IoShareSocial, IoMagnetSharp } from "react-icons/io5";
 import { FaFilterCircleDollar } from "react-icons/fa6";
 import { CgWebsite } from "react-icons/cg";
+import { FloatingWhatsApp } from "react-floating-whatsapp";
+import fabLogo from "../../assets/fab-agency-logo-blue-white-bg.png";
 
 const AgencyHome = () => {
   const steps = [
@@ -242,9 +244,9 @@ const AgencyHome = () => {
 
             {/* cards container */}
             <div className="t-grid t-grid-cols-2 t-gap-f-24">
-              <Link
+              <a
                 className="border t-shadow-md t-border-f-primary-60 t-bg-f-primary-98 t-text-f-l t-flex t-flex-col t-justify-between t-gap-f-16 t-p-f-16 t-rounded-f-8 hover:-t-translate-y-f-16 t-transition-all t-duration-300 hover:t-shadow-lg hover:t-bg-f-primary-98"
-                to="/marketing/services"
+                href="#services-section"
               >
                 <BiSolidHeartCircle className="t-text-green-500 t-self-end t-text-5xl" />
                 <h5>
@@ -252,7 +254,7 @@ const AgencyHome = () => {
                   we provide for you
                 </h5>
                 <BsArrowRight className="t-text-black t-self-end" />
-              </Link>
+              </a>
 
               <Link
                 className="border t-shadow-md t-border-f-primary-60 t-bg-f-primary-98 t-text-f-l t-flex t-flex-col t-justify-between t-gap-f-16 t-p-f-16 t-rounded-f-8 hover:-t-translate-y-f-16 t-transition-all t-duration-300 hover:t-shadow-lg hover:t-bg-f-primary-98"
@@ -261,7 +263,7 @@ const AgencyHome = () => {
                 <LuNfc className="t-text-f-secondary-50 t-self-end t-text-4xl" />
                 <h5>
                   Checkout our{" "}
-                  <span className="t-text-f-secondary-50">NFC Cards</span>.
+                  <span className="t-text-f-secondary-50">Fabtap Cards</span>.
                 </h5>
                 <BsArrowRight className="t-text-black t-self-end" />
               </Link>
@@ -271,44 +273,49 @@ const AgencyHome = () => {
         {/* what we provide ends */}
 
         {/* about our team starts */}
-        <div className="container t-relative t-mb-[300px]">
-          <div className="t-grid t-grid-cols-2 t-items-center t-gap-f-96">
-            {/* image container */}
-            <div className="-t-translate-x-[28%] t-translate-y-[20%] t-scale-150">
-              <img
-                src={aboutOurTeam}
-                alt="people having a meeting in a laptop"
-              />
-            </div>
+        <div className="t-relative t-mb-[300px]">
+          <div className="container">
+            <div className="t-grid t-grid-cols-2 t-items-center t-gap-f-96">
+              {/* image container */}
+              {/* <div className="-t-translate-x-[28%] t-translate-y-[20%] t-scale-150"> */}
+              <div className="">
+                <img
+                  src={aboutOurTeam}
+                  className="t-absolute t-top-0 t-left-0"
+                  alt="people having a meeting in a laptop"
+                />
+              </div>
 
-            {/* text container */}
-            <div>
-              <h3 className="t-text-f-2xl t-mb-f-24">
-                We are Your{" "}
-                <span className="t-text-f-primary-50">
-                  Marketing Power House
-                </span>
-              </h3>
-              <p className="t-text-f-base t-mb-f-16">
-                Let's face it- marketing is not a one person job. That's where
-                we come in- Your Marketing Power house. We are not your average
-                team -we are a team of creative minds and marketing experts.
-              </p>
-              <p className="t-text-f-base t-mb-f-16">
-                We formulates result- oriented strategies for you to give your
-                brand the engagement it needs, the sales it wants and the
-                customer loyalty it deserves . With sight set on "amplifying
-                your business growth" we make your business stand out in the
-                crowd, using our well crafted strategies , streamlined systems
-                and powerful tools.
-              </p>
+              {/* text container */}
+              <div>
+                <h3 className="t-text-f-2xl t-mb-f-24">
+                  We are Your{" "}
+                  <span className="t-text-f-primary-50">
+                    Marketing Power House
+                  </span>
+                </h3>
+                <p className="t-text-f-base t-mb-f-16">
+                  Let's face it- marketing is not a one person job. That's where
+                  we come in- Your Marketing Power house. We are not your
+                  average team -we are a team of creative minds and marketing
+                  experts.
+                </p>
+                <p className="t-text-f-base t-mb-f-16">
+                  We formulates result- oriented strategies for you to give your
+                  brand the engagement it needs, the sales it wants and the
+                  customer loyalty it deserves . With sight set on "amplifying
+                  your business growth" we make your business stand out in the
+                  crowd, using our well crafted strategies , streamlined systems
+                  and powerful tools.
+                </p>
+              </div>
             </div>
           </div>
         </div>
         {/* about our team ends */}
 
         {/* our services provide starts */}
-        <div className="container t-mb-f-120">
+        <div className="container t-mb-f-120" id="services-section">
           <div className="t-grid t-grid-cols-2 t-items-center t-gap-f-96">
             {/* text container */}
             <div>
@@ -470,7 +477,13 @@ const AgencyHome = () => {
           <header className="t-flex t-flex-col t-gap-f-24 t-items-start">
             <h2 className="t-text-f-3xl">Still have more questions in mind?</h2>
             <h3 className="t-text-f-base">Ask Away.</h3>
-            <button className="f-btn-md f-btn-primary">Get in Touch</button>
+            <Link
+              className="f-btn-md f-btn-primary"
+              to="https://wa.me/971568781104"
+              target="_blank"
+            >
+              Get in Touch
+            </Link>
           </header>
 
           {/* faqs container */}
@@ -520,7 +533,17 @@ const AgencyHome = () => {
       {/* faq section ends */}
 
       {/* chat with us starts */}
-      <ChatbotSection steps={steps} />
+      {/* <ChatbotSection steps={steps} /> */}
+      <FloatingWhatsApp
+        phoneNumber="971568781104"
+        accountName="Fab Digital"
+        avatar={fabLogo}
+        chatMessage="How can we be a help to you?"
+        allowEsc
+        allowClickAway
+        className="fixed bottom-0 right-0"
+        statusMessage="Responds within 15 mins"
+      />
       {/* chat with us ends */}
     </div>
   );

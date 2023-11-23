@@ -48,7 +48,8 @@ const AgencySharedLayout = () => {
               <div className="t-ms-auto t-flex t-gap-f-8">
                 <Link
                   className="f-btn-md f-btn-secondary"
-                  to="/marketing/services"
+                  to="https://wa.me/971568781104"
+                  target="_blank"
                 >
                   Get In Touch
                 </Link>

@@ -19,7 +19,7 @@ const NfcBringTeam = () => {
             Add Company
           </button> */}
           <Link
-            to="https://wa.me/96569918650"
+            to="https://wa.me/971568781104"
             className="f-btn-md f-btn-primary"
             target="_blank"
           >
