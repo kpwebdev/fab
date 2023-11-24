@@ -447,7 +447,7 @@ const General = () => {
                           disabled={!isEditing}
                           inputClass="form-control"
                           inputStyle={{ width: "100%" }}
-                          country={"in"}
+                          country={"ae"}
                           value={contact}
                           onChange={(value, country, e, formattedValue) =>
                             handleChange(e)
@@ -685,7 +685,7 @@ const General = () => {
                                                       width: "100%",
                                                     }}
                                                     inputClass="form-control"
-                                                    country={"in"}
+                                                    country={"ae"}
                                                     value={values.whatsappNum}
                                                     onChange={(
                                                       value,

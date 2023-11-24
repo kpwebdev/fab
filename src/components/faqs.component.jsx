@@ -22,7 +22,11 @@ const Faqs = () => {
             aria-labelledby={`heading${idx}`}
             data-bs-parent="#fabFaqs"
           >
-            <div className="accordion-body">{answer}</div>
+            <div className="accordion-body">
+              {answer.split("\n").map((para) => (
+                <p className="t-mb-f-8">{para}</p>
+              ))}
+            </div>
           </div>
         </div>
       ))}

@@ -116,7 +116,7 @@ const AgencyHome = () => {
   return (
     <div>
       {/* hero section starts */}
-      <section>
+      <section className="t-mb-f-64">
         <div className="container t-grid t-grid-cols-2 t-items-center">
           {/* text container */}
           <div>
@@ -129,11 +129,11 @@ const AgencyHome = () => {
             </h2>
             <p className="t-text-f-base t-mb-f-24">
               We're Here to Craft, Execute, and Amplify Your Marketing
-              Strategies, Ensuring your business exponential growth
+              Strategies, Ensuring your business's exponential growth
             </p>
             {/* buttons container */}
             <div className="t-flex t-gap-f-16">
-              <a className="f-btn-md f-btn-primary" href="#works-section">
+              <a className="f-btn-md f-btn-primary" href="#services-section">
                 Show Me How
               </a>
               {/* <button className="t-flex t-items-center t-gap-f-4 t-text-f-primary-40 t-text-f-md">
@@ -153,64 +153,66 @@ const AgencyHome = () => {
       {/* hero section ends */}
 
       {/* client section starts */}
-      <section className="t-py-f-96">
+      <section className="t-mb-f-64">
         <div className="container">
           <h2 className="t-text-f-3xl t-mb-f-48">
-            Brands that <span className="t-text-f-primary-30">Trust Us</span>
+            Brands that <span className="t-text-f-primary-50">Trust Us</span>
           </h2>
           {/* clients container */}
           <div
-            id="carouselExampleInterval"
+            id="clientsCarousel"
             className="carousel slide"
             data-bs-ride="carousel"
           >
             <div className="carousel-inner">
-              <div className="carousel-item active" data-bs-interval="3000">
-                <div className="t-flex t-items-center t-justify-between">
+              <div className="carousel-item active">
+                <div className="t-flex t-justify-evenly">
                   <img
-                    className="t-w-[150px] t-h-[150px]"
+                    className="t-w-[150px] t-h-[150px] t-block"
                     src={client1441Fitness}
                   />
                   <img
-                    className="t-w-[150px] t-h-[150px]"
+                    className="t-w-[150px] t-h-[150px] t-block"
                     src={clientAlefiyaFitness}
                   />
-                  <img className="t-w-[150px] t-h-[150px]" src={clientJumbo} />
                   <img
-                    className="t-w-[150px] t-h-[150px]"
+                    className="t-w-[150px] t-h-[150px] t-block"
+                    src={clientJumbo}
+                  />
+                  <img
+                    className="t-w-[150px] t-h-[150px] t-block"
                     src={clientKomfortPlanetSystem}
                   />
-                </div>
-              </div>
-              <div className="carousel-item" data-bs-interval="3000">
-                <div className="t-flex t-items-center t-justify-between">
                   <img
-                    className="t-w-[150px] t-h-[150px]"
+                    className="t-w-[150px] t-h-[150px] t-block"
                     src={clientMountain}
                   />
                   <img
-                    className="t-w-[150px] t-h-[150px]"
+                    className="t-w-[150px] t-h-[150px] t-block"
                     src={clientOcrFitnessTheGrindYouVsYou}
-                  />
-                  <img
-                    className="t-w-[150px] t-h-[150px]"
-                    src={clientProSports}
-                  />
-                  <img
-                    className="t-w-[150px] t-h-[150px]"
-                    src={clientProSportsCricket}
                   />
                 </div>
               </div>
-              <div className="carousel-item" data-bs-interval="3000">
-                <div className="t-flex t-items-center t-justify-between">
-                  <img className="t-w-[150px] t-h-[150px]" src={clientRazain} />
+              <div className="carousel-item">
+                <div className="t-flex t-justify-evenly">
                   <img
-                    className="t-w-[150px] t-h-[150px]"
+                    className="t-w-[150px] t-h-[150px] t-block"
+                    src={clientProSports}
+                  />
+                  <img
+                    className="t-w-[150px] t-h-[150px] t-block"
+                    src={clientProSportsCricket}
+                  />
+                  <img
+                    className="t-w-[150px] t-h-[150px] t-block"
+                    src={clientRazain}
+                  />
+                  <img
+                    className="t-w-[150px] t-h-[150px] t-block"
                     src={clientSaraOman}
                   />
                   <img
-                    className="t-w-[150px] t-h-[150px]"
+                    className="t-w-[150px] t-h-[150px] t-block"
                     src={clientSaraUae}
                   />
                 </div>
@@ -223,7 +225,7 @@ const AgencyHome = () => {
       {/* client section ends */}
 
       {/* intro section starts */}
-      <section className="t-min-h-screen t-py-f-96">
+      <section className="t-mb-f-64">
         {/* what we provide starts */}
         <div className="container t-mb-f-120">
           <div className="t-grid t-grid-cols-2 t-gap-f-96">
@@ -237,8 +239,8 @@ const AgencyHome = () => {
                 Solution
               </h3>
               <p className="t-text-f-base">
-                We provide personalized strategies, Done-for-you Services & fast
-                track your brand's growth in today's competitive market
+                We provide personalized strategies, Done-For-You Services & fast
+                track your brand's growth in today's competitive market.
               </p>
             </div>
 
@@ -273,15 +275,15 @@ const AgencyHome = () => {
         {/* what we provide ends */}
 
         {/* about our team starts */}
-        <div className="t-relative t-mb-[300px]">
+        <div className="t-relative t-mb-f-120">
           <div className="container">
             <div className="t-grid t-grid-cols-2 t-items-center t-gap-f-96">
               {/* image container */}
               {/* <div className="-t-translate-x-[28%] t-translate-y-[20%] t-scale-150"> */}
-              <div className="">
+              <div>
                 <img
                   src={aboutOurTeam}
-                  className="t-absolute t-top-0 t-left-0"
+                  className="t-absolute t-top-0 t-left-0 t-h-[400px]"
                   alt="people having a meeting in a laptop"
                 />
               </div>
@@ -295,18 +297,18 @@ const AgencyHome = () => {
                   </span>
                 </h3>
                 <p className="t-text-f-base t-mb-f-16">
-                  Let's face it- marketing is not a one person job. That's where
+                  Let's face it- marketing is not a one-person job. That's where
                   we come in- Your Marketing Power house. We are not your
-                  average team -we are a team of creative minds and marketing
+                  average team- we are a team of creative minds and marketing
                   experts.
                 </p>
                 <p className="t-text-f-base t-mb-f-16">
-                  We formulates result- oriented strategies for you to give your
+                  We formulate result-oriented strategies for you to give your
                   brand the engagement it needs, the sales it wants and the
-                  customer loyalty it deserves . With sight set on "amplifying
-                  your business growth" we make your business stand out in the
-                  crowd, using our well crafted strategies , streamlined systems
-                  and powerful tools.
+                  customer loyalty it deserves. With our sight set on'
+                  amplifying your business growth, We make your business stand
+                  out in the crowd, using our well-crafted strategies,
+                  streamlined systems and powerful tools.
                 </p>
               </div>
             </div>
@@ -323,15 +325,15 @@ const AgencyHome = () => {
                 Our <span className="t-text-green-500">Services</span>
               </h3>
               <p className="t-text-f-base t-mb-f-16">
-                We specialize in making your brand take the lead in the highly
+                We specialize in helping your brand take the lead in the highly
                 competitive online market.
               </p>
               <p className="t-text-f-base t-mb-f-16">
-                From captivating social media management, designed to increase
-                engagement and build trust among your customers, to performance
-                marketing strategies for generating sales, and crafting
-                customer-friendly websites – we're here for you as your
-                marketing power house.
+                From captivating social media management, aimed at increasing
+                engagement and building trust among your customers, to
+                performance marketing strategies designed to generate sales, and
+                crafting customer-friendly websites – we're here for you as your
+                marketing powerhouse.
               </p>
             </div>
 
@@ -342,7 +344,9 @@ const AgencyHome = () => {
                 className="t-flex align-items-center t-justify-between t-text-f-md t-bg-f-secondary-90 t-font-semibold t-p-f-16 t-gap-f-16 t-rounded-f-8 hover:t-bg-f-secondary-80"
                 to="/marketing/services/social-media-marketing"
               >
-                <IoShareSocial />
+                <div className="t-text-f-secondary-20 t-bg-f-secondary-80 t-p-f-8 t-text-f-l t-rounded-full">
+                  <IoShareSocial />
+                </div>
                 <span>Social Media Marketing</span>
                 <BsArrowRight className="t-text-f-l ms-auto" />
               </Link>
@@ -352,7 +356,9 @@ const AgencyHome = () => {
                 className="t-flex align-items-center t-justify-between t-text-f-md t-bg-green-100 t-font-semibold t-p-f-16 t-gap-f-16 t-rounded-f-8 hover:t-bg-green-200"
                 to="#content-creation"
               >
-                <FaFilterCircleDollar />
+                <div className="t-text-green-800 t-bg-green-200 t-p-f-8 t-text-f-l t-rounded-full">
+                  <FaFilterCircleDollar />
+                </div>
                 <span>Result-Driven Ads Campaigns</span>
                 <BsArrowRight className="t-text-f-l ms-auto" />
               </Link>
@@ -362,7 +368,9 @@ const AgencyHome = () => {
                 className="t-flex align-items-center t-justify-between t-text-f-md t-bg-f-primary-90 t-font-semibold t-p-f-16 t-gap-f-16 t-rounded-f-8 hover:t-bg-f-primary-80"
                 to="/marketing/services/websites"
               >
-                <IoMagnetSharp />
+                <div className="t-text-f-primary-20 t-bg-f-primary-80 t-p-f-8 t-text-f-l t-rounded-full">
+                  <IoMagnetSharp />
+                </div>
                 <span>Attract Clients on Automation</span>
                 <BsArrowRight className="t-text-f-l ms-auto" />
               </Link>
@@ -372,7 +380,9 @@ const AgencyHome = () => {
                 className="t-flex align-items-center t-justify-between t-text-f-md t-bg-f-secondary-90 t-font-semibold t-p-f-16 t-gap-f-16 t-rounded-f-8 hover:t-bg-f-secondary-80"
                 to="/marketing/services/websites"
               >
-                <CgWebsite />
+                <div className="t-text-f-secondary-20 t-bg-f-secondary-80 t-p-f-8 t-text-f-l t-rounded-full">
+                  <CgWebsite />
+                </div>
                 <span>Widen your reach with Website & Google Ads</span>
                 <BsArrowRight className="t-text-f-l ms-auto" />
               </Link>
@@ -384,12 +394,12 @@ const AgencyHome = () => {
       {/* intro section ends */}
 
       {/* best works starts */}
-      <section className="t-min-h-screen t-py-f-96" id="works-section">
+      <section className="t-mb-f-64" id="works-section">
         <div className="container t-text-center">
           <h2 className="t-text-f-3xl t-mb-f-48">
-            Results for our Clients{" "}
+            Client Results{" "}
             <span className="t-text-f-primary-50">
-              Upto 10 x ROAS Revenue Generated
+              Upto 10x ROAS in Revenue Generated
             </span>
           </h2>
 
@@ -432,7 +442,7 @@ const AgencyHome = () => {
       {/* best works ends */}
 
       {/* Feedback section starts */}
-      <section className="t-min-h-screen t-py-f-96">
+      <section className="t-mb-f-64">
         <div className="container">
           <h2 className="t-text-f-3xl t-mb-f-48 t-text-center">
             What Our <span className="t-text-f-secondary-50">Client</span> Says{" "}
@@ -472,18 +482,19 @@ const AgencyHome = () => {
       {/* Feedback section ends */}
 
       {/* faq section starts */}
-      <section className="t-min-h-screen t-py-f-96">
+      <section className="">
         <div className="container t-grid t-grid-cols-2 t-gap-f-24">
           <header className="t-flex t-flex-col t-gap-f-24 t-items-start">
             <h2 className="t-text-f-3xl">Still have more questions in mind?</h2>
             <h3 className="t-text-f-base">Ask Away.</h3>
-            <Link
+            <button
+              type="button"
               className="f-btn-md f-btn-primary"
-              to="https://wa.me/971568781104"
-              target="_blank"
+              data-bs-toggle="modal"
+              data-bs-target="#contactInfo"
             >
               Get in Touch
-            </Link>
+            </button>
           </header>
 
           {/* faqs container */}
@@ -510,8 +521,10 @@ const AgencyHome = () => {
                     data-bs-parent="#fabFaqs"
                   >
                     <div className="accordion-body">
-                      {answer.split("\n").map((para) => (
-                        <p className="t-mb-f-8">{para}</p>
+                      {answer.split("\n").map((para, idx) => (
+                        <p className="t-mb-f-8" key={idx}>
+                          {para}
+                        </p>
                       ))}
                     </div>
                   </div>
@@ -519,14 +532,14 @@ const AgencyHome = () => {
               ))}
             </div>
             {/* faqs ends */}
-            <div className="t-flex t-justify-end">
+            {/* <div className="t-flex t-justify-end">
               <Link
                 to="#all-questions"
                 className="t-text-f-primary-30 t-pt-f-24 t-flex t-items-center t-gap-f-8 t-border-b-2 t-border-f-primary-70"
               >
                 See more Questions <BsArrowDown />
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

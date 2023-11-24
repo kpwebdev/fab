@@ -1798,7 +1798,7 @@ const fabAgencyFaqs = [
     question:
       "Do you provide custom-tailored digital marketing strategies for different industries?",
     answer:
-      "In Fab digital, we clearly understand how different every business is, how different your business needs, its story, its visi on is,and that's why we provide personalized digital marketing strategies for your business to increase your engagement, to raise your sales and get you the customer loyalty you deserve.",
+      "In Fab digital, we clearly understand how different every business is, how different your business needs, its story, its vision on is,and that's why we provide personalized digital marketing strategies for your business to increase your engagement, to raise your sales and get you the customer loyalty you deserve.",
   },
   {
     question:
