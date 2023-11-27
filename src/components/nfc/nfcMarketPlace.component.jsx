@@ -7,14 +7,16 @@ const NfcMarketPlace = () => {
     <section className="t-min-h-screen t-py-f-96">
       <div className="container">
         <header className="t-mb-f-24">
-          <h2 className="t-text-f-3xl">Our Marketplace</h2>
-          <h3 className="t-text-f-base t-font-extralight">Explore Our Shop</h3>
+          <h2 className="t-text-f-3xl">Choose Your Design</h2>
         </header>
 
         {/* cards container */}
         <div className="t-grid t-grid-cols-3 t-gap-x-f-24 t-gap-y-f-48">
           {nfcCards.map(
-            ({ img, creator, cardName, description, price }, idx) => (
+            (
+              { img, creator, cardName, description, price, btn, target },
+              idx
+            ) => (
               <article className="t-flex t-flex-col t-gap-f-24" key={idx}>
                 {/* img container */}
                 <div className="t-overflow-hidden">
@@ -26,14 +28,25 @@ const NfcMarketPlace = () => {
                 </div>
                 {/* text container */}
                 <div className="t-flex t-flex-col t-gap-f-8">
-                  <h6 className="t-text-f-sm t-font-light">{creator}</h6>
                   <h4 className="t-flex t-justify-between t-text-f-l">
                     {cardName} <BsArrowRight />
                   </h4>
                   <p className="t-text-f-base">{description}</p>
-                  <span className="t-flex t-items-center t-font-bold t-text-f-md">
-                    {`${price} KD`}
-                  </span>
+                  {price && (
+                    <span className="t-flex t-items-center t-font-bold t-text-f-md">
+                      {`${price} KD`}
+                    </span>
+                  )}
+                  {btn && target && (
+                    <button
+                      type="button"
+                      className="f-btn-md f-btn-primary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#contactInfo"
+                    >
+                      Contact Us
+                    </button>
+                  )}
                 </div>
               </article>
             )

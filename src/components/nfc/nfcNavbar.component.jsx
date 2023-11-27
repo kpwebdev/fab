@@ -40,12 +40,12 @@ const NfcNavbar = () => {
             >
               <ImUser className="t-w-f-24" /> Login
             </NavLink>
-            {/* <NavLink
+            <NavLink
               className="nav-link t-flex t-items-center t-gap-f-4"
               to="/nfc/cart"
             >
               <BiSolidCart className="t-w-f-24" /> Cart
-            </NavLink> */}
+            </NavLink>
           </div>
         </div>
       </div>

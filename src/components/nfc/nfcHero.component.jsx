@@ -47,12 +47,18 @@ const NfcHero = () => {
                 className="t-text-f-4xl t-mb-f-24"
                 style={{ textShadow: "0px 8px 8px rgba(0,0,0,.5)" }}
               >
-                Tap The future of Networking in a single{" "}
+                Tap The future of Networking in a Single{" "}
                 <span className="t-text-f-secondary-50">Tap</span>
               </h2>
+              <h3
+                className="t-text-f-xl t-mb-f-16 t-text-f-secondary-50"
+                style={{ textShadow: "0px 8px 8px rgba(0,0,0,.5)" }}
+              >
+                Design · Tap · Connect with Fab Tap
+              </h3>
               <Link
                 className="f-btn-lg f-btn-primary"
-                to="/nfc/creation/physical-card"
+                to="/nfc/authentication/login"
               >
                 Get Started
               </Link>
@@ -86,15 +92,18 @@ const NfcHero = () => {
             {/* text container */}
             <div className="t-text-f-primary-99">
               <h2
-                className="t-text-f-4xl t-mb-f-24"
+                className="t-text-f-3xl t-mb-f-24"
                 style={{ textShadow: "0px 8px 8px rgba(0,0,0,.5)" }}
               >
-                Discover our variety of inbuilt templates to make your work{" "}
-                <span className="t-text-f-secondary-50">easier</span>
+                Discover Easy Design with Our{" "}
+                <span className="t-text-f-secondary-50">
+                  Built-in Templates,
+                </span>{" "}
+                Tailored to Your Brand! Tap Once for Countless Opportunities!
               </h2>
               <Link
                 className="f-btn-lg f-btn-primary"
-                to="/nfc/creation/physical-card/templates"
+                to="/nfc/authentication/login"
               >
                 Browse Templates
               </Link>

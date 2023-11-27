@@ -14,169 +14,169 @@ import { ToastContainer, toast } from "react-toastify";
 // context
 import { AuthContext } from "./contexts/AuthProvider.context";
 
-const SharedHome = lazy(() => import("./routes/sharedHome.route"));
-const Home = lazy(() => import("./routes/home.route"));
-const About = lazy(() => import("./routes/about.route"));
-const NfcHomeSharedLayout = lazy(() =>
-  import("./routes/nfc/nfcHomeSharedLayout.route")
-);
-const NfcHome = lazy(() => import("./routes/nfc/nfcHome.route"));
-const AuthenticationSharedLayout = lazy(() =>
-  import("./routes/authentication/authenticationSharedLayout.route")
-);
-const Login = lazy(() => import("./routes/authentication/login.route"));
-const SignUp = lazy(() => import("./routes/authentication/signUp.route"));
-const NfcDashboardSharedLayout = lazy(() =>
-  import("./routes/dashboard/nfcDashboardSharedLayout.route")
-);
-const MyProfileSharedLayout = lazy(() =>
-  import("./routes/my-profile/myProfileSharedLayout.route")
-);
-const General = lazy(() => import("./routes/my-profile/general.route"));
-const Organization = lazy(() =>
-  import("./routes/my-profile/organization.route")
-);
-const Progress = lazy(() => import("./routes/my-profile/progress.route"));
-const MyFabSharedLayout = lazy(() =>
-  import("./routes/my-profile/myFabSharedLayout.route")
-);
-const MyFabCards = lazy(() => import("./routes/my-profile/myFabCards.route"));
-const MyFabProfiles = lazy(() =>
-  import("./routes/my-profile/myFabProfiles.route")
-);
-const ContactsSharedLayout = lazy(() =>
-  import("./routes/contacts/contactSharedLayout.route")
-);
-const Contacts = lazy(() => import("./routes/contacts/contacts.route"));
-const ContactAdd = lazy(() => import("./routes/contacts/contactAdd.route"));
-const ContactEdit = lazy(() => import("./routes/contacts/contactEdit.route"));
-const Shop = lazy(() => import("./routes/shop/shop.route"));
-const OrdersSharedLayout = lazy(() =>
-  import("./routes/orders/ordersSharedLayout.route")
-);
-const Self = lazy(() => import("./routes/orders/self.route"));
-const Customer = lazy(() => import("./routes/orders/customer.route"));
-const Settings = lazy(() => import("./routes/settings/settings.route"));
-const SettingList = lazy(() => import("./routes/settings/settingList.route"));
-const Notification = lazy(() => import("./routes/settings/notification.route"));
-const AppLanguage = lazy(() => import("./routes/settings/appLanguage.route"));
-const HelpAndSupport = lazy(() =>
-  import("./routes/settings/helpAndSupport.router")
-);
-const DeleteAccount = lazy(() =>
-  import("./routes/settings/deleteAccount.route")
-);
-const Logout = lazy(() => import("./routes/settings/logout.route"));
-const SendFeedback = lazy(() => import("./routes/settings/sendFeedback.route"));
-const ReportBug = lazy(() => import("./routes/settings/reportBug.route"));
-const PhysicalCard = lazy(() => import("./routes/creation/physicalCard.route"));
-const CardTemplates = lazy(() =>
-  import("./routes/creation/cardTemplates.route")
-);
-const CustomizeCard = lazy(() =>
-  import("./routes/creation/customizeCard.route")
-);
-const DigitalProfile = lazy(() =>
-  import("./routes/creation/digitalProfile.route")
-);
-const ProfileTemplates = lazy(() =>
-  import("./routes/creation/profileTemplates.route")
-);
-const CustomizeProfile = lazy(() =>
-  import("./routes/creation/customizeProfile.route")
-);
-const AgencySharedLayout = lazy(() =>
-  import("./routes/agency/agencySharedLayout.route")
-);
-const AgencyHome = lazy(() => import("./routes/agency/agencyHome.route"));
-const ServicesSharedLayout = lazy(() =>
-  import("./routes/agency/servicesSharedLayout.route")
-);
-const Service = lazy(() => import("./routes/agency/service.route"));
-const PortfoliosSharedLayout = lazy(() =>
-  import("./routes/agency/portfoliosSharedLayout.route")
-);
-const Portfolio = lazy(() => import("./routes/agency/portfolio.route"));
-const ServicesIndex = lazy(() => import("./routes/agency/servicesIndex.route"));
-const Success = lazy(() => import("./routes/payments/success.route"));
-const Cancel = lazy(() => import("./routes/payments/cancel.route"));
-const Profile = lazy(() => import("./routes/profile.route"));
-const NotFound = lazy(() => import("./routes/notFound.route"));
-const AdminDashboard = lazy(() =>
-  import("./routes/adminDashboard/adminDashboard.route")
-);
-const WebAdminOrdersSharedLayout = lazy(() =>
-  import("./routes/adminDashboard/webAdminOrdersSharedLayout.route")
-);
-const AllOrders = lazy(() => import("./routes/adminDashboard/allOrders.route"));
-const PendingOrders = lazy(() =>
-  import("./routes/adminDashboard/pendingOrders.route")
-);
-const CompletedOrders = lazy(() =>
-  import("./routes/adminDashboard/completedOrders.route")
-);
+// const SharedHome = lazy(() => import("./routes/sharedHome.route"));
+// const Home = lazy(() => import("./routes/home.route"));
+// const About = lazy(() => import("./routes/about.route"));
+// const NfcHomeSharedLayout = lazy(() =>
+//   import("./routes/nfc/nfcHomeSharedLayout.route")
+// );
+// const NfcHome = lazy(() => import("./routes/nfc/nfcHome.route"));
+// const AuthenticationSharedLayout = lazy(() =>
+//   import("./routes/authentication/authenticationSharedLayout.route")
+// );
+// const Login = lazy(() => import("./routes/authentication/login.route"));
+// const SignUp = lazy(() => import("./routes/authentication/signUp.route"));
+// const NfcDashboardSharedLayout = lazy(() =>
+//   import("./routes/dashboard/nfcDashboardSharedLayout.route")
+// );
+// const MyProfileSharedLayout = lazy(() =>
+//   import("./routes/my-profile/myProfileSharedLayout.route")
+// );
+// const General = lazy(() => import("./routes/my-profile/general.route"));
+// const Organization = lazy(() =>
+//   import("./routes/my-profile/organization.route")
+// );
+// const Progress = lazy(() => import("./routes/my-profile/progress.route"));
+// const MyFabSharedLayout = lazy(() =>
+//   import("./routes/my-profile/myFabSharedLayout.route")
+// );
+// const MyFabCards = lazy(() => import("./routes/my-profile/myFabCards.route"));
+// const MyFabProfiles = lazy(() =>
+//   import("./routes/my-profile/myFabProfiles.route")
+// );
+// const ContactsSharedLayout = lazy(() =>
+//   import("./routes/contacts/contactSharedLayout.route")
+// );
+// const Contacts = lazy(() => import("./routes/contacts/contacts.route"));
+// const ContactAdd = lazy(() => import("./routes/contacts/contactAdd.route"));
+// const ContactEdit = lazy(() => import("./routes/contacts/contactEdit.route"));
+// const Shop = lazy(() => import("./routes/shop/shop.route"));
+// const OrdersSharedLayout = lazy(() =>
+//   import("./routes/orders/ordersSharedLayout.route")
+// );
+// const Self = lazy(() => import("./routes/orders/self.route"));
+// const Customer = lazy(() => import("./routes/orders/customer.route"));
+// const Settings = lazy(() => import("./routes/settings/settings.route"));
+// const SettingList = lazy(() => import("./routes/settings/settingList.route"));
+// const Notification = lazy(() => import("./routes/settings/notification.route"));
+// const AppLanguage = lazy(() => import("./routes/settings/appLanguage.route"));
+// const HelpAndSupport = lazy(() =>
+//   import("./routes/settings/helpAndSupport.router")
+// );
+// const DeleteAccount = lazy(() =>
+//   import("./routes/settings/deleteAccount.route")
+// );
+// const Logout = lazy(() => import("./routes/settings/logout.route"));
+// const SendFeedback = lazy(() => import("./routes/settings/sendFeedback.route"));
+// const ReportBug = lazy(() => import("./routes/settings/reportBug.route"));
+// const PhysicalCard = lazy(() => import("./routes/creation/physicalCard.route"));
+// const CardTemplates = lazy(() =>
+//   import("./routes/creation/cardTemplates.route")
+// );
+// const CustomizeCard = lazy(() =>
+//   import("./routes/creation/customizeCard.route")
+// );
+// const DigitalProfile = lazy(() =>
+//   import("./routes/creation/digitalProfile.route")
+// );
+// const ProfileTemplates = lazy(() =>
+//   import("./routes/creation/profileTemplates.route")
+// );
+// const CustomizeProfile = lazy(() =>
+//   import("./routes/creation/customizeProfile.route")
+// );
+// const AgencySharedLayout = lazy(() =>
+//   import("./routes/agency/agencySharedLayout.route")
+// );
+// const AgencyHome = lazy(() => import("./routes/agency/agencyHome.route"));
+// const ServicesSharedLayout = lazy(() =>
+//   import("./routes/agency/servicesSharedLayout.route")
+// );
+// const Service = lazy(() => import("./routes/agency/service.route"));
+// const PortfoliosSharedLayout = lazy(() =>
+//   import("./routes/agency/portfoliosSharedLayout.route")
+// );
+// const Portfolio = lazy(() => import("./routes/agency/portfolio.route"));
+// const ServicesIndex = lazy(() => import("./routes/agency/servicesIndex.route"));
+// const Success = lazy(() => import("./routes/payments/success.route"));
+// const Cancel = lazy(() => import("./routes/payments/cancel.route"));
+// const Profile = lazy(() => import("./routes/profile.route"));
+// const NotFound = lazy(() => import("./routes/notFound.route"));
+// const AdminDashboard = lazy(() =>
+//   import("./routes/adminDashboard/adminDashboard.route")
+// );
+// const WebAdminOrdersSharedLayout = lazy(() =>
+//   import("./routes/adminDashboard/webAdminOrdersSharedLayout.route")
+// );
+// const AllOrders = lazy(() => import("./routes/adminDashboard/allOrders.route"));
+// const PendingOrders = lazy(() =>
+//   import("./routes/adminDashboard/pendingOrders.route")
+// );
+// const CompletedOrders = lazy(() =>
+//   import("./routes/adminDashboard/completedOrders.route")
+// );
 
 // routes
-// import {
-//   SharedHome,
-//   Home,
-//   Services,
-//   About,
-//   NfcHomeSharedLayout,
-//   NfcHome,
-//   AuthenticationSharedLayout,
-//   Login,
-//   SignUp,
-//   NfcDashboardSharedLayout,
-//   MyProfileSharedLayout,
-//   General,
-//   Organization,
-//   Progress,
-//   MyFabSharedLayout,
-//   MyFabCards,
-//   MyFabProfiles,
-//   ContactsSharedLayout,
-//   Contacts,
-//   ContactAdd,
-//   ContactEdit,
-//   Shop,
-//   OrdersSharedLayout,
-//   Self,
-//   Customer,
-//   Settings,
-//   SettingList,
-//   Notification,
-//   AppLanguage,
-//   HelpAndSupport,
-//   ChangeAccount,
-//   DeleteAccount,
-//   Logout,
-//   SendFeedback,
-//   ReportBug,
-//   PhysicalCard,
-//   CardTemplates,
-//   CustomizeCard,
-//   CustomizeCardTemplate,
-//   DigitalProfile,
-//   ProfileTemplates,
-//   CustomizeProfile,
-//   AgencySharedLayout,
-//   AgencyHome,
-//   ServicesSharedLayout,
-//   Service,
-//   PortfoliosSharedLayout,
-//   Portfolio,
-//   ServicesIndex,
-//   Success,
-//   Cancel,
-//   Profile,
-//   NotFound,
-//   AdminDashboard,
-//   WebAdminOrdersSharedLayout,
-//   AllOrders,
-//   PendingOrders,
-//   CompletedOrders,
-// } from "./routes";
+import {
+  SharedHome,
+  Home,
+  Services,
+  About,
+  NfcHomeSharedLayout,
+  NfcHome,
+  AuthenticationSharedLayout,
+  Login,
+  SignUp,
+  NfcDashboardSharedLayout,
+  MyProfileSharedLayout,
+  General,
+  Organization,
+  Progress,
+  MyFabSharedLayout,
+  MyFabCards,
+  MyFabProfiles,
+  ContactsSharedLayout,
+  Contacts,
+  ContactAdd,
+  ContactEdit,
+  Shop,
+  OrdersSharedLayout,
+  Self,
+  Customer,
+  Settings,
+  SettingList,
+  Notification,
+  AppLanguage,
+  HelpAndSupport,
+  ChangeAccount,
+  DeleteAccount,
+  Logout,
+  SendFeedback,
+  ReportBug,
+  PhysicalCard,
+  CardTemplates,
+  CustomizeCard,
+  CustomizeCardTemplate,
+  DigitalProfile,
+  ProfileTemplates,
+  CustomizeProfile,
+  AgencySharedLayout,
+  AgencyHome,
+  ServicesSharedLayout,
+  Service,
+  PortfoliosSharedLayout,
+  Portfolio,
+  ServicesIndex,
+  Success,
+  Cancel,
+  Profile,
+  NotFound,
+  AdminDashboard,
+  WebAdminOrdersSharedLayout,
+  AllOrders,
+  PendingOrders,
+  CompletedOrders,
+} from "./routes";
 
 const queryClient = new QueryClient();
 

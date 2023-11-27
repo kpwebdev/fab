@@ -11,12 +11,18 @@ const NfcFeatures = () => {
     <section className="t-bg-f-primary-95 t-py-f-48">
       <div className="container">
         <header className="t-text-center">
-          <h2 className="t-text-f-3xl t-mb-f-40">What we provide?</h2>
+          <h2 className="t-text-f-3xl">Your Effortless Networking Solution!</h2>
+          <h3 className="t-mb-f-40 t-text-f-md">
+            Fab Tap redefines your connection-building.
+          </h3>
           <p>
-            Your affordable source for NFC cards. Personalize your own card to
-            showcase your style. Plus, become a designer in our shop, selling
-            your creations worldwide and earning money. Embrace NFC innovation
-            today!
+            Fab Tap offers an exciting, tech-savvy method to share contact
+            details, social media handles, websites and much more with single
+            tap on the phone. Ditch 1000+ paper cards and use One Fab Tap card
+            to connect on multiple social platforms.Personalize and Brand your
+            own Fab Tap card, flaunt your individual style to network
+            effortlessly.Add new connections to your network and unlock endless
+            opportunities for your business.
           </p>
         </header>
         {/* features container */}
@@ -30,12 +36,18 @@ const NfcFeatures = () => {
                 }`}
               >
                 <h3 className="t-text-f-2xl">{title}</h3>
-                <p className="t-text-f-base">{description}</p>
+                <div className="t-text-f-base">
+                  {description.split("\n").map((para, idx) => (
+                    <p className="t-mb-f-16" key={idx}>
+                      {para}
+                    </p>
+                  ))}
+                </div>
                 <Link
                   to={
                     currentUser ? "/nfc/dashboard" : "/nfc/authentication/login"
                   }
-                  className="t-text-f-md t-px-f-16 t-py-f-8 t-inline-block t-bg-f-primary-30 t-text-f-primary-98 t-rounded-f-8 hover:t-bg-f-primary-20"
+                  className="t-text-f-md -t-mt-f-16 t-px-f-16 t-py-f-8 t-inline-block t-bg-f-primary-30 t-text-f-primary-98 t-rounded-f-8 hover:t-bg-f-primary-20"
                 >
                   {text}
                 </Link>

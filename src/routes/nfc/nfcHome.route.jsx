@@ -94,7 +94,7 @@ const NfcHome = () => {
       {/* <NfcClients /> */}
       {/* will be added once an app is developed */}
       {/* <NfcDownload /> */}
-      <NfcTestimonials />
+      {/* <NfcTestimonials /> */}
       <FaqsSection />
       <NfcFooter />
       {/* <ChatbotSection steps={steps} /> */}

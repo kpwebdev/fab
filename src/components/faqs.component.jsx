@@ -23,8 +23,10 @@ const Faqs = () => {
             data-bs-parent="#fabFaqs"
           >
             <div className="accordion-body">
-              {answer.split("\n").map((para) => (
-                <p className="t-mb-f-8">{para}</p>
+              {answer.split("\n").map((para, idx) => (
+                <p className="t-mb-f-8" key={idx}>
+                  {para}
+                </p>
               ))}
             </div>
           </div>

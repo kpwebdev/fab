@@ -6,7 +6,9 @@ const NfcTestimonials = () => {
     <section className="t-py-f-96">
       <div className="container">
         <h3 className="t-text-f-md">Testimonial</h3>
-        <h2 className="t-text-f-3xl t-mb-f-48">Feedback from Customers.</h2>
+        <h2 className="t-text-f-3xl t-mb-f-48">
+          What Our Client Says About Us
+        </h2>
         {/* cards container */}
         <div className="t-grid t-grid-cols-3 t-gap-f-24">
           {nfcReviews.map(

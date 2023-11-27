@@ -186,22 +186,18 @@ const checkoutList = [
 // data for NFC home page
 // -- links
 const nfcHomePageLinks = [
-  // {
-  //   title: "Products",
-  //   href: "/nfc/products",
-  // },
+  {
+    title: "Home",
+    href: "/nfc",
+  },
   {
     title: "Dashboard",
     href: "/nfc/dashboard",
   },
-  // {
-  //   title: "Contact",
-  //   href: "/nfc/contact",
-  // },
-  // {
-  //   title: "Help",
-  //   href: "/nfc/help",
-  // },
+  {
+    title: "About Us",
+    href: "/nfc/about-us",
+  },
 ];
 
 // --orginization details
@@ -226,71 +222,121 @@ const nfcOrganizationDetails = [
 // -- features
 const nfcFeatures = [
   {
-    title: "Customized Cards",
+    title: "Personalize your Card",
     description:
-      "Embrace your creativity and design personalized NFC cards that reflect your style. Our user-friendly platform makes it easy to bring your ideas to life, letting you customize every detail. From colors to features, the possibilities are endless. Create your own unique NFC cards and open the door to a world of customized connectivity.",
+      "Create personalized Fab Tap card that mirror's your brand's unique style.\nOur user-friendly platform puts easy customization at your fingertips, letting you customize every detail of your card. From colors, features, design, you name it, you can create it easily & quickly.\nDesign your exclusive Fab Tap card for lasting impression.",
     text: "Customise Now",
     animation: cursorAnimation,
   },
   {
-    title: "Digital Profile",
+    title: "Your Digital Profile",
     description:
-      "Design your own attractive digital profile, setting the stage for people to reach out after a tap. With easy customization, you can add your photo, bio, and more. Let your NFC card become a gateway for connections and opportunities.",
-    text: "Customise Now",
+      "Design an eye-catching digital profile for your Fab Tap card that showcases your brand, and invites you a series of new and instant connections in a single tap.\nEasily customize your profile with your bio, photo, social media handles, and more as many times as you want.\nTransform your Fab Tap card into a gateway for endless connections and opportunities.",
+    text: "Create Your Digital Profile",
     animation: tapAnimation,
   },
   {
-    title: "Our Templates",
+    title: "Pre-Designed Templates",
     description:
-      "Don't have the time to create a profile from scratch? Explore our ready-made templates for an easier solution. Choose from a variety of styles to quickly set up your digital profile on your NFC card, saving you time while ensuring a professional look that suits you.",
+      "Need a quick solution? Explore our collection of pre-designed templates for a hassle-free option.\nOur pre-designed templates are here to streamline your customization process and save you time.\nPick from a range of styles, designs and colors to instantly set up your digital profile on your NFC card and give your Fab Tap card your desired professional look.",
     text: "Customise Now",
     animation: cardSlideAnimation,
   },
 ];
 
 // --cards
+// const nfcCards = [
+//   {
+//     img: cardAestheticDarkGrey,
+//     creator: "Creator Name",
+//     cardName: "Matte black",
+//     description: "Customise: card design & digital profile",
+//     price: 15,
+//   },
+//   {
+//     img: cardAestheticDullGrey,
+//     creator: "Creator Name",
+//     cardName: "Aesthetic dark grey",
+//     description: "Customise: card design & digital profile",
+//     price: 15,
+//   },
+//   {
+//     img: cardDarkGradient,
+//     creator: "Creator Name",
+//     cardName: "Aesthetic dull grey",
+//     description: "Customise: card design & digital profile",
+//     price: 15,
+//   },
+//   {
+//     img: cardFlorescentGradient,
+//     creator: "Creator Name",
+//     cardName: "Purple - Yellow Gradient",
+//     description: "Customise: card design & digital profile",
+//     price: 15,
+//   },
+//   {
+//     img: cardMatteBlack,
+//     creator: "Creator Name",
+//     cardName: "Florescent Gradient",
+//     description: "Customise: card design & digital profile",
+//     price: 15,
+//   },
+//   {
+//     img: cardPurpleYellowGradient,
+//     creator: "Creator Name",
+//     cardName: "Dark Gradient",
+//     description: "Customise: card design & digital profile",
+//     price: 15,
+//   },
+// ];
 const nfcCards = [
   {
     img: cardAestheticDarkGrey,
     creator: "Creator Name",
-    cardName: "Matte black",
+    cardName: "Create Dual Cards",
     description: "Customise: card design & digital profile",
     price: 15,
   },
   {
     img: cardAestheticDullGrey,
     creator: "Creator Name",
-    cardName: "Aesthetic dark grey",
+    cardName: "Create Dual Cards",
     description: "Customise: card design & digital profile",
     price: 15,
   },
   {
     img: cardDarkGradient,
     creator: "Creator Name",
-    cardName: "Aesthetic dull grey",
+    cardName: "Create Dual Cards",
     description: "Customise: card design & digital profile",
     price: 15,
   },
   {
     img: cardFlorescentGradient,
     creator: "Creator Name",
-    cardName: "Purple - Yellow Gradient",
-    description: "Customise: card design & digital profile",
-    price: 15,
+    cardName: "Don't have a brand kit?",
+    description:
+      "Let our expert graphic designer create customized cards for you from scratch that meet your brand style!",
+    btn: "contact-us",
+    target: "#contactInfo",
   },
   {
     img: cardMatteBlack,
     creator: "Creator Name",
-    cardName: "Florescent Gradient",
-    description: "Customise: card design & digital profile",
-    price: 15,
+    cardName: "Don't have a brand kit?",
+    description:
+      "Let our expert graphic designer create customized cards for you from scratch that meet your brand style!",
+    btn: "contact-us",
+    target: "#contactInfo",
   },
   {
     img: cardPurpleYellowGradient,
     creator: "Creator Name",
-    cardName: "Dark Gradient",
-    description: "Customise: card design & digital profile",
-    price: 15,
+    cardName: "Don't have a brand kit?",
+    description:
+      "Let our expert graphic designer create customized cards for you from scratch that meet your brand style!",
+    btn: "contact-us",
+    target: "#contactInfo",
   },
 ];
 
@@ -298,14 +344,34 @@ const nfcCards = [
 const nfcSteps = [
   {
     img: cardTapOnMobile,
-    title: "Tap your card on a mobile phone",
+    title: "Design Your Card",
     subtitle:
-      "Make sure the user’s phone has the NFC feature turned on, otherwise the tap would go unnoticed.",
+      "Use our user-friendly design tool to create a customized Fab Tap card that suits your brand and needs.",
   },
   {
     img: doneWaneProfileInMobile,
-    title: "Your digital profile is shared",
-    subtitle: "Enjoy the future of networking, with a single Tap!",
+    title: "Create your Digital Profile",
+    subtitle:
+      "Add your contact information, social media profiles, and any other details you want to share and instantly update as many times as you want.",
+  },
+  {
+    img: cardTapOnMobile,
+    title: "Tap and Connect",
+    subtitle:
+      "Simply tap your Fab Tap card on a smartphone, and watch your information seamlessly transfer and saved instantly (Make sure the mobile has its NFC feature turned on otherwise the Tap will go unnoticed)",
+  },
+  {
+    img: doneWaneProfileInMobile,
+    title: "Your Digital Profile is Shared",
+    subtitle:
+      "Your profile is shared and the receiver can save your details instantly to their phone by tapping the 'Add to contacts' button.",
+  },
+  {
+    img: doneWaneProfileInMobile,
+    subtitle: [
+      "Make connections effortlessly and",
+      "instantly connect on multiple social platforms",
+    ],
   },
 ];
 
@@ -405,6 +471,11 @@ const nfcFaqs = [
     answer:
       "Fab Digital Solution's NFC business cards operate through Near Field Communication (NFC) technology. Each business card contains a small NFC chip embedded within it. When an NFC-enabled smartphone is brought close to the card (typically within a few centimeters), the NFC chip and the smartphone establish a communication link. The smartphone then reads the data stored on the chip, which usually includes your contact information, social media links, portfolio, or any other details you choose to share. This seamless and contactless process simplifies networking, allowing individuals to quickly access and store your information, enhancing business connections and interactions.",
   },
+  {
+    question: "Are NFC Cards compatible with iPhone?",
+    answer:
+      "NFC Cards are compatible with all iPhone models, including XR, XS, XS Max, 11, 11 Pro, 11 Pro Max, 12, 12 Pro, 13, 13 Pro, SE and future versions of iphones as well. For iPhone X, 8, 8 Plus, 7, 7 Plus, XS, and XS Max, ensure iOS 14 is installed. To enable NFC tag reader:\n1. Go to 'Settings.'\n2. Choose 'Control Center.'\n3. In 'More Controls,' locate 'NFC tag reader.'\n4. Tap the '+' to add it.\n5. Close Settings and open Control Center\n6. Select NFC tag reader icon.\n7. Hold your device over the NFC card.",
+  },
 ];
 
 // --footer page links
@@ -419,20 +490,20 @@ const nfcFooterPageLinks = [
   },
   {
     title: "Create",
-    href: "#create",
+    href: "/nfc/authentication/login",
   },
-  {
-    title: "Templates",
-    href: "#templates",
-  },
-  {
-    title: "Templates",
-    href: "#templates",
-  },
-  {
-    title: "Terms & Services",
-    href: "#terms-&-Services",
-  },
+  // {
+  //   title: "Templates",
+  //   href: "#templates",
+  // },
+  // {
+  //   title: "Templates",
+  //   href: "#templates",
+  // },
+  // {
+  //   title: "Terms & Services",
+  //   href: "#terms-&-Services",
+  // },
 ];
 
 // --footer community links

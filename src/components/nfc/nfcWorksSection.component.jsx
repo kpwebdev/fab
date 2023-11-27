@@ -4,7 +4,7 @@ const NfcWorksSection = () => {
   return (
     <section className="t-min-h-screen t-mt-f-96">
       <div className="container">
-        <h2 className="t-text-f-3xl">How it works?</h2>
+        <h2 className="t-text-f-3xl">How Fab Tap Works ?</h2>
         {/* steps container */}
         <div className="t-flex t-flex-col t-my-f-48 t-gap-f-144">
           {nfcSteps.map(({ img, title, subtitle }, idx) => (
@@ -24,7 +24,14 @@ const NfcWorksSection = () => {
               </div>
               <header className={`${idx % 2 !== 0 ? " t-order-1" : ""}`}>
                 <h3 className="t-text-f-2xl t-mb-f-16">{title}</h3>
-                <h4 className="t-text-f-base">{subtitle}</h4>
+                {Array.isArray(subtitle) ? (
+                  <h4 className="t-text-f-base">
+                    {subtitle[0]}{" "}
+                    <span className="t-font-bold">{subtitle[1]}</span>
+                  </h4>
+                ) : (
+                  <h4 className="t-text-f-base">{subtitle}</h4>
+                )}
               </header>
             </div>
           ))}

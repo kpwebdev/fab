@@ -30,8 +30,8 @@ const CardOrderTable = ({ card }) => {
               <td>{`${month}, ${day}, ${year}`}</td>
               <td>
                 <div className="t-flex t-items-center">
-                  <PiCurrencyInrLight />
-                  {price}
+                  {/* <PiCurrencyInrLight /> */}
+                  {price} KD
                 </div>
               </td>
               <td>#{id}</td>

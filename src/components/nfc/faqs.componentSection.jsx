@@ -30,15 +30,15 @@ const FaqsSection = () => {
     <section className="t-pb-f-96">
       <div className="container t-grid t-grid-cols-2 t-gap-f-24">
         <header className="t-flex t-flex-col t-gap-f-24 t-items-start">
-          <h2 className="t-text-f-3xl">Frequently Asked Questions</h2>
-          <h3 className="t-text-f-base">Still have some unsolved queries?</h3>
+          <h2 className="t-text-f-3xl">Still have more questions in mind?</h2>
+          <h3 className="t-text-f-base">Ask Away.</h3>
           <button
             type="button"
             className="f-btn-md f-btn-primary"
             data-bs-toggle="modal"
             data-bs-target="#contactInfo"
           >
-            Contact Us
+            Get in Touch
           </button>
         </header>
 

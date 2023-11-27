@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import FabLogo from "../../assets/fab-agency-logo-blue.png";
 import { CiUser } from "react-icons/ci";
 import { BsClipboard } from "react-icons/bs";
@@ -35,11 +35,13 @@ const AdminDashboard = () => {
         aria-labelledby="offcanvasScrollingLabel"
       >
         <header className="offcanvas-header t-flex t-items-start t-flex-col t-gap-f-16">
-          <img
-            src={FabLogo}
-            alt="Fab Digital Marketing Logo"
-            className="t-w-f-120"
-          />
+          <Link to="/nfc">
+            <img
+              src={FabLogo}
+              alt="Fab Digital Marketing Logo"
+              className="t-w-f-120"
+            />
+          </Link>
           <h5 className="t-text-f-l">Dashboard</h5>
         </header>
         <div className="offcanvas-body t-flex t-flex-col t-justify-between">

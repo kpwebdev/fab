@@ -11,27 +11,19 @@ import { FaPaperPlane } from "react-icons/fa";
 const NfcFooter = () => {
   const [email, setEmail] = useState("");
   return (
-    <footer className="t-bg-f-primary-10 t-text-f-primary-70 t-pt-f-96">
+    <footer className="t-bg-f-primary-10 t-py-f-16 t-text-f-primary-70">
       <div className="container">
         {/* footer top */}
-        <div className="t-flex t-gap-f-56">
+        <div className="t-flex t-items-center t-gap-f-56">
           {/* logo and social media container */}
           <div>
             <div className="t-mb-f-32">
               <img src={fabLogo} alt="Fab logo" className="t-w-f-144" />
             </div>
-            {/* social media links */}
-            <div className="t-flex t-gap-f-8">
-              {nfcSocialMediaLinks.map(({ title, href, Icon }, idx) => (
-                <Link key={idx} to={href}>
-                  <Icon className="t-w-f-48" />
-                </Link>
-              ))}
-            </div>
           </div>
 
           {/* divider line */}
-          <div className="t-w-f-2 t-bg-f-primary-20"></div>
+          <div className="t-w-f-2 t-bg-f-primary-20 t-self-stretch"></div>
 
           {/* links and subscription */}
           <div className="t-flex t-justify-between t-flex-grow">
@@ -39,7 +31,7 @@ const NfcFooter = () => {
             <div>
               <h4 className="t-text-f-md t-mb-f-16">Links</h4>
               {/* page links container */}
-              <ul>
+              <ul className="t-flex t-gap-f-8 t-mb-f-16">
                 {nfcFooterPageLinks.map(({ title, href }, idx) => (
                   <li key={idx}>
                     <Link to={href} className="t-text-f-sm t-mb-f-8">
@@ -48,13 +40,21 @@ const NfcFooter = () => {
                   </li>
                 ))}
               </ul>
+              {/* social media links */}
+              <div className="t-flex t-gap-f-8">
+                {nfcSocialMediaLinks.map(({ title, href, Icon }, idx) => (
+                  <Link key={idx} to={href}>
+                    <Icon className="t-w-f-48" />
+                  </Link>
+                ))}
+              </div>
             </div>
 
             {/* community links section */}
-            <div>
-              <h4 className="t-text-f-md t-mb-f-16">Community</h4>
-              {/* community links container */}
-              <ul>
+            {/* <div> */}
+            {/* <h4 className="t-text-f-md t-mb-f-16">Community</h4> */}
+            {/* community links container */}
+            {/* <ul>
                 {nfcFooterCommunityLinks.map(({ title, href }, idx) => (
                   <li key={idx}>
                     <Link to={href} className="t-text-f-sm t-mb-f-8">
@@ -62,13 +62,13 @@ const NfcFooter = () => {
                     </Link>
                   </li>
                 ))}
-              </ul>
-            </div>
+              </ul> */}
+            {/* </div> */}
 
             {/* email subscription */}
             <div>
               <h4 className="t-text-f-l t-mb-f-8">Subscribe Newsletter</h4>
-              <h5 className="t-mb-f-40 t-text-f-sm">Subscribe for free. </h5>
+              <h5 className="t-mb-f-16 t-text-f-sm">Subscribe for free. </h5>
               {/* email form */}
               <form>
                 <div className="mb-3 input-group">
@@ -96,7 +96,7 @@ const NfcFooter = () => {
         </div>
 
         {/* footer bottom */}
-        <div className="t-flex t-justify-between t-py-f-24 t-text-f-xs t-text-f-primary-30">
+        <div className="t-flex t-justify-between t-mt-f-24 t-text-f-xs t-text-f-primary-30">
           {/* copyright */}
           <p>
             © Copyright {new Date().getFullYear()} Fab Digital Agency. All
@@ -105,15 +105,30 @@ const NfcFooter = () => {
 
           <ul className="t-flex t-gap-f-64">
             <li>
-              <Link to="#termsAndConditions">Terms and conditions</Link>
+              <Link
+                className="hover:t-text-f-primary-70 t-duration-150 t-transition-all"
+                to="#termsAndConditions"
+              >
+                Terms and conditions
+              </Link>
             </li>
 
             <li>
-              <Link to="#privacyPolicy">Privacy policy</Link>
+              <Link
+                className="hover:t-text-f-primary-70 t-duration-150 t-transition-all"
+                to="#privacyPolicy"
+              >
+                Privacy policy
+              </Link>
             </li>
 
             <li>
-              <Link to="#loginOrSignup">Login / Signup</Link>
+              <Link
+                className="hover:t-text-f-primary-70 t-duration-150 t-transition-all"
+                to="/nfc/authentication/login"
+              >
+                Login / Signup
+              </Link>
             </li>
           </ul>
         </div>
