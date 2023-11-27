@@ -386,154 +386,151 @@ function App() {
       <ReactQueryDevtools />
       {/* <RouterProvider router={router} /> */}
       <BrowserRouter>
-        <Suspense
+        {/* <Suspense
           fallback={
             <div className="t-my-f-24 t-flex t-justify-center t-items-center">
               <span className="custom-loader"></span>
             </div>
           }
-        >
-          <Routes>
-            <Route path="/" element={<SharedHome />}>
-              <Route index element={<Home />} />
-              <Route path="services" element={<Home />} />
-              <Route path="about" element={<About />} />
-            </Route>
-            <Route path="/nfc" element={<NfcHomeSharedLayout />}>
-              <Route index element={<NfcHome />} />
-            </Route>
-            {/* routes for authentication page and sub-pages */}
-            <Route
-              path="/nfc/authentication"
-              element={<AuthenticationSharedLayout />}
-            >
-              <Route path="login" element={<Login />} />
-              <Route path="sign-up" element={<SignUp />} />
-            </Route>
-            {/* routes for dashboard page and sub-pages */}
+        > */}
+        <Routes>
+          <Route path="/" element={<SharedHome />}>
+            <Route index element={<Home />} />
+            <Route path="services" element={<Home />} />
+            <Route path="about" element={<About />} />
+          </Route>
+          <Route path="/nfc" element={<NfcHomeSharedLayout />}>
+            <Route index element={<NfcHome />} />
+          </Route>
+          {/* routes for authentication page and sub-pages */}
+          <Route
+            path="/nfc/authentication"
+            element={<AuthenticationSharedLayout />}
+          >
+            <Route path="login" element={<Login />} />
+            <Route path="sign-up" element={<SignUp />} />
+          </Route>
+          {/* routes for dashboard page and sub-pages */}
 
+          <Route
+            path="/nfc/dashboard"
+            element={
+              currentUser ? (
+                <NfcDashboardSharedLayout />
+              ) : (
+                <Navigate to="/nfc/authentication/login" />
+              )
+            }
+          >
             <Route
-              path="/nfc/dashboard"
-              element={
-                currentUser ? (
-                  <NfcDashboardSharedLayout />
-                ) : (
-                  <Navigate to="/nfc/authentication/login" />
-                )
-              }
-            >
+              index
+              element={<Navigate replace to="/nfc/dashboard/my-profile" />}
+            />
+            {/* routes for my-profile page and sub-pages */}
+            <Route path="my-profile" element={<MyProfileSharedLayout />}>
               <Route
                 index
-                element={<Navigate replace to="/nfc/dashboard/my-profile" />}
+                element={
+                  <Navigate replace to="/nfc/dashboard/my-profile/general" />
+                }
               />
-              {/* routes for my-profile page and sub-pages */}
-              <Route path="my-profile" element={<MyProfileSharedLayout />}>
-                <Route
-                  index
-                  element={
-                    <Navigate replace to="/nfc/dashboard/my-profile/general" />
-                  }
-                />
-                <Route path="general" element={<General />} />
-                <Route path="organization" element={<Organization />} />
-                <Route path="progress" element={<Progress />} />
-                <Route path="my-fab" element={<MyFabSharedLayout />}>
-                  <Route index element={<Navigate to="cards" />} />
-                  <Route path="cards" element={<MyFabCards />} />
-                  <Route path="profiles" element={<MyFabProfiles />} />
-                </Route>
-              </Route>
-              {/* routes for contact page and sub-pages */}
-              <Route path="contacts" element={<ContactsSharedLayout />}>
-                <Route index element={<Contacts />} />
-                <Route path="add" element={<ContactAdd />} />
-                <Route path="edit" element={<ContactEdit />} />
-              </Route>
-              <Route path="shop" element={<Shop />} />
-              {/* routes for order page and sub-pages */}
-              <Route path="orders" element={<OrdersSharedLayout />}>
-                <Route index element={<Navigate to="self" />} />
-                <Route path="self" element={<Self />} />
-                <Route path="customer" element={<Customer />} />
-              </Route>
-              {/* routes for setting page and sub-pages */}
-              <Route path="settings" element={<Settings />}>
-                <Route index element={<SettingList />} />
-                <Route path="notification" element={<Notification />} />
-                <Route path="app-language" element={<AppLanguage />} />
-                <Route path="help-and-support" element={<HelpAndSupport />} />
-                <Route path="delete-account" element={<DeleteAccount />} />
-                <Route path="logout" element={<Logout />} />
-                <Route path="send-feedback" element={<SendFeedback />} />
-                <Route path="report-bug" element={<ReportBug />} />
+              <Route path="general" element={<General />} />
+              <Route path="organization" element={<Organization />} />
+              <Route path="progress" element={<Progress />} />
+              <Route path="my-fab" element={<MyFabSharedLayout />}>
+                <Route index element={<Navigate to="cards" />} />
+                <Route path="cards" element={<MyFabCards />} />
+                <Route path="profiles" element={<MyFabProfiles />} />
               </Route>
             </Route>
-            <Route
-              path="/nfc/creation/physical-card/"
-              element={<PhysicalCard />}
-            />
-            <Route
-              path="/nfc/creation/physical-card/templates"
-              element={<CardTemplates />}
-            />
-            <Route
-              path="/nfc/creation/physical-card/customize"
-              element={<CustomizeCard />}
-            >
-              <Route path=":name" element={<CustomizeCard />} />
+            {/* routes for contact page and sub-pages */}
+            <Route path="contacts" element={<ContactsSharedLayout />}>
+              <Route index element={<Contacts />} />
+              <Route path="add" element={<ContactAdd />} />
+              <Route path="edit" element={<ContactEdit />} />
             </Route>
-            {/* <Route
+            <Route path="shop" element={<Shop />} />
+            {/* routes for order page and sub-pages */}
+            <Route path="orders" element={<OrdersSharedLayout />}>
+              <Route index element={<Navigate to="self" />} />
+              <Route path="self" element={<Self />} />
+              <Route path="customer" element={<Customer />} />
+            </Route>
+            {/* routes for setting page and sub-pages */}
+            <Route path="settings" element={<Settings />}>
+              <Route index element={<SettingList />} />
+              <Route path="notification" element={<Notification />} />
+              <Route path="app-language" element={<AppLanguage />} />
+              <Route path="help-and-support" element={<HelpAndSupport />} />
+              <Route path="delete-account" element={<DeleteAccount />} />
+              <Route path="logout" element={<Logout />} />
+              <Route path="send-feedback" element={<SendFeedback />} />
+              <Route path="report-bug" element={<ReportBug />} />
+            </Route>
+          </Route>
+          <Route
+            path="/nfc/creation/physical-card/"
+            element={<PhysicalCard />}
+          />
+          <Route
+            path="/nfc/creation/physical-card/templates"
+            element={<CardTemplates />}
+          />
+          <Route
+            path="/nfc/creation/physical-card/customize"
+            element={<CustomizeCard />}
+          >
+            <Route path=":name" element={<CustomizeCard />} />
+          </Route>
+          {/* <Route
             path="/nfc/creation/physical-card/customize/:cardName"
             element={<CustomizeCardTemplate />}
           /> */}
-            <Route
-              path="/nfc/creation/digital-profile"
-              element={<DigitalProfile />}
-            />
-            <Route
-              path="/nfc/creation/digital-profile/template"
-              element={<ProfileTemplates />}
-            />
-            <Route
-              path="/nfc/creation/digital-profile/customize"
-              element={<CustomizeProfile />}
-            />
-            {/* routes for fab digital agency page and sub-pages */}
-            <Route path="/marketing" element={<AgencySharedLayout />}>
-              <Route index element={<AgencyHome />} />
-              <Route path="services" element={<ServicesSharedLayout />}>
-                <Route index element={<ServicesIndex />} />
-                <Route path=":id" element={<Service />} />
-              </Route>
-              <Route path="portfolios" element={<PortfoliosSharedLayout />}>
-                <Route
-                  index
-                  element={
-                    <Navigate to="/marketing/portfolios/social-media-marketing" />
-                  }
-                />
-                <Route path=":id" element={<Portfolio />} />
-              </Route>
+          <Route
+            path="/nfc/creation/digital-profile"
+            element={<DigitalProfile />}
+          />
+          <Route
+            path="/nfc/creation/digital-profile/template"
+            element={<ProfileTemplates />}
+          />
+          <Route
+            path="/nfc/creation/digital-profile/customize"
+            element={<CustomizeProfile />}
+          />
+          {/* routes for fab digital agency page and sub-pages */}
+          <Route path="/marketing" element={<AgencySharedLayout />}>
+            <Route index element={<AgencyHome />} />
+            <Route path="services" element={<ServicesSharedLayout />}>
+              <Route index element={<ServicesIndex />} />
+              <Route path=":id" element={<Service />} />
             </Route>
-            {/* payment related routes */}
-            <Route path="/nfc/payment/success" element={<Success />} />
-            <Route path="/nfc/payment/cancel" element={<Cancel />} />
-            <Route path="/profiles/:userName" element={<Profile />} />
-            <Route path="web-admin" element={<AdminDashboard />}>
-              <Route index element={<Navigate to="/web-admin/orders" />} />
-              <Route path="orders" element={<WebAdminOrdersSharedLayout />}>
-                <Route
-                  index
-                  element={<Navigate to="/web-admin/orders/all" />}
-                />
-                <Route path="all" element={<AllOrders />} />
-                <Route path="pending" element={<PendingOrders />} />
-                <Route path="completed" element={<CompletedOrders />} />
-              </Route>
+            <Route path="portfolios" element={<PortfoliosSharedLayout />}>
+              <Route
+                index
+                element={
+                  <Navigate to="/marketing/portfolios/social-media-marketing" />
+                }
+              />
+              <Route path=":id" element={<Portfolio />} />
             </Route>
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
+          </Route>
+          {/* payment related routes */}
+          <Route path="/nfc/payment/success" element={<Success />} />
+          <Route path="/nfc/payment/cancel" element={<Cancel />} />
+          <Route path="/profiles/:userName" element={<Profile />} />
+          <Route path="web-admin" element={<AdminDashboard />}>
+            <Route index element={<Navigate to="/web-admin/orders" />} />
+            <Route path="orders" element={<WebAdminOrdersSharedLayout />}>
+              <Route index element={<Navigate to="/web-admin/orders/all" />} />
+              <Route path="all" element={<AllOrders />} />
+              <Route path="pending" element={<PendingOrders />} />
+              <Route path="completed" element={<CompletedOrders />} />
+            </Route>
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        {/* </Suspense> */}
       </BrowserRouter>
       <ToastContainer />
     </QueryClientProvider>

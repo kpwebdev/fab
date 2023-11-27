@@ -1,11 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import { orders } from "../../data";
 import { PiCurrencyInrLight } from "react-icons/pi";
 import { getUser } from "../../utils/firebase/firebase.util";
 import { useState } from "react";
 
 const Self = () => {
-  const { self } = orders;
   const [showStatus, setShowStatus] = useState(false);
   const [showCardFrontSide, setShowCardFrontSide] = useState(true);
   const { data, isPending, isError, error } = useQuery({

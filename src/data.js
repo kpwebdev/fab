@@ -41,8 +41,6 @@ import IconFacebook from "./assets/icon-facebook.svg?react";
 import CardsBlack from "./assets/cards-black.svg?react";
 import CardsBlue from "./assets/cards-blue.svg?react";
 import CardsWhite from "./assets/cards-white.svg?react";
-import OrderCardBlue from "./assets/order-card-blue.svg?react";
-import OrderCardYellow from "./assets/order-card-yellow.svg?react";
 import CardBlackBack from "./assets/card-black-back.svg?react";
 import CardBlackFront from "./assets/card-black-front.svg?react";
 import CardBlueBack from "./assets/card-blue-back.svg?react";
@@ -1265,74 +1263,6 @@ const shopCollections = {
   },
 };
 
-// --orders
-const orders = {
-  self: [
-    {
-      orderPlacedAt: new Date(2023, 7, 27),
-      totalPrice: 15,
-      shipToAddress: "No. 7, sample address",
-      orderId: 366824369,
-      cards: [
-        {
-          CardImg: OrderCardBlue,
-          creatorName: "Creator Name",
-          cardName: "Ocean Blue NFC",
-          isPersonalized: true,
-          qty: 1,
-        },
-      ],
-    },
-    {
-      orderPlacedAt: new Date(2023, 7, 27),
-      totalPrice: 15,
-      shipToAddress: "No. 7, sample address",
-      orderId: 366824369,
-      cards: [
-        {
-          CardImg: OrderCardYellow,
-          creatorName: "Creator Name",
-          cardName: "Sun Yellow NFC",
-          isPersonalized: true,
-          qty: 1,
-        },
-      ],
-    },
-  ],
-  customer: [
-    {
-      orderPlacedAt: new Date(2023, 7, 27),
-      totalPrice: 15,
-      shipToAddress: "No. 7, sample address",
-      orderId: 366824369,
-      cards: [
-        {
-          CardImg: OrderCardBlue,
-          creatorName: "Creator Name",
-          cardName: "Ocean Blue NFC",
-          isPersonalized: true,
-          qty: 1,
-        },
-      ],
-    },
-    {
-      orderPlacedAt: new Date(2023, 7, 27),
-      totalPrice: 15,
-      shipToAddress: "No. 7, sample address",
-      orderId: 366824369,
-      cards: [
-        {
-          CardImg: OrderCardYellow,
-          creatorName: "Creator Name",
-          cardName: "Sun Yellow NFC",
-          isPersonalized: true,
-          qty: 1,
-        },
-      ],
-    },
-  ],
-};
-
 // --settings
 const settings = [
   // {
@@ -1934,7 +1864,6 @@ export {
   profilesList,
   contacts,
   shopCollections,
-  orders,
   settings,
   templates,
   fabAgencyNavLinks,

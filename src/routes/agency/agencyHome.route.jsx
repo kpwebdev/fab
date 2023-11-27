@@ -7,7 +7,8 @@ import { AiFillHeart } from "react-icons/ai";
 import { LuNfc } from "react-icons/lu";
 import Stars from "../../components/stars.component";
 import { fabAgencyReviews, fabAgencyFaqs } from "../../data";
-import HeroImage from "../../assets/hero-section-img.svg?react";
+// import HeroImage from "../../assets/hero-section-img.svg?react";
+import heroImage from "../../assets/hero-section-img.png";
 import aboutOurTeam from "../../assets/about-our-team.png";
 import IconSocialMediaManagement from "../../assets/icon-social-media-management.svg?react";
 import IconContentCreation from "../../assets/icon-content-creation.svg?react";
@@ -146,7 +147,8 @@ const AgencyHome = () => {
           </div>
           {/* image container */}
           <div>
-            <HeroImage />
+            {/* <HeroImage /> */}
+            <img src={heroImage} alt="hero image" className="t-w-full" />
           </div>
         </div>
       </section>
