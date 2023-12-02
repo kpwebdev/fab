@@ -32,15 +32,15 @@ const AgencySharedLayout = () => {
     setFormInputs((prevFormInputs) => ({ ...prevFormInputs, [name]: value }));
   };
   return (
-    <div>
+    <div className="t-flex t-flex-col t-min-h-screen justify-content-between">
       {/* navigation starts */}
-      <nav className="navbar navbar-expand-lg bg-body-tertiary t-h-[12vh]">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary t-min-h-[12vh]">
         <div className="container">
           <Link className="navbar-brand" to="/marketing">
             <img
               src={fabLogo}
               alt="Fab Digital Marketing Logo"
-              className="t-w-f-120"
+              className="t-w-f-48 md:t-w-f-96 lg:t-w-f-120"
             />
           </Link>
           <button
@@ -64,7 +64,7 @@ const AgencySharedLayout = () => {
               ))}
               <div className="t-ms-auto t-flex t-gap-f-8">
                 <Link
-                  className="f-btn-md f-btn-primary"
+                  className="f-btn-sm md:f-btn-md f-btn-primary"
                   to="https://wa.me/971568781104"
                   target="_blank"
                 >
@@ -102,64 +102,92 @@ const AgencySharedLayout = () => {
       <Outlet />
 
       {/* footer starts */}
-      <footer className="t-bg-f-primary-10 t-text-f-primary-70 t-pt-f-96 t-mt-f-48">
+      <footer className="t-bg-f-primary-10 t-py-f-16 t-text-f-primary-70">
         <div className="container">
           {/* footer top */}
-          <div className="t-flex t-gap-f-56">
+          <div className="t-flex t-flex-col md:t-flex-row t-items-center md:t-gap-f-16 lg:t-gap-f-56">
             {/* logo and social media container */}
             <div>
               <div className="t-mb-f-32">
-                <img src={fabLogo} alt="Fab logo" className="t-w-f-144" />
-              </div>
-              {/* social media links */}
-              <div className="t-flex t-gap-f-8">
-                {nfcSocialMediaLinks.map(({ title, href, Icon }, idx) => (
-                  <Link key={idx} to={href}>
-                    <Icon className="t-w-f-48" />
-                  </Link>
-                ))}
+                <img
+                  src={fabLogo}
+                  alt="Fab logo"
+                  className="t-w-f-88 md:t-w-f-96 lg:t-w-f-144"
+                />
               </div>
             </div>
 
             {/* divider line */}
-            <div className="t-w-f-2 t-bg-f-primary-20"></div>
+            <div className="t-w-f-2 t-bg-f-primary-20 t-self-stretch t-hidden md:t-block"></div>
 
             {/* links and subscription */}
-            <div className="t-flex t-justify-between t-flex-grow">
+            <div className="t-flex t-flex-col md:t-flex-row t-justify-between t-flex-grow t-gap-f-16 t-text-center md:t-text-start">
               {/* page links section */}
               <div>
-                <h4 className="t-text-f-md t-mb-f-16">Links</h4>
                 {/* page links container */}
-                <ul>
-                  {fabAgencyFooterPageLinks.map(({ title, href }, idx) => (
-                    <li key={idx}>
-                      <Link to={href} className="t-text-f-sm t-mb-f-8">
-                        {title}
-                      </Link>
-                    </li>
-                  ))}
+                <ul className="t-flex t-justify-center t-gap-f-16 t-mb-f-16">
+                  {/* {nfcFooterPageLinks.map(({ title, href }, idx) => (
+                  <li key={idx}>
+                    <Link to={href} className="t-text-f-sm t-mb-f-8">
+                      {title}
+                    </Link>
+                  </li>
+                ))} */}
+                  <li>
+                    <button
+                      data-bs-toggle="modal"
+                      data-bs-target="#contactInfo"
+                      className="t-text-f-sm t-mb-f-8"
+                    >
+                      Contact Us
+                    </button>
+                  </li>
+                  <li>
+                    <a
+                      href="/marketing#services-section"
+                      className="t-text-f-sm t-mb-f-8"
+                    >
+                      Services
+                    </a>
+                  </li>
+                  <li>
+                    <Link
+                      to="/nfc/authentication/login"
+                      className="t-text-f-sm t-mb-f-8"
+                    >
+                      Create
+                    </Link>
+                  </li>
                 </ul>
+                {/* social media links */}
+                <div className="t-flex t-justify-center t-gap-f-8">
+                  {nfcSocialMediaLinks.map(({ title, href, Icon }, idx) => (
+                    <Link key={idx} to={href}>
+                      <Icon className="t-w-f-48" />
+                    </Link>
+                  ))}
+                </div>
               </div>
 
               {/* community links section */}
-              <div>
-                <h4 className="t-text-f-md t-mb-f-16">Community</h4>
-                {/* community links container */}
-                <ul>
-                  {fabAgencyFooterCommunityLinks.map(({ title, href }, idx) => (
-                    <li key={idx}>
-                      <Link to={href} className="t-text-f-sm t-mb-f-8">
-                        {title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {/* <div> */}
+              {/* <h4 className="t-text-f-md t-mb-f-16">Community</h4> */}
+              {/* community links container */}
+              {/* <ul>
+                {nfcFooterCommunityLinks.map(({ title, href }, idx) => (
+                  <li key={idx}>
+                    <Link to={href} className="t-text-f-sm t-mb-f-8">
+                      {title}
+                    </Link>
+                  </li>
+                ))}
+              </ul> */}
+              {/* </div> */}
 
               {/* email subscription */}
               <div>
                 <h4 className="t-text-f-l t-mb-f-8">Subscribe Newsletter</h4>
-                <h5 className="t-mb-f-40 t-text-f-sm">Subscribe for free. </h5>
+                <h5 className="t-mb-f-16 t-text-f-sm">Subscribe for free. </h5>
                 {/* email form */}
                 <form>
                   <div className="mb-3 input-group">
@@ -187,24 +215,39 @@ const AgencySharedLayout = () => {
           </div>
 
           {/* footer bottom */}
-          <div className="t-flex t-justify-between t-py-f-24 t-text-f-xs t-text-f-primary-30">
+          <div className="t-flex t-flex-col t-items-center t-gap-f-8 lg:t-flex-row lg:t-justify-between t-mt-f-24 t-text-f-xs t-text-f-primary-30">
             {/* copyright */}
-            <p>
+            <p className="t-text-center md:t-text-start">
               © Copyright {new Date().getFullYear()} Fab Digital Agency. All
               Rights Reserved Copyright
             </p>
 
-            <ul className="t-flex t-gap-f-64">
+            <ul className="t-flex t-gap-f-32 md:t-gap-f-64">
               <li>
-                <Link to="#termsAndConditions">Terms and conditions</Link>
+                <Link
+                  className="hover:t-text-f-primary-70 t-duration-150 t-transition-all"
+                  to="#termsAndConditions"
+                >
+                  Terms and conditions
+                </Link>
               </li>
 
               <li>
-                <Link to="#privacyPolicy">Privacy policy</Link>
+                <Link
+                  className="hover:t-text-f-primary-70 t-duration-150 t-transition-all"
+                  to="#privacyPolicy"
+                >
+                  Privacy policy
+                </Link>
               </li>
 
               <li>
-                <Link to="#loginOrSignup">Login / Signup</Link>
+                <Link
+                  className="hover:t-text-f-primary-70 t-duration-150 t-transition-all"
+                  to="/nfc/authentication/login"
+                >
+                  Login / Signup
+                </Link>
               </li>
             </ul>
           </div>

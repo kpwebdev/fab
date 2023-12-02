@@ -96,7 +96,6 @@ const NfcHome = () => {
       {/* <NfcDownload /> */}
       {/* <NfcTestimonials /> */}
       <FaqsSection />
-      <NfcFooter />
       {/* <ChatbotSection steps={steps} /> */}
       <FloatingWhatsApp
         phoneNumber="96569918650"

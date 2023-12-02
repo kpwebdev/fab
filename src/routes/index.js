@@ -52,6 +52,7 @@ export { default as CustomizeProfile } from "./creation/customizeProfile.route";
 // agency
 export { default as AgencySharedLayout } from "./agency/agencySharedLayout.route";
 export { default as AgencyHome } from "./agency/agencyHome.route";
+export { default as AgencyAboutUs } from "./agency/agencyAboutUs.route";
 export { default as ServicesSharedLayout } from "./agency/servicesSharedLayout.route";
 export { default as ServicesIndex } from "./agency/servicesIndex.route";
 export { default as Service } from "./agency/service.route";

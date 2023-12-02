@@ -30,45 +30,10 @@
   .f-btn-danger-outline {
     @apply t-border-f-danger-30 t-border-2 t-text-f-danger-30 hover:t-bg-f-danger-20 hover:t-text-f-danger-98;
   }
-  .services-section {
-    background-size: cover !important;
-    background-position: center;
-  }
-  .fab-agency-service-link:hover {
-    .fab-agency-service-link-arrow {
-      opacity: 1;
-      transform: translateX(0%);
-    }
-  }
-  .fab-agency-service-link-arrow {
-    opacity: 0;
-    transform: translateX(-30%);
-    transition: all 0.3s 0.05s;
-  }
   .fab-image-card-link img {
     @apply t-transition-all t-duration-300;
   }
   .fab-image-card-link:hover img {
     transform: scale(1.25);
-  }
-
-  .custom-loader {
-    width: 48px;
-    height: 48px;
-    border: 5px solid;
-    border-color: #206fdf transparent;
-    border-radius: 50%;
-    display: inline-block;
-    box-sizing: border-box;
-    animation: rotation 1s linear infinite;
-  }
-
-  @keyframes rotation {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
   }
 }

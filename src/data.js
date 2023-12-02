@@ -162,7 +162,7 @@ const homeNavigationList = [
 const checkoutList = [
   {
     // href: "/marketing",
-    href: "#marketing",
+    href: "/marketing",
     img: fabLogo,
     title: "Checkout our",
     subtitle: "Fab Digital Agency",
@@ -339,36 +339,73 @@ const nfcCards = [
 ];
 
 // --steps
+// const nfcSteps = [
+//   {
+//     img: cardTapOnMobile,
+//     title: "Design Your Card",
+//     subtitle:
+//       "Use our user-friendly design tool to create a customized Fab Tap card that suits your brand and needs.",
+//   },
+//   {
+//     img: doneWaneProfileInMobile,
+//     title: "Create your Digital Profile",
+//     subtitle:
+//       "Add your contact information, social media profiles, and any other details you want to share and instantly update as many times as you want.",
+//   },
+//   {
+//     img: cardTapOnMobile,
+//     title: "Tap and Connect",
+//     subtitle:
+//       "Simply tap your Fab Tap card on a smartphone, and watch your information seamlessly transfer and saved instantly (Make sure the mobile has its NFC feature turned on otherwise the Tap will go unnoticed)",
+//   },
+//   {
+//     img: doneWaneProfileInMobile,
+//     title: "Your Digital Profile is Shared",
+//     subtitle:
+//       "Your profile is shared and the receiver can save your details instantly to their phone by tapping the 'Add to contacts' button.",
+//   },
+//   {
+//     img: doneWaneProfileInMobile,
+//     subtitle: [
+//       "Make connections effortlessly and",
+//       "instantly connect on multiple social platforms",
+//     ],
+//   },
+// ];
+// --steps
 const nfcSteps = [
   {
     img: cardTapOnMobile,
-    title: "Design Your Card",
-    subtitle:
-      "Use our user-friendly design tool to create a customized Fab Tap card that suits your brand and needs.",
+    subSteps: [
+      {
+        num: 1,
+        title: "Design Your Card",
+        description:
+          "Use our user-friendly design tool to create a customized Fab Tap card that suits your brand and needs.",
+      },
+      {
+        num: 2,
+        title: "Create your Digital Profile",
+        description:
+          "Add your contact information, social media profiles, and any other details you want to share and instantly update as many times as you want.",
+      },
+    ],
   },
   {
     img: doneWaneProfileInMobile,
-    title: "Create your Digital Profile",
-    subtitle:
-      "Add your contact information, social media profiles, and any other details you want to share and instantly update as many times as you want.",
-  },
-  {
-    img: cardTapOnMobile,
-    title: "Tap and Connect",
-    subtitle:
-      "Simply tap your Fab Tap card on a smartphone, and watch your information seamlessly transfer and saved instantly (Make sure the mobile has its NFC feature turned on otherwise the Tap will go unnoticed)",
-  },
-  {
-    img: doneWaneProfileInMobile,
-    title: "Your Digital Profile is Shared",
-    subtitle:
-      "Your profile is shared and the receiver can save your details instantly to their phone by tapping the 'Add to contacts' button.",
-  },
-  {
-    img: doneWaneProfileInMobile,
-    subtitle: [
-      "Make connections effortlessly and",
-      "instantly connect on multiple social platforms",
+    subSteps: [
+      {
+        num: 3,
+        title: "Tap and Connect",
+        description:
+          "Simply tap your Fab Tap card on a smartphone, and watch your information seamlessly transfer and saved instantly (Make sure the mobile has its NFC feature turned on otherwise the Tap will go unnoticed)",
+      },
+      {
+        num: 4,
+        title: "Your Digital Profile is Shared",
+        description:
+          "Your profile is shared and the receiver can save your details instantly to their phone by tapping the 'Add to contacts' button.",
+      },
     ],
   },
 ];
@@ -1404,76 +1441,92 @@ const fabAgencyServices = [
     content: [
       {
         description:
-          "We specialize in social media marketing. Our team is dedicated to this work, and we're excited about using our skills to tell great stories for brands.",
+          "We are your Social Media Experts. With the understanding of every nook and corner of social media and we're excited about using our skills to create captivating content that converts.",
       },
       {
         description:
-          "We create content that fits each social platform, like Facebook, Instagram, and LinkedIn. We plan when to post this content and make sure it connects with the right people by studying who they are. We also stay up-to-date on what's new in the social media world.",
+          "We create content that fits each social platform, like Instagram, Facebook , TikTok , snapchat and LinkedIn. We plan when to post this content and make sure it connects with the right people by studying who they are. We also stay up-to-date on what's new in the social media world.",
       },
       {
         description:
-          "In a nutshell, we're here to help businesses grow and shine in the world of social media.",
+          "In a nutshell, we're here to help businesses grow and stand out in the world of social media.",
       },
     ],
     projectsHref: "#",
   },
   {
-    id: "meta-ads",
-    title: "Meta Ads",
-    pageHref: "/marketing/services/meta-ads",
+    id: "result-driven-ads-campaign",
+    title: "Result Driven Ads Campaign",
+    // pageHref: "/marketing/services/meta-ads",
+    pageHref: "/marketing/services/result-driven-ads-campaign",
     overLay: "linear-gradient(blue, blue)",
     bgImage: fabAgencyServicesMetaAds,
     pageImage: fabAgencyServicesMetaAdsPage,
     content: [
       {
         description:
-          "Imagine you have a shop, and you want to tell people about the amazing things you sell. That's where we come in. We create ads, which are like special announcements, to let people know about your shop and products.",
+          "Picture this: You've got a fantastic showroom . We're the storytellers for your business.",
       },
       {
         description:
-          "These ads are like little stories that we show to people when they use Facebook or Instagram. We make sure these ads look good and say the right things to attract the right customers for your shop.",
+          "Our ads are like those eye-catching posters on the shop window, but online, and you're eager to shout about the incredible products and services you offer. That's where we step in.. Whether your customers are scrolling through TikTok, Facebook, Instagram, Snapchat, or LinkedIn, our ads are right there, telling a little story about what makes your services and products special. We are here to ensure these ads grab attention and say all the right things to bring in the perfect customers to you . Let's make your business the talk of the online town.",
       },
     ],
     projectsHref: "#",
   },
   {
-    id: "performance-marketing",
-    title: "Performance Marketing",
-    pageHref: "/marketing/services/performance-marketing",
+    id: "attract-clients-on-automation",
+    title: "Attract Clients on Automation",
+    // pageHref: "/marketing/services/performance-marketing",
+    pageHref: "/marketing/services/attract-clients-on-automation",
     overLay: "linear-gradient(green, green)",
     bgImage: fabAgencyServicesPerformanceMarketing,
     pageImage: fabAgencyServicesPerformanceMarketingPage,
     content: [
       {
         description:
-          "Think of your business as a car and social media as the road. We're your reliable mechanics. ",
+          "First, we analyze—like checking the car's engine. We study data to see how your marketing is performing. Then we manage—like driving.",
       },
       {
         description:
-          "First, we analyze—like checking the car's engine. We study data to see how your social media is performing. Then, we manage—like driving. We create appealing content, post at optimal times, and use techniques to boost visibility.",
+          "We help you make more money in less time by creating engaging Whatsapp automations, Ads campaign, email marketing automation and use techniques to boost visibility and sales.",
       },
       {
         description:
-          "Our goal? Ensure your social media runs smoothly, reaches the right audience, and helps your business grow.",
+          "Our goal? Ensure that your overall marketing runs smoothly, reaches the right customers, and helps your business grow.",
       },
     ],
     projectsHref: "#",
   },
   {
-    id: "websites",
-    title: "Websites",
-    pageHref: "/marketing/services/websites",
+    id: "widen-your-reach-with-website-and-Google-ads",
+    title: "Widen your Reach with Website and Google Ads",
+    // pageHref: "/marketing/services/websites",
+    pageHref:
+      "/marketing/services/widen-your-reach-with-website-and-Google-ads",
     overLay: "linear-gradient(orange, orange)",
     bgImage: fabAgencyServicesWebsites,
     pageImage: fabAgencyServicesWebsitesPage,
     content: [
       {
         description:
-          "We specialize in the creation of fully customized websites that leave a remarkable digital footprint. Our process begins with a deep dive into your brand and objectives, ensuring a perfect alignment between your identity and the website's design.",
+          "Ready to supercharge your sales? Our Google Ads service is your shortcut to getting noticed by potential customers.",
       },
       {
         description:
-          "Our expert designers create visually captivating and user-friendly interfaces. The development team then turns these designs into fully functional websites, optimized for all devices. ",
+          "Imagine your business popping up at the top when people search for what you offer on Google. That's what we do – we make sure your brand is front and center, bringing in those clicks that turn into sales.",
+      },
+      {
+        description:
+          "No confusing tech talk, just a straightforward boost for your business. Let's get you in front of your customers and watch those sales take off. Click to kickstart your Google Ads journey with us.",
+      },
+      {
+        description:
+          "We also specialize in the creation of fully customized websites that leave a remarkable digital footprint. Our process begins with a deep dive into your brand and objectives, ensuring a perfect alignment between your identity and the website's design.",
+      },
+      {
+        description:
+          "Our expert designers create visually captivating and user-friendly interfaces. The development team then turns these designs into fully functional websites, optimized for all devices.",
       },
       {
         description:
@@ -1822,6 +1875,69 @@ const fabAgencyReviews = [
     Icon: Quote,
     description:
       "“Simple and effective methods, thanks to you guys, my brand is getting recognized, love working with you all!”",
+    rating: 5,
+    author: "Emily Smith",
+    company: "Company name",
+    profilePic: profilePic,
+  },
+  {
+    Icon: Quote,
+    description:
+      "“First of all, thank you. I never thought my brand will reach this much success. It was possible with your support!”",
+    rating: 5,
+    author: "Emily Smith",
+    company: "Company name",
+    profilePic: profilePic,
+  },
+  {
+    Icon: Quote,
+    description:
+      "“First of all, thank you. I never thought my brand will reach this much success. It was possible with your support!”",
+    rating: 5,
+    author: "Emily Smith",
+    company: "Company name",
+    profilePic: profilePic,
+  },
+  {
+    Icon: Quote,
+    description:
+      "“First of all, thank you. I never thought my brand will reach this much success. It was possible with your support!”",
+    rating: 5,
+    author: "Emily Smith",
+    company: "Company name",
+    profilePic: profilePic,
+  },
+  {
+    Icon: Quote,
+    description:
+      "“First of all, thank you. I never thought my brand will reach this much success. It was possible with your support!”",
+    rating: 5,
+    author: "Emily Smith",
+    company: "Company name",
+    profilePic: profilePic,
+  },
+  {
+    Icon: Quote,
+    description:
+      "“First of all, thank you. I never thought my brand will reach this much success. It was possible with your support!”",
+    rating: 5,
+    author: "Emily Smith",
+    company: "Company name",
+    profilePic: profilePic,
+  },
+  {
+    Icon: Quote,
+    description:
+      "“First of all, thank you. I never thought my brand will reach this much success. It was possible with your support!”",
+    rating: 5,
+    author: "Emily Smith",
+    company: "Company name",
+    profilePic: profilePic,
+  },
+  {
+    Icon: Quote,
+    description:
+      "“First of all, thank you. I never thought my brand will reach this much success. It was possible with your support!”",
     rating: 5,
     author: "Emily Smith",
     company: "Company name",

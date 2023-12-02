@@ -34,8 +34,8 @@ const NfcBringTeam = () => {
     //     </div>
     //   </div>
     // </section>
-    <section className="">
-      <div className="container">
+    <section className="t-bg-team-image">
+      <div className="container t-py-f-24 t-text-white">
         <h2 className="t-text-f-3xl t-mb-f-48">
           Why choose <span className="t-text-f-secondary-50">Fab Tap</span>
         </h2>
@@ -81,7 +81,7 @@ const NfcBringTeam = () => {
               <p>
                 Store your all information in one place aka in our Fab Tap Card.
                 No need to carry 1000 cards, just an All-in-one Fab Tap card{" "}
-                <span className="t-font-bold">
+                <span className="">
                   to share all of your social links, website and contact
                   details.
                 </span>
@@ -111,7 +111,7 @@ const NfcBringTeam = () => {
             <div>
               <h4 className="t-text-f-md t-text-f-primary-50">Eco-Friendly</h4>
               <p>
-                <span className="t-font-bold">
+                <span className="">
                   No need to fill up your pockets with multiple paper cards. Use
                   one card for unlimited sharing
                 </span>{" "}

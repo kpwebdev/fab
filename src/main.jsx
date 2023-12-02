@@ -9,6 +9,9 @@ import "./sass/bootstrap.scss";
 // tailwindcss - style
 import "./css/tailwind.css";
 
+// custom styling
+import "./sass/styles.scss";
+
 // bootstrap - script
 import * as bootstrap from "bootstrap";
 

@@ -11,18 +11,19 @@ const CheckoutCard = ({
   return (
     <Link
       to={href}
-      className="text-black text-decoration-none d-block checkout-card rounded-4"
+      className="text-black text-decoration-none d-block checkout-card rounded-4 hover:-t-translate-y-f-8 hover:t-shadow-xl t-transition-all t-duration-150"
     >
-      <article className="t-p-f-16 t-py-f-48 t-flex t-flex-col justify-content-between t-min-h-full">
+      <article className="t-p-f-16 lg:t-p-f-16 lg:t-py-f-48 t-flex t-flex-col justify-content-between">
         {/* header */}
-        <div className="mb-5 d-flex justify-content-between">
-          <img src={img} alt={title} className="checkout-card-image" />
+        <div className="lg:t-mb-5 t-flex t-justify-center lg:t-justify-between">
+          <img src={img} alt={title} className="checkout-card-image t-w-f-96" />
           <svg
             width="43"
             height="28"
             viewBox="0 0 43 28"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className="t-hidden lg:t-block"
           >
             <path
               fillRule="evenodd"
@@ -34,7 +35,7 @@ const CheckoutCard = ({
         </div>
 
         {/* body */}
-        <div>
+        <div className="t-text-center lg:t-text-start">
           <h4 className="t-text-f-l">{title}</h4>
           <h5
             className={`t-text-f-l t-font-bold ${subHeadingColor}`}

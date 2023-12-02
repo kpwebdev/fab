@@ -1,13 +1,15 @@
 import { Outlet } from "react-router-dom";
-import NfcNavbar from "../../components/nfc/nfcNavbar.component";
 
 // components
+import NfcNavbar from "../../components/nfc/nfcNavbar.component";
+import NfcFooter from "../../components/nfc/nfcFooter.component";
 
 const NfcHomeSharedLayout = () => {
   return (
-    <div>
+    <div className="t-flex t-flex-col t-justify-between t-min-h-screen">
       <NfcNavbar />
       <Outlet />
+      <NfcFooter />
     </div>
   );
 };

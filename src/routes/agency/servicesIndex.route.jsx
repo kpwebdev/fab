@@ -21,7 +21,7 @@ const ServicesIndex = () => {
         <h2 className="t-uppercase t-my-f-24 t-font-bold">
           Services we provide
         </h2>
-        <ul className="t-flex t-flex-col t-min-h-[88vh] t-gap-f-96 t-text-f-3xl">
+        <ul className="t-flex t-flex-col md:t-min-h-[88vh] t-gap-f-32 md:t-gap-f-56 lg:t-gap-f-96 t-text-f-md md:t-text-f-2xl lg:t-text-f-3xl">
           {fabAgencyServices.map(
             ({ id, title, pageHref, overLay, bgImage }) => {
               const newBgObj = {

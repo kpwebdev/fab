@@ -22,106 +22,111 @@ import clientAlefiyaFitness from "../../assets/client-alefiya-fitness.png";
 import clientJumbo from "../../assets/client-jumbo.png";
 import clientKomfortPlanetSystem from "../../assets/client-komfort-planet-system.png";
 import clientMountain from "../../assets/client-mountain.png";
-import clientOcrFitnessTheGrindYouVsYou from "../../assets/client-ocr-fitness-the-grind-you-vs-you.png";
+import clientOcrFitnessTheGrindYouVsYou from "../../assets/client-ocr-fitness-the-grind-you-vs-you-dark.png";
 import clientProSports from "../../assets/client-pro-sports.png";
 import clientProSportsCricket from "../../assets/client-pro-sports-cricket.png";
 import clientRazain from "../../assets/client-razain.png";
 import clientSaraOman from "../../assets/client-sara-oman.png";
 import clientSaraUae from "../../assets/client-sara-uae.png";
+import result1 from "../../assets/result-1.png";
+import result2 from "../../assets/result-2.png";
+import result3 from "../../assets/result-3.png";
 import { IoShareSocial, IoMagnetSharp } from "react-icons/io5";
 import { FaFilterCircleDollar } from "react-icons/fa6";
 import { CgWebsite } from "react-icons/cg";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 import fabLogo from "../../assets/fab-agency-logo-blue-white-bg.png";
+import { ImQuotesLeft } from "react-icons/im";
+import {
+  IoIosArrowDroprightCircle,
+  IoIosArrowDropleftCircle,
+} from "react-icons/io";
+
+const steps = [
+  {
+    id: "0",
+    message: "Welcome to Fab Digital Marketing!",
+    trigger: "1",
+  },
+  {
+    id: "1",
+    message: "Please select an options",
+    trigger: "2",
+  },
+  {
+    id: "2",
+    options: [
+      { value: 1, label: "List of services", trigger: "3" },
+      { value: 2, label: "Customer care number", trigger: "4" },
+    ],
+  },
+  {
+    id: "3",
+    component: (
+      <ul className="t-flex t-flex-col t-gap-f-8">
+        {fabAgencyServices.map(({ id, title, pageHref }) => (
+          <li key={id}>
+            <Link to={pageHref} className="t-text-f-primary-40 t-underline">
+              {title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    ),
+    trigger: "5",
+  },
+  {
+    id: "4",
+    component: (
+      <Link className="t-text-f-primary-40 t-underline" to="tel:+918306823235">
+        +918306823235
+      </Link>
+    ),
+    trigger: "5",
+  },
+  {
+    id: "5",
+    options: [
+      { value: 3, label: "Close the chat", trigger: "6" },
+      { value: 4, label: "Repeat", trigger: "7" },
+    ],
+  },
+  {
+    id: "6",
+    message: () => {
+      setTimeout(() => setShowChat(false), 4000);
+      return "Closing in 4 sec.";
+    },
+    end: true,
+  },
+  {
+    id: "7",
+    message: "Ok",
+    trigger: "0",
+  },
+];
+
+const theme = {
+  background: "#ed",
+  fontFamily: "Helvetica Neue",
+  headerBgColor: "#EF6C00",
+  headerFontColor: "#fff",
+  headerFontSize: "15px",
+  botBubbleColor: "#EF6C00",
+  botFontColor: "#fff",
+  userBubbleColor: "#fff",
+  userFontColor: "#4a4a4a",
+};
 
 const AgencyHome = () => {
-  const steps = [
-    {
-      id: "0",
-      message: "Welcome to Fab Digital Marketing!",
-      trigger: "1",
-    },
-    {
-      id: "1",
-      message: "Please select an options",
-      trigger: "2",
-    },
-    {
-      id: "2",
-      options: [
-        { value: 1, label: "List of services", trigger: "3" },
-        { value: 2, label: "Customer care number", trigger: "4" },
-      ],
-    },
-    {
-      id: "3",
-      component: (
-        <ul className="t-flex t-flex-col t-gap-f-8">
-          {fabAgencyServices.map(({ id, title, pageHref }) => (
-            <li key={id}>
-              <Link to={pageHref} className="t-text-f-primary-40 t-underline">
-                {title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      ),
-      trigger: "5",
-    },
-    {
-      id: "4",
-      component: (
-        <Link
-          className="t-text-f-primary-40 t-underline"
-          to="tel:+918306823235"
-        >
-          +918306823235
-        </Link>
-      ),
-      trigger: "5",
-    },
-    {
-      id: "5",
-      options: [
-        { value: 3, label: "Close the chat", trigger: "6" },
-        { value: 4, label: "Repeat", trigger: "7" },
-      ],
-    },
-    {
-      id: "6",
-      message: () => {
-        setTimeout(() => setShowChat(false), 4000);
-        return "Closing in 4 sec.";
-      },
-      end: true,
-    },
-    {
-      id: "7",
-      message: "Ok",
-      trigger: "0",
-    },
-  ];
-
-  const theme = {
-    background: "#ed",
-    fontFamily: "Helvetica Neue",
-    headerBgColor: "#EF6C00",
-    headerFontColor: "#fff",
-    headerFontSize: "15px",
-    botBubbleColor: "#EF6C00",
-    botFontColor: "#fff",
-    userBubbleColor: "#fff",
-    userFontColor: "#4a4a4a",
-  };
-
   return (
     <div>
       {/* hero section starts */}
-      <section className="t-mb-f-64">
-        <div className="container t-grid t-grid-cols-2 t-items-center">
+      <section className="t-mb-f-24 md:t-mb-f-48 lg:t-mb-f-64">
+        <div className="container t-grid md:t-grid-cols-2 t-items-center">
           {/* text container */}
-          <div>
-            <h2 className="t-text-f-3xl t-mb-f-32">
+          <div className="t-text-center md:t-text-start">
+            <h2 className="t-text-f-l md:t-text-f-xl lg:t-text-f-2xl t-mb-f-16 lg:t-mb-f-32">
               Don't Settle for Ordinary – Let Your{" "}
               <span className="t-text-f-primary-50">Brand Grow</span> With Our{" "}
               <span className="t-text-f-secondary-50">
@@ -133,8 +138,11 @@ const AgencyHome = () => {
               Strategies, Ensuring your business's exponential growth
             </p>
             {/* buttons container */}
-            <div className="t-flex t-gap-f-16">
-              <a className="f-btn-md f-btn-primary" href="#services-section">
+            <div className="t-flex t-justify-center md:t-justify-start t-gap-f-16">
+              <a
+                className="f-btn-sm lg:f-btn-md f-btn-primary"
+                href="#services-section"
+              >
                 Show Me How
               </a>
               {/* <button className="t-flex t-items-center t-gap-f-4 t-text-f-primary-40 t-text-f-md">
@@ -146,7 +154,7 @@ const AgencyHome = () => {
             </div>
           </div>
           {/* image container */}
-          <div>
+          <div className="t-hidden md:t-block">
             {/* <HeroImage /> */}
             <img src={heroImage} alt="hero image" className="t-w-full" />
           </div>
@@ -155,70 +163,67 @@ const AgencyHome = () => {
       {/* hero section ends */}
 
       {/* client section starts */}
-      <section className="t-mb-f-64">
+      <section className="t-mb-f-24 md:t-mb-f-48 lg:t-mb-f-64">
         <div className="container">
-          <h2 className="t-text-f-3xl t-mb-f-48">
+          <h2 className="t-text-f-l md:t-text-f-xl lg:t-text-f-2xl t-mb-f-24 lg:t-mb-f-48">
             Brands that <span className="t-text-f-primary-50">Trust Us</span>
           </h2>
           {/* clients container */}
-          <div
-            id="clientsCarousel"
-            className="carousel slide"
-            data-bs-ride="carousel"
-          >
-            <div className="carousel-inner">
-              <div className="carousel-item active">
-                <div className="t-flex t-justify-evenly">
+          {/* scroll container */}
+          <div className="t-overflow-hidden animation-pause-on-hover">
+            {/* list of clients */}
+            <div className="t-flex t-gap-f-24 t-w-max">
+              {Array.from({ length: 2 }, (_, idx) => (
+                <div
+                  className="t-flex t-gap-f-24 t-shrink-0 animation-scrollToLeft"
+                  key={idx}
+                >
                   <img
-                    className="t-w-[150px] t-h-[150px] t-block"
+                    className="t-w-f-64 t-h-f-64 md:t-w-f-96 md:t-h-f-96 lg:t-w-[150px] lg:t-h-[150px] t-object-contain t-shrink-0"
                     src={client1441Fitness}
                   />
                   <img
-                    className="t-w-[150px] t-h-[150px] t-block"
+                    className="t-w-f-64 t-h-f-64 md:t-w-f-96 md:t-h-f-96 lg:t-w-[150px] lg:t-h-[150px] t-object-contain t-shrink-0"
                     src={clientAlefiyaFitness}
                   />
                   <img
-                    className="t-w-[150px] t-h-[150px] t-block"
+                    className="t-w-f-64 t-h-f-64 md:t-w-f-96 md:t-h-f-96 lg:t-w-[150px] lg:t-h-[150px] t-object-contain t-shrink-0"
                     src={clientJumbo}
                   />
                   <img
-                    className="t-w-[150px] t-h-[150px] t-block"
+                    className="t-w-f-64 t-h-f-64 md:t-w-f-96 md:t-h-f-96 lg:t-w-[150px] lg:t-h-[150px] t-object-contain t-shrink-0"
                     src={clientKomfortPlanetSystem}
                   />
                   <img
-                    className="t-w-[150px] t-h-[150px] t-block"
+                    className="t-w-f-64 t-h-f-64 md:t-w-f-96 md:t-h-f-96 lg:t-w-[150px] lg:t-h-[150px] t-object-contain t-shrink-0"
                     src={clientMountain}
                   />
                   <img
-                    className="t-w-[150px] t-h-[150px] t-block"
+                    className="t-w-f-64 t-h-f-64 md:t-w-f-96 md:t-h-f-96 lg:t-w-[150px] lg:t-h-[150px] t-object-contain t-shrink-0"
                     src={clientOcrFitnessTheGrindYouVsYou}
                   />
-                </div>
-              </div>
-              <div className="carousel-item">
-                <div className="t-flex t-justify-evenly">
                   <img
-                    className="t-w-[150px] t-h-[150px] t-block"
+                    className="t-w-f-64 t-h-f-64 md:t-w-f-96 md:t-h-f-96 lg:t-w-[150px] lg:t-h-[150px] t-object-contain t-shrink-0"
                     src={clientProSports}
                   />
                   <img
-                    className="t-w-[150px] t-h-[150px] t-block"
+                    className="t-w-f-64 t-h-f-64 md:t-w-f-96 md:t-h-f-96 lg:t-w-[150px] lg:t-h-[150px] t-object-contain t-shrink-0"
                     src={clientProSportsCricket}
                   />
                   <img
-                    className="t-w-[150px] t-h-[150px] t-block"
+                    className="t-w-f-64 t-h-f-64 md:t-w-f-96 md:t-h-f-96 lg:t-w-[150px] lg:t-h-[150px] t-object-contain t-shrink-0"
                     src={clientRazain}
                   />
                   <img
-                    className="t-w-[150px] t-h-[150px] t-block"
+                    className="t-w-f-64 t-h-f-64 md:t-w-f-96 md:t-h-f-96 lg:t-w-[150px] lg:t-h-[150px] t-object-contain t-shrink-0"
                     src={clientSaraOman}
                   />
                   <img
-                    className="t-w-[150px] t-h-[150px] t-block"
+                    className="t-w-f-64 t-h-f-64 md:t-w-f-96 md:t-h-f-96 lg:t-w-[150px] lg:t-h-[150px] t-object-contain t-shrink-0"
                     src={clientSaraUae}
                   />
                 </div>
-              </div>
+              ))}
             </div>
           </div>
           {/* <div className="t-flex t-gap-f-56 t-items-center"></div> */}
@@ -227,13 +232,13 @@ const AgencyHome = () => {
       {/* client section ends */}
 
       {/* intro section starts */}
-      <section className="t-mb-f-64">
+      <section className="t-mb-f-24 md:t-mb-f-48 lg:t-mb-f-64">
         {/* what we provide starts */}
-        <div className="container t-mb-f-120">
-          <div className="t-grid t-grid-cols-2 t-gap-f-96">
+        <div className="container t-mb-f-16 md:t-mb-f-24 lg:t-mb-f-32">
+          <div className="t-grid md:t-grid-cols-2 t-items-center t-gap-f-24 lg:t-gap-f-96">
             {/* text container */}
             <div>
-              <h3 className="t-text-f-2xl t-mb-f-24">
+              <h3 className="t-text-f-l md:t-text-f-xl lg:t-text-f-2xl t-mb-f-24">
                 Your{" "}
                 <span className="t-text-f-secondary-50">
                   All-Inclusive Marketing
@@ -247,20 +252,32 @@ const AgencyHome = () => {
             </div>
 
             {/* cards container */}
-            <div className="t-grid t-grid-cols-2 t-gap-f-24">
+            <div className="t-grid sm:t-grid-cols-2 md:t-grid-cols-1 lg:t-grid-cols-2 t-gap-f-16 xl:t-gap-f-24">
               <a
-                className="border t-shadow-md t-border-f-primary-60 t-bg-f-primary-98 t-text-f-l t-flex t-flex-col t-justify-between t-gap-f-16 t-p-f-16 t-rounded-f-8 hover:-t-translate-y-f-16 t-transition-all t-duration-300 hover:t-shadow-lg hover:t-bg-f-primary-98"
+                className="border t-shadow-md t-border-f-primary-60 t-bg-f-primary-98 t-items-center t-flex-col t-text-f-md md:t-flex-row md:t-justify-between lg:t-text-f-md xl:t-text-f-l t-flex lg:t-flex-col lg:t-justify-between t-gap-f-16 t-p-f-16 t-rounded-f-8 hover:-t-translate-y-f-16 t-transition-all t-duration-300 hover:t-shadow-lg hover:t-bg-f-primary-98"
                 href="#services-section"
               >
-                <BiSolidHeartCircle className="t-text-green-500 t-self-end t-text-5xl" />
-                <h5>
+                <BiSolidHeartCircle className="t-text-green-500 lg:t-self-end t-text-5xl" />
+                <h5 className="t-center t-text-center md:t-text-start">
                   <span className="t-text-green-500">Services </span>
                   we provide for you
                 </h5>
-                <BsArrowRight className="t-text-black t-self-end" />
+                <BsArrowRight className="t-text-black lg:t-self-end t-ms-auto t-hidden md:t-block" />
               </a>
 
               <Link
+                className="border t-shadow-md t-border-f-primary-60 t-bg-f-primary-98 t-items-center t-flex-col t-text-f-md md:t-flex-row md:t-justify-between lg:t-text-f-md xl:t-text-f-l t-flex lg:t-flex-col lg:t-justify-between t-gap-f-16 t-p-f-16 t-rounded-f-8 hover:-t-translate-y-f-16 t-transition-all t-duration-300 hover:t-shadow-lg hover:t-bg-f-primary-98"
+                to="/nfc"
+              >
+                <LuNfc className="t-text-f-secondary-50 lg:t-self-end t-text-5xl" />
+                <h5 className="t-center t-text-center md:t-text-start">
+                  <span className="t-text-f-secondary-50">Fabtap Cards </span>
+                  we provide for you
+                </h5>
+                <BsArrowRight className="t-text-black lg:t-self-end t-ms-auto t-hidden md:t-block" />
+              </Link>
+
+              {/* <Link
                 className="border t-shadow-md t-border-f-primary-60 t-bg-f-primary-98 t-text-f-l t-flex t-flex-col t-justify-between t-gap-f-16 t-p-f-16 t-rounded-f-8 hover:-t-translate-y-f-16 t-transition-all t-duration-300 hover:t-shadow-lg hover:t-bg-f-primary-98"
                 to="/nfc"
               >
@@ -270,19 +287,19 @@ const AgencyHome = () => {
                   <span className="t-text-f-secondary-50">Fabtap Cards</span>.
                 </h5>
                 <BsArrowRight className="t-text-black t-self-end" />
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
         {/* what we provide ends */}
 
         {/* about our team starts */}
-        <div className="t-relative t-mb-f-120">
+        <div className="t-relative t-mb-f-16 md:t-mb-f-24 lg:t-mb-f-32">
           <div className="container">
-            <div className="t-grid t-grid-cols-2 t-items-center t-gap-f-96">
+            <div className="t-grid lg:t-grid-cols-2 t-items-center t-gap-f-96">
               {/* image container */}
               {/* <div className="-t-translate-x-[28%] t-translate-y-[20%] t-scale-150"> */}
-              <div>
+              <div className="t-hidden lg:t-block">
                 <img
                   src={aboutOurTeam}
                   className="t-absolute t-top-0 t-left-0 t-h-[400px]"
@@ -292,7 +309,7 @@ const AgencyHome = () => {
 
               {/* text container */}
               <div>
-                <h3 className="t-text-f-2xl t-mb-f-24">
+                <h3 className="t-text-f-l md:t-text-f-xl lg:t-text-f-2xl t-mb-f-24">
                   We are Your{" "}
                   <span className="t-text-f-primary-50">
                     Marketing Power House
@@ -319,11 +336,11 @@ const AgencyHome = () => {
         {/* about our team ends */}
 
         {/* our services provide starts */}
-        <div className="container t-mb-f-120" id="services-section">
-          <div className="t-grid t-grid-cols-2 t-items-center t-gap-f-96">
+        <div className="container" id="services-section">
+          <div className="t-grid md:t-grid-cols-2 t-items-center md:t-gap-f-96">
             {/* text container */}
             <div>
-              <h3 className="t-text-f-2xl t-mb-f-24">
+              <h3 className="t-text-f-l md:t-text-f-xl lg:t-text-f-2xl t-mb-f-24">
                 Our <span className="t-text-green-500">Services</span>
               </h3>
               <p className="t-text-f-base t-mb-f-16">
@@ -340,53 +357,61 @@ const AgencyHome = () => {
             </div>
 
             {/* cards container */}
-            <div className="t-grid t-grid-rows-3 t-gap-f-24">
+            <div className="t-grid t-grid-cols-2 t-grid-rows-2 md:t-grid-rows-4 md:t-grid-cols-1 t-gap-f-24">
               {/* social media marketing card */}
               <Link
-                className="t-flex align-items-center t-justify-between t-text-f-md t-bg-f-secondary-90 t-font-semibold t-p-f-16 t-gap-f-16 t-rounded-f-8 hover:t-bg-f-secondary-80"
+                className="t-flex t-flex-col md:t-flex-row t-items-center t-justify-center t-text-center md:t-text-start md:flex-row md:t-items-center md:t-justify-between t-text-f-sm lg:t-text-f-md t-bg-f-secondary-90 t-font-semibold t-p-f-8 lg:t-p-f-16 t-gap-f-16 t-rounded-f-8 hover:t-bg-f-secondary-80"
                 to="/marketing/services/social-media-marketing"
               >
-                <div className="t-text-f-secondary-20 t-bg-f-secondary-80 t-p-f-8 t-text-f-l t-rounded-full">
+                <div className="t-text-f-secondary-20 t-bg-f-secondary-80 t-p-f-8 t-text-f-base lg:t-text-f-l t-rounded-full">
                   <IoShareSocial />
                 </div>
                 <span>Social Media Marketing</span>
-                <BsArrowRight className="t-text-f-l ms-auto" />
+                <div className="t-w-f-24 t-h-f-24 t-text-[24px] lg:t-w-f-32 lg:t-h-f-32 lg:t-text-[32px] ms-auto t-hidden md:t-block">
+                  <BsArrowRight />
+                </div>
               </Link>
 
               {/* result driven ads campaigns card */}
               <Link
-                className="t-flex align-items-center t-justify-between t-text-f-md t-bg-green-100 t-font-semibold t-p-f-16 t-gap-f-16 t-rounded-f-8 hover:t-bg-green-200"
+                className="t-flex t-flex-col md:t-flex-row t-items-center t-justify-center t-text-center md:t-text-start md:flex-row md:t-items-center md:t-justify-between t-text-f-sm lg:t-text-f-md t-bg-green-100 t-font-semibold t-p-f-8 lg:t-p-f-16 t-gap-f-16 t-rounded-f-8 hover:t-bg-green-200"
                 to="#content-creation"
               >
-                <div className="t-text-green-800 t-bg-green-200 t-p-f-8 t-text-f-l t-rounded-full">
+                <div className="t-text-green-800 t-bg-green-200 t-p-f-8 t-text-f-base lg:t-text-f-l t-rounded-full">
                   <FaFilterCircleDollar />
                 </div>
                 <span>Result-Driven Ads Campaigns</span>
-                <BsArrowRight className="t-text-f-l ms-auto" />
+                <div className="t-w-f-24 t-h-f-24 t-text-[24px] lg:t-w-f-32 lg:t-h-f-32 lg:t-text-[32px] ms-auto t-hidden md:t-block">
+                  <BsArrowRight />
+                </div>
               </Link>
 
               {/* attract clients on automation card */}
               <Link
-                className="t-flex align-items-center t-justify-between t-text-f-md t-bg-f-primary-90 t-font-semibold t-p-f-16 t-gap-f-16 t-rounded-f-8 hover:t-bg-f-primary-80"
+                className="t-flex t-flex-col md:t-flex-row t-items-center t-justify-center t-text-center md:t-text-start md:flex-row md:t-items-center md:t-justify-between t-text-f-sm lg:t-text-f-md t-bg-f-primary-90 t-font-semibold t-p-f-8 lg:t-p-f-16 t-gap-f-16 t-rounded-f-8 hover:t-bg-f-primary-80"
                 to="/marketing/services/websites"
               >
-                <div className="t-text-f-primary-20 t-bg-f-primary-80 t-p-f-8 t-text-f-l t-rounded-full">
+                <div className="t-text-f-primary-20 t-bg-f-primary-80 t-p-f-8 t-text-f-base lg:t-text-f-l t-rounded-full">
                   <IoMagnetSharp />
                 </div>
                 <span>Attract Clients on Automation</span>
-                <BsArrowRight className="t-text-f-l ms-auto" />
+                <div className="t-w-f-24 t-h-f-24 t-text-[24px] lg:t-w-f-32 lg:t-h-f-32 lg:t-text-[32px] ms-auto t-hidden md:t-block">
+                  <BsArrowRight />
+                </div>
               </Link>
 
               {/* widen your reach with website & google ads card */}
               <Link
-                className="t-flex align-items-center t-justify-between t-text-f-md t-bg-f-secondary-90 t-font-semibold t-p-f-16 t-gap-f-16 t-rounded-f-8 hover:t-bg-f-secondary-80"
+                className="t-flex t-flex-col md:t-flex-row t-items-center t-justify-center t-text-center md:t-text-start md:flex-row md:t-items-center md:t-justify-between t-text-f-sm lg:t-text-f-md t-bg-f-secondary-90 t-font-semibold t-p-f-8 lg:t-p-f-16 t-gap-f-16 t-rounded-f-8 hover:t-bg-f-secondary-80"
                 to="/marketing/services/websites"
               >
-                <div className="t-text-f-secondary-20 t-bg-f-secondary-80 t-p-f-8 t-text-f-l t-rounded-full">
+                <div className="t-text-f-secondary-20 t-bg-f-secondary-80 t-p-f-8 t-text-f-base lg:t-text-f-l t-rounded-full">
                   <CgWebsite />
                 </div>
                 <span>Widen your reach with Website & Google Ads</span>
-                <BsArrowRight className="t-text-f-l ms-auto" />
+                <div className="t-w-f-24 t-h-f-24 t-text-[24px] lg:t-w-f-32 lg:t-h-f-32 lg:t-text-[32px] ms-auto t-hidden md:t-block">
+                  <BsArrowRight />
+                </div>
               </Link>
             </div>
           </div>
@@ -396,102 +421,181 @@ const AgencyHome = () => {
       {/* intro section ends */}
 
       {/* best works starts */}
-      <section className="t-mb-f-64" id="works-section">
+      <section
+        className="t-mb-f-24 md:t-mb-f-48 lg:t-mb-f-64"
+        id="works-section"
+      >
         <div className="container t-text-center">
-          <h2 className="t-text-f-3xl t-mb-f-48">
-            Client Results{" "}
+          <h2 className="t-text-f-l md:t-text-f-xl lg:t-text-f-2xl t-mb-f-48 t-flex t-flex-col">
+            <span>Client Results</span>
             <span className="t-text-f-primary-50">
-              Upto 10x ROAS in Revenue Generated
+              More than 10x ROAS in Revenue Generated
             </span>
           </h2>
 
           {/* list of websites */}
-          <ul className="t-grid t-grid-cols-2 t-grid-rows-2 t-gap-y-f-48 t-mb-f-24">
-            <li>
+          <ul className="t-grid md:t-grid-cols-3 t-gap-f-16 t-mb-f-24 t-justify-center">
+            <li className="t-bg-f-primary-90 t-p-f-4 t-rounded-f-8 hover:t-scale-105 t-transition-all t-duration-150 hover:t-shadow-xl">
               <img
-                src={skillMaxDashboard}
+                src={result1}
                 alt="screenshot of Skill Max dashboard"
+                className="t-w-full t-rounded-f-8"
               />
             </li>
-            <li>
+            <li className="t-bg-f-primary-90 t-p-f-4 t-rounded-f-8 hover:t-scale-105 t-transition-all t-duration-150 hover:t-shadow-xl">
               <img
-                src={fabTapDashboard}
+                src={result2}
                 alt="screenshot of Fab Tap dashboard"
+                className="t-w-full t-rounded-f-8"
               />
             </li>
-            <li>
+            <li className="t-bg-f-primary-90 t-p-f-4 t-rounded-f-8 hover:t-scale-105 t-transition-all t-duration-150 hover:t-shadow-xl">
               <img
-                src={skillMaxDashboard}
+                src={result3}
                 alt="screenshot of Skill Max dashboard"
-              />
-            </li>
-            <li>
-              <img
-                src={fabTapDashboard}
-                alt="screenshot of Fab Tap dashboard"
+                className="t-w-full t-rounded-f-8"
               />
             </li>
           </ul>
 
-          <Link
+          {/* <Link
             className="f-btn-md f-btn-primary"
             to="/marketing/portfolios/websites"
           >
             View all
-          </Link>
+          </Link> */}
         </div>
       </section>
       {/* best works ends */}
 
       {/* Feedback section starts */}
-      <section className="t-mb-f-64">
+      <section className="t-mb-f-24 md:t-mb-f-48 lg:t-mb-f-64">
         <div className="container">
-          <h2 className="t-text-f-3xl t-mb-f-48 t-text-center">
+          <h2 className="t-text-f-l md:t-text-f-xl lg:t-text-f-2xl t-mb-f-24 t-text-center">
             What Our <span className="t-text-f-secondary-50">Client</span> Says{" "}
             <span className="t-text-f-secondary-50">About Us</span>
           </h2>
-          {/* cards container */}
-          <div className="t-grid t-grid-cols-3 t-gap-f-24">
-            {fabAgencyReviews.map(
-              (
-                { Icon, description, rating, author, company, profilePic },
-                idx
-              ) => (
-                <article
-                  key={idx}
-                  className="t-flex t-flex-col t-gap-f-24 t-rounded-f-8 t-border-2 t-border-f-secondary-50 t-p-f-24 t-bg-f-secondary-98 t-shadow-lg t-shadow-f-secondary-95"
-                >
-                  <Icon className="t-w-f-48 t-h-f-48" />
-                  <p className="t-text-f-base">{description}</p>
-                  <Stars num={rating} />
-                  <div className="t-flex t-items-center t-gap-f-24">
-                    <img
-                      src={profilePic}
-                      alt={`Profile picture of ${author}`}
-                      className="t-w-f-96 t-h-f-96 t-object-cover t-rounded-full"
-                    />
-                    <div>
-                      <h4 className="t-text-f-md">{author}</h4>
-                      <h5 className="t-text-f-sm">{company}</h5>
+          {/* carousel starts */}
+          <div
+            id="reviewsCarousel"
+            className="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div className="carousel-inner">
+              {/* <div className="carousel-item active">
+      <img src="..." className="d-block w-100" alt="...">
+    </div>
+    <div className="carousel-item">
+      <img src="..." className="d-block w-100" alt="...">
+    </div>
+    <div className="carousel-item">
+      <img src="..." className="d-block w-100" alt="...">
+    </div> */}
+              {(function() {
+                let reviewTempList = [];
+                const reviewList = [];
+                const screenSize =
+                  window.innerWidth >= 1024
+                    ? "lg"
+                    : window.innerWidth >= 768
+                    ? "md"
+                    : "sm";
+                console.log("screenSize", screenSize);
+                for (let i = 0; i < fabAgencyReviews.length; i++) {
+                  const {
+                    description,
+                    rating,
+                    author,
+                    company,
+                  } = fabAgencyReviews[i];
+                  const review = (
+                    <article
+                      key={i}
+                      className="t-flex t-flex-col t-gap-f-24 t-rounded-f-8 t-border-2 t-border-f-secondary-50 t-p-f-24 t-bg-f-secondary-98 t-shadow-lg t-shadow-f-secondary-95"
+                    >
+                      <ImQuotesLeft className="t-w-f-48 t-h-f-48 t-object-contain t-text-f-secondary-50" />
+                      <p className="t-text-f-base">{description}</p>
+                      <Stars num={rating} />
+                      {/* <div className="t-flex t-items-center t-gap-f-24">
+            <img
+              src={profilePic}
+              alt={`Profile picture of ${author}`}
+              className="t-w-f-96 t-h-f-96 t-object-cover t-rounded-full"
+            />
+            <div>
+              <h4 className="t-text-f-md">{author}</h4>
+              <h5 className="t-text-f-sm">{company}</h5>
+            </div>
+          </div> */}
+                    </article>
+                  );
+                  reviewTempList.push(review);
+                  if (
+                    (screenSize === "md" && reviewTempList.length === 2) ||
+                    (screenSize === "lg" && reviewTempList.length === 3) ||
+                    screenSize === "sm"
+                  ) {
+                    reviewList.push([...reviewTempList]);
+                    reviewTempList = [];
+                  }
+                }
+                const carouselItems = reviewList.map((reviewArr, idx) => (
+                  <div
+                    className={`carousel-item t-px-f-56 md:t-px-f-96 ${
+                      idx === 0 ? " active" : ""
+                    }`}
+                  >
+                    <div
+                      className={`t-grid ${
+                        screenSize === "md"
+                          ? "t-grid-cols-2"
+                          : screenSize === "lg"
+                          ? "t-grid-cols-3"
+                          : ""
+                      } t-gap-f-24`}
+                    >
+                      {reviewArr}
                     </div>
                   </div>
-                </article>
-              )
-            )}
+                ));
+                return carouselItems;
+              })()}
+            </div>
+            <button
+              className="carousel-control-prev"
+              type="button"
+              data-bs-target="#reviewsCarousel"
+              data-bs-slide="prev"
+            >
+              <IoIosArrowDropleftCircle className="t-text-f-secondary-50 t-text-f-3xl t-z-10" />
+              <span className="visually-hidden">Previous</span>
+            </button>
+            <button
+              className="carousel-control-next"
+              type="button"
+              data-bs-target="#reviewsCarousel"
+              data-bs-slide="next"
+            >
+              <IoIosArrowDroprightCircle className="t-text-f-secondary-50 t-text-f-3xl t-z-10" />
+              <span className="visually-hidden">Next</span>
+            </button>
           </div>
+          {/* carousel ends */}
         </div>
       </section>
       {/* Feedback section ends */}
 
       {/* faq section starts */}
-      <section className="">
-        <div className="container t-grid t-grid-cols-2 t-gap-f-24">
-          <header className="t-flex t-flex-col t-gap-f-24 t-items-start">
-            <h2 className="t-text-f-3xl">Still have more questions in mind?</h2>
+      <section className="t-mb-f-24 md:t-mb-f-48 lg:t-mb-f-64">
+        <div className="container t-grid md:t-grid-cols-2 t-gap-f-16 md:t-gap-f-24">
+          <header className="t-flex t-flex-col t-gap-f-8 t-items-center md:t-gap-f-24 md:t-items-start">
+            <h2 className="t-text-f-l md:t-text-f-xl lg:t-text-f-2xl t-text-center md:t-text-start">
+              Still have more questions in mind?
+            </h2>
             <h3 className="t-text-f-base">Ask Away.</h3>
             <button
               type="button"
-              className="f-btn-md f-btn-primary"
+              className="f-btn-sm md:f-btn-md f-btn-primary"
               data-bs-toggle="modal"
               data-bs-target="#contactInfo"
             >

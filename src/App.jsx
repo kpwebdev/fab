@@ -17,9 +17,9 @@ import { AuthContext } from "./contexts/AuthProvider.context";
 // const SharedHome = lazy(() => import("./routes/sharedHome.route"));
 // const Home = lazy(() => import("./routes/home.route"));
 // const About = lazy(() => import("./routes/about.route"));
-// const NfcHomeSharedLayout = lazy(() =>
-//   import("./routes/nfc/nfcHomeSharedLayout.route")
-// );
+const NfcHomeSharedLayout = lazy(() =>
+  import("./routes/nfc/nfcHomeSharedLayout.route")
+);
 // const NfcHome = lazy(() => import("./routes/nfc/nfcHome.route"));
 // const AuthenticationSharedLayout = lazy(() =>
 //   import("./routes/authentication/authenticationSharedLayout.route")
@@ -76,18 +76,18 @@ import { AuthContext } from "./contexts/AuthProvider.context";
 // const CustomizeCard = lazy(() =>
 //   import("./routes/creation/customizeCard.route")
 // );
-// const DigitalProfile = lazy(() =>
-//   import("./routes/creation/digitalProfile.route")
-// );
+const DigitalProfile = lazy(() =>
+  import("./routes/creation/digitalProfile.route")
+);
 // const ProfileTemplates = lazy(() =>
 //   import("./routes/creation/profileTemplates.route")
 // );
 // const CustomizeProfile = lazy(() =>
 //   import("./routes/creation/customizeProfile.route")
 // );
-// const AgencySharedLayout = lazy(() =>
-//   import("./routes/agency/agencySharedLayout.route")
-// );
+const AgencySharedLayout = lazy(() =>
+  import("./routes/agency/agencySharedLayout.route")
+);
 // const AgencyHome = lazy(() => import("./routes/agency/agencyHome.route"));
 // const ServicesSharedLayout = lazy(() =>
 //   import("./routes/agency/servicesSharedLayout.route")
@@ -122,7 +122,7 @@ import {
   Home,
   Services,
   About,
-  NfcHomeSharedLayout,
+  // NfcHomeSharedLayout,
   NfcHome,
   AuthenticationSharedLayout,
   Login,
@@ -157,11 +157,12 @@ import {
   CardTemplates,
   CustomizeCard,
   CustomizeCardTemplate,
-  DigitalProfile,
+  // DigitalProfile,
   ProfileTemplates,
   CustomizeProfile,
-  AgencySharedLayout,
+  // AgencySharedLayout,
   AgencyHome,
+  AgencyAboutUs,
   ServicesSharedLayout,
   Service,
   PortfoliosSharedLayout,
@@ -399,8 +400,22 @@ function App() {
             <Route path="services" element={<Home />} />
             <Route path="about" element={<About />} />
           </Route>
-          <Route path="/nfc" element={<NfcHomeSharedLayout />}>
+          <Route
+            path="/nfc"
+            element={
+              <Suspense
+                fallback={
+                  <div className="t-my-f-24 t-flex t-justify-center t-items-center">
+                    <span className="custom-loader"></span>
+                  </div>
+                }
+              >
+                <NfcHomeSharedLayout />
+              </Suspense>
+            }
+          >
             <Route index element={<NfcHome />} />
+            <Route path="about-us" element={<AgencyAboutUs />} />
           </Route>
           {/* routes for authentication page and sub-pages */}
           <Route
@@ -488,7 +503,17 @@ function App() {
           /> */}
           <Route
             path="/nfc/creation/digital-profile"
-            element={<DigitalProfile />}
+            element={
+              <Suspense
+                fallback={
+                  <div className="t-my-f-24 t-flex t-justify-center t-items-center">
+                    <span className="custom-loader"></span>
+                  </div>
+                }
+              >
+                <DigitalProfile />
+              </Suspense>
+            }
           />
           <Route
             path="/nfc/creation/digital-profile/template"
@@ -499,8 +524,22 @@ function App() {
             element={<CustomizeProfile />}
           />
           {/* routes for fab digital agency page and sub-pages */}
-          <Route path="/marketing" element={<AgencySharedLayout />}>
+          <Route
+            path="/marketing"
+            element={
+              <Suspense
+                fallback={
+                  <div className="t-my-f-24 t-flex t-justify-center t-items-center">
+                    <span className="custom-loader"></span>
+                  </div>
+                }
+              >
+                <AgencySharedLayout />
+              </Suspense>
+            }
+          >
             <Route index element={<AgencyHome />} />
+            <Route path="about-us" element={<AgencyAboutUs />} />
             <Route path="services" element={<ServicesSharedLayout />}>
               <Route index element={<ServicesIndex />} />
               <Route path=":id" element={<Service />} />

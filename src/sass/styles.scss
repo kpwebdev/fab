@@ -1,0 +1,67 @@
+::-webkit-scrollbar {
+  width: 0.6rem;
+  height: 0.6rem;
+  background-color: #d2e2f9;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(6, 22, 45, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #206fdf;
+  outline: 1px solid rgba(6, 22, 45, 0.3);
+}
+
+.services-section {
+  background-size: cover !important;
+  background-position: center;
+}
+.fab-agency-service-link:hover {
+  .fab-agency-service-link-arrow {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+.fab-agency-service-link-arrow {
+  opacity: 0;
+  transform: translateX(-30%);
+  transition: all 0.3s 0.05s;
+}
+
+.animation-scrollToLeft {
+  animation: scrollToLeft 10s linear infinite;
+}
+
+.animation-pause-on-hover:hover .animation-scrollToLeft {
+  animation-play-state: paused;
+}
+
+@keyframes scrollToLeft {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.custom-loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid;
+  border-color: #206fdf transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

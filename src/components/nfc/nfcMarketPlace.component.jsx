@@ -4,7 +4,7 @@ import { PiCurrencyInrLight } from "react-icons/pi";
 
 const NfcMarketPlace = () => {
   return (
-    <section className="t-min-h-screen t-py-f-96">
+    <section className="t-min-h-screen t-py-f-48">
       <div className="container">
         <header className="t-mb-f-24">
           <h2 className="t-text-f-3xl">Choose Your Design</h2>

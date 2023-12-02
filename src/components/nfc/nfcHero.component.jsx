@@ -40,31 +40,31 @@ const NfcHero = () => {
           }}
         >
           {/* container */}
-          <div className="container t-grid t-items-center t-grid-cols-2 t-min-h-screen">
+          <div className="container t-grid t-items-center md:t-grid-cols-2 t-py-f-48 md:t-py-f-96 lg:t-min-h-screen">
             {/* text container */}
-            <div className="t-text-f-primary-99">
+            <div className="t-text-f-primary-99 t-text-center md:t-text-start">
               <h2
-                className="t-text-f-4xl t-mb-f-24"
+                className="t-text-f-xl md:t-text-f-2xl lg:t-text-f-3xl xl:t-text-f-4xl t-mb-f-24"
                 style={{ textShadow: "0px 8px 8px rgba(0,0,0,.5)" }}
               >
                 Tap The future of Networking in a Single{" "}
                 <span className="t-text-f-secondary-50">Tap</span>
               </h2>
               <h3
-                className="t-text-f-xl t-mb-f-16 t-text-f-secondary-50"
+                className="t-text-f-base md:t-text-f-md lg:t-text-f-l xl:t-text-f-xl t-mb-f-16 t-text-f-secondary-50"
                 style={{ textShadow: "0px 8px 8px rgba(0,0,0,.5)" }}
               >
                 Design · Tap · Connect with Fab Tap
               </h3>
               <Link
-                className="f-btn-lg f-btn-primary"
+                className="f-btn-sm md:f-btn-md lg:f-btn-lg f-btn-primary"
                 to="/nfc/authentication/login"
               >
                 Get Started
               </Link>
             </div>
             {/* animation container */}
-            <div>
+            <div className="t-hidden md:t-block">
               <Lottie
                 animationData={emilyAnimation}
                 className="t-scale-150"
@@ -88,11 +88,11 @@ const NfcHero = () => {
           // }}
         >
           {/* container */}
-          <div className="container t-grid t-items-center t-grid-cols-2 t-min-h-screen">
+          <div className="container t-grid t-items-center md:t-grid-cols-2 t-py-f-48 md:t-py-f-96 lg:t-min-h-screen">
             {/* text container */}
-            <div className="t-text-f-primary-99">
+            <div className="t-text-f-primary-99 t-text-center md:t-text-start">
               <h2
-                className="t-text-f-3xl t-mb-f-24"
+                className="t-text-f-xl md:t-text-f-2xl lg:t-text-f-3xl xl:t-text-f-4xl t-mb-f-24"
                 style={{ textShadow: "0px 8px 8px rgba(0,0,0,.5)" }}
               >
                 Discover Easy Design with Our{" "}
@@ -102,14 +102,14 @@ const NfcHero = () => {
                 Tailored to Your Brand! Tap Once for Countless Opportunities!
               </h2>
               <Link
-                className="f-btn-lg f-btn-primary"
+                className="f-btn-sm md:f-btn-md lg:f-btn-lg f-btn-primary"
                 to="/nfc/authentication/login"
               >
                 Browse Templates
               </Link>
             </div>
             {/* animation container */}
-            <div>
+            <div className="t-hidden md:t-block">
               <Lottie
                 animationData={cardSlideAnimation}
                 className="t-scale-150"
