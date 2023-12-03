@@ -138,7 +138,7 @@ const General = () => {
           return (
             <>
               {/* banner */}
-              <div className="t-h-f-144 t-bg-f-primary-30 t-relative t-rounded-f-8 t-overflow-hidden">
+              <div className="t-h-f-72 md:t-h-f-96 lg:t-h-f-144 t-bg-f-primary-30 t-relative t-rounded-f-8 t-overflow-hidden">
                 <img
                   src={values.bannerImage || defaultBannerImage}
                   alt="Banner Image"
@@ -172,7 +172,7 @@ const General = () => {
                 )}
               </div>
 
-              <div className="t-grid t-grid-cols-2 t-gap-f-48">
+              <div className="t-grid lg:t-grid-cols-2 lg:t-gap-f-48">
                 {/* left side */}
                 <div>
                   {/* profile picture and name, company */}
@@ -182,7 +182,7 @@ const General = () => {
                       <img
                         src={values.profilePic || defaultProfilePic}
                         alt="Profile Picture"
-                        className="t-w-f-144 t-h-f-144 t-object-cover t-border-2 t-border-f-primary-70"
+                        className="t-w-f-96 lg:t-w-f-144 lg:t-h-f-144 t-object-cover t-border-2 t-border-f-primary-70"
                       />
                       {isEditing && (
                         <>
@@ -214,8 +214,12 @@ const General = () => {
                       )}
                     </div>
                     <header>
-                      <h6 className="t-text-f-xl">{fullName}</h6>
-                      <p className="t-text-f-md">{companyName}</p>
+                      <h6 className="t-text-f-md md:t-text-f-l lg:t-text-f-xl">
+                        {fullName}
+                      </h6>
+                      <p className="t-text-f-base lg:t-text-f-md">
+                        {companyName}
+                      </p>
                     </header>
                   </div>
 

@@ -11,6 +11,8 @@ import { CiUser } from "react-icons/ci";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { AiOutlineSetting } from "react-icons/ai";
 import { BsClipboard } from "react-icons/bs";
+import { IoMdClose } from "react-icons/io";
+import { IoCloseOutline } from "react-icons/io5";
 
 const DashboardNavbar = () => {
   const navigate = useNavigate();
@@ -51,22 +53,34 @@ const DashboardNavbar = () => {
 
   return (
     <div
-      className="offcanvas offcanvas-start show t-h-screen t-w-1/3 t-sticky t-top-0"
+      className={`offcanvas offcanvas-start t-h-screen t-w-1/3 ${
+        window.innerWidth >= 1024 ? "show t-sticky t-top-0" : ""
+      }`}
       data-bs-scroll="true"
       data-bs-backdrop="false"
       tabIndex="-1"
-      id="offcanvasScrolling"
-      aria-labelledby="offcanvasScrollingLabel"
+      id="dashboardNavbar"
+      aria-labelledby="dashboardNavbarLabel"
     >
-      <header className="offcanvas-header t-flex t-items-start t-flex-col t-gap-f-16">
-        <Link to="/nfc">
-          <img
-            src={FabLogo}
-            alt="Fab Digital Marketing Logo"
-            className="t-w-f-120"
-          />
-        </Link>
-        <h5 className="t-text-f-l">Dashboard</h5>
+      <header className="offcanvas-header t-flex t-flex-col t-gap-f-16">
+        <div className="t-flex t-items-center t-justify-between t-self-stretch">
+          <Link to="/nfc">
+            <img
+              src={FabLogo}
+              alt="Fab Digital Marketing Logo"
+              className="t-w-f-120"
+            />
+          </Link>
+          <button
+            type="button"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+            className="t-text-f-primary-10 lg:t-hidden"
+          >
+            <IoCloseOutline className="t-w-f-48 t-h-f-48" />
+          </button>
+        </div>
+        <h5 className="t-text-f-l t-self-start">Dashboard</h5>
       </header>
       <div className="offcanvas-body t-flex t-flex-col t-justify-between">
         {/* page links container */}

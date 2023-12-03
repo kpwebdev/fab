@@ -7,9 +7,18 @@ const NfcDashboardSharedLayout = () => {
   return (
     <section className="t-flex">
       <DashboardNavbar />
-      <div className="t-p-f-24 t-w-2/3">
+      <div className={`t-p-f-24 ${window.innerWidth >= 1024 ? "" : ""}`}>
         <Outlet />
       </div>
+      <button
+        class="f-btn-md f-btn-primary t-fixed t-bottom-f-16 t-right-f-16 lg:t-hidden"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#dashboardNavbar"
+        aria-controls="dashboardNavbar"
+      >
+        Menu
+      </button>
     </section>
   );
 };

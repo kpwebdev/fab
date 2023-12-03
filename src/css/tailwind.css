@@ -985,10 +985,6 @@ video {
   height: 64px;
 }
 
-.t-h-f-80 {
-  height: 80px;
-}
-
 .t-h-f-96 {
   height: 96px;
 }
@@ -999,6 +995,14 @@ video {
 
 .t-h-screen {
   height: 100vh;
+}
+
+.t-h-f-56 {
+  height: 56px;
+}
+
+.t-h-f-72 {
+  height: 72px;
 }
 
 .t-max-h-\[204px\] {
@@ -1101,12 +1105,12 @@ video {
   width: 48px;
 }
 
-.t-w-f-64 {
-  width: 64px;
+.t-w-f-56 {
+  width: 56px;
 }
 
-.t-w-f-80 {
-  width: 80px;
+.t-w-f-64 {
+  width: 64px;
 }
 
 .t-w-f-88 {
@@ -1124,10 +1128,6 @@ video {
 .t-w-max {
   width: -moz-max-content;
   width: max-content;
-}
-
-.t-w-f-56 {
-  width: 56px;
 }
 
 .t-min-w-\[500px\] {
@@ -1292,10 +1292,6 @@ video {
   grid-template-rows: repeat(2, minmax(0, 1fr));
 }
 
-.t-grid-rows-3 {
-  grid-template-rows: repeat(3, minmax(0, 1fr));
-}
-
 .t-flex-col {
   flex-direction: column;
 }
@@ -1387,6 +1383,10 @@ video {
 
 .t-gap-y-f-48 {
   row-gap: 48px;
+}
+
+.t-self-start {
+  align-self: flex-start;
 }
 
 .t-self-end {
@@ -1674,6 +1674,10 @@ video {
 .t-object-top {
   -o-object-position: top;
      object-position: top;
+}
+
+.t-p-0 {
+  padding: 0px;
 }
 
 .t-p-f-16 {
@@ -2182,6 +2186,20 @@ video {
   }
 }
 
+@media (min-width: 1280px) {
+  .xl\:f-btn-lg {
+    display: inline-block;
+    gap: 16px;
+    border-radius: 8px;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-size: 22px;
+    line-height: 1.1em;
+  }
+}
+
 .hover\:-t-translate-y-f-16:hover {
   --tw-translate-y: -16px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -2299,24 +2317,24 @@ video {
     display: block;
   }
 
-  .sm\:t-h-f-64 {
-    height: 64px;
-  }
-
   .sm\:t-h-f-48 {
     height: 48px;
+  }
+
+  .sm\:t-h-f-64 {
+    height: 64px;
   }
 
   .sm\:t-h-f-80 {
     height: 80px;
   }
 
-  .sm\:t-w-f-64 {
-    width: 64px;
-  }
-
   .sm\:t-w-f-48 {
     width: 48px;
+  }
+
+  .sm\:t-w-f-64 {
+    width: 64px;
   }
 
   .sm\:t-w-f-80 {
@@ -2331,16 +2349,12 @@ video {
     flex-direction: row;
   }
 
-  .sm\:t-gap-f-16 {
-    gap: 16px;
+  .sm\:t-gap-f-24 {
+    gap: 24px;
   }
 
   .sm\:t-gap-f-48 {
     gap: 48px;
-  }
-
-  .sm\:t-gap-f-24 {
-    gap: 24px;
   }
 
   .sm\:t-text-start {
@@ -2411,12 +2425,12 @@ video {
     grid-template-columns: 1fr 2fr;
   }
 
-  .md\:t-grid-rows-4 {
-    grid-template-rows: repeat(4, minmax(0, 1fr));
-  }
-
   .md\:t-grid-rows-3 {
     grid-template-rows: repeat(3, minmax(0, 1fr));
+  }
+
+  .md\:t-grid-rows-4 {
+    grid-template-rows: repeat(4, minmax(0, 1fr));
   }
 
   .md\:t-flex-row {
@@ -2439,12 +2453,24 @@ video {
     justify-content: space-between;
   }
 
+  .md\:t-gap-0 {
+    gap: 0px;
+  }
+
   .md\:t-gap-f-16 {
     gap: 16px;
   }
 
   .md\:t-gap-f-24 {
     gap: 24px;
+  }
+
+  .md\:t-gap-f-32 {
+    gap: 32px;
+  }
+
+  .md\:t-gap-f-48 {
+    gap: 48px;
   }
 
   .md\:t-gap-f-56 {
@@ -2457,18 +2483,6 @@ video {
 
   .md\:t-gap-f-96 {
     gap: 96px;
-  }
-
-  .md\:t-gap-0 {
-    gap: 0px;
-  }
-
-  .md\:t-gap-f-48 {
-    gap: 48px;
-  }
-
-  .md\:t-gap-f-32 {
-    gap: 32px;
   }
 
   .md\:t-bg-f-primary-99 {
@@ -2556,12 +2570,20 @@ video {
     display: block;
   }
 
+  .lg\:t-hidden {
+    display: none;
+  }
+
   .lg\:t-h-\[150px\] {
     height: 150px;
   }
 
   .lg\:t-h-f-32 {
     height: 32px;
+  }
+
+  .lg\:t-h-f-144 {
+    height: 144px;
   }
 
   .lg\:t-min-h-\[40vh\] {
@@ -2610,6 +2632,10 @@ video {
 
   .lg\:t-gap-f-96 {
     gap: 96px;
+  }
+
+  .lg\:t-gap-f-48 {
+    gap: 48px;
   }
 
   .lg\:t-self-end {
@@ -2678,12 +2704,12 @@ video {
     display: block;
   }
 
-  .xl\:t-min-w-\[600px\] {
-    min-width: 600px;
-  }
-
   .xl\:t-min-w-\[400px\] {
     min-width: 400px;
+  }
+
+  .xl\:t-grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .xl\:t-items-start {
@@ -2698,6 +2724,11 @@ video {
     text-align: start;
   }
 
+  .xl\:t-text-f-3xl {
+    font-size: 54px;
+    line-height: 1.1em;
+  }
+
   .xl\:t-text-f-4xl {
     font-size: 68px;
     line-height: 1.1em;
@@ -2710,11 +2741,6 @@ video {
 
   .xl\:t-text-f-xl {
     font-size: 34px;
-    line-height: 1.1em;
-  }
-
-  .xl\:t-text-f-3xl {
-    font-size: 54px;
     line-height: 1.1em;
   }
 }

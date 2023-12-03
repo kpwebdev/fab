@@ -5,9 +5,14 @@ import { myProfileLinks } from "../../data";
 const MyProfileSharedLayout = () => {
   return (
     <section>
-      <header className="t-flex t-justify-between">
-        <h3 className="t-text-f-3xl">My Profile</h3>
-        <Link className="f-btn-lg f-btn-primary" to="/nfc/authentication/login">
+      <header className="t-flex t-items-center t-justify-between">
+        <h3 className="t-text-f-l md:t-text-f-xl lg:t-text-f-2xl xl:t-text-f-3xl">
+          My Profile
+        </h3>
+        <Link
+          className="f-btn-sm md:f-btn-md xl:f-btn-lg f-btn-primary"
+          to="/nfc/authentication/login"
+        >
           Change account
         </Link>
       </header>

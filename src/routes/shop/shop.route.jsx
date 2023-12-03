@@ -75,8 +75,8 @@ const Shop = () => {
       </header>
 
       {/* actions container */}
-      <div className="t-flex t-justify-between t-my-f-24">
-        <form className="t-text-f-md t-flex t-gap-f-8">
+      <div className="t-flex t-flex-col sm:t-flex-row t-items-center t-gap-f-8 t-justify-between t-my-f-24">
+        <form className="t-text-f-md t-flex t-gap-f-8 ">
           <div className="t-flex t-items-center t-gap-f-8 t-px-f-8 t-border t-rounded-f-8">
             <IoIosSearch />
             <input
@@ -85,25 +85,25 @@ const Shop = () => {
               value={search}
               onChange={handleChange}
               placeholder="Search..."
-              className="t-p-f-8 t-outline-none"
+              className="t-p-f-8 t-outline-none t-text-f-base "
             />
           </div>
 
-          <select
+          {/* <select
             name="sortBy"
             id="sortBy"
             value={sortBy}
             onChange={handleChange}
-            className="t-p-f-8 t-rounded-f-8"
+            className="t-rounded-f-8 t-p-0 t-text-f-base"
           >
             <option value="">Sort By</option>
             <option value="name">Name</option>
-          </select>
+          </select> */}
         </form>
 
         <div className="t-flex t-gap-f-8">
           <NavLink
-            className="f-btn-lg f-btn-primary"
+            className="f-btn-sm t-text-base md:f-btn-md xl:f-btn-lg f-btn-primary"
             to="/nfc/creation/physical-card"
           >
             Create your own card
@@ -116,7 +116,7 @@ const Shop = () => {
         <h5 className="t-text-f-l">{luxuryCollections.title}</h5>
         {/* cards container */}
         {luxuryCollections.list.length > 0 ? (
-          <div className="t-grid t-grid-cols-3 t-gap-x-f-24 t-gap-y-f-48 t-my-f-24">
+          <div className="t-grid md:t-grid-cols-2 xl:t-grid-cols-3 t-gap-x-f-24 t-gap-y-f-48 t-my-f-24">
             {luxuryCollections.list.map(
               ({ img, creator, cardName, description, price }, idx) => (
                 <Link
@@ -136,12 +136,14 @@ const Shop = () => {
                     {/* text container */}
                     <div className="t-flex t-flex-col t-gap-f-8">
                       {/* <h6 className="t-text-f-sm t-font-light">{creator}</h6> */}
-                      <h4 className="t-flex t-justify-between t-text-f-l">
+                      <h4 className="t-flex t-justify-between t-text-f-base lg:t-text-f-md xl:t-text-f-l">
                         {cardName} <BsArrowRight />
                       </h4>
-                      <p className="t-text-f-base">{description}</p>
+                      <p className="t-text-f-sm lg:t-text-f-base">
+                        {description}
+                      </p>
                       <span className="t-flex t-items-center t-font-bold t-text-f-md">
-                        <PiCurrencyInrLight /> {`${price}/-`}
+                        {`${price} KD`}
                       </span>
                     </div>
                   </article>
@@ -165,7 +167,7 @@ const Shop = () => {
         <h5 className="t-text-f-l">{designedCollections.title}</h5>
         {/* cards container */}
         {designedCollections.list.length > 0 ? (
-          <div className="t-grid t-grid-cols-3 t-gap-x-f-24 t-gap-y-f-48 t-my-f-24">
+          <div className="t-grid md:t-grid-cols-2 xl:t-grid-cols-3 t-gap-x-f-24 t-gap-y-f-48 t-my-f-24">
             {designedCollections.list.map(
               ({ img, creator, cardName, description, price }, idx) => (
                 <Link
@@ -185,12 +187,14 @@ const Shop = () => {
                     {/* text container */}
                     <div className="t-flex t-flex-col t-gap-f-8">
                       {/* <h6 className="t-text-f-sm t-font-light">{creator}</h6> */}
-                      <h4 className="t-flex t-justify-between t-text-f-l">
+                      <h4 className="t-flex t-justify-between t-text-f-base lg:t-text-f-md xl:t-text-f-l">
                         {cardName} <BsArrowRight />
                       </h4>
-                      <p className="t-text-f-base">{description}</p>
+                      <p className="t-text-f-sm lg:t-text-f-base">
+                        {description}
+                      </p>
                       <span className="t-flex t-items-center t-font-bold t-text-f-md">
-                        <PiCurrencyInrLight /> {`${price}/-`}
+                        {`${price} KD`}
                       </span>
                     </div>
                   </article>
@@ -217,7 +221,7 @@ const Shop = () => {
         <h5 className="t-text-f-l">{gradientCollections.title}</h5>
         {/* cards container */}
         {gradientCollections.list.length > 0 ? (
-          <div className="t-grid t-grid-cols-3 t-gap-x-f-24 t-gap-y-f-48 t-my-f-24">
+          <div className="t-grid md:t-grid-cols-2 xl:t-grid-cols-3 t-gap-x-f-24 t-gap-y-f-48 t-my-f-24">
             {gradientCollections.list.map(
               ({ img, creator, cardName, description, price }, idx) => (
                 <Link
@@ -237,12 +241,14 @@ const Shop = () => {
                     {/* text container */}
                     <div className="t-flex t-flex-col t-gap-f-8">
                       {/* <h6 className="t-text-f-sm t-font-light">{creator}</h6> */}
-                      <h4 className="t-flex t-justify-between t-text-f-l">
+                      <h4 className="t-flex t-justify-between t-text-f-base lg:t-text-f-md xl:t-text-f-l">
                         {cardName} <BsArrowRight />
                       </h4>
-                      <p className="t-text-f-base">{description}</p>
+                      <p className="t-text-f-sm lg:t-text-f-base">
+                        {description}
+                      </p>
                       <span className="t-flex t-items-center t-font-bold t-text-f-md">
-                        <PiCurrencyInrLight /> {`${price}/-`}
+                        {`${price} KD`}
                       </span>
                     </div>
                   </article>
@@ -269,7 +275,7 @@ const Shop = () => {
         <h5 className="t-text-f-l">{limitedEdition.title}</h5>
         {/* cards container */}
         {limitedEdition.list.length > 0 ? (
-          <div className="t-grid t-grid-cols-3 t-gap-x-f-24 t-gap-y-f-48 t-my-f-24">
+          <div className="t-grid md:t-grid-cols-2 xl:t-grid-cols-3 t-gap-x-f-24 t-gap-y-f-48 t-my-f-24">
             {limitedEdition.list.map(
               ({ img, creator, cardName, description, price }, idx) => (
                 <Link
@@ -289,12 +295,14 @@ const Shop = () => {
                     {/* text container */}
                     <div className="t-flex t-flex-col t-gap-f-8">
                       {/* <h6 className="t-text-f-sm t-font-light">{creator}</h6> */}
-                      <h4 className="t-flex t-justify-between t-text-f-l">
+                      <h4 className="t-flex t-justify-between t-text-f-base lg:t-text-f-md xl:t-text-f-l">
                         {cardName} <BsArrowRight />
                       </h4>
-                      <p className="t-text-f-base">{description}</p>
+                      <p className="t-text-f-sm lg:t-text-f-base">
+                        {description}
+                      </p>
                       <span className="t-flex t-items-center t-font-bold t-text-f-md">
-                        <PiCurrencyInrLight /> {`${price}/-`}
+                        {`${price} KD`}
                       </span>
                     </div>
                   </article>
