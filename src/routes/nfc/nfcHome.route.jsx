@@ -84,7 +84,7 @@ const NfcHome = () => {
   ];
 
   return (
-    <>
+    <main className="t-overflow-hidden">
       <NfcHero />
       {/* <NfcCompanyDetails /> */}
       <NfcFeatures />
@@ -99,7 +99,7 @@ const NfcHome = () => {
       {/* <ChatbotSection steps={steps} /> */}
       <FloatingWhatsApp
         phoneNumber="96569918650"
-        accountName="Fab Digital"
+        accountName="Fab   Digital"
         avatar={fabLogo}
         chatMessage="How can we be a help to you?"
         allowEsc
@@ -107,7 +107,7 @@ const NfcHome = () => {
         className="fixed bottom-0 right-0"
         statusMessage="Responds within 15 mins"
       />
-    </>
+    </main>
   );
 };
 

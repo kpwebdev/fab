@@ -2,20 +2,27 @@ import { nfcSteps } from "../../data";
 
 const NfcWorksSection = () => {
   return (
-    <section className="t-min-h-screen t-my-f-96" id="howItWorks">
+    <section className="t-my-f-96" id="howItWorks">
       <div className="container">
-        <h2 className="t-text-f-3xl">How Fab Tap Works ?</h2>
+        <h2 className="t-text-f-l md:t-text-f-xl lg:t-text-f-2xl">
+          How Fab Tap Works ?
+        </h2>
         {/* steps container */}
-        <div className="t-flex t-flex-col t-my-f-48 t-gap-f-48">
+        <div className="t-flex t-flex-col t-my-f-16 md:t-my-f-24 lg:t-my-f-48 t-gap-f-16 sm:t-gap-f-24 md:t-gap-f-48">
           {nfcSteps.map(({ img, subSteps }, idx) => (
-            <div key={idx} className="t-grid t-grid-cols-3 t-items-center">
+            <div
+              key={idx}
+              className="t-grid sm:t-grid-cols-2 sm:t-gap-f-48 md:t-gap-0 md:t-grid-cols-3 t-items-center"
+            >
               <img
                 src={img}
                 alt={`image for step`}
-                className={`t-h-[500px] ${idx % 2 !== 0 ? " t-order-3" : ""}`}
+                className={`t-h-[500px] t-object-contain t-hidden sm:t-block ${
+                  idx % 2 !== 0 ? " t-order-3" : ""
+                }`}
               />
               <div
-                className={`t-flex t-flex-col t-self-stretch t-items-center${
+                className={`md:t-flex t-flex-col t-self-stretch t-hidden t-items-center${
                   idx % 2 !== 0 ? " t-order-2" : ""
                 }`}
               >
@@ -29,11 +36,11 @@ const NfcWorksSection = () => {
               >
                 {subSteps.map(({ title, description, num }, idx) => (
                   <div key={idx}>
-                    <h3 className="t-text-f-l t-mb-f-16">
+                    <h3 className="t-text-f-base md:t-text-f-md lg:t-text-f-l t-mb-f-16">
                       {`${num})`} {title}
                     </h3>
                     {Array.isArray(description) ? (
-                      <h4 className="t-text-f-base">
+                      <h4 className="t-text-f-sm lg:t-text-f-base">
                         {description[0]}{" "}
                         <span className="t-font-bold">{description[1]}</span>
                       </h4>
@@ -46,7 +53,7 @@ const NfcWorksSection = () => {
             </div>
           ))}
         </div>
-        <p className="t-text-f-md">
+        <p className="t-text-f-base lg:t-text-f-md">
           Make connections effortlessly and instantly connect on multiple social
           platforms.
         </p>

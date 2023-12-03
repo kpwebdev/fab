@@ -7,11 +7,13 @@ const NfcMarketPlace = () => {
     <section className="t-min-h-screen t-py-f-48">
       <div className="container">
         <header className="t-mb-f-24">
-          <h2 className="t-text-f-3xl">Choose Your Design</h2>
+          <h2 className="t-text-f-l md:t-text-f-xl lg:t-text-f-2xl">
+            Choose Your Design
+          </h2>
         </header>
 
         {/* cards container */}
-        <div className="t-grid t-grid-cols-3 t-gap-x-f-24 t-gap-y-f-48">
+        <div className="t-grid md:t-grid-cols-3 t-gap-x-f-24 t-gap-y-f-48">
           {nfcCards.map(
             (
               { img, creator, cardName, description, price, btn, target },
@@ -28,19 +30,19 @@ const NfcMarketPlace = () => {
                 </div>
                 {/* text container */}
                 <div className="t-flex t-flex-col t-gap-f-8">
-                  <h4 className="t-flex t-justify-between t-text-f-l">
-                    {cardName} <BsArrowRight />
+                  <h4 className="t-flex t-justify-between t-text-f-base md:t-text-f-md lg:t-text-f-l">
+                    {cardName} {/* <BsArrowRight /> */}
                   </h4>
-                  <p className="t-text-f-base">{description}</p>
+                  <p className="t-text-f-sm lg:t-text-f-base">{description}</p>
                   {price && (
-                    <span className="t-flex t-items-center t-font-bold t-text-f-md">
+                    <span className="t-flex t-items-center t-font-bold t-text-f-sm md:t-text-f-base lg:t-text-f-md">
                       {`${price} KD`}
                     </span>
                   )}
                   {btn && target && (
                     <button
                       type="button"
-                      className="f-btn-md f-btn-primary"
+                      className="f-btn-sm lg:f-btn-md f-btn-primary"
                       data-bs-toggle="modal"
                       data-bs-target="#contactInfo"
                     >

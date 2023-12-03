@@ -279,9 +279,9 @@ const AgencySharedLayout = () => {
             </button>
             <div className="modal-body">
               {/* container */}
-              <div className="t-grid t-grid-cols-2">
+              <div className="t-grid lg:t-grid-cols-2">
                 {/* left side */}
-                <div className="t-p-f-16 t-border-r">
+                <div className="t-p-f-16 lg:t-border-r">
                   <form action="https://formspree.io/f/mvojjobb" method="POST">
                     <div className="t-mb-f-16">
                       <label htmlFor="name" className="form-label">
@@ -343,19 +343,24 @@ const AgencySharedLayout = () => {
                       />
                     </div>
 
-                    <button type="submit" className="f-btn-md f-btn-primary">
+                    <button
+                      type="submit"
+                      className="f-btn-md f-btn-primary t-w-full md:t-w-auto"
+                    >
                       Send
                     </button>
                   </form>
                 </div>
                 {/* right side */}
-                <div className="t-p-f-16">
-                  <h3 className="t-text-f-l t-mb-f-16">Contact Us</h3>
+                <div className="t-p-f-16 t-text-center md:t-text-start">
+                  <h3 className="t-text-f-md md:t-text-f-l t-mb-f-16">
+                    Contact Us
+                  </h3>
                   <ul>
                     <li>
                       <Link
                         to="mailto:customercare@fabdigitalagency.com"
-                        className="t-flex t-gap-f-4 t-items-center t-text-f-base t-mb-f-8"
+                        className="t-flex t-gap-f-4 t-items-center t-justify-center md:t-justify-start t-text-sm md:t-text-f-base t-mb-f-8"
                         target="_blank"
                       >
                         <IoMdMail className="t-text-f-primary-30" />
@@ -365,7 +370,7 @@ const AgencySharedLayout = () => {
                     <li>
                       <Link
                         to="https://wa.me/971568781104"
-                        className="t-flex t-gap-f-4 t-items-center t-text-f-base"
+                        className="t-flex t-gap-f-4 t-justify-center md:t-justify-start t-items-center t-text-f-sm md:t-text-f-base"
                         target="_blank"
                       >
                         <IoLogoWhatsapp className="t-text-green-600" />
@@ -373,10 +378,10 @@ const AgencySharedLayout = () => {
                       </Link>
                     </li>
                   </ul>
-                  <h4 className="t-mt-f-16 t-mb-f-8 t-text-f-md">
+                  <h4 className="t-mt-f-16 t-mb-f-8 t-text-f-sm md:t-text-f-md">
                     Or leave us a message on our socials:
                   </h4>
-                  <ul className="t-flex t-items-center t-gap-f-8 t-text-f-l t-text-f-primary-30">
+                  <ul className="t-flex t-justify-center md:t-justify-start t-items-center t-gap-f-8 t-text-f-l t-text-f-primary-30">
                     <li>
                       <Link to="https://www.instagram.com" target="_blank">
                         <FaFacebook />

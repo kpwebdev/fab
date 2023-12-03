@@ -27,14 +27,16 @@ const FaqsSection = () => {
     setFormInputs((prevFormInputs) => ({ ...prevFormInputs, [name]: value }));
   };
   return (
-    <section className="t-pb-f-96">
-      <div className="container t-grid t-grid-cols-2 t-gap-f-24">
-        <header className="t-flex t-flex-col t-gap-f-24 t-items-start">
-          <h2 className="t-text-f-3xl">Still have more questions in mind?</h2>
+    <section className="t-mb-f-24 md:t-mb-f-48 lg:t-mb-f-64">
+      <div className="container t-grid md:t-grid-cols-2 t-gap-f-16 md:t-gap-f-24">
+        <header className="t-flex t-flex-col t-gap-f-8 t-items-center md:t-gap-f-24 md:t-items-start">
+          <h2 className="t-text-f-l md:t-text-f-xl lg:t-text-f-2xl t-text-center md:t-text-start">
+            Still have more questions in mind?
+          </h2>
           <h3 className="t-text-f-base">Ask Away.</h3>
           <button
             type="button"
-            className="f-btn-md f-btn-primary"
+            className="f-btn-sm md:f-btn-md f-btn-primary"
             data-bs-toggle="modal"
             data-bs-target="#contactInfo"
           >
@@ -79,9 +81,9 @@ const FaqsSection = () => {
               </button>
               <div className="modal-body">
                 {/* container */}
-                <div className="t-grid t-grid-cols-2">
+                <div className="t-grid lg:t-grid-cols-2">
                   {/* left side */}
-                  <div className="t-p-f-16 t-border-r">
+                  <div className="t-p-f-16 lg:t-border-r">
                     <form
                       action="https://formspree.io/f/mvojjobb"
                       method="POST"
@@ -146,19 +148,24 @@ const FaqsSection = () => {
                         />
                       </div>
 
-                      <button type="submit" className="f-btn-md f-btn-primary">
+                      <button
+                        type="submit"
+                        className="f-btn-md f-btn-primary t-w-full md:t-w-auto"
+                      >
                         Send
                       </button>
                     </form>
                   </div>
                   {/* right side */}
-                  <div className="t-p-f-16">
-                    <h3 className="t-text-f-l t-mb-f-16">Contact Us</h3>
+                  <div className="t-p-f-16 t-text-center md:t-text-start">
+                    <h3 className="t-text-f-md md:t-text-f-l t-mb-f-16">
+                      Contact Us
+                    </h3>
                     <ul>
                       <li>
                         <Link
                           to="mailto:customercare@fabdigitalagency.com"
-                          className="t-flex t-gap-f-4 t-items-center t-text-f-base t-mb-f-8"
+                          className="t-flex t-gap-f-4 t-items-center t-justify-center md:t-justify-start t-text-sm md:t-text-f-base t-mb-f-8"
                           target="_blank"
                         >
                           <IoMdMail className="t-text-f-primary-30" />
@@ -168,7 +175,7 @@ const FaqsSection = () => {
                       <li>
                         <Link
                           to="https://wa.me/971568781104"
-                          className="t-flex t-gap-f-4 t-items-center t-text-f-base"
+                          className="t-flex t-gap-f-4 t-justify-center md:t-justify-start t-items-center t-text-f-sm md:t-text-f-base"
                           target="_blank"
                         >
                           <IoLogoWhatsapp className="t-text-green-600" />
@@ -176,10 +183,10 @@ const FaqsSection = () => {
                         </Link>
                       </li>
                     </ul>
-                    <h4 className="t-mt-f-16 t-mb-f-8 t-text-f-md">
+                    <h4 className="t-mt-f-16 t-mb-f-8 t-text-f-sm md:t-text-f-md">
                       Or leave us a message on our socials:
                     </h4>
-                    <ul className="t-flex t-items-center t-gap-f-8 t-text-f-l t-text-f-primary-30">
+                    <ul className="t-flex t-justify-center md:t-justify-start t-items-center t-gap-f-8 t-text-f-l t-text-f-primary-30">
                       <li>
                         <Link to="https://www.instagram.com" target="_blank">
                           <FaFacebook />

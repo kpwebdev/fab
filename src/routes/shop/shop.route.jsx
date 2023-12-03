@@ -66,7 +66,9 @@ const Shop = () => {
   return (
     <section>
       <header className="t-flex t-justify-between">
-        <h3 className="t-text-f-3xl">Shop</h3>
+        <h3 className="t-text-f-l md:t-text-f-xl lg:t-text-f-2xl xl:t-text-f-3xl">
+          Shop
+        </h3>
         {/* <p>
           Total Members: <span className="t-text-f-primary-40">359</span>
         </p> */}

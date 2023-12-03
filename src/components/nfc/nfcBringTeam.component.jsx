@@ -36,30 +36,30 @@ const NfcBringTeam = () => {
     // </section>
     <section className="t-bg-team-image">
       <div className="container t-py-f-24 t-text-white">
-        <h2 className="t-text-f-3xl t-mb-f-48">
+        <h2 className="t-text-f-l md:t-text-f-xl lg:t-text-f-2xl t-mb-f-16 md:t-mb-f-24 t-text-center sm:t-text-start">
           Why choose <span className="t-text-f-secondary-50">Fab Tap</span>
         </h2>
-        <ul className="t-grid t-grid-cols-2 t-grid-rows-3 t-gap-f-16">
-          <li className="t-flex t-gap-f-16">
+        <ul className="t-grid md:t-grid-cols-2 md:t-grid-rows-3 t-gap-f-24 md:t-gap-f-16">
+          <li className="t-flex t-flex-col t-items-center sm:t-flex-row t-gap-f-16">
             {/* icons */}
-            <LuSmartphoneNfc className="t-w-f-64 t-h-f-64 t-text-f-primary-50" />
+            <LuSmartphoneNfc className="t-w-f-48 t-h-f-48 sm:t-w-f-64 sm:t-h-f-64 t-text-f-primary-50" />
             {/* text container */}
-            <div>
-              <h4 className="t-text-f-md t-text-f-primary-50">
+            <div className="t-text-center sm:t-text-start">
+              <h4 className="t-text-f-base md:t-text-f-md t-text-f-primary-50">
                 Integrated NFC Technology
               </h4>
-              <p>
+              <p className="t-text-f-sm md:t-text-f-base">
                 Experience seamless connections, safe and secure data transfer
                 with our contactless NFC technology in our fab tap cards.
               </p>
             </div>
           </li>
 
-          <li className="t-flex t-gap-f-16">
+          <li className="t-flex t-flex-col t-items-center sm:t-flex-row t-gap-f-16">
             {/* icons */}
-            <MdOutlineMobileOff className="t-w-f-48 t-h-f-48 t-text-f-primary-50" />
+            <MdOutlineMobileOff className="t-w-f-48 t-h-f-48 sm:t-w-f-48 sm:t-h-f-48 t-text-f-primary-50" />
             {/* text container */}
-            <div>
+            <div className="t-text-center sm:t-text-start">
               <h4 className="t-text-f-md t-text-f-primary-50">
                 No Apps Required
               </h4>
@@ -70,11 +70,11 @@ const NfcBringTeam = () => {
             </div>
           </li>
 
-          <li className="t-flex t-gap-f-16">
+          <li className="t-flex t-flex-col t-items-center sm:t-flex-row t-gap-f-16">
             {/* icons */}
-            <AiOutlineSolution className="t-w-f-80 t-h-f-80 t-text-f-primary-50" />
+            <AiOutlineSolution className="t-w-f-48 t-h-f-48 sm:t-w-f-80 sm:t-h-f-80 t-text-f-primary-50" />
             {/* text container */}
-            <div>
+            <div className="t-text-center sm:t-text-start">
               <h4 className="t-text-f-md t-text-f-primary-50">
                 All-in-One Networking Solution in your pocket
               </h4>
@@ -89,11 +89,11 @@ const NfcBringTeam = () => {
             </div>
           </li>
 
-          <li className="t-flex t-gap-f-16">
+          <li className="t-flex t-flex-col t-items-center sm:t-flex-row t-gap-f-16">
             {/* icons */}
-            <MdMoreTime className="t-w-f-48 t-h-f-48 t-text-f-primary-50" />
+            <MdMoreTime className="t-w-f-48 t-h-f-48 sm:t-w-f-48 sm:t-h-f-48 t-text-f-primary-50" />
             {/* text container */}
-            <div>
+            <div className="t-text-center sm:t-text-start">
               <h4 className="t-text-f-md t-text-f-primary-50">
                 Time Saving Solution
               </h4>
@@ -104,11 +104,11 @@ const NfcBringTeam = () => {
             </div>
           </li>
 
-          <li className="t-flex t-gap-f-16">
+          <li className="t-flex t-flex-col t-items-center sm:t-flex-row t-gap-f-16">
             {/* icons */}
-            <GoGlobe className="t-w-f-64 t-h-f-64 t-text-f-primary-50" />
+            <GoGlobe className="t-w-f-48 t-h-f-48 sm:t-w-f-64 sm:t-h-f-64 t-text-f-primary-50" />
             {/* text container */}
-            <div>
+            <div className="t-text-center sm:t-text-start">
               <h4 className="t-text-f-md t-text-f-primary-50">Eco-Friendly</h4>
               <p>
                 <span className="">
@@ -121,11 +121,11 @@ const NfcBringTeam = () => {
             </div>
           </li>
 
-          <li className="t-flex t-gap-f-16">
+          <li className="t-flex t-flex-col t-items-center sm:t-flex-row t-gap-f-16">
             {/* icons */}
-            <IoSparklesOutline className="t-w-f-48 t-h-f-48 t-text-f-primary-50" />
+            <IoSparklesOutline className="t-w-f-48 t-h-f-48 sm:t-w-f-48 sm:t-h-f-48 t-text-f-primary-50" />
             {/* text container */}
-            <div>
+            <div className="t-text-center sm:t-text-start">
               <h4 className="t-text-f-md t-text-f-primary-50">
                 Spark Curiosity
               </h4>

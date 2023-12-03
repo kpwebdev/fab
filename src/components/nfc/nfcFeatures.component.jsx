@@ -10,14 +10,14 @@ const NfcFeatures = () => {
   return (
     <section className="t-bg-f-primary-95 t-pt-f-48 t-pb-f-96">
       <div className="container">
-        <header className="t-text-center">
+        <header className="t-text-center t-mb-f-24">
           <h2 className="t-text-f-l md:t-text-f-xl lg:t-text-f-2xl">
             Your Effortless Networking Solution!
           </h2>
           <h3 className="t-mb-f-16 md:t-mb-f-24 lg:t-mb-f-40 t-text-f-base lg:t-text-f-md">
             Fab Tap redefines your connection-building.
           </h3>
-          <p>
+          <p className="t-text-f-sm lg:t-text-f-base">
             Fab Tap offers an exciting, tech-savvy method to share contact
             details, social media handles, websites and much more with single
             tap on the phone. Ditch 1000+ paper cards and use One Fab Tap card
@@ -30,15 +30,17 @@ const NfcFeatures = () => {
         {/* features container */}
         <div className="t-flex t-flex-col t-gap-f-8">
           {nfcFeatures.map(({ title, description, text, animation }, idx) => (
-            <div className={`t-grid t-grid-cols-2 t-items-center`} key={idx}>
+            <div className={`t-grid md:t-grid-cols-2 t-items-center`} key={idx}>
               {/* text container */}
               <div
                 className={`t-flex t-flex-col t-gap-f-24 t-items-start${
                   idx % 2 !== 0 ? " t-order-2" : ""
                 }`}
               >
-                <h3 className="t-text-f-2xl">{title}</h3>
-                <div className="t-text-f-base">
+                <h3 className="t-text-f-md md:t-text-f-l lg:t-text-f-xl">
+                  {title}
+                </h3>
+                <div className="t-text-f-sm lg:t-text-f-base">
                   {description.split("\n").map((para, idx) => (
                     <p className="t-mb-f-16" key={idx}>
                       {para}
@@ -55,7 +57,11 @@ const NfcFeatures = () => {
                 </Link>
               </div>
               {/* animation container */}
-              <div className={`${idx % 2 !== 0 ? " t-order-1" : ""}`}>
+              <div
+                className={`${
+                  idx % 2 !== 0 && window.innerWidth >= 768 ? " t-order-1" : ""
+                }`}
+              >
                 <Lottie
                   animationData={animation}
                   className={`${

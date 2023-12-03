@@ -65,10 +65,12 @@ const SignUp = () => {
   // const { signUpFunc, isPending, data, error, } = useSignUp();
 
   return (
-    <div className="t-flex t-flex-col t-gap-f-32 t-text-f-md">
-      <header>
-        <h2 className="t-text-f-4xl">Welcome back!</h2>
-        <h3 className="t-text-f-md">Let's get started!</h3>
+    <div className="t-flex t-flex-col xl:t-items-start t-gap-f-16 md:t-gap-f-32 t-text-f-md">
+      <header className="t-text-center xl:t-text-start">
+        <h2 className="t-text-f-l md:t-text-f-xl lg:t-text-f-3xl xl:t-text-f-4xl">
+          Welcome back!
+        </h2>
+        <h3 className="t-text-f-base lg:t-text-f-md">Let's get started!</h3>
       </header>
       {/* formik form starts */}
       <Formik
@@ -92,7 +94,7 @@ const SignUp = () => {
           return (
             <form
               onSubmit={handleSubmit}
-              className="t-flex t-flex-col t-gap-f-24"
+              className="t-flex t-flex-col t-gap-f-24 t-text-f-base md:t-text-f-md"
             >
               {/* email container */}
               <div>
@@ -191,7 +193,7 @@ const SignUp = () => {
               <div className="t-flex t-flex-col t-gap-f-16">
                 <button
                   type="submit"
-                  className={`f-btn-lg f-btn-primary t-text-center${
+                  className={`f-btn-md md:f-btn-lg f-btn-primary t-text-center${
                     isPending || googleLoading || isInitiatingUser
                       ? " t-cursor-not-allowed t-bg-f-primary-20"
                       : ""
@@ -210,7 +212,7 @@ const SignUp = () => {
                 </div>
                 <button
                   type="button"
-                  className={`f-btn-lg f-btn-primary-outline${
+                  className={`f-btn-md md:f-btn-lg f-btn-primary-outline${
                     isPending || googleLoading || isInitiatingUser
                       ? " t-cursor-not-allowed t-bg-f-primary-20"
                       : ""
@@ -315,7 +317,7 @@ const SignUp = () => {
       {/* </form> */}
 
       {/* alternate option */}
-      <p>
+      <p className="t-text-f-sm sm:t-text-f-base">
         Already part of our family?{" "}
         <Link to="/nfc/authentication/login" className="t-text-f-primary-30">
           Login
