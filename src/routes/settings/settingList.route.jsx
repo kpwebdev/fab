@@ -64,9 +64,9 @@ const SettingList = () => {
       {/* rendering each setting section */}
       {settings.map(({ title, list }, idx) => (
         <div key={idx} className="t-my-f-24">
-          <h5 className="t-mb-f-16 t-text-f-l">{title}</h5>
+          <h5 className="t-mb-f-16 lg:t-text-f-md xl:t-text-f-l">{title}</h5>
           {/* rendering each section's setting */}
-          <ul className="t-flex t-flex-col t-gap-f-16 t-text-f-md">
+          <ul className="t-flex t-flex-col t-gap-f-16 t-text-f-base md:t-text-f-md">
             <li>
               <Link
                 to="/nfc/authentication/login"

@@ -7,7 +7,11 @@ const NfcDashboardSharedLayout = () => {
   return (
     <section className="t-flex">
       <DashboardNavbar />
-      <div className={`t-p-f-24 ${window.innerWidth >= 1024 ? "" : ""}`}>
+      <div
+        className={`t-p-f-24 t-grow lg:t-w-4/6 ${
+          window.innerWidth >= 1024 ? "" : ""
+        }`}
+      >
         <Outlet />
       </div>
       <button

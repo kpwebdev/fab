@@ -154,9 +154,14 @@ const AgencyHome = () => {
             </div>
           </div>
           {/* image container */}
-          <div className="t-hidden md:t-block">
+          {/* <div className="t-hidden md:t-block"> */}
+          <div>
             {/* <HeroImage /> */}
-            <img src={heroImage} alt="hero image" className="t-w-full" />
+            <img
+              src={heroImage}
+              alt="hero image"
+              className="t-w-2/3 md:t-w-full mx-auto"
+            />
           </div>
         </div>
       </section>
@@ -375,7 +380,7 @@ const AgencyHome = () => {
               {/* result driven ads campaigns card */}
               <Link
                 className="t-flex t-flex-col md:t-flex-row t-items-center t-justify-center t-text-center md:t-text-start md:flex-row md:t-items-center md:t-justify-between t-text-f-sm lg:t-text-f-md t-bg-green-100 t-font-semibold t-p-f-8 lg:t-p-f-16 t-gap-f-16 t-rounded-f-8 hover:t-bg-green-200"
-                to="#content-creation"
+                to="/marketing/services/result-driven-ads-campaign"
               >
                 <div className="t-text-green-800 t-bg-green-200 t-p-f-8 t-text-f-base lg:t-text-f-l t-rounded-full">
                   <FaFilterCircleDollar />
@@ -389,7 +394,7 @@ const AgencyHome = () => {
               {/* attract clients on automation card */}
               <Link
                 className="t-flex t-flex-col md:t-flex-row t-items-center t-justify-center t-text-center md:t-text-start md:flex-row md:t-items-center md:t-justify-between t-text-f-sm lg:t-text-f-md t-bg-f-primary-90 t-font-semibold t-p-f-8 lg:t-p-f-16 t-gap-f-16 t-rounded-f-8 hover:t-bg-f-primary-80"
-                to="/marketing/services/websites"
+                to="/marketing/services/attract-clients-on-automation"
               >
                 <div className="t-text-f-primary-20 t-bg-f-primary-80 t-p-f-8 t-text-f-base lg:t-text-f-l t-rounded-full">
                   <IoMagnetSharp />
@@ -403,7 +408,7 @@ const AgencyHome = () => {
               {/* widen your reach with website & google ads card */}
               <Link
                 className="t-flex t-flex-col md:t-flex-row t-items-center t-justify-center t-text-center md:t-text-start md:flex-row md:t-items-center md:t-justify-between t-text-f-sm lg:t-text-f-md t-bg-f-secondary-90 t-font-semibold t-p-f-8 lg:t-p-f-16 t-gap-f-16 t-rounded-f-8 hover:t-bg-f-secondary-80"
-                to="/marketing/services/websites"
+                to="/marketing/services/widen-your-reach-with-website-and-Google-ads"
               >
                 <div className="t-text-f-secondary-20 t-bg-f-secondary-80 t-p-f-8 t-text-f-base lg:t-text-f-l t-rounded-full">
                   <CgWebsite />

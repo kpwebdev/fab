@@ -985,6 +985,10 @@ video {
   height: 64px;
 }
 
+.t-h-f-72 {
+  height: 72px;
+}
+
 .t-h-f-96 {
   height: 96px;
 }
@@ -995,14 +999,6 @@ video {
 
 .t-h-screen {
   height: 100vh;
-}
-
-.t-h-f-56 {
-  height: 56px;
-}
-
-.t-h-f-72 {
-  height: 72px;
 }
 
 .t-max-h-\[204px\] {
@@ -2409,6 +2405,10 @@ video {
     width: 96px;
   }
 
+  .md\:t-w-full {
+    width: 100%;
+  }
+
   .md\:t-grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
@@ -2578,12 +2578,12 @@ video {
     height: 150px;
   }
 
-  .lg\:t-h-f-32 {
-    height: 32px;
-  }
-
   .lg\:t-h-f-144 {
     height: 144px;
+  }
+
+  .lg\:t-h-f-32 {
+    height: 32px;
   }
 
   .lg\:t-min-h-\[40vh\] {
@@ -2592,6 +2592,10 @@ video {
 
   .lg\:t-min-h-screen {
     min-height: 100vh;
+  }
+
+  .lg\:t-w-4\/6 {
+    width: 66.666667%;
   }
 
   .lg\:t-w-\[150px\] {
@@ -2626,16 +2630,16 @@ video {
     justify-content: space-between;
   }
 
+  .lg\:t-gap-f-48 {
+    gap: 48px;
+  }
+
   .lg\:t-gap-f-56 {
     gap: 56px;
   }
 
   .lg\:t-gap-f-96 {
     gap: 96px;
-  }
-
-  .lg\:t-gap-f-48 {
-    gap: 48px;
   }
 
   .lg\:t-self-end {
@@ -2712,12 +2716,21 @@ video {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .xl\:t-grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .xl\:t-items-start {
     align-items: flex-start;
   }
 
   .xl\:t-gap-f-24 {
     gap: 24px;
+  }
+
+  .xl\:t-py-f-48 {
+    padding-top: 48px;
+    padding-bottom: 48px;
   }
 
   .xl\:t-text-start {
@@ -2742,5 +2755,17 @@ video {
   .xl\:t-text-f-xl {
     font-size: 34px;
     line-height: 1.1em;
+  }
+
+  .xl\:t-text-f-md {
+    font-size: 22px;
+    line-height: 1.1em;
+  }
+}
+
+@media (min-width: 1536px) {
+  .\32xl\:t-px-f-96 {
+    padding-left: 96px;
+    padding-right: 96px;
   }
 }

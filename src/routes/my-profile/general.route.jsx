@@ -167,12 +167,11 @@ const General = () => {
                         };
                       }}
                     />
-                    <Field type />
                   </>
                 )}
               </div>
 
-              <div className="t-grid lg:t-grid-cols-2 lg:t-gap-f-48">
+              <div className="t-grid xl:t-grid-cols-2 lg:t-gap-f-48">
                 {/* left side */}
                 <div>
                   {/* profile picture and name, company */}
@@ -931,7 +930,7 @@ const General = () => {
                 </div>
 
                 {/* right side */}
-                <div className="t-flex t-flex-col t-justify-between t-py-f-48">
+                <div className="t-flex t-flex-col t-justify-between xl:t-py-f-48">
                   {/* status container */}
                   {/* <div className=" t-flex t-flex-col t-gap-f-24 t-border-f-secondary-95 t-shadow-xl t-border-2 t-p-f-16 t-rounded-f-8"> */}
                   {/* <h6 className="t-text-f-xl">Status</h6> */}
@@ -953,7 +952,8 @@ const General = () => {
                   {/* </div> */}
 
                   {/* buttons container */}
-                  <div className="t-flex t-flex-col t-gap-f-24 t-px-f-96 t-text-center">
+                  {/* <div className="t-flex t-flex-col t-gap-f-24 xl:t-px-f- 2xl:t-px-f-96 t-text-center"> */}
+                  <div className="t-flex t-flex-col t-items-center t-gap-f-24 t-text-center">
                     <div className="t-flex t-flex-col t-gap-f-4">
                       <Link
                         className={`f-btn-md f-btn-primary-outline ${
